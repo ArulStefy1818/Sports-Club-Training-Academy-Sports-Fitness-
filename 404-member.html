@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 - Page Not Found</title>
+
+    <link rel="stylesheet" href="404.css">
+</head>
+<body>
+
+    <main class="error-page">
+
+        <!-- Background Image -->
+        <div class="error-background"></div>
+        <div class="background-overlay"></div>
+
+        <!-- Main Error Content -->
+        <div class="error-container">
+<div class="error-number">
+    <img src="404-img.webp" alt="404 - Page Not Found">
+</div>
+
+            <div class="error-content">
+
+                <h1>
+                    Oops! Page<br>
+                    Not Found
+                </h1>
+
+                <p>
+                    The page you're looking for doesn't exist,
+                    has been moved, or the URL may be incorrect.
+                    Let's get you back on track.
+                </p>
+
+                <div class="error-buttons">
+
+                    <a href="member.html" class="btn btn-home">
+                        <span class="btn-icon">⌂</span>
+                        Go Dashboard
+                    </a>
+
+                    <button
+                        type="button"
+                        class="btn btn-back"
+                        onclick="goBack()">
+                        <span class="btn-icon">←</span>
+                        Go Back
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = "index.html";
+            }
+        }
+    </script>
+
+</body>
+</html>

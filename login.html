@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stackly | Sports Club Login</title>
+
+    <meta name="description"
+          content="Sign in to your Stackly Sports Club account and continue your fitness journey.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Separate CSS -->
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body class="stackly-login-body">
+
+    <main class="stackly-login-page">
+
+        <!-- ==========================================
+             LEFT IMAGE PANEL
+        ========================================== -->
+        <section class="stackly-login-visual">
+
+            <div class="stackly-visual-overlay"></div>
+
+            <div class="stackly-visual-content">
+
+                <!-- GO BACK HOME BUTTON -->
+                <a href="index.html"
+                   class="stackly-login-home-button"
+                   aria-label="Go back to home page">
+
+                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                    <span>Go Back Home</span>
+
+                </a>
+
+                <!-- STACKLY LOGO -->
+                <a href="index.html"
+                   class="stackly-login-logo"
+                   aria-label="Stackly Sports Club home">
+
+                    <img
+                        src="Stackly-logo.webp"
+                        alt="Stackly Sports Club Logo">
+
+                </a>
+
+                <!-- BOTTOM CONTENT -->
+                <div class="stackly-visual-bottom">
+
+                    <span class="stackly-visual-eyebrow">
+                        TRAIN • TRANSFORM • ACHIEVE
+                    </span>
+
+                    <h1>
+                        Stronger<br>
+                        <span>Every Day.</span>
+                    </h1>
+
+                    <p class="stackly-visual-description">
+                        Your journey to a healthier, fitter and stronger
+                        you starts here.
+                    </p>
+
+                    <!-- FITNESS FEATURES -->
+                    <div class="stackly-visual-features">
+
+                        <!-- EXPERT TRAINERS -->
+                        <div class="stackly-visual-feature">
+
+                            <span class="stackly-feature-icon">
+                                <img
+                                    src="hero-img2.webp"
+                                    alt=""
+                                    loading="lazy">
+                            </span>
+
+                            <span class="stackly-feature-text">
+                                Expert Trainers
+                            </span>
+
+                        </div>
+
+                        <!-- MODERN FACILITIES -->
+                        <div class="stackly-visual-feature">
+
+                            <span class="stackly-feature-icon">
+                                <img
+                                    src="white-heart.webp"
+                                    alt=""
+                                    loading="lazy">
+                            </span>
+
+                            <span class="stackly-feature-text">
+                                Modern Facilities
+                            </span>
+
+                        </div>
+
+                        <!-- SUPPORTIVE COMMUNITY -->
+                        <div class="stackly-visual-feature">
+
+                            <span class="stackly-feature-icon">
+                                <img
+                                    src="two-person-icon.webp"
+                                    alt=""
+                                    loading="lazy">
+                            </span>
+
+                            <span class="stackly-feature-text">
+                                Supportive Community
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             RIGHT LOGIN PANEL
+        ========================================== -->
+        <section class="stackly-login-form-panel">
+
+            <div class="stackly-login-form-container">
+
+                <!-- HEADING -->
+                <div class="stackly-login-heading">
+                    <h2>Welcome Back!</h2>
+                    <p>Sign in to continue your fitness journey.</p>
+                </div>
+
+                <!-- LOGIN FORM -->
+                <form
+                    class="stackly-login-form"
+                    id="stacklyLoginForm"
+                    action="#"
+                    method="post">
+
+                    <!-- EMAIL / PHONE -->
+                    <div class="stackly-form-group">
+
+                        <label for="stacklyLoginEmail">
+                            Email Address or Mobile Number
+                        </label>
+
+                        <div class="stackly-input-wrapper">
+
+                            <i class="fa-regular fa-envelope stackly-input-icon"
+                               aria-hidden="true"></i>
+
+                            <input
+                                type="text"
+                                id="stacklyLoginEmail"
+                                name="email"
+                                placeholder="Enter your email or mobile number"
+                                autocomplete="username"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <!-- PASSWORD -->
+                    <div class="stackly-form-group">
+
+                        <label for="stacklyLoginPassword">
+                            Password <span>*</span>
+                        </label>
+
+                        <div class="stackly-input-wrapper">
+
+                            <i class="fa-solid fa-lock stackly-input-icon"
+                               aria-hidden="true"></i>
+
+                            <input
+                                type="password"
+                                id="stacklyLoginPassword"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required>
+
+                            <button
+                                type="button"
+                                class="stackly-password-toggle"
+                                id="stacklyPasswordToggle"
+                                aria-label="Show password">
+
+                                <i class="fa-solid fa-eye"
+                                   aria-hidden="true"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- REMEMBER / FORGOT -->
+                    <div class="stackly-login-options">
+
+                        <label class="stackly-remember-label">
+
+                            <input
+                                type="checkbox"
+                                name="remember">
+
+                            <span>Remember me</span>
+
+                        </label>
+
+                        <a href="404.html"
+                           class="stackly-forgot-link">
+
+                            Forgot password?
+
+                        </a>
+
+                    </div>
+
+                    <!-- ROLE SELECTION -->
+                    <fieldset class="stackly-role-fieldset">
+
+                        <legend>Select Role:</legend>
+
+                        <div class="stackly-role-options">
+
+                            <!-- MEMBER -->
+                            <label class="stackly-role-option active">
+
+                                <input
+                                    type="radio"
+                                    name="role"
+                                    value="member"
+                                    checked>
+
+                                <img
+                                    src="checkbox-icon.webp"
+                                    alt=""
+                                    class="stackly-role-icon">
+
+                                <span>Member</span>
+
+                            </label>
+
+                            <!-- COACH -->
+                            <label class="stackly-role-option">
+
+                                <input
+                                    type="radio"
+                                    name="role"
+                                    value="coach">
+
+                                <img
+                                    src="hero-img2.webp"
+                                    alt=""
+                                    class="stackly-role-icon">
+
+                                <span>Coach</span>
+
+                            </label>
+
+                            <!-- TRAINER -->
+                            <label class="stackly-role-option">
+
+                                <input
+                                    type="radio"
+                                    name="role"
+                                    value="trainer">
+
+                                <img
+                                    src="person-icon.webp"
+                                    alt=""
+                                    class="stackly-role-icon">
+
+                                <span>Trainer</span>
+
+                            </label>
+
+                            <!-- OTHER -->
+                            <label class="stackly-role-option">
+
+                                <input
+                                    type="radio"
+                                    name="role"
+                                    value="other">
+
+                                <img
+                                    src="parcel-icon.webp"
+                                    alt=""
+                                    class="stackly-role-icon">
+
+                                <span>Other</span>
+
+                            </label>
+
+                        </div>
+
+                    </fieldset>
+
+                    <!-- SIGN IN BUTTON -->
+                    <button
+                        type="submit"
+                        class="stackly-signin-button">
+
+                        <span>Sign In</span>
+
+                        <i class="fa-solid fa-arrow-right"
+                           aria-hidden="true"></i>
+
+                    </button>
+
+                    <!-- STATUS MESSAGE -->
+                    <p
+                        class="stackly-login-message"
+                        id="stacklyLoginMessage"
+                        aria-live="polite"></p>
+
+                </form>
+
+                <!-- DIVIDER -->
+                <div class="stackly-login-divider">
+
+                    <span></span>
+                    <p>OR</p>
+                    <span></span>
+
+                </div>
+
+                <!-- SOCIAL SIGN IN -->
+                <div class="stackly-social-login">
+
+                    <button
+                        type="button"
+                        class="stackly-social-button stackly-google-button"
+                        data-provider="Google">
+
+                        <i class="fa-brands fa-google"
+                           aria-hidden="true"></i>
+
+                        <span>Continue with Google</span>
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="stackly-social-button stackly-facebook-button"
+                        data-provider="Facebook">
+
+                        <i class="fa-brands fa-facebook"
+                           aria-hidden="true"></i>
+
+                        <span>Continue with Facebook</span>
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="stackly-social-button stackly-apple-button"
+                        data-provider="Apple">
+
+                        <i class="fa-brands fa-apple"
+                           aria-hidden="true"></i>
+
+                        <span>Continue with Apple</span>
+
+                    </button>
+
+                </div>
+
+                <!-- SIGN UP -->
+                <div class="stackly-signup-text">
+
+                    <p>
+                        Don't have an account?
+
+                        <a href="signup.html">
+                            Sign Up
+                            <i class="fa-solid fa-arrow-right"
+                               aria-hidden="true"></i>
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- LOGIN JAVASCRIPT -->
+    <script src="login.js"></script>
+
+</body>
+</html>

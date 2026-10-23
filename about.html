@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stackly | Sports Club Training Academy</title>
+
+    <meta name="description"
+        content="Train smarter, build strength, and improve your performance with Stackly Sports Club Training Academy.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="stackly-sport-header">
+
+        <a href="index.html" class="stackly-sport-logo"
+            aria-label="Stackly Home">
+            <img src="Stackly-logo.webp"
+                alt="Stackly"
+                class="stackly-sport-logo-img">
+        </a>
+
+        <nav class="stackly-sport-desktop-nav"
+            aria-label="Main navigation">
+
+            <a href="index.html" class="stackly-sport-nav-link active">
+                Home
+            </a>
+
+            <a href="about.html" class="stackly-sport-nav-link">
+                About Us
+            </a>
+
+            <a href="services.html" class="stackly-sport-nav-link">
+                Services
+            </a>
+
+            <a href="pricing.html" class="stackly-sport-nav-link">
+                Pricing
+            </a>
+
+            <a href="blog.html" class="stackly-sport-nav-link">
+                Blog
+            </a>
+
+            <a href="contact.html" class="stackly-sport-nav-link">
+                Contact Us
+            </a>
+
+        </nav>
+
+        <div class="stackly-sport-header-actions">
+
+            <form class="stackly-sport-search"
+                action="programs.html"
+                method="get"
+                role="search">
+
+                <input type="search"
+                    name="search"
+                    placeholder="Search for programs..."
+                    aria-label="Search programs">
+
+                <button type="submit" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+            </form>
+
+            <a href="login.html" class="stackly-sport-login">
+    <i class="fa-regular fa-user"></i>
+    <span>Login</span>
+</a>
+
+<span class="stackly-sport-login-separator">/</span>
+
+<a href="signup.html" class="stackly-sport-login">
+    <span>Sign Up</span>
+</a>
+
+
+        </div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <button class="stackly-sport-menu-toggle"
+            id="stacklySportMenuToggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-controls="stacklySportMobileMenu"
+            aria-expanded="false">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </header>
+
+
+    <!-- MOBILE OVERLAY -->
+    <div class="stackly-sport-mobile-overlay"
+        id="stacklySportMobileOverlay"></div>
+
+
+    <!-- MOBILE SLIDE MENU -->
+    <aside class="stackly-sport-mobile-menu"
+        id="stacklySportMobileMenu"
+        aria-label="Mobile navigation"
+        aria-hidden="true"
+        inert>
+
+        <div class="stackly-sport-mobile-menu-top">
+
+            <a href="index.html" class="stackly-sport-mobile-logo">
+                <img src="Stackly-logo.webp" alt="Stackly">
+            </a>
+
+            <button class="stackly-sport-menu-close"
+                id="stacklySportMenuClose"
+                type="button"
+                aria-label="Close navigation menu">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <nav class="stackly-sport-mobile-nav">
+
+            <a href="index.html" class="active">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+
+            <a href="about.html">
+                <i class="fa-solid fa-users"></i>
+                About Us
+            </a>
+
+            <a href="services.html">
+                <i class="fa-solid fa-dumbbell"></i>
+                Services
+            </a>
+
+            <a href="pricing.html">
+                <i class="fa-solid fa-tags"></i>
+                Pricing
+            </a>
+
+            <a href="blog.html">
+                <i class="fa-solid fa-newspaper"></i>
+                Blog
+            </a>
+
+            <a href="contact.html">
+                <i class="fa-solid fa-envelope"></i>
+                Contact Us
+            </a>
+
+        </nav>
+
+        <form class="stackly-sport-mobile-search"
+            action="programs.html"
+            method="get"
+            role="search">
+
+            <input type="search"
+                name="search"
+                placeholder="Search for programs..."
+                aria-label="Search programs">
+
+            <button type="submit" aria-label="Search programs">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+        </form>
+
+    
+<a href="login.html" class="stackly-sport-mobile-login">
+    <i class="fa-regular fa-user"></i>
+    Login
+</a>
+
+<a href="signup.html" class="stackly-sport-mobile-login">
+    <i class="fa-solid fa-user-plus"></i>
+    Sign Up
+</a>
+
+
+    </aside>
+<main>
+
+<!-- AOS Animation CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- About Banner Section -->
+<section class="about-banner">
+    <div class="about-overlay"></div>
+
+    <div class="about-content">
+        <span class="about-label" data-aos="fade-down" data-aos-duration="800">
+            ABOUT US
+        </span>
+
+        <h1 data-aos="fade-up" data-aos-duration="1000">
+            BUILDING STRONGER<br>
+            HEALTHIER <span>TOMORROWS</span>
+        </h1>
+
+        <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+            At Sports Club Training Academy, we believe fitness is not just
+            about building a better body, but a stronger mind, healthier
+            lifestyle and a more confident you.
+        </p>
+ 
+    </div>
+</section>
+ 
+
+<section class="our-story" id="our-story">
+  <div class="story-container">
+
+    <!-- Story Content -->
+    <div class="story-content" data-aos="fade-right">
+      <span class="story-label">OUR STORY</span>
+
+      <h2>From Passion to <span>Purpose</span></h2>
+
+      <p>
+        Whether you want to get fit, improve performance or learn a new sport —
+        we have the right program for you.
+      </p>
+
+      <p>
+        Sports Club Training Academy was founded with a simple vision —
+        to make fitness accessible, effective and enjoyable for everyone.
+      </p>
+
+      <p>
+        What started as a small training space with a handful of passionate
+        coaches has now grown into a trusted fitness academy, helping hundreds
+        of people achieve their health and performance goals.
+      </p>
+
+      <p>
+        We are more than just a gym — we are a community that supports,
+        motivates and grows together.
+      </p>
+
+      <div class="story-signature">Your Fitness. Our Mission</div>
+    </div>
+
+    <!-- Training Image -->
+    <div class="story-image" data-aos="zoom-in" data-aos-delay="150">
+      <img
+        src="our-story-img.webp"
+        alt="Athletes training together at a fitness academy"
+      />
+      <div class="image-overlay">
+        <span>Stronger Together. Better Every Day.</span>
+      </div>
+    </div>
+
+    <!-- Mission and Vision -->
+    
+<div class="story-values" data-aos="fade-left" data-aos-delay="250">
+
+  <!-- Our Mission -->
+  <div class="value-item">
+    <div class="value-icon">
+      <img src="about-icon1.webp" alt="Our Mission">
+    </div>
+
+    <div class="value-text">
+      <h3>Our Mission</h3>
+      <p>
+        To provide high-quality training and guidance that helps every
+        individual achieve a healthier, stronger and more confident life.
+      </p>
+    </div>
+  </div>
+
+  <!-- Our Vision -->
+  <div class="value-item">
+    <div class="value-icon">
+      <img src="vission-icon.webp" alt="Our Vision">
+    </div>
+
+    <div class="value-text">
+      <h3>Our Vision</h3>
+      <p>
+        To be the most trusted and preferred fitness academy in the region,
+        inspiring people to live healthier and happier lives.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+
+  </div>
+</section>
+
+
+<!-- SPORTS CLUB STATISTICS SECTION -->
+<section class="stackly-sport-stats" id="sport-stats">
+    <div class="stackly-sport-stats-container">
+
+        <!-- HAPPY MEMBERS -->
+        <div class="stackly-sport-stat-card"
+             data-aos="fade-up"
+             data-aos-duration="900"
+             data-aos-delay="100">
+
+            <div class="stackly-sport-stat-icon">
+                <img src="feature-img4.webp"
+                     alt="Happy members"
+                     loading="lazy">
+            </div>
+
+            <h3 class="stackly-sport-stat-number">500+</h3>
+
+            <h4 class="stackly-sport-stat-title">
+                Happy Members
+            </h4>
+
+            <p class="stackly-sport-stat-description">
+                Growing stronger together
+            </p>
+        </div>
+
+
+        <!-- EXPERT TRAINERS -->
+        <div class="stackly-sport-stat-card"
+             data-aos="zoom-in"
+             data-aos-duration="1000"
+             data-aos-delay="200">
+
+            <div class="stackly-sport-stat-icon">
+                <img src="about-icon3.webp"
+                     alt="Expert trainers"
+                     loading="lazy">
+            </div>
+
+            <h3 class="stackly-sport-stat-number">15+</h3>
+
+            <h4 class="stackly-sport-stat-title">
+                Expert Trainers
+            </h4>
+
+            <p class="stackly-sport-stat-description">
+                Certified &amp; Experienced
+            </p>
+        </div>
+
+
+        <!-- YEARS OF EXCELLENCE -->
+        <div class="stackly-sport-stat-card"
+             data-aos="flip-up"
+             data-aos-duration="1000"
+             data-aos-delay="300">
+
+            <div class="stackly-sport-stat-icon">
+                <img src="star.webp"
+                     alt="Star representing excellence"
+                     loading="lazy">
+            </div>
+
+            <h3 class="stackly-sport-stat-number">5+</h3>
+
+            <h4 class="stackly-sport-stat-title">
+                Years of Excellence
+            </h4>
+
+            <p class="stackly-sport-stat-description">
+                In Fitness &amp; Training
+            </p>
+        </div>
+
+
+        <!-- MODERN FACILITIES -->
+        <div class="stackly-sport-stat-card"
+             data-aos="fade-left"
+             data-aos-duration="1000"
+             data-aos-delay="400">
+
+            <div class="stackly-sport-stat-icon">
+                <img src="hero-img2.webp"
+                     alt="Athlete lifting weights"
+                     loading="lazy">
+            </div>
+
+            <h3 class="stackly-sport-stat-number">10+</h3>
+
+            <h4 class="stackly-sport-stat-title">
+                Modern Facilities
+            </h4>
+
+            <p class="stackly-sport-stat-description">
+                World-class Equipment
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ==========================================
+     STACKLY SPORT - OUR VALUES SECTION
+========================================== -->
+
+<section class="stackly-values-section" id="our-values">
+
+    <div class="stackly-values-container">
+
+        <!-- SECTION INTRO -->
+        <div class="stackly-values-intro"
+             data-aos="fade-right"
+             data-aos-duration="1000">
+
+            <span class="stackly-values-label">
+                OUR VALUES
+            </span>
+
+            <h2 class="stackly-values-heading">
+                What Drives Us
+                <span>Every Day</span>
+            </h2>
+
+            <p class="stackly-values-description">
+                We are committed to creating a positive, supportive and
+                results-driven environment where everyone feels welcome,
+                motivated and empowered.
+            </p>
+
+            <a href="404.html" class="stackly-values-button">
+                Learn More
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+
+        </div>
+
+
+        <!-- VALUES CARDS -->
+        <div class="stackly-values-grid">
+
+            <!-- HEALTH FIRST -->
+            <article class="stackly-value-card"
+                     data-aos="fade-up"
+                     data-aos-duration="900"
+                     data-aos-delay="100">
+
+                <div class="stackly-value-icon">
+                    <img src="value-icon1.webp"
+                         alt="Health and wellness"
+                         loading="lazy">
+                </div>
+
+                <h3>Health First</h3>
+
+                <p>
+                    Your well-being is our priority.
+                </p>
+
+            </article>
+
+
+            <!-- COMMUNITY -->
+            <article class="stackly-value-card"
+                     data-aos="zoom-in-up"
+                     data-aos-duration="1000"
+                     data-aos-delay="200">
+
+                <div class="stackly-value-icon">
+                    <img src="feature-img4.webp"
+                         alt="Community and teamwork"
+                         loading="lazy">
+                </div>
+
+                <h3>Community</h3>
+
+                <p>
+                    We grow stronger together.
+                </p>
+
+            </article>
+
+
+            <!-- EXCELLENCE -->
+            <article class="stackly-value-card"
+                     data-aos="flip-up"
+                     data-aos-duration="1000"
+                     data-aos-delay="300">
+
+                <div class="stackly-value-icon">
+                    <img src="medal.webp"
+                         alt="Medal representing excellence"
+                         loading="lazy">
+                </div>
+
+                <h3>Excellence</h3>
+
+                <p>
+                    We aim for the best, always.
+                </p>
+
+            </article>
+
+
+            <!-- DISCIPLINE -->
+            <article class="stackly-value-card"
+                     data-aos="fade-down"
+                     data-aos-duration="1000"
+                     data-aos-delay="400">
+
+                <div class="stackly-value-icon">
+                    <img src="hero-img2.webp"
+                         alt="Athlete representing discipline"
+                         loading="lazy">
+                </div>
+
+                <h3>Discipline</h3>
+
+                <p>
+                    Small steps create big results.
+                </p>
+
+            </article>
+
+
+            <!-- PROGRESS -->
+            <article class="stackly-value-card"
+                     data-aos="zoom-in"
+                     data-aos-duration="1100"
+                     data-aos-delay="500">
+
+                <div class="stackly-value-icon">
+                    <img src="value-icon4.webp"
+                         alt="Progress chart"
+                         loading="lazy">
+                </div>
+
+                <h3>Progress</h3>
+
+                <p>
+                    Every member <br>matters.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Team Section -->
+<section class="team-section">
+    <div class="team-container">
+
+        <!-- Section Heading -->
+        <div class="team-heading" data-aos="fade-up">
+            <h2>Meet Our Expert Trainers</h2>
+            <p>
+                Our certified trainers are here to guide, motivate and<br class="desktop-break">
+                support you at every step of your journey.
+            </p>
+        </div>
+
+        <!-- Explore Facilities Button -->
+        <div class="team-action"
+             data-aos="fade-up"
+             data-aos-delay="100">
+            <a href="404.html" class="explore-btn">
+                Explore All Facilities <span>➜</span>
+            </a>
+        </div>
+
+        <!-- Trainers Grid -->
+        <div class="trainers-grid">
+
+            <!-- Trainer 1 -->
+            <article class="trainer-card"
+                     data-aos="fade-up"
+                     data-aos-delay="100">
+
+                <div class="trainer-image">
+                    <img
+                        src="team-1.webp"
+                        alt="Arun Kumar - Fitness Coach">
+                </div>
+
+                <div class="trainer-info">
+                    <h3 class="trainer-name">
+                        <img
+                            src="team-icon1.webp"
+                            alt=""
+                            class="trainer-icon-img">
+                        <span>Arun Kumar</span>
+                    </h3>
+                    <p>Fitness Coach</p>
+                </div>
+            </article>
+
+            <!-- Trainer 2 -->
+            <article class="trainer-card"
+                     data-aos="fade-up"
+                     data-aos-delay="200">
+
+                <div class="trainer-image">
+                    <img
+                        src="team-2.webp"
+                        alt="Priya Nair - Yoga Trainer">
+                </div>
+
+                <div class="trainer-info">
+                    <h3 class="trainer-name">
+                        <img
+                            src="team-icon2.webp"
+                            alt=""
+                            class="trainer-icon-img">
+                        <span>Priya Nair</span>
+                    </h3>
+                    <p>Yoga Trainer</p>
+                </div>
+            </article>
+
+            <!-- Trainer 3 -->
+            <article class="trainer-card"
+                     data-aos="fade-up"
+                     data-aos-delay="300">
+
+                <div class="trainer-image">
+                    <img
+                        src="team-3.webp"
+                        alt="Vikram Singh - Sports Coach">
+                </div>
+
+                <div class="trainer-info">
+                    <h3 class="trainer-name">
+                        <img
+                            src="team-icon1.webp"
+                            alt=""
+                            class="trainer-icon-img">
+                        <span>Vikram Singh</span>
+                    </h3>
+                    <p>Sports Coach</p>
+                </div>
+            </article>
+
+            <!-- Trainer 4 -->
+            <article class="trainer-card"
+                     data-aos="fade-up"
+                     data-aos-delay="400">
+
+                <div class="trainer-image">
+                    <img
+                        src="team-4.webp"
+                        alt="Sneha Reddy - Personal Trainer">
+                </div>
+
+                <div class="trainer-info">
+                    <h3 class="trainer-name">
+                        <img
+                            src="team-icon2.webp"
+                            alt=""
+                            class="trainer-icon-img">
+                        <span>Sneha Reddy</span>
+                    </h3>
+                    <p>Personal Trainer</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+ 
+
+<section class="facilities-section" id="facilities">
+  <div class="facilities-container">
+
+    <!-- Left Content -->
+    <div
+      class="facilities-content"
+      data-aos="fade-right"
+      data-aos-duration="1000"
+    >
+
+      <span class="facilities-subtitle">OUR FACILITIES</span>
+
+      <h2>World-Class Facilities</h2>
+
+      <p class="facilities-description">
+        We provide modern and well-equipped facilities to ensure you
+        get the best training experience in a safe and comfortable
+        environment.
+      </p>
+
+      <!-- Facilities Grid -->
+      <div class="facilities-grid">
+
+        <!-- Strength Training -->
+        <div
+          class="facility-item"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
+          <div class="facility-icon">
+            <img
+              src="hero-img2.webp"
+              alt="Strength training"
+              loading="lazy"
+            >
+          </div>
+          <span>Strength Training Area</span>
+        </div>
+
+        <!-- Cardio Zone -->
+        <div
+          class="facility-item"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
+          <div class="facility-icon">
+            <img
+              src="heart-icon.webp"
+              alt="Cardio zone"
+              loading="lazy"
+            >
+          </div>
+          <span>Cardio Zone</span>
+        </div>
+
+        <!-- Functional Training -->
+        <div
+          class="facility-item"
+          data-aos="zoom-in"
+          data-aos-delay="300"
+        >
+          <div class="facility-icon">
+            <img
+              src="hero-img1.webp"
+              alt="Functional training"
+              loading="lazy"
+            >
+          </div>
+          <span>Functional Training</span>
+        </div>
+
+        <!-- Group Fitness -->
+        <div
+          class="facility-item"
+          data-aos="zoom-in"
+          data-aos-delay="400"
+        >
+          <div class="facility-icon">
+            <img
+              src="about-icon3.webp"
+              alt="Group fitness studio"
+              loading="lazy"
+            >
+          </div>
+          <span>Group Fitness Studio</span>
+        </div>
+
+        <!-- Changing Rooms -->
+        <div
+          class="facility-item"
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        >
+          <div class="facility-icon">
+            <img
+              src="door-icon.webp"
+              alt="Changing rooms"
+              loading="lazy"
+            >
+          </div>
+          <span>Changing Rooms</span>
+        </div>
+
+        <!-- Shower Facilities -->
+        <div
+          class="facility-item"
+          data-aos="zoom-in"
+          data-aos-delay="600"
+        >
+          <div class="facility-icon">
+            <img
+              src="shower-icon.webp"
+              alt="Shower facilities"
+              loading="lazy"
+            >
+          </div>
+          <span>Shower Facilities</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Right Image -->
+    <div
+      class="facilities-image"
+      data-aos="fade-left"
+      data-aos-duration="1200"
+    >
+      <img
+        class="facilities-main-image"
+        src="facilities-bg-img.webp"
+        alt="Modern gym training facilities"
+        loading="lazy"
+      >
+      <div class="image-overlay"></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Stackly Sport Club - Fitness Journey CTA Section -->
+<section class="stackly-journey-cta" id="fitness-journey">
+
+    <div class="stackly-journey-overlay"></div>
+
+    <div class="stackly-journey-container">
+
+        <!-- Left Content -->
+        <div class="stackly-journey-content"
+             data-aos="fade-right"
+             data-aos-duration="1000">
+
+            <span class="stackly-journey-eyebrow"
+                  data-aos="fade-down"
+                  data-aos-delay="100">
+                READY TO GET STARTED?
+            </span>
+
+            <h2 class="stackly-journey-title"
+                data-aos="fade-up"
+                data-aos-delay="200">
+                Your Fitness Journey
+                <span>Begins Here</span>
+            </h2>
+
+            <p class="stackly-journey-description"
+               data-aos="fade-up"
+               data-aos-delay="350">
+                Join our academy today and take the first step towards
+                a healthier, stronger you.
+            </p>
+
+        </div>
+
+        <!-- Join Now Button -->
+        <div class="stackly-journey-action"
+             data-aos="zoom-in"
+             data-aos-delay="400"
+             data-aos-duration="900">
+
+            <a href="404.html" class="stackly-journey-button">
+                Join Now
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+    
+</main>
+
+
+<footer class="stackly-footer">
+    <div class="footer-container">
+
+        <!-- Brand Section -->
+        <div class="footer-brand">
+            <a href="index.html" class="footer-logo">
+    <img src="Stackly-logo.webp" alt="Stackly Logo">
+</a>
+
+            <p class="brand-description">
+                Connecting farmers and consumers<br>
+                for a healthier and greener tomorrow.
+            </p>
+
+<div class="social-links">
+    <a href="404.html" aria-label="Facebook" target="_blank">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+
+    <a href="404.html" aria-label="X (Twitter)" target="_blank">
+        <i class="fa-brands fa-x-twitter"></i>
+    </a>
+
+    <a href="404.html" aria-label="Instagram" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="404.html" aria-label="YouTube" target="_blank">
+        <i class="fa-brands fa-youtube"></i>
+    </a>
+</div>
+
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Information -->
+        
+<div class="footer-column contact-column">
+    <h3>Contact Info</h3>
+
+    <!-- Address Icon -->
+    <div class="contact-item">
+        <span class="contact-icon">
+            <i class="fa-solid fa-location-dot"></i>
+        </span>
+        <a href="404.html"><p>
+            123 Fitness Street,<br>
+            Coimbatore, Tamil Nadu<br>
+            641001
+        </p></a>
+    </div>
+
+    <!-- Email Icon -->
+    <div class="contact-item">
+        <span class="contact-icon">
+            <i class="fa-solid fa-envelope"></i>
+        </span>
+        <a href="404.html">
+            info@stacklyclub.com
+        </a>
+    </div>
+
+    <!-- Phone Icon -->
+    <div class="contact-item">
+        <span class="contact-icon">
+            <i class="fa-solid fa-phone"></i>
+        </span>
+        <a href="404.html">
+            +91 98765 43210
+        </a>
+    </div>
+</div>
+
+
+        <!-- Working Hours -->
+        <div class="footer-column">
+            <h3>Working Hours</h3>
+            <p class="footer-text">
+                Mon - Sat: 6:00 AM - 10:00 PM
+            </p>
+            <p class="footer-text">
+                Sunday: 7:00 AM - 8:00 PM
+            </p>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-column newsletter-column">
+            <h3>Newsletter</h3>
+            <p class="newsletter-description">
+                Get the latest updates, tips and offers.
+            </p>
+
+            
+<form class="newsletter-form" id="newsletterForm" action="#" method="post">
+    <label for="newsletter-email" class="visually-hidden">
+        Your email address
+    </label>
+
+    <input
+        type="email"
+        id="newsletter-email"
+        name="email"
+        placeholder="Enter your email"
+        required
+    >
+
+    <button type="submit">Subscribe</button>
+</form>
+
+<p id="newsletterMessage" class="newsletter-message"
+   role="status" aria-live="polite"></p>
+
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>© 2025 Sports Club Training Academy. All rights reserved.</p>
+
+        <div class="bottom-links">
+            <a href="404.html">Privacy Policy</a>
+            <a href="404.html">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+ 
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
+    </main>
+
+
+    <!-- MOBILE MENU JAVASCRIPT -->
+    <script src="index.js"></script>
+
+</body>
+</html>
+

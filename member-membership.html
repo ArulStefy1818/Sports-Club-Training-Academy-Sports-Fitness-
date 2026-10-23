@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Member Dashboard | Stackly Sports Club</title>
+
+    <meta name="description"
+          content="Manage your workouts, training schedule, fitness progress and membership at Stackly Sports Club Training Academy.">
+
+    <link rel="icon" href="Stackly-logo-Blue.webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Separate CSS -->
+    <link rel="stylesheet" href="member.css">
+</head>
+
+<body>
+
+    <div class="stackly-member-dashboard">
+
+        <!-- MOBILE SIDEBAR OVERLAY -->
+        <div class="stackly-member-overlay"
+             id="memberOverlay"></div>
+
+        <!-- SIDEBAR -->
+        <aside class="stackly-member-sidebar" id="memberSidebar">
+
+            <!-- LOGO -->
+            <a href="member.html" class="stackly-member-logo">
+                <img src="Stackly-logo.webp"
+                     alt="Stackly Sports Club Logo">
+
+                 
+            </a>
+
+            <!-- MOBILE CLOSE BUTTON -->
+            <button class="stackly-member-close"
+                    id="memberClose"
+                    type="button"
+                    aria-label="Close navigation menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="stackly-member-sidebar-label">
+                MEMBER MENU
+            </div>
+
+            <!-- SIDEBAR NAVIGATION -->
+            <nav class="stackly-member-nav"
+                 aria-label="Member navigation">
+
+                <a href="member.html"
+                   class="stackly-member-nav-link ">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="member-training.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-dumbbell"></i>
+                    <span>My Training</span>
+                </a>
+
+                <a href="member-workouts.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-person-running"></i>
+                    <span>Workout Plans</span>
+                </a>
+
+                <a href="member-schedule.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>Training Schedule</span>
+                    <span class="stackly-member-nav-count">3</span>
+                </a>
+
+                <a href="member-progress.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>My Progress</span>
+                </a>
+
+                <a href="member-membership.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>Membership</span>
+                </a>
+
+                <a href="member-payments.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Payments</span>
+                </a>
+
+                <a href="member-settings.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <!-- SIDEBAR BOTTOM CARD -->
+            <div class="stackly-member-sidebar-card">
+                <div class="stackly-member-sidebar-card-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+
+                <h3>Keep Pushing!</h3>
+
+                <p>
+                    Every workout brings you closer to your fitness goals.
+                </p>
+
+                <a href="404-member.html">
+                    Continue Training
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- SIDEBAR EXIT -->
+            <button type="button"
+                    class="stackly-member-logout"
+                    id="memberLogout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </button>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="stackly-member-main" id="dashboard">
+
+            <!-- TOP HEADER -->
+            <header class="stackly-member-header">
+
+                <div class="stackly-member-header-left">
+
+                    <!-- HAMBURGER -->
+                    <button class="stackly-member-hamburger"
+                            id="memberHamburger"
+                            type="button"
+                            aria-label="Open navigation menu"
+                            aria-controls="memberSidebar"
+                            aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div class="stackly-member-header-heading">
+                        <span class="stackly-member-header-label">
+                            MEMBER PORTAL
+                        </span>
+
+                        <h1>Member Dashboard</h1>
+                    </div>
+                </div>
+
+                <!-- HEADER RIGHT -->
+                <div class="stackly-member-header-right">
+
+                    <a href="404-member.html"><button class="stackly-member-notification"
+                            type="button"
+                            id="memberNotification"
+                            aria-label="View notifications">
+                        <i class="fa-regular fa-bell"></i>
+                        <span></span>
+                    </button></a>
+
+                    <!-- EMAIL MUST DISPLAY AT TOP RIGHT -->
+                    <div class="stackly-member-email">
+                        <span class="stackly-member-email-icon">
+                            <i class="fa-regular fa-user"></i>
+                        </span>
+
+                        <div class="stackly-member-email-details">
+                            <small>Logged in as</small>
+                            <strong id="memberEmail">
+                                member@stacklysports.com
+                            </strong>
+                        </div>
+                    </div>
+
+                </div>
+            </header>
+
+            
+<!-- ==========================================
+     STACKLY SPORTS CLUB
+     MEMBERSHIP PAGE - HTML
+========================================== -->
+
+<div class="stackly-membership-page">
+
+    <!-- MEMBERSHIP HERO -->
+    <section class="stackly-membership-hero" data-aos="fade-up">
+
+        <div class="stackly-membership-hero-content">
+
+            <span class="stackly-membership-eyebrow">
+                <i class="fa-solid fa-crown"></i>
+                YOUR MEMBERSHIP EXPERIENCE
+            </span>
+
+            <h2>
+                More Than a Gym.
+                <span>A Stronger Lifestyle.</span>
+            </h2>
+
+            <p>
+                Your fitness journey deserves the right support.
+                Discover your benefits, manage your membership,
+                and unlock your next level of performance.
+            </p>
+
+            <div class="stackly-membership-hero-actions">
+                <a href="404-member.html"
+                   class="stackly-membership-primary-btn">
+                    <i class="fa-solid fa-id-card"></i>
+                    View My Membership
+                </a>
+
+                <a href="404-member.html"
+                   class="stackly-membership-secondary-link">
+                    Explore Plans
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="stackly-membership-hero-trust">
+                <span>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Expert Coaching
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Premium Facilities
+                </span>
+            </div>
+
+        </div>
+
+        <div class="stackly-membership-hero-image">
+
+            <img
+                src="training-gym-img.webp"
+                alt="Premium fitness club training facilities">
+
+            <div class="stackly-membership-hero-image-overlay"></div>
+
+            <div class="stackly-membership-image-label">
+                <span class="stackly-membership-image-label-icon">
+                    <i class="fa-solid fa-medal"></i>
+                </span>
+
+                <div>
+                    <strong>Your Fitness. Your Rules.</strong>
+                    <span>Train with confidence every day</span>
+                </div>
+            </div>
+
+            <div class="stackly-membership-image-tag">
+                <i class="fa-solid fa-bolt"></i>
+                BUILT FOR PROGRESS
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MEMBERSHIP QUICK STATS -->
+    <section class="stackly-membership-stats"
+             data-aos="fade-up">
+
+        <article class="stackly-membership-stat-card"
+                 data-aos="fade-up"
+                 data-aos-delay="50">
+
+            <span class="stackly-membership-stat-icon red">
+                <i class="fa-solid fa-calendar-days"></i>
+            </span>
+
+            <div>
+                <span>Membership Duration</span>
+                <h3>12 Months</h3>
+                <p>Annual membership plan</p>
+            </div>
+
+        </article>
+
+        <article class="stackly-membership-stat-card"
+                 data-aos="fade-up"
+                 data-aos-delay="100">
+
+            <span class="stackly-membership-stat-icon blue">
+                <i class="fa-solid fa-dumbbell"></i>
+            </span>
+
+            <div>
+                <span>Training Access</span>
+                <h3>Unlimited</h3>
+                <p>According to club hours</p>
+            </div>
+
+        </article>
+
+        <article class="stackly-membership-stat-card"
+                 data-aos="fade-up"
+                 data-aos-delay="150">
+
+            <span class="stackly-membership-stat-icon orange">
+                <i class="fa-solid fa-user-tie"></i>
+            </span>
+
+            <div>
+                <span>Trainer Support</span>
+                <h3>Included</h3>
+                <p>Guidance for your routine</p>
+            </div>
+
+        </article>
+
+        <article class="stackly-membership-stat-card"
+                 data-aos="fade-up"
+                 data-aos-delay="200">
+
+            <span class="stackly-membership-stat-icon green">
+                <i class="fa-solid fa-shield-heart"></i>
+            </span>
+
+            <div>
+                <span>Member Benefits</span>
+                <h3>Exclusive</h3>
+                <p>Member-only privileges</p>
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- CURRENT MEMBERSHIP CARD -->
+    <section class="stackly-membership-current"
+             id="stackly-membership-current"
+             data-aos="fade-up">
+
+        <div class="stackly-membership-section-heading">
+            <div>
+                <span class="stackly-membership-section-label">
+                    YOUR MEMBERSHIP
+                </span>
+
+                <h2>Your Active Plan</h2>
+
+                <p>
+                    Everything you need to stay committed to your goals.
+                </p>
+            </div>
+
+            <span class="stackly-membership-active-badge">
+                <span></span>
+                Active Member
+            </span>
+        </div>
+
+        <div class="stackly-membership-current-grid">
+
+            <!-- DIGITAL MEMBERSHIP CARD -->
+            <article class="stackly-membership-digital-card"
+                     data-aos="fade-right">
+
+                <div class="stackly-membership-digital-top">
+
+                    <div class="stackly-membership-card-brand">
+                        <img src="Stackly-logo.webp"
+                             alt="Stackly Sports Club logo">
+
+                        <div>
+                            <strong>STACKLY</strong>
+                            <span>SPORTS CLUB</span>
+                        </div>
+                    </div>
+
+                    <span class="stackly-membership-card-chip">
+                        <i class="fa-solid fa-crown"></i>
+                        PREMIUM
+                    </span>
+
+                </div>
+
+                <div class="stackly-membership-card-middle">
+                    <span>MEMBERSHIP HOLDER</span>
+                    <h3>Sports Club Member</h3>
+                    <p>TRAIN STRONG. LIVE STRONGER.</p>
+                </div>
+
+                <div class="stackly-membership-card-bottom">
+                    <div>
+                        <span>PLAN TYPE</span>
+                        <strong>Annual Plan</strong>
+                    </div>
+
+                    <div>
+                        <span>MEMBER STATUS</span>
+                        <strong>
+                            <i class="fa-solid fa-circle-check"></i>
+                            Verified
+                        </strong>
+                    </div>
+                </div>
+
+                <div class="stackly-membership-card-decoration">
+                    <i class="fa-solid fa-dumbbell"></i>
+                </div>
+
+            </article>
+
+
+            <!-- MEMBERSHIP DETAILS -->
+            <article class="stackly-membership-details-card"
+                     data-aos="fade-left">
+
+                <div class="stackly-membership-details-header">
+                    <div>
+                        <span>YOUR CURRENT PLAN</span>
+                        <h3>Premium Membership</h3>
+                    </div>
+
+                    <span class="stackly-membership-plan-icon">
+                        <i class="fa-solid fa-award"></i>
+                    </span>
+                </div>
+
+                <div class="stackly-membership-details-list">
+
+                    <div>
+                        <span>
+                            <i class="fa-regular fa-calendar-check"></i>
+                            Membership started
+                        </span>
+                        <strong>01 Oct 2026</strong>
+                    </div>
+
+                    <div>
+                        <span>
+                            <i class="fa-regular fa-calendar-xmark"></i>
+                            Renewal date
+                        </span>
+                        <strong>01 Oct 2027</strong>
+                    </div>
+
+                    <div>
+                        <span>
+                            <i class="fa-solid fa-wallet"></i>
+                            Plan amount
+                        </span>
+                        <strong>₹12,000 / year</strong>
+                    </div>
+
+                    <div>
+                        <span>
+                            <i class="fa-solid fa-credit-card"></i>
+                            Payment status
+                        </span>
+                        <strong class="stackly-membership-paid">
+                            <i class="fa-solid fa-circle-check"></i>
+                            Paid
+                        </strong>
+                    </div>
+
+                </div>
+
+                <div class="stackly-membership-details-actions">
+
+                    <a href="404-member.html"
+                       class="stackly-membership-action-btn">
+                        <i class="fa-solid fa-receipt"></i>
+                        View Payments
+                    </a>
+
+                    <a href="404-member.html"
+                       class="stackly-membership-manage-link">
+                        Manage Account
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+        <div class="stackly-membership-renewal-note">
+            <span>
+                <i class="fa-solid fa-circle-info"></i>
+            </span>
+
+            <p>
+                <strong>Stay ahead of your goals.</strong>
+                Review your renewal date and membership details before
+                your current plan expires.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXCLUSIVE MEMBER BENEFITS -->
+    <section class="stackly-membership-benefits"
+             data-aos="fade-up">
+
+        <div class="stackly-membership-section-heading">
+            <div>
+                <span class="stackly-membership-section-label">
+                    THE MEMBER ADVANTAGE
+                </span>
+
+                <h2>Benefits That Move You Forward</h2>
+
+                <p>
+                    Make the most of your membership with facilities
+                    and support designed around your fitness journey.
+                </p>
+            </div>
+        </div>
+
+        <div class="stackly-membership-benefits-grid">
+
+            <article class="stackly-membership-benefit-card"
+                     data-aos="fade-up"
+                     data-aos-delay="50">
+
+                <div class="stackly-membership-benefit-image">
+                    <img
+                        src="strength-training.webp"
+                        alt="Strength training equipment">
+
+                    <span>
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </span>
+                </div>
+
+                <div class="stackly-membership-benefit-content">
+                    <span>01 / TRAINING</span>
+                    <h3>Premium Equipment</h3>
+                    <p>
+                        Train with quality gym equipment to support
+                        strength, conditioning, and performance.
+                    </p>
+
+                    <div>
+                        <i class="fa-solid fa-check"></i>
+                        <span>Facility access included</span>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <article class="stackly-membership-benefit-card"
+                     data-aos="fade-up"
+                     data-aos-delay="100">
+
+                <div class="stackly-membership-benefit-image">
+                    <img
+                        src="Personal fitness.webp"
+                        alt="Personal fitness coaching">
+
+                    <span>
+                        <i class="fa-solid fa-user-tie"></i>
+                    </span>
+                </div>
+
+                <div class="stackly-membership-benefit-content">
+                    <span>02 / COACHING</span>
+                    <h3>Expert <br>Guidance</h3>
+                    <p>
+                        Get support with exercise techniques, workout
+                        structure, and safe training practices.
+                    </p>
+
+                    <div>
+                        <i class="fa-solid fa-check"></i>
+                        <span>Training guidance</span>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <article class="stackly-membership-benefit-card"
+                     data-aos="fade-up"
+                     data-aos-delay="150">
+
+                <div class="stackly-membership-benefit-image">
+                    <img
+                        src="cardio.webp"
+                        alt="Cardio training session">
+
+                    <span>
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </span>
+                </div>
+
+                <div class="stackly-membership-benefit-content">
+                    <span>03 / PERFORMANCE</span>
+                    <h3>Fitness Progress Tracking</h3>
+                    <p>
+                        Monitor your workout activity, build consistency,
+                        and review your fitness milestones.
+                    </p>
+
+                    <div>
+                        <i class="fa-solid fa-check"></i>
+                        <span>Progress dashboard</span>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <article class="stackly-membership-benefit-card"
+                     data-aos="fade-up"
+                     data-aos-delay="200">
+
+                <div class="stackly-membership-benefit-image">
+                    <img
+                        src="flexibility.webp"
+                        alt="Stretching and recovery exercise">
+
+                    <span>
+                        <i class="fa-solid fa-spa"></i>
+                    </span>
+                </div>
+
+                <div class="stackly-membership-benefit-content">
+                    <span>04 / WELLNESS</span>
+                    <h3>Recovery & Mobility</h3>
+                    <p>
+                        Complement your training with mobility 
+                        work, stretching, and recovery time.
+                    </p>
+
+                    <div>
+                        <i class="fa-solid fa-check"></i>
+                        <span>Wellness-training</span>
+                    </div>
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- MEMBERSHIP PLAN COMPARISON -->
+    <section class="stackly-membership-plans"
+             id="stackly-membership-plans"
+             data-aos="fade-up">
+
+        <div class="stackly-membership-section-heading">
+            <div>
+                <span class="stackly-membership-section-label">
+                    FIND YOUR NEXT LEVEL
+                </span>
+
+                <h2>Explore Membership Plans</h2>
+
+                <p>
+                    Compare available options and find the right
+                    training experience for your goals.
+                </p>
+            </div>
+        </div>
+
+        <div class="stackly-membership-plan-grid">
+
+            <!-- BASIC PLAN -->
+            <article class="stackly-membership-plan-card"
+                     data-aos="zoom-in"
+                     data-aos-delay="50">
+
+                <div class="stackly-membership-plan-top">
+                    <span class="stackly-membership-plan-symbol">
+                        <i class="fa-solid fa-person-walking"></i>
+                    </span>
+
+                    <span class="stackly-membership-plan-tag">
+                        STARTER
+                    </span>
+                </div>
+
+                <h3>Essential</h3>
+
+                <p class="stackly-membership-plan-description">
+                    A simple way to begin your fitness journey.
+                </p>
+
+                <div class="stackly-membership-plan-price">
+                    <strong>₹6,000</strong>
+                    <span>/ year</span>
+                </div>
+
+                <div class="stackly-membership-plan-divider"></div>
+
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Standard gym access
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        General workout plans
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Progress dashboard
+                    </li>
+
+                    <li class="unavailable">
+                        <i class="fa-solid fa-xmark"></i>
+                        Personal coaching sessions
+                    </li>
+
+                    <li class="unavailable">
+                        <i class="fa-solid fa-xmark"></i>
+                        Priority support
+                    </li>
+                </ul>
+
+                <a href="404-member.html"
+                   class="stackly-membership-plan-btn outline">
+                    Explore Essential
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+
+            <!-- PREMIUM PLAN -->
+            <article class="stackly-membership-plan-card featured"
+                     data-aos="zoom-in"
+                     data-aos-delay="100">
+
+                <span class="stackly-membership-popular">
+                    <i class="fa-solid fa-star"></i>
+                    RECOMMENDED
+                </span>
+
+                <div class="stackly-membership-plan-top">
+                    <span class="stackly-membership-plan-symbol">
+                        <i class="fa-solid fa-crown"></i>
+                    </span>
+
+                    <span class="stackly-membership-plan-tag">
+                        PREMIUM
+                    </span>
+                </div>
+
+                <h3>Performance</h3>
+
+                <p class="stackly-membership-plan-description">
+                    More support for a focused training routine.
+                </p>
+
+                <div class="stackly-membership-plan-price">
+                    <strong>₹12,000</strong>
+                    <span>/ year</span>
+                </div>
+
+                <div class="stackly-membership-plan-divider"></div>
+
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Standard gym access
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Structured workout plans
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Progress dashboard
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Trainer guidance
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Member support
+                    </li>
+                </ul>
+
+                <a href="404-member.html"
+                   class="stackly-membership-plan-btn solid">
+                    Manage Current Plan
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+
+            <!-- ELITE PLAN -->
+            <article class="stackly-membership-plan-card"
+                     data-aos="zoom-in"
+                     data-aos-delay="150">
+
+                <div class="stackly-membership-plan-top">
+                    <span class="stackly-membership-plan-symbol">
+                        <i class="fa-solid fa-trophy"></i>
+                    </span>
+
+                    <span class="stackly-membership-plan-tag">
+                        ELITE
+                    </span>
+                </div>
+
+                <h3>Elite Athlete</h3>
+
+                <p class="stackly-membership-plan-description">
+                    A more personalized experience for ambitious goals.
+                </p>
+
+                <div class="stackly-membership-plan-price">
+                    <strong>₹18,000</strong>
+                    <span>/ year</span>
+                </div>
+
+                <div class="stackly-membership-plan-divider"></div>
+
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Standard gym access
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Advanced workout planning
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Progress reviews
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Personalized coaching options
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Priority support options
+                    </li>
+                </ul>
+
+                <a href="404-member.html"
+                   class="stackly-membership-plan-btn outline">
+                    Explore Elite
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+        </div>
+
+        <p class="stackly-membership-plan-disclaimer">
+            <i class="fa-solid fa-circle-info"></i>
+            Plan prices and included services are illustrative.
+            Confirm actual pricing and availability with your club.
+        </p>
+
+    </section>
+
+
+    <!-- MEMBERSHIP JOURNEY TIMELINE -->
+    <section class="stackly-membership-journey"
+             data-aos="fade-up">
+
+        <div class="stackly-membership-section-heading">
+            <div>
+                <span class="stackly-membership-section-label">
+                    YOUR FITNESS TIMELINE
+                </span>
+
+                <h2>Your Membership Journey</h2>
+
+                <p>
+                    Keep track of the key stages of your membership.
+                </p>
+            </div>
+        </div>
+
+        <div class="stackly-membership-timeline">
+
+            <article class="stackly-membership-timeline-item completed"
+                     data-aos="fade-right">
+
+                <span class="stackly-membership-timeline-marker">
+                    <i class="fa-solid fa-check"></i>
+                </span>
+
+                <div class="stackly-membership-timeline-content">
+                    <span>01 OCT 2026</span>
+                    <h3>Membership Activated</h3>
+                    <p>
+                        Your annual membership began.
+                        Welcome to Stackly Sports Club.
+                    </p>
+                </div>
+
+                <span class="stackly-membership-timeline-status">
+                    COMPLETED
+                </span>
+
+            </article>
+
+
+            <article class="stackly-membership-timeline-item current"
+                     data-aos="fade-right"
+                     data-aos-delay="100">
+
+                <span class="stackly-membership-timeline-marker">
+                    <i class="fa-solid fa-dumbbell"></i>
+                </span>
+
+                <div class="stackly-membership-timeline-content">
+                    <span>CURRENT STAGE</span>
+                    <h3>Train & Track Progress</h3>
+                    <p>
+                        Follow your schedule, attend training sessions,
+                        and keep working toward your personal goals.
+                    </p>
+                </div>
+
+                <span class="stackly-membership-timeline-status">
+                    IN PROGRESS
+                </span>
+
+            </article>
+
+
+            <article class="stackly-membership-timeline-item upcoming"
+                     data-aos="fade-right"
+                     data-aos-delay="150">
+
+                <span class="stackly-membership-timeline-marker">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </span>
+
+                <div class="stackly-membership-timeline-content">
+                    <span>01 OCT 2027</span>
+                    <h3>Membership Renewal</h3>
+                    <p>
+                        Review your membership options before the
+                        scheduled renewal date.
+                    </p>
+                </div>
+
+                <span class="stackly-membership-timeline-status">
+                    UPCOMING
+                </span>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRAINER SUPPORT BANNER -->
+    <section class="stackly-membership-support"
+             data-aos="fade-up">
+
+        <div class="stackly-membership-support-image">
+            <img
+                src="Personal fitness.webp"
+                alt="Fitness trainer helping a club member">
+
+            <span>
+                <i class="fa-solid fa-headset"></i>
+            </span>
+        </div>
+
+        <div class="stackly-membership-support-content">
+
+            <span class="stackly-membership-section-label">
+                WE ARE HERE FOR YOU
+            </span>
+
+            <h2>Need Help With Your Membership?</h2>
+
+            <p>
+                Have questions about your plan, renewal, included
+                benefits, or training access? Reach out for assistance
+                and make the most of your club experience.
+            </p>
+
+            <div class="stackly-membership-support-points">
+                <span>
+                    <i class="fa-solid fa-check-circle"></i>
+                    Membership guidance
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-check-circle"></i>
+                    Payment assistance
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-check-circle"></i>
+                    Training support
+                </span>
+            </div>
+
+            <a href="404-member.html"
+               class="stackly-membership-primary-btn">
+                Contact Member Support
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- MEMBERSHIP FAQ -->
+    <section class="stackly-membership-faq"
+             data-aos="fade-up">
+
+        <div class="stackly-membership-section-heading">
+            <div>
+                <span class="stackly-membership-section-label">
+                    QUICK ANSWERS
+                </span>
+
+                <h2>Membership FAQs</h2>
+
+                <p>
+                    Helpful answers to common membership questions.
+                </p>
+            </div>
+        </div>
+
+        <div class="stackly-membership-faq-grid">
+
+            <details class="stackly-membership-faq-item">
+                <summary>
+                    How can I check my membership status?
+                    <span>
+                        <i class="fa-solid fa-plus"></i>
+                    </span>
+                </summary>
+
+                <p>
+                    Check the Active Member status and plan details
+                    in the membership card section above. Confirm
+                    your actual status with the club if anything
+                    appears incorrect.
+                </p>
+            </details>
+
+
+            <details class="stackly-membership-faq-item">
+                <summary>
+                    How do I review my payments?
+                    <span>
+                        <i class="fa-solid fa-plus"></i>
+                    </span>
+                </summary>
+
+                <p>
+                    Open the Payments section from your dashboard
+                    to review the payment information available
+                    in your member account.
+                </p>
+            </details>
+
+
+            <details class="stackly-membership-faq-item">
+                <summary>
+                    Can I change my membership plan?
+                    <span>
+                        <i class="fa-solid fa-plus"></i>
+                    </span>
+                </summary>
+
+                <p>
+                    Available upgrades or plan changes depend on
+                    club policies. Contact member support to check
+                    your eligibility and any applicable charges.
+                </p>
+            </details>
+
+
+            <details class="stackly-membership-faq-item">
+                <summary>
+                    When should I renew my membership?
+                    <span>
+                        <i class="fa-solid fa-plus"></i>
+                    </span>
+                </summary>
+
+                <p>
+                    Review the renewal date displayed in your
+                    membership details and contact the club before
+                    your plan expires.
+                </p>
+            </details>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL MEMBERSHIP CTA -->
+    <section class="stackly-membership-final-cta"
+             data-aos="zoom-in">
+
+        <div class="stackly-membership-final-cta-icon">
+            <i class="fa-solid fa-fire-flame-curved"></i>
+        </div>
+
+        <div class="stackly-membership-final-cta-content">
+
+            <span>YOUR NEXT LEVEL STARTS HERE</span>
+
+            <h2>Make Every Membership Day Count.</h2>
+
+            <p>
+                Stay committed, keep learning, and turn your training
+                routine into a lasting habit.
+            </p>
+
+        </div>
+
+        <a href="404-member.html"
+           class="stackly-membership-final-cta-btn">
+            Start Training
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <div class="stackly-membership-final-decoration">
+            <i class="fa-solid fa-trophy"></i>
+        </div>
+
+    </section>
+
+</div>
+
+
+</main>
+
+    </div>
+
+
+    <!-- Separate JavaScript -->
+    <script src="member.js"></script>
+
+</body>
+</html>

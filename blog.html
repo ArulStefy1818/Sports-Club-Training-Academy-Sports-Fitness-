@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stackly | Sports Club Training Academy</title>
+
+    <meta name="description"
+        content="Train smarter, build strength, and improve your performance with Stackly Sports Club Training Academy.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="stackly-sport-header">
+
+        <a href="index.html" class="stackly-sport-logo"
+            aria-label="Stackly Home">
+            <img src="Stackly-logo.webp"
+                alt="Stackly"
+                class="stackly-sport-logo-img">
+        </a>
+
+        <nav class="stackly-sport-desktop-nav"
+            aria-label="Main navigation">
+
+            <a href="index.html" class="stackly-sport-nav-link active">
+                Home
+            </a>
+
+            <a href="about.html" class="stackly-sport-nav-link">
+                About Us
+            </a>
+
+            <a href="services.html" class="stackly-sport-nav-link">
+                Services
+            </a>
+
+            <a href="pricing.html" class="stackly-sport-nav-link">
+                Pricing
+            </a>
+
+            <a href="blog.html" class="stackly-sport-nav-link">
+                Blog
+            </a>
+
+            <a href="contact.html" class="stackly-sport-nav-link">
+                Contact Us
+            </a>
+
+        </nav>
+
+        <div class="stackly-sport-header-actions">
+
+            <form class="stackly-sport-search"
+                action="programs.html"
+                method="get"
+                role="search">
+
+                <input type="search"
+                    name="search"
+                    placeholder="Search for programs..."
+                    aria-label="Search programs">
+
+                <button type="submit" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+            </form>
+
+            <a href="login.html" class="stackly-sport-login">
+    <i class="fa-regular fa-user"></i>
+    <span>Login</span>
+</a>
+
+<span class="stackly-sport-login-separator">/</span>
+
+<a href="signup.html" class="stackly-sport-login">
+    <span>Sign Up</span>
+</a>
+
+
+        </div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <button class="stackly-sport-menu-toggle"
+            id="stacklySportMenuToggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-controls="stacklySportMobileMenu"
+            aria-expanded="false">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </header>
+
+
+    <!-- MOBILE OVERLAY -->
+    <div class="stackly-sport-mobile-overlay"
+        id="stacklySportMobileOverlay"></div>
+
+
+    <!-- MOBILE SLIDE MENU -->
+    <aside class="stackly-sport-mobile-menu"
+        id="stacklySportMobileMenu"
+        aria-label="Mobile navigation"
+        aria-hidden="true"
+        inert>
+
+        <div class="stackly-sport-mobile-menu-top">
+
+            <a href="index.html" class="stackly-sport-mobile-logo">
+                <img src="Stackly-logo.webp" alt="Stackly">
+            </a>
+
+            <button class="stackly-sport-menu-close"
+                id="stacklySportMenuClose"
+                type="button"
+                aria-label="Close navigation menu">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <nav class="stackly-sport-mobile-nav">
+
+            <a href="index.html" class="active">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+
+            <a href="about.html">
+                <i class="fa-solid fa-users"></i>
+                About Us
+            </a>
+
+            <a href="services.html">
+                <i class="fa-solid fa-dumbbell"></i>
+                Services
+            </a>
+
+            <a href="pricing.html">
+                <i class="fa-solid fa-tags"></i>
+                Pricing
+            </a>
+
+            <a href="blog.html">
+                <i class="fa-solid fa-newspaper"></i>
+                Blog
+            </a>
+
+            <a href="contact.html">
+                <i class="fa-solid fa-envelope"></i>
+                Contact Us
+            </a>
+
+        </nav>
+
+        <form class="stackly-sport-mobile-search"
+            action="programs.html"
+            method="get"
+            role="search">
+
+            <input type="search"
+                name="search"
+                placeholder="Search for programs..."
+                aria-label="Search programs">
+
+            <button type="submit" aria-label="Search programs">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+        </form>
+
+    
+<a href="login.html" class="stackly-sport-mobile-login">
+    <i class="fa-regular fa-user"></i>
+    Login
+</a>
+
+<a href="signup.html" class="stackly-sport-mobile-login">
+    <i class="fa-solid fa-user-plus"></i>
+    Sign Up
+</a>
+
+
+    </aside>
+
+ 
+<!-- BLOG BANNER SECTION -->
+<section class="blog-banner">
+  <div class="blog-banner-overlay"></div>
+
+  <div class="blog-banner-content">
+
+    <span
+      class="blog-banner-label"
+      data-aos="fade-down"
+      data-aos-duration="800"
+    >
+      BLOG
+    </span>
+
+    <h1
+      class="blog-banner-title"
+      data-aos="fade-right"
+      data-aos-duration="1000"
+      data-aos-delay="150"
+    >
+      Our <span>Blog</span>
+    </h1>
+
+    <p
+      class="blog-banner-description"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      data-aos-delay="300"
+    >
+      Tips, insights and expert advice to help you train better,
+      stay healthy and achieve your goals.
+    </p>
+
+    <div
+      class="blog-banner-categories"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      data-aos-delay="450"
+    >
+      <a href="#fitness">Fitness</a>
+      <span>•</span>
+      <a href="#nutrition">Nutrition</a>
+      <span>•</span>
+      <a href="#training">Training</a>
+      <span>•</span>
+      <a href="#lifestyle">Lifestyle</a>
+    </div>
+
+  </div>
+</section>
+
+ 
+<!-- =========================================
+     LATEST ARTICLES SECTION
+========================================= -->
+
+<section class="latest-blog-section" id="latest-articles">
+
+  <div class="latest-blog-container">
+
+    <!-- Section heading -->
+    <header class="latest-blog-heading"
+            data-aos="fade-down"
+            data-aos-duration="900">
+
+      <span class="latest-blog-eyebrow">LATEST ARTICLES</span>
+
+      <h2>Read Our Latest <span>Blog Posts</span></h2>
+
+      <p>
+        Discover practical tips, training guides, nutrition advice and
+        more from our expert coaches and fitness professionals.
+      </p>
+
+    </header>
+
+    <!-- Blog articles grid -->
+    <div class="latest-blog-grid">
+
+      <!-- ARTICLE 1 -->
+      <article class="latest-blog-card"
+               data-aos="fade-up"
+               data-aos-duration="800"
+               data-aos-delay="100">
+
+        <a href="404.html"
+           class="latest-blog-image-link"
+           aria-label="Read 10 Best Exercises for Total Body Fitness">
+
+          <img
+            src="blog-img1.webp"
+            alt="Athlete performing functional fitness exercises"
+            class="latest-blog-image"
+            loading="lazy"
+          >
+
+        </a>
+
+        <div class="latest-blog-content">
+
+          <span class="latest-blog-category">FITNESS TIPS</span>
+
+          <h3>
+            <a href="404.html">
+              10 Best Exercises for Total Body Fitness
+            </a>
+          </h3>
+
+          <p class="latest-blog-excerpt">
+            A full-body workout helps you build 
+strength, improve endurance and boost 
+overall health. Here are the top 10 exercises 
+you can do anywhere.
+          </p>
+
+          <div class="latest-blog-meta">
+            <div class="latest-blog-author">
+              <img
+                src="client-1.webp"
+                alt=""
+                class="latest-blog-avatar"
+                loading="lazy"
+              >
+              <span>Arun Kumar</span>
+            </div>
+
+            <span class="latest-blog-date">April 25, 2025</span>
+          </div>
+
+          <a href="404.html" class="latest-blog-read">
+            Read More <span aria-hidden="true">→</span>
+          </a>
+
+        </div>
+      </article>
+
+      <!-- ARTICLE 2 -->
+      <article class="latest-blog-card"
+               data-aos="fade-up"
+               data-aos-duration="800"
+               data-aos-delay="200">
+
+        <a href="404.html"
+           class="latest-blog-image-link"
+           aria-label="Read nutrition tips for better performance">
+
+          <img
+            src="blog-img2.webp"
+            alt="Healthy meal with vegetables, fruits, nuts and protein"
+            class="latest-blog-image"
+            loading="lazy"
+          >
+
+        </a>
+
+        <div class="latest-blog-content">
+
+          <span class="latest-blog-category">NUTRITION</span>
+
+          <h3>
+            <a href="404.html">
+              Nutrition Tips for Better Performance
+            </a>
+          </h3>
+
+          <p class="latest-blog-excerpt">
+            Fuel your body with the right nutrients and 
+get the most out of your training and daily 
+activities. Here are simple nutrition tips to follow.
+          </p>
+
+          <div class="latest-blog-meta">
+            <div class="latest-blog-author">
+              <img
+                src="author-2.webp"
+                alt=""
+                class="latest-blog-avatar"
+                loading="lazy"
+              >
+              <span>Priya Nair</span>
+            </div>
+
+            <span class="latest-blog-date">April 20, 2025</span>
+          </div>
+
+          <a href="404.html" class="latest-blog-read">
+            Read More <span aria-hidden="true">→</span>
+          </a>
+
+        </div>
+      </article>
+
+      <!-- ARTICLE 3 -->
+      <article class="latest-blog-card"
+               data-aos="fade-left"
+               data-aos-duration="900"
+               data-aos-delay="150">
+
+        <a href="404.html"
+           class="latest-blog-image-link"
+           aria-label="Read how to stay motivated in your fitness journey">
+
+          <img
+            src="blog-img3.webp"
+            alt="People exercising together on treadmills"
+            class="latest-blog-image"
+            loading="lazy"
+          >
+
+        </a>
+
+        <div class="latest-blog-content">
+
+          <span class="latest-blog-category">MOTIVATION</span>
+
+          <h3>
+            <a href="404.html">
+              How to Stay Motivated in Your Fitness Journey
+            </a>
+          </h3>
+
+          <p class="latest-blog-excerpt">
+            Staying motivated isn't always easy. Here are 
+proven strategies to keep you consistent and 
+focused on your goals, even on tough days.
+          </p>
+
+          <div class="latest-blog-meta">
+            <div class="latest-blog-author">
+              <img
+                src="author-3.webp"
+                alt=""
+                class="latest-blog-avatar"
+                loading="lazy"
+              >
+              <span>Vikram Singh</span>
+            </div>
+
+            <span class="latest-blog-date">April 15, 2025</span>
+          </div>
+
+          <a href="404.html" class="latest-blog-read">
+            Read More <span aria-hidden="true">→</span>
+          </a>
+
+        </div>
+      </article>
+
+      <!-- ARTICLE 4 -->
+      <article class="latest-blog-card"
+               data-aos="zoom-in-up"
+               data-aos-duration="800"
+               data-aos-delay="100">
+
+        <a href="404.html"
+           class="latest-blog-image-link"
+           aria-label="Read the importance of rest and recovery">
+
+          <img
+            src="blog-4.webp"
+            alt="Athlete resting after a demanding strength workout"
+            class="latest-blog-image"
+            loading="lazy"
+          >
+
+        </a>
+
+        <div class="latest-blog-content">
+
+          <span class="latest-blog-category">TRAINING GUIDES</span>
+
+          <h3>
+            <a href="404.html">
+              The Importance of Rest and Recovery
+            </a>
+          </h3>
+
+          <p class="latest-blog-excerpt">
+            Rest is not a break — it's part of your training. 
+Learn how proper recovery helps you perform
+better and avoid injuries.
+          </p>
+
+          <div class="latest-blog-meta">
+            <div class="latest-blog-author">
+              <img
+                src="author-4.webp"
+                alt=""
+                class="latest-blog-avatar"
+                loading="lazy"
+              >
+              <span>Neha Reddy</span>
+            </div>
+
+            <span class="latest-blog-date">April 10, 2025</span>
+          </div>
+
+          <a href="404.html" class="latest-blog-read">
+            Read More <span aria-hidden="true">→</span>
+          </a>
+
+        </div>
+      </article>
+
+      <!-- ARTICLE 5 -->
+      <article class="latest-blog-card"
+               data-aos="flip-up"
+               data-aos-duration="900"
+               data-aos-delay="200">
+
+        <a href="404.html"
+           class="latest-blog-image-link"
+           aria-label="Read how to build healthy habits for long-term success">
+
+          <img
+            src="blog-5.webp"
+            alt="Healthy meal and nutritious food for everyday wellness"
+            class="latest-blog-image"
+            loading="lazy"
+          >
+
+        </a>
+
+        <div class="latest-blog-content">
+
+          <span class="latest-blog-category">LIFESTYLE</span>
+
+          <h3>
+            <a href="404.html">
+              Build Healthy Habits for Long-Term Success
+            </a>
+          </h3>
+
+          <p class="latest-blog-excerpt">
+            Small daily habits can create big results. Discover 
+simple lifestyle changes that support your fitness 
+goals and overall well-being. 
+          </p>
+
+          <div class="latest-blog-meta">
+            <div class="latest-blog-author">
+              <img
+                src="author-5.webp"
+                alt=""
+                class="latest-blog-avatar"
+                loading="lazy"
+              >
+              <span>Karthik Raj</span>
+            </div>
+
+            <span class="latest-blog-date">April 5, 2025</span>
+          </div>
+
+          <a href="404.html" class="latest-blog-read">
+            Read More <span aria-hidden="true">→</span>
+          </a>
+
+        </div>
+      </article>
+
+      <!-- ARTICLE 6 -->
+      <article class="latest-blog-card"
+               data-aos="fade-up"
+               data-aos-duration="900"
+               data-aos-delay="300">
+
+        <a href="404.html"
+           class="latest-blog-image-link"
+           aria-label="Read strength training for women">
+
+          <img
+            src="blog-6.webp"
+            alt="Woman performing dumbbell strength training"
+            class="latest-blog-image"
+            loading="lazy"
+          >
+
+        </a>
+
+        <div class="latest-blog-content">
+
+          <span class="latest-blog-category">FITNESS TIPS</span>
+
+          <h3>
+            <a href="404.html">
+              Strength Training for Women: A Complete Guide
+            </a>
+          </h3>
+
+          <p class="latest-blog-excerpt">
+            Build confidence, increase metabolism and get 
+stronger with the right strength training routine. 
+This guide covers everything you need to know.
+          </p>
+
+          <div class="latest-blog-meta">
+            <div class="latest-blog-author">
+              <img
+                src="author-6.webp"
+                alt=""
+                class="latest-blog-avatar"
+                loading="lazy"
+              >
+              <span>Arun Kumar</span>
+            </div>
+
+            <span class="latest-blog-date">April 1, 2025</span>
+          </div>
+
+          <a href="404.html" class="latest-blog-read">
+            Read More <span aria-hidden="true">→</span>
+          </a>
+
+        </div>
+      </article>
+
+      <!-- ARTICLE 7 -->
+      <article class="latest-blog-card"
+               data-aos="fade-up"
+               data-aos-duration="900"
+               data-aos-delay="300">
+
+        <a href="404.html"
+           class="latest-blog-image-link"
+           aria-label="Read strength training for women">
+
+          <img
+            src="blog-7.webp"
+            alt="Woman performing dumbbell strength training"
+            class="latest-blog-image"
+            loading="lazy"
+          >
+
+        </a>
+
+        <div class="latest-blog-content">
+
+          <span class="latest-blog-category">TRAINING GUIDES</span>
+
+          <h3>
+            <a href="404.html">
+              How to Choose the Right Running Shoes
+            </a>
+          </h3>
+
+          <p class="latest-blog-excerpt">
+            The right shoes can make a big difference in 
+            your comfort, performance and injury prevention. 
+            Here's what to look for when buying running shoes.
+          </p>
+
+          <div class="latest-blog-meta">
+            <div class="latest-blog-author">
+              <img
+                src="author-7.webp"
+                alt=""
+                class="latest-blog-avatar"
+                loading="lazy"
+              >
+              <span> Priya Nai</span>
+            </div>
+
+            <span class="latest-blog-date">April 28, 2025</span>
+          </div>
+
+          <a href="404.html" class="latest-blog-read">
+            Read More <span aria-hidden="true">→</span>
+          </a>
+
+        </div>
+      </article>
+
+      <!-- ARTICLE 8 -->
+      <article class="latest-blog-card"
+               data-aos="fade-up"
+               data-aos-duration="900"
+               data-aos-delay="300">
+
+        <a href="404.html"
+           class="latest-blog-image-link"
+           aria-label="Read strength training for women">
+
+          <img
+            src="blog-8.webp"
+            alt="Woman performing dumbbell strength training"
+            class="latest-blog-image"
+            loading="lazy"
+          >
+
+        </a>
+
+        <div class="latest-blog-content">
+
+          <span class="latest-blog-category">LIFESTYLE</span>
+
+          <h3>
+            <a href="404.html">
+              Yoga for a Healthier Mind and Body
+            </a>
+          </h3>
+
+          <p class="latest-blog-excerpt">
+            Yoga improves flexibility, reduces stress and 
+            enhances focus. Learn simple poses and routines 
+            to add yoga to your daily life.
+          </p>
+
+          <div class="latest-blog-meta">
+            <div class="latest-blog-author">
+              <img
+                src="author-8.webp"
+                alt=""
+                class="latest-blog-avatar"
+                loading="lazy"
+              >
+              <span> Sneha Reddj</span>
+            </div>
+
+            <span class="latest-blog-date">April 25, 2025</span>
+          </div>
+
+          <a href="404.html" class="latest-blog-read">
+            Read More <span aria-hidden="true">→</span>
+          </a>
+
+        </div>
+      </article>
+
+      <!-- ARTICLE 9 -->
+      <article class="latest-blog-card"
+               data-aos="fade-up"
+               data-aos-duration="900"
+               data-aos-delay="300">
+
+        <a href="404.html"
+           class="latest-blog-image-link"
+           aria-label="Read strength training for women">
+
+          <img
+            src="blog-9.webp"
+            alt="Woman performing dumbbell strength training"
+            class="latest-blog-image"
+            loading="lazy"
+          >
+
+        </a>
+
+        <div class="latest-blog-content">
+
+          <span class="latest-blog-category">NUTRITION</span>
+
+          <h3>
+            <a href="404.html">
+              Pre-Workout Nutrition for More Energy
+            </a>
+          </h3>
+
+          <p class="latest-blog-excerpt">
+            The right food before your workout can boost 
+            energy, improve performance and help you get
+            better results.
+          </p>
+
+          <div class="latest-blog-meta">
+            <div class="latest-blog-author">
+              <img
+                src="author-9.webp"
+                alt=""
+                class="latest-blog-avatar"
+                loading="lazy"
+              >
+              <span> Karthik Raj</span>
+            </div>
+
+            <span class="latest-blog-date">April 20, 2025</span>
+          </div>
+
+          <a href="404.html" class="latest-blog-read">
+            Read More <span aria-hidden="true">→</span>
+          </a>
+
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="fitness-banner">
+    <div class="fitness-overlay"></div>
+
+    <div class="fitness-content" data-aos="fade-up" data-aos-duration="1000">
+        <span class="fitness-label">JOIN OUR COMMUNITY</span>
+
+        <h2>Ready to Start Your Fitness Journey?</h2>
+
+        <p>
+            Join our academy today and take the first step 
+            towards a stronger, healthier and happier you.
+        </p>
+    </div>
+
+    <div class="fitness-action" data-aos="fade-left" data-aos-duration="1000">
+        <a href="404.html" class="fitness-btn">
+            Join Now <span class="btn-arrow">→</span>
+        </a>
+    </div>
+</section>
+       
+</main>
+
+
+<footer class="stackly-footer">
+    <div class="footer-container">
+
+        <!-- Brand Section -->
+        <div class="footer-brand">
+            <a href="index.html" class="footer-logo">
+    <img src="Stackly-logo.webp" alt="Stackly Logo">
+</a>
+
+            <p class="brand-description">
+                Connecting farmers and consumers<br>
+                for a healthier and greener tomorrow.
+            </p>
+
+<div class="social-links">
+    <a href="404.html" aria-label="Facebook" target="_blank">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+
+    <a href="404.html" aria-label="X (Twitter)" target="_blank">
+        <i class="fa-brands fa-x-twitter"></i>
+    </a>
+
+    <a href="404.html" aria-label="Instagram" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="404.html" aria-label="YouTube" target="_blank">
+        <i class="fa-brands fa-youtube"></i>
+    </a>
+</div>
+
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Information -->
+        
+<div class="footer-column contact-column">
+    <h3>Contact Info</h3>
+
+    <!-- Address Icon -->
+    <div class="contact-item">
+        <span class="contact-icon">
+            <i class="fa-solid fa-location-dot"></i>
+        </span>
+        <a href="404.html"><p>
+            123 Fitness Street,<br>
+            Coimbatore, Tamil Nadu<br>
+            641001
+        </p></a>
+    </div>
+
+    <!-- Email Icon -->
+    <div class="contact-item">
+        <span class="contact-icon">
+            <i class="fa-solid fa-envelope"></i>
+        </span>
+        <a href="404.html">
+            info@stacklyclub.com
+        </a>
+    </div>
+
+    <!-- Phone Icon -->
+    <div class="contact-item">
+        <span class="contact-icon">
+            <i class="fa-solid fa-phone"></i>
+        </span>
+        <a href="404.html">
+            +91 98765 43210
+        </a>
+    </div>
+</div>
+
+
+        <!-- Working Hours -->
+        <div class="footer-column">
+            <h3>Working Hours</h3>
+            <p class="footer-text">
+                Mon - Sat: 6:00 AM - 10:00 PM
+            </p>
+            <p class="footer-text">
+                Sunday: 7:00 AM - 8:00 PM
+            </p>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-column newsletter-column">
+            <h3>Newsletter</h3>
+            <p class="newsletter-description">
+                Get the latest updates, tips and offers.
+            </p>
+
+            
+<form class="newsletter-form" id="newsletterForm" action="#" method="post">
+    <label for="newsletter-email" class="visually-hidden">
+        Your email address
+    </label>
+
+    <input
+        type="email"
+        id="newsletter-email"
+        name="email"
+        placeholder="Enter your email"
+        required
+    >
+
+    <button type="submit">Subscribe</button>
+</form>
+
+<p id="newsletterMessage" class="newsletter-message"
+   role="status" aria-live="polite"></p>
+
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>© 2025 Sports Club Training Academy. All rights reserved.</p>
+
+        <div class="bottom-links">
+            <a href="404.html">Privacy Policy</a>
+            <a href="404.html">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+ 
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
+    </main>
+
+
+    <!-- MOBILE MENU JAVASCRIPT -->
+    <script src="index.js"></script>
+
+</body>
+</html>
+

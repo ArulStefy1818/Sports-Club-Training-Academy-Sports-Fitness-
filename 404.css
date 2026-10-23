@@ -1,0 +1,486 @@
+/* =====================================
+   RESET AND GENERAL STYLING
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111;
+    background: #fff;
+    overflow: hidden;
+}
+
+/* =====================================
+   MAIN ERROR PAGE
+===================================== */
+
+.error-page {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+
+    padding: 15px;
+    overflow: hidden;
+
+    isolation: isolate;
+    background: #fff;
+}
+
+/* =====================================
+   BACKGROUND IMAGE
+===================================== */
+
+.error-background {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    background-image: url("404-bg.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    opacity: 1;
+
+    animation: backgroundReveal 1.2s ease both;
+}
+
+/* Light overlay to retain text readability */
+
+.background-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    pointer-events: none;
+}
+
+/* =====================================
+   CONTENT CONTAINER
+===================================== */
+
+.error-container {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 850px;
+    max-height: 100%;
+    margin: auto;
+
+    text-align: center;
+}
+
+/* =====================================
+   404 IMAGE
+===================================== */
+
+.error-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    margin: 0 auto;
+}
+
+.error-number img {
+    display: block;
+
+    width: 100%;
+    max-width: 570px;
+    max-height: 260px;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center;
+
+    animation: numberReveal 0.9s ease both;
+
+    transition: transform 0.35s ease;
+}
+
+.error-number img:hover {
+    transform: scale(1.025);
+}
+
+/* =====================================
+   ERROR CONTENT
+===================================== */
+
+.error-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 340px;
+
+    margin-top: 35px;
+
+    animation: contentReveal 0.8s ease 0.2s both;
+}
+
+/* Heading */
+
+.error-content h1 {
+    color: #080808;
+
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.2;
+
+    margin-bottom: 12px;
+}
+
+/* Description */
+
+.error-content p {
+    max-width: 320px;
+    margin: 0 auto 18px;
+
+    color: #333;
+
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* =====================================
+   BUTTON CONTAINER
+===================================== */
+
+.error-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+/* =====================================
+   COMMON BUTTON STYLING
+===================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-width: 115px;
+    padding: 10px 15px;
+
+    border: 1px solid transparent;
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Go Home */
+
+.btn-home {
+    color: #fff;
+    background: #ff3030;
+    border-color: #ff3030;
+
+    box-shadow: 0 4px 12px rgba(255, 48, 48, 0.2);
+}
+
+.btn-home:hover {
+    color: #fff;
+    background: #d90000;
+    border-color: #d90000;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 7px 18px rgba(255, 48, 48, 0.3);
+}
+
+/* Go Back */
+
+.btn-back {
+    color: #222;
+    background: #fff;
+    border-color: #ddd;
+}
+
+.btn-back:hover {
+    color: #ff3030;
+    background: #fff5f5;
+    border-color: #ff3030;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Button icons */
+
+.btn-icon {
+    font-size: 15px;
+    line-height: 1;
+
+    transition: transform 0.3s ease;
+}
+
+.btn-home:hover .btn-icon {
+    transform: translateY(-2px);
+}
+
+.btn-back:hover .btn-icon {
+    transform: translateX(-3px);
+}
+
+/* Keyboard focus */
+
+.btn:focus-visible {
+    outline: 2px solid #222;
+    outline-offset: 3px;
+}
+
+/* =====================================
+   ANIMATIONS
+===================================== */
+
+@keyframes numberReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes contentReveal {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes backgroundReveal {
+    from {
+        opacity: 0;
+        transform: scale(1.03);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =====================================
+   TABLET VIEW
+===================================== */
+
+@media (max-width: 768px) {
+    .error-page {
+        padding: 15px;
+    }
+
+    .error-number img {
+        max-width: 460px;
+        max-height: 220px;
+    }
+
+    .error-content {
+        max-width: 320px;
+        margin-top: 30px;
+    }
+
+    .error-content h1 {
+        font-size: 20px;
+    }
+
+    .error-content p {
+        font-size: 11px;
+    }
+}
+
+/* =====================================
+   MOBILE VIEW
+===================================== */
+
+@media (max-width: 480px) {
+    .error-page {
+        padding: 14px;
+    }
+
+    .error-background {
+        background-position: center;
+        background-size: cover;
+    }
+
+    .background-overlay {
+        background: rgba(255, 255, 255, 0.22);
+    }
+
+    .error-number img {
+        width: 100%;
+        max-width: 340px;
+        max-height: 155px;
+    }
+
+    .error-content {
+        max-width: 290px;
+        margin-top: 27px;
+    }
+
+    .error-content h1 {
+        font-size: 19px;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+
+    .error-content p {
+        max-width: 270px;
+        font-size: 10px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+
+    .error-buttons {
+        width: 100%;
+        gap: 9px;
+    }
+
+    .btn {
+        min-width: 105px;
+        padding: 9px 12px;
+        font-size: 11px;
+    }
+
+    .btn-icon {
+        font-size: 14px;
+    }
+}
+
+/* =====================================
+   VERY SMALL MOBILE
+===================================== */
+
+@media (max-width: 350px) {
+    .error-page {
+        padding: 10px;
+    }
+
+    .error-number img {
+        max-width: 280px;
+        max-height: 125px;
+    }
+
+    .error-content {
+        margin-top: 23px;
+    }
+
+    .error-content h1 {
+        font-size: 18px;
+    }
+
+    .error-content p {
+        font-size: 10px;
+    }
+
+    .btn {
+        min-width: 100px;
+        padding: 9px 10px;
+        font-size: 10px;
+    }
+}
+
+/* =====================================
+   SHORT SCREENS / LANDSCAPE
+===================================== */
+
+@media (max-height: 600px) {
+    .error-page {
+        padding: 10px;
+    }
+
+    .error-number img {
+        max-height: 150px;
+        width: auto;
+        max-width: 75vw;
+    }
+
+    .error-content {
+        margin-top: 16px;
+    }
+
+    .error-content h1 {
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+
+    .error-content p {
+        font-size: 10px;
+        line-height: 1.4;
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        padding: 8px 13px;
+    }
+}
+
+/* =====================================
+   REDUCED MOTION ACCESSIBILITY
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .error-page *,
+    .error-page *::before,
+    .error-page *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

@@ -1,0 +1,1022 @@
+
+/* ==========================================
+   STACKLY SPORTS CLUB - SIGNUP PAGE
+   Screenshot-Matched Layout
+   Image Logo + Image Role Icons
+   Responsive + Hover Effects
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* ==========================================
+   RESET
+========================================== */
+
+.stackly-signup-body,
+.stackly-signup-body * {
+    box-sizing: border-box;
+}
+
+.stackly-signup-body {
+    margin: 0;
+    min-height: 100vh;
+    color: #171717;
+    background: #ffffff;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.stackly-signup-body a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.stackly-signup-body button,
+.stackly-signup-body input {
+    font: inherit;
+}
+
+.stackly-signup-body button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.stackly-signup-body img {
+    max-width: 100%;
+}
+
+/* ==========================================
+   MAIN LAYOUT
+========================================== */
+
+.stackly-signup-wrapper {
+    display: grid;
+    grid-template-columns: 46% 54%;
+    width: 100%;
+    min-height: 100vh;
+    background: #ffffff;
+}
+
+/* ==========================================
+   LEFT FORM PANEL
+========================================== */
+
+.stackly-signup-form-panel {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    min-width: 0;
+    min-height: 100vh;
+    padding: 34px 32px 26px;
+
+    background: #ffffff;
+}
+
+/* FORM CONTENT */
+
+.stackly-signup-form-content {
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+    padding-top: 2px;
+}
+
+/* ==========================================
+   GO BACK HOME BUTTON
+========================================== */
+
+.stackly-signup-home-link {
+    position: absolute;
+    top: 17px;
+    left: 22px;
+    z-index: 5;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 9px 12px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+
+    color: #444444;
+    background: #f7f7f7;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.stackly-signup-home-link i {
+    font-size: 13px;
+    transition: transform 0.3s ease;
+}
+
+.stackly-signup-home-link:hover {
+    color: #ffffff;
+    background: #ff1717;
+    border-color: #ff1717;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(255, 23, 23, 0.18);
+}
+
+.stackly-signup-home-link:hover i {
+    transform: translateX(-3px);
+}
+
+/* ==========================================
+   FORM HEADING
+========================================== */
+
+.stackly-signup-heading {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.stackly-signup-heading h1 {
+    margin: 0 0 7px;
+
+    color: #151515;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(25px, 2.2vw, 32px);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.7px;
+}
+
+.stackly-signup-heading p {
+    margin: 0;
+    color: #626262;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   SIGNUP FORM
+========================================== */
+
+.stackly-signup-form {
+    width: 100%;
+}
+
+.stackly-signup-field {
+    margin-bottom: 17px;
+}
+
+.stackly-signup-field > label {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #171717;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.stackly-signup-field > label span,
+.stackly-signup-role-field legend > span {
+    color: #ff1717;
+}
+
+/* ==========================================
+   INPUT FIELDS
+========================================== */
+
+.stackly-signup-input-wrap {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    min-height: 47px;
+
+    overflow: hidden;
+    border: 1px solid #c9c9c9;
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.stackly-signup-input-wrap > i:first-child {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    color: #777777;
+    font-size: 15px;
+
+    transition: color 0.3s ease;
+}
+
+.stackly-signup-input-wrap input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    height: 45px;
+    padding: 10px 10px 10px 0;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    color: #222222;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.stackly-signup-input-wrap input::placeholder {
+    color: #929292;
+    opacity: 1;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.stackly-signup-input-wrap:focus-within {
+    border-color: #ff1717;
+    background: #fffdfd;
+    box-shadow: 0 0 0 3px rgba(255, 23, 23, 0.09);
+}
+
+.stackly-signup-input-wrap:focus-within > i:first-child {
+    color: #ff1717;
+}
+
+/* ==========================================
+   PASSWORD VISIBILITY BUTTON
+========================================== */
+
+.stackly-signup-password-toggle {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 45px;
+    padding: 0;
+
+    border: none;
+    outline-offset: -3px;
+    background: transparent;
+    color: #555555;
+
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.stackly-signup-password-toggle i {
+    font-size: 15px;
+}
+
+.stackly-signup-password-toggle:hover {
+    color: #ff1717;
+}
+
+/* ==========================================
+   VALIDATION ERRORS
+========================================== */
+
+.stackly-signup-error {
+    display: block;
+    margin-top: 4px;
+
+    color: #d90000;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   ROLE SELECTION
+   Image-Based Icons
+========================================== */
+
+.stackly-signup-role-field {
+    min-width: 0;
+    margin: 22px 0 17px;
+    padding: 0;
+    border: none;
+}
+
+.stackly-signup-role-field legend {
+    margin-bottom: 12px;
+    padding: 0;
+
+    color: #171717;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.stackly-signup-role-options {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.stackly-signup-role-option {
+    position: relative;
+    display: block;
+    min-width: 0;
+    cursor: pointer;
+}
+
+/* Visually hide radio control while keeping it accessible */
+
+.stackly-signup-role-option > input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* IMPORTANT:
+   Style only the direct child span as the card.
+   Do not apply card styles to nested text spans. */
+
+.stackly-signup-role-option > input + span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    width: 100%;
+    min-height: 42px;
+    padding: 7px 5px;
+
+    border: 1px solid #c8c8c8;
+    border-radius: 6px;
+
+    color: #333333;
+    background: #ffffff;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* ROLE IMAGE */
+
+.stackly-signup-role-image {
+    display: block;
+    flex: 0 0 18px;
+
+    width: 18px;
+    height: 18px;
+
+    object-fit: contain;
+    object-position: center;
+
+    transition: transform 0.3s ease;
+}
+
+/* ROLE TEXT */
+
+.stackly-signup-role-text {
+    display: inline;
+    min-width: 0;
+
+    color: inherit;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+/* ROLE HOVER */
+
+.stackly-signup-role-option:hover > input + span {
+    color: #ff1717;
+    border-color: #ff1717;
+    background: #fffafa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 23, 23, 0.08);
+}
+
+.stackly-signup-role-option:hover .stackly-signup-role-image {
+    transform: scale(1.12);
+}
+
+/* SELECTED ROLE */
+
+.stackly-signup-role-option > input:checked + span {
+    color: #ff1717;
+    border-color: #ff1717;
+    background: #fff2f2;
+    box-shadow: 0 2px 8px rgba(255, 23, 23, 0.08);
+}
+
+/* KEYBOARD FOCUS */
+
+.stackly-signup-role-option > input:focus-visible + span {
+    outline: 2px solid #ff1717;
+    outline-offset: 3px;
+}
+
+/* ==========================================
+   TERMS AND CONDITIONS
+========================================== */
+
+.stackly-signup-terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+
+    margin: 18px 0 5px;
+}
+
+.stackly-signup-terms input {
+    flex: 0 0 15px;
+    width: 15px;
+    height: 15px;
+    margin: 3px 0 0;
+
+    accent-color: #ff1717;
+    cursor: pointer;
+}
+
+.stackly-signup-terms label {
+    color: #454545;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+.stackly-signup-terms label a {
+    color: #ff1717;
+    font-weight: 700;
+
+    transition: color 0.3s ease;
+}
+
+.stackly-signup-terms label a:hover {
+    color: #b90000;
+    text-decoration: underline;
+}
+
+/* ==========================================
+   FORM STATUS MESSAGE
+========================================== */
+
+.stackly-signup-status {
+    margin: 8px 0;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.stackly-signup-status-error {
+    color: #d90000;
+}
+
+.stackly-signup-status-success {
+    color: #147c38;
+}
+
+/* ==========================================
+   CREATE ACCOUNT BUTTON
+========================================== */
+
+.stackly-signup-submit {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+    min-height: 48px;
+    margin-top: 15px;
+    padding: 12px 40px 12px 18px;
+
+    border: 1px solid #ff1717;
+    border-radius: 6px;
+
+    background: #ff1717;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.stackly-signup-submit i {
+    position: absolute;
+    right: 17px;
+
+    opacity: 0;
+    transform: translateX(-5px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.stackly-signup-submit:hover {
+    border-color: #d90000;
+    background: #d90000;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(255, 23, 23, 0.22);
+}
+
+.stackly-signup-submit:hover i {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.stackly-signup-submit:active {
+    transform: translateY(0);
+}
+
+/* ==========================================
+   SIGN IN LINK
+========================================== */
+
+.stackly-signup-signin {
+    margin: 23px 0 0;
+    color: #454545;
+    text-align: center;
+
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+.stackly-signup-signin a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    margin-left: 4px;
+    color: #ff1717;
+    font-weight: 700;
+
+    transition: color 0.3s ease;
+}
+
+.stackly-signup-signin a i {
+    font-size: 11px;
+    transition: transform 0.3s ease;
+}
+
+.stackly-signup-signin a:hover {
+    color: #b90000;
+}
+
+.stackly-signup-signin a:hover i {
+    transform: translateX(3px);
+}
+
+/* ==========================================
+   RIGHT FITNESS IMAGE PANEL
+========================================== */
+
+.stackly-signup-visual {
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 100vh;
+
+    overflow: hidden;
+    background-color: #252525;
+
+    background-image: url("login-signup-bg.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* IMAGE OVERLAY */
+
+.stackly-signup-visual-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.22) 0%,
+        rgba(0, 0, 0, 0.08) 35%,
+        rgba(0, 0, 0, 0.38) 65%,
+        rgba(0, 0, 0, 0.82) 100%
+    );
+
+    pointer-events: none;
+}
+
+/* ==========================================
+   IMAGE LOGO
+========================================== */
+
+.stackly-signup-brand {
+    position: absolute;
+    top: 30px;
+    left: 32px;
+    z-index: 2;
+
+    display: inline-flex;
+    align-items: center;
+
+    max-width: calc(100% - 64px);
+    text-decoration: none;
+
+    transition: transform 0.3s ease;
+}
+
+.stackly-signup-brand-image {
+    display: block;
+
+    width: 180px;
+    max-width: 100%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: left center;
+
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+
+    transition: filter 0.3s ease;
+}
+
+.stackly-signup-brand:hover {
+    transform: scale(1.04);
+}
+
+.stackly-signup-brand:hover .stackly-signup-brand-image {
+    filter: drop-shadow(0 3px 8px rgba(255, 23, 23, 0.4));
+}
+
+/* ==========================================
+   IMAGE PANEL MESSAGE
+========================================== */
+
+.stackly-signup-visual-message {
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+    left: 20px;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+.stackly-signup-motto {
+    margin: 0 0 24px;
+
+    color: #ffffff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(29px, 3.4vw, 53px);
+    font-weight: 600;
+    line-height: 1.28;
+    letter-spacing: -1px;
+
+    transform: rotate(-9deg);
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.65);
+
+    transition: transform 0.4s ease;
+}
+
+.stackly-signup-visual:hover .stackly-signup-motto {
+    transform: rotate(-6deg) scale(1.03);
+}
+
+.stackly-signup-visual-divider {
+    width: 100%;
+    height: 1px;
+    margin-bottom: 15px;
+
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.stackly-signup-visual-caption {
+    margin: 0;
+
+    color: #ffffff;
+    font-size: clamp(12px, 1.15vw, 16px);
+    font-weight: 600;
+    line-height: 1.7;
+    letter-spacing: 1.3px;
+}
+
+/* ==========================================
+   MEDIUM SCREENS
+========================================== */
+
+@media (max-width: 1100px) {
+    .stackly-signup-wrapper {
+        grid-template-columns: 49% 51%;
+    }
+
+    .stackly-signup-form-panel {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+
+    .stackly-signup-role-options {
+        gap: 6px;
+    }
+
+    .stackly-signup-role-option > input + span {
+        gap: 4px;
+        padding-right: 3px;
+        padding-left: 3px;
+    }
+
+    .stackly-signup-role-image {
+        flex-basis: 16px;
+        width: 16px;
+        height: 16px;
+    }
+
+    .stackly-signup-role-text {
+        font-size: 11px;
+    }
+
+    .stackly-signup-brand {
+        left: 24px;
+    }
+}
+
+/* ==========================================
+   TABLET AND MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+    .stackly-signup-wrapper {
+        grid-template-columns: 1fr;
+        min-height: 100vh;
+    }
+
+    .stackly-signup-visual {
+        grid-row: 1;
+
+        min-height: 300px;
+        height: 38vh;
+        max-height: 430px;
+
+        background-position: center 30%;
+    }
+
+    .stackly-signup-form-panel {
+        grid-row: 2;
+
+        min-height: auto;
+        padding: 75px 24px 35px;
+    }
+
+    .stackly-signup-form-content {
+        max-width: 480px;
+    }
+
+    .stackly-signup-home-link {
+        top: 17px;
+        left: 20px;
+    }
+
+    .stackly-signup-heading {
+        margin-bottom: 28px;
+    }
+
+    .stackly-signup-heading h1 {
+        font-size: 30px;
+    }
+
+    .stackly-signup-heading p {
+        font-size: 14px;
+    }
+
+    .stackly-signup-field {
+        margin-bottom: 19px;
+    }
+
+    .stackly-signup-field > label,
+    .stackly-signup-role-field legend {
+        font-size: 15px;
+    }
+
+    .stackly-signup-input-wrap {
+        min-height: 50px;
+    }
+
+    .stackly-signup-input-wrap input {
+        height: 48px;
+        font-size: 15px;
+    }
+
+    .stackly-signup-input-wrap input::placeholder {
+        font-size: 13px;
+    }
+
+    .stackly-signup-role-options {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 7px;
+    }
+
+    .stackly-signup-role-option > input + span {
+        min-height: 43px;
+        gap: 5px;
+        padding: 7px 4px;
+    }
+
+    .stackly-signup-role-image {
+        flex-basis: 17px;
+        width: 17px;
+        height: 17px;
+    }
+
+    .stackly-signup-role-text {
+        font-size: 12px;
+    }
+
+    .stackly-signup-terms label {
+        font-size: 13px;
+    }
+
+    .stackly-signup-submit {
+        min-height: 50px;
+        font-size: 15px;
+    }
+
+    .stackly-signup-signin {
+        font-size: 14px;
+    }
+
+    .stackly-signup-brand {
+        top: 22px;
+        left: 22px;
+        max-width: calc(100% - 44px);
+    }
+
+    .stackly-signup-brand-image {
+        width: 150px;
+    }
+
+    .stackly-signup-visual-message {
+        right: 18px;
+        bottom: 18px;
+        left: 18px;
+    }
+
+    .stackly-signup-motto {
+        margin-bottom: 16px;
+        font-size: clamp(28px, 6vw, 40px);
+    }
+
+    .stackly-signup-visual-caption {
+        font-size: 12px;
+    }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+    .stackly-signup-form-panel {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .stackly-signup-heading h1 {
+        font-size: 26px;
+    }
+
+    .stackly-signup-role-options {
+        gap: 4px;
+    }
+
+    .stackly-signup-role-option > input + span {
+        gap: 3px;
+        padding: 7px 2px;
+    }
+
+    .stackly-signup-role-image {
+        flex-basis: 14px;
+        width: 14px;
+        height: 14px;
+    }
+
+    .stackly-signup-role-text {
+        font-size: 10px;
+    }
+
+    .stackly-signup-visual {
+        min-height: 270px;
+    }
+
+    .stackly-signup-brand-image {
+        width: 125px;
+    }
+
+    .stackly-signup-motto {
+        font-size: 28px;
+    }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+.stackly-signup-body a:focus-visible,
+.stackly-signup-body button:focus-visible,
+.stackly-signup-body input:focus-visible {
+    outline: 2px solid #ff1717;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stackly-signup-body *,
+    .stackly-signup-body *::before,
+    .stackly-signup-body *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Validation messages */
+.stackly-signup-error {
+    display: block;
+    margin-top: 5px;
+    color: #d71920;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.stackly-signup-status {
+    margin: 12px 0;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.stackly-signup-status-error {
+    color: #d71920;
+}
+
+.stackly-signup-status-success {
+    color: #16803c;
+}
+
+/* Invalid fields */
+.stackly-signup-form input[aria-invalid="true"] {
+    border-color: #d71920 !important;
+    box-shadow: 0 0 0 3px rgba(215, 25, 32, 0.1);
+}
+
+/* Invalid role selection */
+.stackly-signup-role-option.stackly-signup-role-invalid {
+    outline: 2px solid #d71920;
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* Disabled submit button during redirect */
+.stackly-signup-submit:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}

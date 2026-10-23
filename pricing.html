@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stackly | Sports Club Training Academy</title>
+
+    <meta name="description"
+        content="Train smarter, build strength, and improve your performance with Stackly Sports Club Training Academy.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="stackly-sport-header">
+
+        <a href="index.html" class="stackly-sport-logo"
+            aria-label="Stackly Home">
+            <img src="Stackly-logo.webp"
+                alt="Stackly"
+                class="stackly-sport-logo-img">
+        </a>
+
+        <nav class="stackly-sport-desktop-nav"
+            aria-label="Main navigation">
+
+            <a href="index.html" class="stackly-sport-nav-link active">
+                Home
+            </a>
+
+            <a href="about.html" class="stackly-sport-nav-link">
+                About Us
+            </a>
+
+            <a href="services.html" class="stackly-sport-nav-link">
+                Services
+            </a>
+
+            <a href="pricing.html" class="stackly-sport-nav-link">
+                Pricing
+            </a>
+
+            <a href="blog.html" class="stackly-sport-nav-link">
+                Blog
+            </a>
+
+            <a href="contact.html" class="stackly-sport-nav-link">
+                Contact Us
+            </a>
+
+        </nav>
+
+        <div class="stackly-sport-header-actions">
+
+            <form class="stackly-sport-search"
+                action="programs.html"
+                method="get"
+                role="search">
+
+                <input type="search"
+                    name="search"
+                    placeholder="Search for programs..."
+                    aria-label="Search programs">
+
+                <button type="submit" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+            </form>
+
+            <a href="login.html" class="stackly-sport-login">
+    <i class="fa-regular fa-user"></i>
+    <span>Login</span>
+</a>
+
+<span class="stackly-sport-login-separator">/</span>
+
+<a href="signup.html" class="stackly-sport-login">
+    <span>Sign Up</span>
+</a>
+
+
+        </div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <button class="stackly-sport-menu-toggle"
+            id="stacklySportMenuToggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-controls="stacklySportMobileMenu"
+            aria-expanded="false">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </header>
+
+
+    <!-- MOBILE OVERLAY -->
+    <div class="stackly-sport-mobile-overlay"
+        id="stacklySportMobileOverlay"></div>
+
+
+    <!-- MOBILE SLIDE MENU -->
+    <aside class="stackly-sport-mobile-menu"
+        id="stacklySportMobileMenu"
+        aria-label="Mobile navigation"
+        aria-hidden="true"
+        inert>
+
+        <div class="stackly-sport-mobile-menu-top">
+
+            <a href="index.html" class="stackly-sport-mobile-logo">
+                <img src="Stackly-logo.webp" alt="Stackly">
+            </a>
+
+            <button class="stackly-sport-menu-close"
+                id="stacklySportMenuClose"
+                type="button"
+                aria-label="Close navigation menu">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <nav class="stackly-sport-mobile-nav">
+
+            <a href="index.html" class="active">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+
+            <a href="about.html">
+                <i class="fa-solid fa-users"></i>
+                About Us
+            </a>
+
+            <a href="services.html">
+                <i class="fa-solid fa-dumbbell"></i>
+                Services
+            </a>
+
+            <a href="pricing.html">
+                <i class="fa-solid fa-tags"></i>
+                Pricing
+            </a>
+
+            <a href="blog.html">
+                <i class="fa-solid fa-newspaper"></i>
+                Blog
+            </a>
+
+            <a href="contact.html">
+                <i class="fa-solid fa-envelope"></i>
+                Contact Us
+            </a>
+
+        </nav>
+
+        <form class="stackly-sport-mobile-search"
+            action="programs.html"
+            method="get"
+            role="search">
+
+            <input type="search"
+                name="search"
+                placeholder="Search for programs..."
+                aria-label="Search programs">
+
+            <button type="submit" aria-label="Search programs">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+        </form>
+
+    
+<a href="login.html" class="stackly-sport-mobile-login">
+    <i class="fa-regular fa-user"></i>
+    Login
+</a>
+
+<a href="signup.html" class="stackly-sport-mobile-login">
+    <i class="fa-solid fa-user-plus"></i>
+    Sign Up
+</a>
+
+
+    </aside>
+
+    <!-- Membership Pricing Banner Section -->
+    <section class="pricing-banner">
+
+        <div class="pricing-banner__overlay"></div>
+
+        <div class="pricing-banner__content">
+
+            <span
+                class="pricing-banner__eyebrow"
+                data-aos="fade-down"
+                data-aos-duration="800"
+            >
+                MEMBERSHIP &amp; PRICING
+            </span>
+
+            <h1
+                class="pricing-banner__title"
+                data-aos="fade-up"
+                data-aos-delay="150"
+                data-aos-duration="900"
+            >
+                Choose Your<br>
+                Perfect <span>Plan</span>
+            </h1>
+
+            <p
+                class="pricing-banner__description"
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-duration="900"
+            >
+                Flexible membership plans designed to fit your goals,
+                schedule and lifestyle. Train smarter, get stronger.
+            </p>
+
+            <div
+                class="pricing-banner__features"
+                data-aos="fade-up"
+                data-aos-delay="450"
+                data-aos-duration="900"
+            >
+                <span>Expert Trainers</span>
+                <span class="feature-dot"></span>
+                <span>Modern Facilities</span>
+                <span class="feature-dot"></span>
+                <span>Flexible Plans</span>
+            </div>
+
+        </div>
+
+    </section>
+ 
+     
+
+<section class="pricing-section" id="pricing">
+  <div class="pricing-container">
+
+    <!-- Section Heading -->
+    <div class="pricing-heading" data-aos="fade-down">
+      <span class="section-label">OUR PRICING</span>
+      <h2>Membership Plans</h2>
+      <p>
+        Whether you're just starting or looking to take your fitness to the<br>
+        next level, we have a plan for you.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- Basic Plan -->
+      <div class="pricing-card" data-aos="fade-right" data-aos-delay="100">
+
+        <div class="plan-icon">
+          <img
+            src="person-icon.webp"
+            alt="Basic membership icon"
+          >
+        </div>
+
+        <h3>Basic</h3>
+
+        <p class="plan-description">
+          Perfect for beginners who want to stay active and healthy.
+        </p>
+
+        <div class="plan-price">
+          $29<span>/month</span>
+        </div>
+
+        <ul class="plan-features">
+          <li>Gym Access (General Hours)</li>
+          <li>Basic Fitness Assessment</li>
+          <li>Locker Room Access</li>
+          <li>Online Support</li>
+          <li>Personalized Fitness Guidance</li>
+        </ul>
+
+        <a href="404.html" class="plan-button">
+          Get Started <span>→</span>
+        </a>
+
+      </div>
+
+      <!-- Standard Plan -->
+      <div class="pricing-card popular"
+           data-aos="fade-up"
+           data-aos-delay="200">
+
+        <span class="popular-badge">MOST POPULAR</span>
+
+        <div class="plan-icon">
+          <img
+            src="hero-img2.webp"
+            alt="Standard membership icon"
+          >
+        </div>
+
+        <h3>Standard</h3>
+
+        <p class="plan-description">
+          Ideal for those who want more structure and guidance.
+        </p>
+
+        <div class="plan-price">
+          $49<span>/month</span>
+        </div>
+
+        <ul class="plan-features">
+          <li>Full Gym Access</li>
+          <li>Personal Training (1 Session)</li>
+          <li>Group Classes (Unlimited)</li>
+          <li>Nutrition Guidance</li>
+          <li>Locker Room + Shower</li>
+        </ul>
+
+        <a href="404.html" class="plan-button">
+          Get Started <span>→</span>
+        </a>
+
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="pricing-card"
+           data-aos="fade-up"
+           data-aos-delay="300">
+
+        <div class="plan-icon">
+          <img
+            src="crown-icon.webp"
+            alt="Premium membership icon"
+          >
+        </div>
+
+        <h3>Premium</h3>
+
+        <p class="plan-description">
+          For serious achievers who want faster results.
+        </p>
+
+        <div class="plan-price">
+          $79<span>/month</span>
+        </div>
+
+        <ul class="plan-features">
+          <li>All Standard Benefits</li>
+          <li>Personal Training (4 Sessions)</li>
+          <li>Customized Workout Plan</li>
+          <li>Nutrition Plan</li>
+          <li>Recovery &amp; Wellness Support</li>
+        </ul>
+
+        <a href="404.html" class="plan-button">
+          Get Started <span>→</span>
+        </a>
+
+      </div>
+
+      <!-- Elite Plan -->
+      <div class="pricing-card"
+           data-aos="fade-left"
+           data-aos-delay="400">
+
+        <div class="plan-icon">
+          <img
+            src="star.webp"
+            alt="Elite membership icon"
+          >
+        </div>
+
+        <h3>Elite</h3>
+
+        <p class="plan-description">
+          The ultimate plan for high performance and results.
+        </p>
+
+        <div class="plan-price">
+          $119<span>/month</span>
+        </div>
+
+        <ul class="plan-features">
+          <li>All Premium Benefits</li>
+          <li>Unlimited Personal Training</li>
+          <li>Advanced Performance Tracking</li>
+          <li>Sports-Specific Training</li>
+          <li>Priority Booking &amp; Support</li>
+        </ul>
+
+        <a href="404.html" class="plan-button">
+          Get Started <span>→</span>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================
+     STACKLY SPORTS CLUB - MEMBERSHIP BENEFITS
+========================================== -->
+
+<section class="stackly-benefits-section" id="membership-benefits">
+
+    <!-- SECTION INTRO -->
+    <div class="stackly-benefits-intro">
+
+        <div class="stackly-benefits-intro-content"
+             data-aos="fade-right"
+             data-aos-duration="1000">
+
+            <span class="stackly-benefits-label">
+                MEMBERSHIP BENEFITS
+            </span>
+
+            <h2>Why Choose Our Membership?</h2>
+
+            <p>
+                More than just a gym — we're a community that supports
+                your fitness journey every step of the way.
+            </p>
+
+        </div>
+
+        <a href="404.html"
+           class="stackly-benefits-join"
+           data-aos="zoom-in"
+           data-aos-delay="250">
+            Join Now
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+    <!-- BENEFITS CARDS -->
+    <div class="stackly-benefits-content">
+
+        <div class="stackly-benefits-grid">
+
+            <!-- BENEFIT 1 -->
+            <article class="stackly-benefit-card"
+                     data-aos="fade-up"
+                     data-aos-delay="100">
+
+                <div class="stackly-benefit-image">
+                    <img src="man1.webp"
+                         alt="Expert sports trainers">
+                </div>
+
+                <h3>Expert Trainers</h3>
+
+                <p>
+                    Certified & experienced professionals.
+                </p>
+
+            </article>
+
+            <!-- BENEFIT 2 -->
+            <article class="stackly-benefit-card"
+                     data-aos="fade-up"
+                     data-aos-delay="200">
+
+                <div class="stackly-benefit-image">
+                    <img src="fitness-icon.webp"
+                         alt="Modern sports training facilities">
+                </div>
+
+                <h3>Modern Facilities</h3>
+
+                <p>
+                    World-class equipment and clean environments.
+                </p>
+
+            </article>
+
+            <!-- BENEFIT 3 -->
+            <article class="stackly-benefit-card"
+                     data-aos="fade-up"
+                     data-aos-delay="300">
+
+                <div class="stackly-benefit-image">
+                    <img src="clock.webp"
+                         alt="Clock representing flexible training hours">
+                </div>
+
+                <h3>Flexible Timing</h3>
+
+                <p>
+                    Early morning to late evening sessions.
+                </p>
+
+            </article>
+
+            <!-- BENEFIT 4 -->
+            <article class="stackly-benefit-card"
+                     data-aos="fade-up"
+                     data-aos-delay="400">
+
+                <div class="stackly-benefit-image">
+                    <img src="two-person-icon.webp"
+                         alt="Group fitness classes">
+                </div>
+
+                <h3>Group Classes</h3>
+
+                <p>
+                    Stay motivated with fun and engaging classes.
+                </p>
+
+            </article>
+
+            <!-- BENEFIT 5 -->
+            <article class="stackly-benefit-card"
+                     data-aos="fade-up"
+                     data-aos-delay="500">
+
+                <div class="stackly-benefit-image">
+                    <img src="arrow-icon.webp"
+                         alt="Personalized training plans">
+                </div>
+
+                <h3>Personalized Plans</h3>
+
+                <p>
+                    Programs tailored to your goals.
+                </p>
+
+            </article>
+
+            <!-- BENEFIT 6 -->
+            <article class="stackly-benefit-card"
+                     data-aos="fade-up"
+                     data-aos-delay="600">
+
+                <div class="stackly-benefit-image">
+                    <img src="apple-img.webp"
+                         alt="Healthy nutrition and fruit">
+                </div>
+
+                <h3>Nutrition Guidance</h3>
+
+                <p>
+                    Diet plans for better performance and health.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+ 
+
+
+<!-- =====================================================
+     STACKLY SPORT CLUB - ADDITIONAL SERVICES
+     Image Icons + AOS Animations
+===================================================== -->
+
+<section class="additional-services">
+
+    <div class="additional-services-container">
+
+        <!-- LEFT IMAGE -->
+        <div class="additional-services-image"
+             data-aos="fade-right"
+             data-aos-duration="1000">
+
+            <img
+                src="additional-services-img.webp"
+                alt="Personal trainer assisting a member during a workout"
+                loading="lazy"
+            >
+
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div class="additional-services-content"
+             data-aos="fade-left"
+             data-aos-duration="1000"
+             data-aos-delay="150">
+
+            <!-- Section Heading -->
+            <span class="additional-services-label">
+                ADDITIONAL SERVICES
+            </span>
+
+            <h2>Special Membership Add-Ons</h2>
+
+            <p class="additional-services-description">
+                Enhance your fitness journey with our premium add-on services.
+            </p>
+
+            <!-- SERVICE LIST -->
+            <div class="additional-services-list">
+
+                <!-- SERVICE 1: PERSONAL TRAINING -->
+                <div class="additional-service-item"
+                     data-aos="fade-up"
+                     data-aos-delay="200">
+
+                    <div class="additional-service-name">
+
+                        <span class="service-icon">
+                            <img
+                                src="fitness-icon.webp"
+                                alt=""
+                                aria-hidden="true"
+                                loading="lazy"
+                            >
+                        </span>
+
+                        <span>Personal Training (1 Session)</span>
+
+                    </div>
+
+                    <span class="additional-service-price">$30</span>
+
+                </div>
+
+
+                <!-- SERVICE 2: NUTRITION CONSULTATION -->
+                <div class="additional-service-item"
+                     data-aos="fade-up"
+                     data-aos-delay="300">
+
+                    <div class="additional-service-name">
+
+                        <span class="service-icon">
+                            <img
+                                src="apple-img.webp"
+                                alt=""
+                                aria-hidden="true"
+                                loading="lazy"
+                            >
+                        </span>
+
+                        <span>Nutrition Consultation</span>
+
+                    </div>
+
+                    <span class="additional-service-price">$40</span>
+
+                </div>
+
+
+                <!-- SERVICE 3: BODY COMPOSITION ANALYSIS -->
+                <div class="additional-service-item"
+                     data-aos="fade-up"
+                     data-aos-delay="400">
+
+                    <div class="additional-service-name">
+
+                        <span class="service-icon">
+                            <img
+                                src="analysis-icon.webp"
+                                alt=""
+                                aria-hidden="true"
+                                loading="lazy"
+                            >
+                        </span>
+
+                        <span>Body Composition Analysis</span>
+
+                    </div>
+
+                    <span class="additional-service-price">$25</span>
+
+                </div>
+
+
+                <!-- SERVICE 4: SPORTS PERFORMANCE -->
+                <div class="additional-service-item"
+                     data-aos="fade-up"
+                     data-aos-delay="500">
+
+                    <div class="additional-service-name">
+
+                        <span class="service-icon">
+                            <img
+                                src="hero-img1.webp"
+                                alt=""
+                                aria-hidden="true"
+                                loading="lazy"
+                            >
+                        </span>
+
+                        <span>Sports Performance Package</span>
+
+                    </div>
+
+                    <span class="additional-service-price">$60</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- VIEW ALL SERVICES BUTTON -->
+            <a href="404.html"
+               class="additional-services-button">
+
+                View All Services
+
+                <span class="button-arrow" aria-hidden="true">→</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Testimonials & Plans Section -->
+<section class="member-section">
+  <div class="member-testimonial" data-aos="fade-right" data-aos-duration="1000">
+
+    <span class="member-eyebrow">WHAT OUR MEMBERS SAY</span>
+
+    <h2>Real People. Real Results.</h2>
+
+    <p class="member-description">
+      Join thousands of members who have transformed
+      their lives with us.
+    </p>
+
+    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+
+      <div class="testimonial-header">
+        <img
+          src="client-1.webp"
+          alt="Arun Kumar"
+          class="member-avatar"
+        >
+
+        <div class="member-info">
+          <h3>Arun Kumar</h3>
+          <p>Member</p>
+
+          <div class="member-stars" aria-label="5 out of 5 stars">
+            ★ ★ ★ ★ ★
+          </div>
+        </div>
+      </div>
+
+      <blockquote>
+        "The trainers are amazing and the programs are
+        well structured. I've seen real results in just
+        a few months!"
+      </blockquote>
+
+    </div>
+  </div>
+
+  <!-- Student & Corporate Plans -->
+  <div class="plans-card" data-aos="fade-left" data-aos-duration="1000">
+
+    
+<div class="plans-header">
+  <div class="plans-icon">
+    <img
+      src="student-icon.webp"
+      alt="Student and corporate plans"
+      class="plans-icon-img"
+    >
+  </div>
+
+  <div>
+    <h2>Student &amp; Corporate Plans</h2>
+    <p>Special discounts for students and corporate groups.</p>
+  </div>
+</div>
+
+
+    <ul class="plans-list">
+      <li>Student Discount (10%)</li>
+      <li>Corporate Group Rates</li>
+      <li>Flexible Payment Options</li>
+    </ul>
+
+    <a href="404.html" class="plans-button">
+      Get Started <span aria-hidden="true">→</span>
+    </a>
+
+  </div>
+</section>
+
+<section class="fitness-banner">
+    <div class="fitness-overlay"></div>
+
+    <div class="fitness-content" data-aos="fade-up" data-aos-duration="1000">
+        <span class="fitness-label">JOIN OUR COMMUNITY</span>
+
+        <h2>Ready to Transform Your Life?</h2>
+
+        <p>
+            Join our sports club and take the first step 
+            towards a stronger, healthier and happier you.
+        </p>
+    </div>
+
+    <div class="fitness-action" data-aos="fade-left" data-aos-duration="1000">
+        <a href="404.html" class="fitness-btn">
+            Join Now <span class="btn-arrow">→</span>
+        </a>
+    </div>
+</section>
+
+</body>
+</html>
+
+       
+</main>
+
+
+<footer class="stackly-footer">
+    <div class="footer-container">
+
+        <!-- Brand Section -->
+        <div class="footer-brand">
+            <a href="index.html" class="footer-logo">
+    <img src="Stackly-logo.webp" alt="Stackly Logo">
+</a>
+
+            <p class="brand-description">
+                Connecting farmers and consumers<br>
+                for a healthier and greener tomorrow.
+            </p>
+
+<div class="social-links">
+    <a href="404.html" aria-label="Facebook" target="_blank">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+
+    <a href="404.html" aria-label="X (Twitter)" target="_blank">
+        <i class="fa-brands fa-x-twitter"></i>
+    </a>
+
+    <a href="404.html" aria-label="Instagram" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="404.html" aria-label="YouTube" target="_blank">
+        <i class="fa-brands fa-youtube"></i>
+    </a>
+</div>
+
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Information -->
+        
+<div class="footer-column contact-column">
+    <h3>Contact Info</h3>
+
+    <!-- Address Icon -->
+    <div class="contact-item">
+        <span class="contact-icon">
+            <i class="fa-solid fa-location-dot"></i>
+        </span>
+        <a href="404.html"><p>
+            123 Fitness Street,<br>
+            Coimbatore, Tamil Nadu<br>
+            641001
+        </p></a>
+    </div>
+
+    <!-- Email Icon -->
+    <div class="contact-item">
+        <span class="contact-icon">
+            <i class="fa-solid fa-envelope"></i>
+        </span>
+        <a href="404.html">
+            info@stacklyclub.com
+        </a>
+    </div>
+
+    <!-- Phone Icon -->
+    <div class="contact-item">
+        <span class="contact-icon">
+            <i class="fa-solid fa-phone"></i>
+        </span>
+        <a href="404.html">
+            +91 98765 43210
+        </a>
+    </div>
+</div>
+
+
+        <!-- Working Hours -->
+        <div class="footer-column">
+            <h3>Working Hours</h3>
+            <p class="footer-text">
+                Mon - Sat: 6:00 AM - 10:00 PM
+            </p>
+            <p class="footer-text">
+                Sunday: 7:00 AM - 8:00 PM
+            </p>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-column newsletter-column">
+            <h3>Newsletter</h3>
+            <p class="newsletter-description">
+                Get the latest updates, tips and offers.
+            </p>
+
+            
+<form class="newsletter-form" id="newsletterForm" action="#" method="post">
+    <label for="newsletter-email" class="visually-hidden">
+        Your email address
+    </label>
+
+    <input
+        type="email"
+        id="newsletter-email"
+        name="email"
+        placeholder="Enter your email"
+        required
+    >
+
+    <button type="submit">Subscribe</button>
+</form>
+
+<p id="newsletterMessage" class="newsletter-message"
+   role="status" aria-live="polite"></p>
+
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>© 2025 Sports Club Training Academy. All rights reserved.</p>
+
+        <div class="bottom-links">
+            <a href="404.html">Privacy Policy</a>
+            <a href="404.html">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+ 
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
+    </main>
+
+
+    <!-- MOBILE MENU JAVASCRIPT -->
+    <script src="index.js"></script>
+
+</body>
+</html>
+

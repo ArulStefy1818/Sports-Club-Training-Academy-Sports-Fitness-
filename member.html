@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Member Dashboard | Stackly Sports Club</title>
+
+    <meta name="description"
+          content="Manage your workouts, training schedule, fitness progress and membership at Stackly Sports Club Training Academy.">
+
+    <link rel="icon" href="Stackly-logo-Blue.webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Separate CSS -->
+    <link rel="stylesheet" href="member.css">
+</head>
+
+<body>
+
+    <div class="stackly-member-dashboard">
+
+        <!-- MOBILE SIDEBAR OVERLAY -->
+        <div class="stackly-member-overlay"
+             id="memberOverlay"></div>
+
+        <!-- SIDEBAR -->
+        <aside class="stackly-member-sidebar" id="memberSidebar">
+
+            <!-- LOGO -->
+            <a href="member.html" class="stackly-member-logo">
+                <img src="Stackly-logo.webp"
+                     alt="Stackly Sports Club Logo">
+
+                 
+            </a>
+
+            <!-- MOBILE CLOSE BUTTON -->
+            <button class="stackly-member-close"
+                    id="memberClose"
+                    type="button"
+                    aria-label="Close navigation menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="stackly-member-sidebar-label">
+                MEMBER MENU
+            </div>
+
+            <!-- SIDEBAR NAVIGATION -->
+            <nav class="stackly-member-nav"
+                 aria-label="Member navigation">
+
+                <a href="member.html"
+                   class="stackly-member-nav-link active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="member-training.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-dumbbell"></i>
+                    <span>My Training</span>
+                </a>
+
+                <a href="member-workouts.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-person-running"></i>
+                    <span>Workout Plans</span>
+                </a>
+
+                <a href="member-schedule.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>Training Schedule</span>
+                    <span class="stackly-member-nav-count">3</span>
+                </a>
+
+                <a href="member-progress.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>My Progress</span>
+                </a>
+
+                <a href="member-membership.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>Membership</span>
+                </a>
+
+                <a href="member-payments.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Payments</span>
+                </a>
+
+                <a href="member-settings.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <!-- SIDEBAR BOTTOM CARD -->
+            <div class="stackly-member-sidebar-card">
+                <div class="stackly-member-sidebar-card-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+
+                <h3>Keep Pushing!</h3>
+
+                <p>
+                    Every workout brings you closer to your fitness goals.
+                </p>
+
+                <a href="404-member.html">
+                    Continue Training
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- SIDEBAR EXIT -->
+            <button type="button"
+                    class="stackly-member-logout"
+                    id="memberLogout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </button>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="stackly-member-main" id="dashboard">
+
+            <!-- TOP HEADER -->
+            <header class="stackly-member-header">
+
+                <div class="stackly-member-header-left">
+
+                    <!-- HAMBURGER -->
+                    <button class="stackly-member-hamburger"
+                            id="memberHamburger"
+                            type="button"
+                            aria-label="Open navigation menu"
+                            aria-controls="memberSidebar"
+                            aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div class="stackly-member-header-heading">
+                        <span class="stackly-member-header-label">
+                            MEMBER PORTAL
+                        </span>
+
+                        <h1>Member Dashboard</h1>
+                    </div>
+                </div>
+
+                <!-- HEADER RIGHT -->
+                <div class="stackly-member-header-right">
+
+                    <a href="404-member.html"><button class="stackly-member-notification"
+                            type="button"
+                            id="memberNotification"
+                            aria-label="View notifications">
+                        <i class="fa-regular fa-bell"></i>
+                        <span></span>
+                    </button></a>
+
+                    <!-- EMAIL MUST DISPLAY AT TOP RIGHT -->
+                    <div class="stackly-member-email">
+                        <span class="stackly-member-email-icon">
+                            <i class="fa-regular fa-user"></i>
+                        </span>
+
+                        <div class="stackly-member-email-details">
+                            <small>Logged in as</small>
+                            <strong id="memberEmail">
+                                member@stacklysports.com
+                            </strong>
+                        </div>
+                    </div>
+
+                </div>
+            </header>
+
+
+            <!-- DASHBOARD BODY -->
+            <div class="stackly-member-content">
+
+                <!-- WELCOME BANNER -->
+                <section class="stackly-member-welcome"
+                         data-aos="fade-up">
+
+                    <div class="stackly-member-welcome-overlay"></div>
+
+                    <div class="stackly-member-welcome-content">
+                        <span class="stackly-member-welcome-tag">
+                            <i class="fa-solid fa-bolt"></i>
+                            YOUR FITNESS JOURNEY
+                        </span>
+
+                        <h2>
+                            Welcome back,
+                            <span id="memberName">Champion!</span>
+                        </h2>
+
+                        <p>
+                            Stay consistent, challenge yourself, and make
+                            every training session count.
+                        </p>
+
+                        <a href="404-member.html"
+                           class="stackly-member-primary-btn">
+                            Explore My Training
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="stackly-member-welcome-badge">
+                        <i class="fa-solid fa-trophy"></i>
+                        <span>
+                            <strong>YOUR GOAL</strong>
+                            <small>Stronger Every Day</small>
+                        </span>
+                    </div>
+                </section>
+
+
+                <!-- PAGE TITLE -->
+                <section class="stackly-member-section-heading"
+                         data-aos="fade-up">
+
+                    <div>
+                        <h2>Your Fitness Overview</h2>
+                        <p>Track your activity and stay on target.</p>
+                    </div>
+
+                    <div class="stackly-member-current-date">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span id="memberCurrentDate">Loading date...</span>
+                    </div>
+                </section>
+
+
+                <!-- STATISTICS -->
+                <section class="stackly-member-stats-grid"
+                         aria-label="Fitness statistics">
+
+                    <article class="stackly-member-stat-card"
+                             data-aos="fade-up"
+                             data-aos-delay="50">
+
+                        <div class="stackly-member-stat-top">
+                            <span>Workout Sessions</span>
+                            <span class="stackly-member-stat-icon red">
+                                <i class="fa-solid fa-dumbbell"></i>
+                            </span>
+                        </div>
+
+                        <h3>18 <small>/ 24</small></h3>
+
+                        <div class="stackly-member-progress-track">
+                            <span style="width:75%"></span>
+                        </div>
+
+                        <p><strong>75%</strong> of your monthly goal</p>
+                    </article>
+
+
+                    <article class="stackly-member-stat-card"
+                             data-aos="fade-up"
+                             data-aos-delay="100">
+
+                        <div class="stackly-member-stat-top">
+                            <span>Training Hours</span>
+                            <span class="stackly-member-stat-icon orange">
+                                <i class="fa-regular fa-clock"></i>
+                            </span>
+                        </div>
+
+                        <h3>32.5 <small>hrs</small></h3>
+
+                        <div class="stackly-member-stat-note">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            <span>Keep your momentum going</span>
+                        </div>
+
+                        <p>Total hours this month</p>
+                    </article>
+
+
+                    <article class="stackly-member-stat-card"
+                             data-aos="fade-up"
+                             data-aos-delay="150">
+
+                        <div class="stackly-member-stat-top">
+                            <span>Calories Burned</span>
+                            <span class="stackly-member-stat-icon yellow">
+                                <i class="fa-solid fa-fire"></i>
+                            </span>
+                        </div>
+
+                        <h3>8,450 <small>kcal</small></h3>
+
+                        <div class="stackly-member-stat-note">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>Every movement counts</span>
+                        </div>
+
+                        <p>Estimated monthly total</p>
+                    </article>
+
+
+                    <article class="stackly-member-stat-card"
+                             data-aos="fade-up"
+                             data-aos-delay="200">
+
+                        <div class="stackly-member-stat-top">
+                            <span>Fitness Score</span>
+                            <span class="stackly-member-stat-icon green">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </span>
+                        </div>
+
+                        <h3>86<small>/100</small></h3>
+
+                        <div class="stackly-member-progress-track green-track">
+                            <span style="width:86%"></span>
+                        </div>
+
+                        <p><strong>Excellent!</strong> Keep improving</p>
+                    </article>
+
+                </section>
+
+
+                <!-- MIDDLE CONTENT GRID -->
+                <section class="stackly-member-main-grid">
+
+                    <!-- UPCOMING TRAINING -->
+                    <div class="stackly-member-panel"
+                         id="schedule"
+                         data-aos="fade-up">
+
+                        <div class="stackly-member-panel-heading">
+                            <div>
+                                <span class="stackly-member-panel-eyebrow">
+                                    STAY CONSISTENT
+                                </span>
+                                <h2>Upcoming Training</h2>
+                            </div>
+
+                            <a href="404-member.html"
+                               class="stackly-member-text-link">
+                                View all
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+
+
+                        <div class="stackly-member-session-list">
+
+                            <article class="stackly-member-session">
+                                <div class="stackly-member-session-date">
+                                    <strong>22</strong>
+                                    <span>OCT</span>
+                                </div>
+
+                                <div class="stackly-member-session-info">
+                                    <h3>Strength Training</h3>
+                                    <p>
+                                        <i class="fa-regular fa-clock"></i>
+                                        07:00 AM – 08:00 AM
+                                    </p>
+                                    <p>
+                                        <i class="fa-solid fa-user-tie"></i>
+                                        Coach Alex
+                                    </p>
+                                </div>
+
+                                <span class="stackly-member-status">
+                                    Confirmed
+                                </span>
+                            </article>
+
+
+                            <article class="stackly-member-session">
+                                <div class="stackly-member-session-date">
+                                    <strong>23</strong>
+                                    <span>OCT</span>
+                                </div>
+
+                                <div class="stackly-member-session-info">
+                                    <h3>Cardio & Endurance</h3>
+                                    <p>
+                                        <i class="fa-regular fa-clock"></i>
+                                        06:30 AM – 07:30 AM
+                                    </p>
+                                    <p>
+                                        <i class="fa-solid fa-user-tie"></i>
+                                        Coach Sarah
+                                    </p>
+                                </div>
+
+                                <span class="stackly-member-status">
+                                    Confirmed
+                                </span>
+                            </article>
+
+
+                            <article class="stackly-member-session">
+                                <div class="stackly-member-session-date">
+                                    <strong>25</strong>
+                                    <span>OCT</span>
+                                </div>
+
+                                <div class="stackly-member-session-info">
+                                    <h3>Functional Fitness</h3>
+                                    <p>
+                                        <i class="fa-regular fa-clock"></i>
+                                        08:00 AM – 09:00 AM
+                                    </p>
+                                    <p>
+                                        <i class="fa-solid fa-user-tie"></i>
+                                        Coach David
+                                    </p>
+                                </div>
+
+                                <span class="stackly-member-status">
+                                    Confirmed
+                                </span>
+                            </article>
+
+                        </div>
+                    </div>
+
+
+                    <!-- WEEKLY ACTIVITY -->
+                    <div class="stackly-member-panel"
+                         id="progress"
+                         data-aos="fade-up"
+                         data-aos-delay="100">
+
+                        <div class="stackly-member-panel-heading">
+                            <div>
+                                <span class="stackly-member-panel-eyebrow">
+                                    YOUR CONSISTENCY
+                                </span>
+                                <h2>Weekly Activity</h2>
+                            </div>
+
+                            <span class="stackly-member-week-badge">
+                                This Week
+                            </span>
+                        </div>
+
+                        <div class="stackly-member-activity-summary">
+                            <div>
+                                <h3>5 <small>sessions</small></h3>
+                                <p>Training completed</p>
+                            </div>
+
+                            <span class="stackly-member-activity-icon">
+                                <i class="fa-solid fa-medal"></i>
+                            </span>
+                        </div>
+
+                        <div class="stackly-member-chart"
+                             aria-label="Weekly workout activity chart">
+
+                            <div class="stackly-member-chart-column">
+                                <span class="stackly-member-chart-value"
+                                      style="height:45%"></span>
+                                <small>MON</small>
+                            </div>
+
+                            <div class="stackly-member-chart-column">
+                                <span class="stackly-member-chart-value"
+                                      style="height:72%"></span>
+                                <small>TUE</small>
+                            </div>
+
+                            <div class="stackly-member-chart-column">
+                                <span class="stackly-member-chart-value"
+                                      style="height:55%"></span>
+                                <small>WED</small>
+                            </div>
+
+                            <div class="stackly-member-chart-column">
+                                <span class="stackly-member-chart-value active"
+                                      style="height:90%"></span>
+                                <small>THU</small>
+                            </div>
+
+                            <div class="stackly-member-chart-column">
+                                <span class="stackly-member-chart-value"
+                                      style="height:65%"></span>
+                                <small>FRI</small>
+                            </div>
+
+                            <div class="stackly-member-chart-column">
+                                <span class="stackly-member-chart-value rest"
+                                      style="height:20%"></span>
+                                <small>SAT</small>
+                            </div>
+
+                            <div class="stackly-member-chart-column">
+                                <span class="stackly-member-chart-value rest"
+                                      style="height:15%"></span>
+                                <small>SUN</small>
+                            </div>
+                        </div>
+
+                        <div class="stackly-member-chart-footer">
+                            <span>
+                                <i class="fa-solid fa-circle"></i>
+                                Activity level
+                            </span>
+                            <span>Goal: 5 sessions</span>
+                        </div>
+                    </div>
+
+                </section>
+
+
+                <!-- LOWER CONTENT -->
+                <section class="stackly-member-bottom-grid">
+
+                    <!-- WORKOUT PLAN -->
+                    <article class="stackly-member-workout-card"
+                             id="workouts"
+                             data-aos="fade-up">
+
+                        <div class="stackly-member-workout-image">
+                            <img src="member-img.webp"
+                                 alt="Sports club workout training"
+                                 loading="lazy">
+
+                            <span class="stackly-member-workout-tag">
+                                ACTIVE PLAN
+                            </span>
+                        </div>
+
+                        <div class="stackly-member-workout-body">
+                            <span class="stackly-member-panel-eyebrow">
+                                YOUR PERSONAL PROGRAM
+                            </span>
+
+                            <h2>Full Body Strength</h2>
+
+                            <p>
+                                Build strength, improve endurance, and
+                                develop a consistent training routine.
+                            </p>
+
+                            <div class="stackly-member-workout-meta">
+                                <span>
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    4 days/week
+                                </span>
+
+                                <span>
+                                    <i class="fa-regular fa-clock"></i>
+                                    45 min/session
+                                </span>
+                            </div>
+
+                            <a href="404-member.html"
+                               class="stackly-member-primary-btn">
+                                View Workout Plan
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+
+                    <!-- MEMBERSHIP -->
+                    <article class="stackly-member-membership-card"
+                             id="membership"
+                             data-aos="fade-up"
+                             data-aos-delay="100">
+
+                        <div class="stackly-member-membership-top">
+                            <span class="stackly-member-membership-label">
+                                MEMBERSHIP OVERVIEW
+                            </span>
+
+                            <span class="stackly-member-membership-icon">
+                                <i class="fa-solid fa-crown"></i>
+                            </span>
+                        </div>
+
+                        <h2>Premium Fitness</h2>
+
+                        <p class="stackly-member-membership-description">
+                            Your membership is active. Keep making the
+                            most of your training experience.
+                        </p>
+
+                        <div class="stackly-member-membership-details">
+                            <div>
+                                <span>Member ID</span>
+                                <strong>SC-2026-0248</strong>
+                            </div>
+
+                            <div>
+                                <span>Membership Status</span>
+                                <strong class="stackly-member-active-status">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    Active
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Plan Renewal</span>
+                                <strong>30 Nov 2026</strong>
+                            </div>
+                        </div>
+
+                        <a href="404-member.html"
+                           class="stackly-member-membership-link">
+                            View Membership Details
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </article>
+
+                </section>
+
+
+                <!-- GOALS -->
+                <section class="stackly-member-goals-panel"
+                         id="training"
+                         data-aos="fade-up">
+
+                    <div class="stackly-member-panel-heading">
+                        <div>
+                            <span class="stackly-member-panel-eyebrow">
+                                SMALL STEPS, BIG RESULTS
+                            </span>
+
+                            <h2>Your Monthly Goals</h2>
+                        </div>
+
+                        <span class="stackly-member-goal-icon">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </span>
+                    </div>
+
+                    <div class="stackly-member-goals-grid">
+
+                        <div class="stackly-member-goal">
+                            <div class="stackly-member-goal-top">
+                                <span>Workout Sessions</span>
+                                <strong>18 / 24</strong>
+                            </div>
+
+                            <div class="stackly-member-goal-track">
+                                <span style="width:75%"></span>
+                            </div>
+
+                            <small>6 sessions remaining</small>
+                        </div>
+
+                        <div class="stackly-member-goal">
+                            <div class="stackly-member-goal-top">
+                                <span>Weekly Consistency</span>
+                                <strong>5 / 5</strong>
+                            </div>
+
+                            <div class="stackly-member-goal-track">
+                                <span style="width:100%"></span>
+                            </div>
+
+                            <small>Weekly goal completed!</small>
+                        </div>
+
+                        <div class="stackly-member-goal">
+                            <div class="stackly-member-goal-top">
+                                <span>Fitness Improvement</span>
+                                <strong>86 / 100</strong>
+                            </div>
+
+                            <div class="stackly-member-goal-track">
+                                <span style="width:86%"></span>
+                            </div>
+
+                            <small>You're making great progress</small>
+                        </div>
+
+                    </div>
+                </section>
+
+
+                <!-- PAYMENTS PLACEHOLDER -->
+                <section class="stackly-member-payment-note"
+                         id="payments"
+                         data-aos="fade-up">
+
+                    <div class="stackly-member-payment-icon">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+
+                    <div>
+                        <h2>Membership & Payments</h2>
+                        <p>
+                            Review your membership plan and payment
+                            information from your member account.
+                        </p>
+                    </div>
+
+                    <a href="404-member.html"
+                       class="stackly-member-secondary-btn">
+                        View Details
+                    </a>
+                </section>
+
+
+                <!-- SETTINGS PLACEHOLDER -->
+                <section class="stackly-member-settings-note"
+                         id="settings">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <p>
+                        Need to update your account information?
+                        Contact your academy administrator for profile
+                        and membership assistance.
+                    </p>
+                </section>
+
+            </div>
+        </main>
+
+    </div>
+
+
+    <!-- Separate JavaScript -->
+    <script src="member.js"></script>
+
+</body>
+</html>

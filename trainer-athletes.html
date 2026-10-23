@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trainer Dashboard | Stackly Sports Club</title>
+
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+    <link rel="stylesheet" href="trainer.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+
+<body class="stackly-coach-body">
+
+<div class="stackly-coach-layout">
+
+    <!-- MOBILE OVERLAY -->
+    <div class="stackly-coach-overlay" id="stacklyCoachOverlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="stackly-coach-sidebar" id="stacklyCoachSidebar">
+
+        <!-- SIDEBAR HEADER -->
+        <div class="stackly-coach-sidebar-header">
+
+            <a href="trainer.html" class="stackly-coach-logo" aria-label="Stackly Home">
+                <img src="Stackly-logo.webp" alt="Stackly Sports Club Logo">
+            </a>
+
+            <button
+                type="button"
+                class="stackly-coach-mobile-exit"
+                id="stacklyCoachMobileExit"
+                aria-label="Close navigation menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="stackly-coach-sidebar-label">TRAINER WORKSPACE</div>
+
+        <!-- SIDEBAR NAVIGATION -->
+        <nav class="stackly-coach-navigation" aria-label="Trainer navigation">
+
+            <a href="trainer.html"
+               class="stackly-coach-nav-link active"
+               aria-current="page">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="trainer-athletes.html" class="stackly-coach-nav-link">
+                <i class="fa-solid fa-users"></i>
+                <span>My Athletes</span>
+            </a>
+
+            <a href="trainer-training.html" class="stackly-coach-nav-link">
+                <i class="fa-solid fa-dumbbell"></i>
+                <span>Training Plans</span>
+            </a>
+
+            <a href="trainer-sessions.html" class="stackly-coach-nav-link">
+                <i class="fa-regular fa-calendar-check"></i>
+                <span>Training Sessions</span>
+            </a>
+
+            <a href="trainer-progress.html" class="stackly-coach-nav-link">
+                <i class="fa-solid fa-chart-simple"></i>
+                <span>Progress Reports</span>
+            </a>
+
+            <a href="trainer-profile.html" class="stackly-coach-nav-link">
+                <i class="fa-regular fa-user"></i>
+                <span>My Profile</span>
+            </a>
+
+        </nav>
+
+        <!-- SIDEBAR BOTTOM -->
+        <div class="stackly-coach-sidebar-bottom">
+
+            <div class="stackly-coach-sidebar-help">
+                <div class="stackly-coach-help-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <div>
+                    <strong>Need Help?</strong>
+                    <p>Contact support</p>
+                </div>
+            </div>
+
+            <button type="button"
+                    class="stackly-coach-logout"
+                    id="stacklyCoachLogout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="stackly-coach-main">
+
+        <!-- TOP HEADER -->
+        <header class="stackly-coach-topbar">
+
+            <div class="stackly-coach-topbar-left">
+
+                <button
+                    type="button"
+                    class="stackly-coach-hamburger"
+                    id="stacklyCoachHamburger"
+                    aria-label="Open navigation menu"
+                    aria-controls="stacklyCoachSidebar"
+                    aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="stackly-coach-page-heading">
+                    <h1>Trainer Dashboard</h1>
+                    <p>Manage your athletes and training sessions.</p>
+                </div>
+
+            </div>
+
+            <!-- EMAIL AT TOP RIGHT -->
+            <div class="stackly-coach-topbar-right">
+
+                <a href="404-trainer.html"
+                   class="stackly-coach-notification"
+                   aria-label="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="stackly-coach-notification-dot"></span>
+                </a>
+
+                <div class="stackly-coach-user-info">
+                    <div class="stackly-coach-user-avatar">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+
+                    <div class="stackly-coach-user-details">
+                        <strong id="stacklyCoachTopName">Trainer</strong>
+                        <span id="stacklyCoachTopEmail">trainer@stacklysports.com</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+
+<!-- ==========================================
+     STACKLY SPORTS CLUB
+     MY ATHLETES - DASHBOARD CONTENT
+========================================== -->
+
+<div class="stackly-coach-content">
+
+    <!-- ATHLETES HERO BANNER -->
+    <section class="stackly-coach-athletes-hero" data-aos="fade-up">
+
+        <div class="stackly-coach-athletes-hero-content">
+            <span class="stackly-coach-athletes-eyebrow">
+                <i class="fa-solid fa-users"></i>
+                ATHLETE MANAGEMENT
+            </span>
+
+            <h2>Every Athlete. Every Milestone. Every Victory.</h2>
+
+            <p>
+                Get to know your athletes, monitor their training journey,
+                and help every member achieve their personal best.
+            </p>
+
+            <div class="stackly-coach-athletes-hero-actions">
+                <a href="404-trainer.html"
+                   class="stackly-coach-athletes-primary-btn">
+                    Explore Athletes
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <a href="404-trainer.html"
+                   class="stackly-coach-athletes-secondary-btn">
+                    <i class="fa-solid fa-chart-line"></i>
+                    View Progress
+                </a>
+            </div>
+        </div>
+
+        <div class="stackly-coach-athletes-hero-visual">
+            <div class="stackly-coach-athletes-visual-ring">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+
+            <span class="stackly-coach-athletes-visual-label">
+                BUILT TO ACHIEVE
+            </span>
+
+            <div class="stackly-coach-athletes-floating-card">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                <div>
+                    <strong>+24%</strong>
+                    <span>Performance Growth</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ATHLETE OVERVIEW -->
+    <section class="stackly-coach-athlete-overview"
+             data-aos="fade-up"
+             data-aos-delay="80">
+
+        <div class="stackly-coach-athlete-overview-heading">
+            <div>
+                <span class="stackly-coach-athlete-section-label">
+                    YOUR TEAM AT A GLANCE
+                </span>
+                <h2>Athlete Overview</h2>
+                <p>Key numbers from your athlete management workspace.</p>
+            </div>
+
+            <span class="stackly-coach-athlete-live-badge">
+                <span></span>
+                Team Overview
+            </span>
+        </div>
+
+        <div class="stackly-coach-athlete-stats">
+
+            <article class="stackly-coach-athlete-stat-card"
+                     data-aos="fade-up">
+                <div class="stackly-coach-athlete-stat-icon red">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <span>Total Athletes</span>
+                <h3>248</h3>
+                <p><i class="fa-solid fa-arrow-trend-up"></i> Registered athletes</p>
+            </article>
+
+            <article class="stackly-coach-athlete-stat-card"
+                     data-aos="fade-up"
+                     data-aos-delay="80">
+                <div class="stackly-coach-athlete-stat-icon green">
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+                <span>Active Athletes</span>
+                <h3>216</h3>
+                <p>Currently participating</p>
+            </article>
+
+            <article class="stackly-coach-athlete-stat-card"
+                     data-aos="fade-up"
+                     data-aos-delay="160">
+                <div class="stackly-coach-athlete-stat-icon orange">
+                    <i class="fa-solid fa-fire"></i>
+                </div>
+                <span>Training Consistency</span>
+                <h3>86%</h3>
+                <p>Weekly attendance rate</p>
+            </article>
+
+            <article class="stackly-coach-athlete-stat-card"
+                     data-aos="fade-up"
+                     data-aos-delay="240">
+                <div class="stackly-coach-athlete-stat-icon blue">
+                    <i class="fa-solid fa-medal"></i>
+                </div>
+                <span>Top Performers</span>
+                <h3>18</h3>
+                <p>Excellent progress records</p>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- ATHLETE DIRECTORY -->
+    <section class="stackly-coach-athlete-directory"
+             id="stacklyCoachAthleteDirectory"
+             data-aos="fade-up">
+
+        <div class="stackly-coach-athlete-directory-header">
+            <div>
+                <span class="stackly-coach-athlete-section-label">
+                    KNOW YOUR TEAM
+                </span>
+                <h2>Your Athletes</h2>
+                <p>Review athlete profiles, specialties, and current training status.</p>
+            </div>
+
+            <div class="stackly-coach-athlete-directory-count">
+                <i class="fa-solid fa-address-book"></i>
+                <span>Team Directory</span>
+            </div>
+        </div>
+
+        <!-- SEARCH AND FILTER -->
+        <div class="stackly-coach-athlete-toolbar">
+
+            <label class="stackly-coach-athlete-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search"
+                       id="stacklyCoachAthleteSearch"
+                       placeholder="Search athletes by name or specialty..."
+                       aria-label="Search athletes">
+            </label>
+
+            <select id="stacklyCoachAthleteFilter"
+                    class="stackly-coach-athlete-filter"
+                    aria-label="Filter athletes by status">
+                <option value="all">All Athletes</option>
+                <option value="active">Active</option>
+                <option value="progress">Improving</option>
+                <option value="review">Needs Review</option>
+            </select>
+
+        </div>
+
+        <!-- ATHLETE CARDS -->
+        <div class="stackly-coach-athlete-grid"
+             id="stacklyCoachAthleteGrid">
+
+            <article class="stackly-coach-athlete-card"
+                     data-athlete-name="Alex Morgan"
+                     data-athlete-specialty="Strength Training"
+                     data-athlete-status="active"
+                     data-aos="fade-up">
+
+                <div class="stackly-coach-athlete-card-top">
+                    <span class="stackly-coach-athlete-number">ATHLETE 01</span>
+                    <span class="stackly-coach-athlete-status active">
+                        <span></span> Active
+                    </span>
+                </div>
+
+                <div class="stackly-coach-athlete-avatar avatar-red">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <h3>Alex Morgan</h3>
+                <p class="stackly-coach-athlete-specialty">
+                    Strength & Conditioning
+                </p>
+
+                <div class="stackly-coach-athlete-metrics">
+                    <div>
+                        <span>Attendance</span>
+                        <strong>92%</strong>
+                    </div>
+                    <div>
+                        <span>Progress</span>
+                        <strong>85%</strong>
+                    </div>
+                </div>
+
+                <div class="stackly-coach-athlete-progress-track">
+                    <span style="width:85%"></span>
+                </div>
+
+                <div class="stackly-coach-athlete-card-footer">
+                    <span><i class="fa-regular fa-clock"></i> Last session: Today</span>
+                    <a href="404-trainer.html"
+                       aria-label="View Alex Morgan progress">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </article>
+
+
+            <article class="stackly-coach-athlete-card"
+                     data-athlete-name="Sarah Williams"
+                     data-athlete-specialty="Cardio Training"
+                     data-athlete-status="progress"
+                     data-aos="fade-up"
+                     data-aos-delay="80">
+
+                <div class="stackly-coach-athlete-card-top">
+                    <span class="stackly-coach-athlete-number">ATHLETE 02</span>
+                    <span class="stackly-coach-athlete-status improving">
+                        <span></span> Improving
+                    </span>
+                </div>
+
+                <div class="stackly-coach-athlete-avatar avatar-blue">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <h3>Sarah Williams</h3>
+                <p class="stackly-coach-athlete-specialty">
+                    Cardio & Endurance
+                </p>
+
+                <div class="stackly-coach-athlete-metrics">
+                    <div>
+                        <span>Attendance</span>
+                        <strong>88%</strong>
+                    </div>
+                    <div>
+                        <span>Progress</span>
+                        <strong>76%</strong>
+                    </div>
+                </div>
+
+                <div class="stackly-coach-athlete-progress-track">
+                    <span style="width:76%"></span>
+                </div>
+
+                <div class="stackly-coach-athlete-card-footer">
+                    <span><i class="fa-regular fa-clock"></i> Last session: Yesterday</span>
+                    <a href="404-trainer.html"
+                       aria-label="View Sarah Williams progress">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </article>
+
+
+            <article class="stackly-coach-athlete-card"
+                     data-athlete-name="Daniel Lee"
+                     data-athlete-specialty="Mobility Training"
+                     data-athlete-status="review"
+                     data-aos="fade-up"
+                     data-aos-delay="160">
+
+                <div class="stackly-coach-athlete-card-top">
+                    <span class="stackly-coach-athlete-number">ATHLETE 03</span>
+                    <span class="stackly-coach-athlete-status review">
+                         <span></span> Review
+                    </span>
+                </div>
+
+                <div class="stackly-coach-athlete-avatar avatar-purple">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <h3>Daniel Lee</h3>
+                <p class="stackly-coach-athlete-specialty">
+                    Mobility & Recovery
+                </p>
+
+                <div class="stackly-coach-athlete-metrics">
+                    <div>
+                        <span>Attendance</span>
+                        <strong>68%</strong>
+                    </div>
+                    <div>
+                        <span>Progress</span>
+                        <strong>54%</strong>
+                    </div>
+                </div>
+
+                <div class="stackly-coach-athlete-progress-track">
+                    <span style="width:54%"></span>
+                </div>
+
+                <div class="stackly-coach-athlete-card-footer">
+                    <span><i class="fa-regular fa-clock"></i> Last session: 3 days ago</span>
+                    <a href="404-trainer.html"
+                       aria-label="View Daniel Lee progress">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </article>
+
+
+            <article class="stackly-coach-athlete-card"
+                     data-athlete-name="Ryan Cooper"
+                     data-athlete-specialty="Functional Fitness"
+                     data-athlete-status="active"
+                     data-aos="fade-up"
+                     data-aos-delay="240">
+
+                <div class="stackly-coach-athlete-card-top">
+                    <span class="stackly-coach-athlete-number">ATHLETE 04</span>
+                    <span class="stackly-coach-athlete-status active">
+                        <span></span> Active
+                    </span>
+                </div>
+
+                <div class="stackly-coach-athlete-avatar avatar-orange">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <h3>Ryan Cooper</h3>
+                <p class="stackly-coach-athlete-specialty">
+                    Functional Fitness
+                </p>
+
+                <div class="stackly-coach-athlete-metrics">
+                    <div>
+                        <span>Attendance</span>
+                        <strong>95%</strong>
+                    </div>
+                    <div>
+                        <span>Progress</span>
+                        <strong>89%</strong>
+                    </div>
+                </div>
+
+                <div class="stackly-coach-athlete-progress-track">
+                    <span style="width:89%"></span>
+                </div>
+
+                <div class="stackly-coach-athlete-card-footer">
+                    <span><i class="fa-regular fa-clock"></i> Last session: Today</span>
+                    <a href="404-trainer.html"
+                       aria-label="View Ryan Cooper progress">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+
+        <p class="stackly-coach-athlete-no-results"
+           id="stacklyCoachAthleteNoResults"
+           hidden>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            No athletes match your search. Try another name or filter.
+        </p>
+
+    </section>
+
+
+    <!-- ATTENDANCE AND PERFORMANCE -->
+    <section class="stackly-coach-athlete-insights">
+
+        <article class="stackly-coach-athlete-insight-panel"
+                 data-aos="fade-up">
+
+            <div class="stackly-coach-athlete-insight-heading">
+                <div class="stackly-coach-athlete-insight-icon">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <div>
+                    <h2>Attendance Snapshot</h2>
+                    <p>Weekly team participation</p>
+                </div>
+            </div>
+
+            <div class="stackly-coach-athlete-attendance-score">
+                <div>
+                    <strong>86%</strong>
+                    <span>Average attendance</span>
+                </div>
+                <span class="stackly-coach-athlete-attendance-tag">
+                    Team Overview
+                </span>
+            </div>
+
+            <div class="stackly-coach-athlete-attendance-bar">
+                <span style="width:86%"></span>
+            </div>
+
+            <div class="stackly-coach-athlete-attendance-legend">
+                <span><i></i> Attended <strong>86%</strong></span>
+                <span><i></i> Missed <strong>14%</strong></span>
+            </div>
+
+            <a href="404-trainer.html"
+               class="stackly-coach-athlete-insight-link">
+                Review Training Sessions
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </article>
+
+
+        <article class="stackly-coach-athlete-insight-panel"
+                 data-aos="fade-up"
+                 data-aos-delay="120">
+
+            <div class="stackly-coach-athlete-insight-heading">
+                <div class="stackly-coach-athlete-insight-icon performance">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <div>
+                    <h2>Performance Priorities</h2>
+                    <p>Areas to focus on this week</p>
+                </div>
+            </div>
+
+            <div class="stackly-coach-athlete-priority-list">
+
+                <div class="stackly-coach-athlete-priority-item">
+                    <div class="stackly-coach-athlete-priority-symbol red">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+                    <div>
+                        <strong>Strength Development</strong>
+                        <span>Continue progressive training plans</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+
+                <div class="stackly-coach-athlete-priority-item">
+                    <div class="stackly-coach-athlete-priority-symbol orange">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <div>
+                        <strong>Attendance Improvement</strong>
+                        <span>Follow up on missed sessions</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+
+                <div class="stackly-coach-athlete-priority-item">
+                    <div class="stackly-coach-athlete-priority-symbol green">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <strong>Progress Reviews</strong>
+                        <span>Update individual athlete goals</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+
+            </div>
+
+            <a href="404-trainer.html"
+               class="stackly-coach-athlete-insight-link">
+                Open Progress Reports
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </article>
+
+    </section>
+
+
+    <!-- TRAINER REMINDER BANNER -->
+    <section class="stackly-coach-athlete-reminder"
+             data-aos="zoom-in">
+
+        <div class="stackly-coach-athlete-reminder-icon">
+            <i class="fa-solid fa-lightbulb"></i>
+        </div>
+
+        <div class="stackly-coach-athlete-reminder-text">
+            <span>TRAINER TIP OF THE WEEK</span>
+            <h2>Progress Starts With Personal Attention.</h2>
+            <p>
+                Celebrate small wins, adjust plans when needed, and keep
+                every athlete motivated through consistent feedback.
+            </p>
+        </div>
+
+        <a href="404-trainer.html"
+           class="stackly-coach-athlete-reminder-btn">
+            Review Training Plans
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </section>
+
+</div>
+
+</main>
+
+</div>
+
+<!-- AOS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<!-- Dashboard JavaScript -->
+<script src="trainer.js"></script>
+
+</body>
+</html>

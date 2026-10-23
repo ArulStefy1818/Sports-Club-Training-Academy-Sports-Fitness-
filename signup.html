@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up | Stackly Sports Club</title>
+    <meta name="description" content="Create your Stackly Sports Club account and start your fitness journey.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body class="stackly-signup-body">
+
+    <main class="stackly-signup-wrapper">
+
+        <!-- LEFT: SIGNUP FORM -->
+        <section class="stackly-signup-form-panel">
+
+            <a href="index.html" class="stackly-signup-home-link" aria-label="Go back home">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Go Back Home</span>
+            </a>
+
+            <div class="stackly-signup-form-content">
+
+                <header class="stackly-signup-heading">
+                    <h1>Create Your Account</h1>
+                    <p>Join our community and start your fitness journey.</p>
+                </header>
+
+                <form id="stacklySignupForm" class="stackly-signup-form" novalidate>
+
+                    <!-- FULL NAME -->
+                    <div class="stackly-signup-field">
+                        <label for="stacklyFullName">Full Name <span>*</span></label>
+                        <div class="stackly-signup-input-wrap">
+                            <i class="fa-solid fa-user"></i>
+                            <input
+                                type="text"
+                                id="stacklyFullName"
+                                name="fullName"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required
+                                minlength="2">
+                        </div>
+                        <small class="stackly-signup-error" id="stacklyNameError"></small>
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="stackly-signup-field">
+                        <label for="stacklyEmail">Email Address <span>*</span></label>
+                        <div class="stackly-signup-input-wrap">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input
+                                type="email"
+                                id="stacklyEmail"
+                                name="email"
+                                placeholder="Enter your email address"
+                                autocomplete="email"
+                                required>
+                        </div>
+                        <small class="stackly-signup-error" id="stacklyEmailError"></small>
+                    </div>
+
+                    <!-- PHONE -->
+                    <div class="stackly-signup-field">
+                        <label for="stacklyPhone">Phone Number <span>*</span></label>
+                        <div class="stackly-signup-input-wrap">
+                            <i class="fa-solid fa-phone"></i>
+                            <input
+                                type="tel"
+                                id="stacklyPhone"
+                                name="phone"
+                                placeholder="Enter your phone number"
+                                autocomplete="tel"
+                                inputmode="tel"
+                                required>
+                        </div>
+                        <small class="stackly-signup-error" id="stacklyPhoneError"></small>
+                    </div>
+
+                    <!-- PASSWORD -->
+                    <div class="stackly-signup-field">
+                        <label for="stacklyPassword">Password <span>*</span></label>
+                        <div class="stackly-signup-input-wrap">
+                            <i class="fa-solid fa-lock"></i>
+                            <input
+                                type="password"
+                                id="stacklyPassword"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="new-password"
+                                minlength="6"
+                                required>
+                            <button
+                                type="button"
+                                class="stackly-signup-password-toggle"
+                                data-password-target="stacklyPassword"
+                                aria-label="Show password"
+                                aria-pressed="false">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                        <small class="stackly-signup-error" id="stacklyPasswordError"></small>
+                    </div>
+
+                    <!-- CONFIRM PASSWORD -->
+                    <div class="stackly-signup-field">
+                        <label for="stacklyConfirmPassword">Confirm Password <span>*</span></label>
+                        <div class="stackly-signup-input-wrap">
+                            <i class="fa-solid fa-lock"></i>
+                            <input
+                                type="password"
+                                id="stacklyConfirmPassword"
+                                name="confirmPassword"
+                                placeholder="Confirm your password"
+                                autocomplete="new-password"
+                                required>
+                            <button
+                                type="button"
+                                class="stackly-signup-password-toggle"
+                                data-password-target="stacklyConfirmPassword"
+                                aria-label="Show confirm password"
+                                aria-pressed="false">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                        <small class="stackly-signup-error" id="stacklyConfirmError"></small>
+                    </div>
+
+                    <!-- ROLE -->
+                    
+<!-- ==========================================
+     STACKLY SIGNUP - ROLE SELECTION
+     Image-Based Icons
+========================================== -->
+
+<fieldset class="stackly-signup-role-field">
+
+    <legend>Select Role <span>*</span></legend>
+
+    <div class="stackly-signup-role-options">
+
+        <!-- MEMBER -->
+        <label class="stackly-signup-role-option">
+            <input
+                type="radio"
+                name="role"
+                value="Member"
+                checked
+                required>
+
+            <span>
+                <img
+                    src="checkbox-icon.webp"
+                    alt=""
+                    class="stackly-signup-role-image">
+                <span class="stackly-signup-role-text">Member</span>
+            </span>
+        </label>
+
+        <!-- COACH -->
+        <label class="stackly-signup-role-option">
+            <input
+                type="radio"
+                name="role"
+                value="Coach">
+
+            <span>
+                <img
+                    src="hero-img2.webp"
+                    alt=""
+                    class="stackly-signup-role-image">
+                <span class="stackly-signup-role-text">Coach</span>
+            </span>
+        </label>
+
+        <!-- TRAINER -->
+        <label class="stackly-signup-role-option">
+            <input
+                type="radio"
+                name="role"
+                value="Trainer">
+
+            <span>
+                <img
+                    src="person-icon.webp"
+                    alt=""
+                    class="stackly-signup-role-image">
+                <span class="stackly-signup-role-text">Trainer</span>
+            </span>
+        </label>
+
+        <!-- OTHER -->
+        <label class="stackly-signup-role-option">
+            <input
+                type="radio"
+                name="role"
+                value="Other">
+
+            <span>
+                <img
+                    src="parcel-icon.webp"
+                    alt=""
+                    class="stackly-signup-role-image">
+                <span class="stackly-signup-role-text">Other</span>
+            </span>
+        </label>
+
+    </div>
+
+</fieldset>
+
+
+                    <!-- TERMS -->
+                    <div class="stackly-signup-terms">
+                        <input type="checkbox" id="stacklyTerms" name="terms" required>
+                        <label for="stacklyTerms">
+                            I agree to the
+                            <a href="404.html">Terms &amp; Conditions</a>
+                            and
+                            <a href="404.html">Privacy Policy</a>.
+                        </label>
+                    </div>
+                    <small class="stackly-signup-error" id="stacklyTermsError"></small>
+
+                    <!-- STATUS MESSAGE -->
+                    <p class="stackly-signup-status" id="stacklySignupStatus" role="status" aria-live="polite"></p>
+
+                    <!-- SUBMIT -->
+                    <button type="submit" class="stackly-signup-submit">
+                        <span>Create Account</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <!-- SIGN IN -->
+                    <p class="stackly-signup-signin">
+                        Already have an account?
+                        <a href="login.html">Sign In <i class="fa-solid fa-arrow-right"></i></a>
+                    </p>
+
+                </form>
+            </div>
+        </section>
+
+        <!-- RIGHT: FITNESS IMAGE PANEL -->
+        <aside class="stackly-signup-visual" aria-label="Stackly Sports Club Training Academy">
+
+            <div class="stackly-signup-visual-overlay"></div>
+<a href="index.html"
+   class="stackly-signup-brand"
+   aria-label="Stackly home">
+
+    <img
+        src="Stackly-logo.webp"
+        alt="Stackly Sports Club Logo"
+        class="stackly-signup-brand-image">
+
+</a>
+
+            <div class="stackly-signup-visual-message">
+                <p class="stackly-signup-motto">
+                    Better Health<br>
+                    Bigger Goals
+                </p>
+
+                <div class="stackly-signup-visual-divider"></div>
+
+                <p class="stackly-signup-visual-caption">
+                    SPORTS CLUB TRAINING ACADEMY
+                </p>
+            </div>
+
+        </aside>
+
+    </main>
+
+     <script src="signup.js"></script>
+
+</body>
+</html>

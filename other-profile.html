@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Others Dashboard | Stackly Sports Club</title>
+
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+    <link rel="stylesheet" href="other.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+
+<body class="stackly-others-body">
+
+<div class="stackly-others-layout">
+
+    <!-- MOBILE OVERLAY -->
+    <div class="stackly-others-overlay" id="stacklyOthersOverlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="stackly-others-sidebar" id="stacklyOthersSidebar">
+
+        <!-- SIDEBAR HEADER -->
+        <div class="stackly-others-sidebar-header">
+
+            <a href="other.html"
+               class="stackly-others-logo"
+               aria-label="Stackly Sports Club Home">
+                <img src="Stackly-logo.webp" alt="Stackly Sports Club Logo">
+            </a>
+
+            <!-- MOBILE EXIT BUTTON -->
+            <button type="button"
+                    class="stackly-others-mobile-exit"
+                    id="stacklyOthersMobileExit"
+                    aria-label="Close navigation menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="stackly-others-sidebar-label">
+            TRAINER WORKSPACE
+        </div>
+
+        <!-- SIDEBAR NAVIGATION -->
+        <nav class="stackly-others-navigation"
+             aria-label="Trainer navigation">
+
+            <a href="other.html" class="stackly-others-nav-link">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="other-athletes.html" class="stackly-others-nav-link">
+                <i class="fa-solid fa-users"></i>
+                <span>My Athletes</span>
+            </a>
+
+            <a href="other-training.html" class="stackly-others-nav-link">
+                <i class="fa-solid fa-dumbbell"></i>
+                <span>Training Plans</span>
+            </a>
+
+            <a href="other-sessions.html" class="stackly-others-nav-link">
+                <i class="fa-regular fa-calendar-check"></i>
+                <span>Training Sessions</span>
+            </a>
+
+            <a href="other-progress.html" class="stackly-others-nav-link">
+                <i class="fa-solid fa-chart-simple"></i>
+                <span>Progress Reports</span>
+            </a>
+
+            <a href="other-profile.html" class="stackly-others-nav-link">
+                <i class="fa-regular fa-user"></i>
+                <span>My Profile</span>
+            </a>
+ 
+
+        </nav>
+
+        <!-- SIDEBAR BOTTOM -->
+        <div class="stackly-others-sidebar-bottom">
+
+            <div class="stackly-others-help">
+                <div class="stackly-others-help-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <div>
+                    <strong>Need Help?</strong>
+                    <p>Contact support</p>
+                </div>
+            </div>
+
+            <button type="button"
+                    class="stackly-others-logout"
+                    id="stacklyOthersLogout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="stackly-others-main">
+
+        <!-- TOP HEADER -->
+        <header class="stackly-others-topbar">
+
+            <div class="stackly-others-topbar-left">
+
+                <!-- MOBILE HAMBURGER -->
+                <button type="button"
+                        class="stackly-others-hamburger"
+                        id="stacklyOthersHamburger"
+                        aria-label="Open navigation menu"
+                        aria-controls="stacklyOthersSidebar"
+                        aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="stackly-others-page-heading">
+                    <h1>Others dashboard</h1>
+                    <p>Access additional trainer tools and resources.</p>
+                </div>
+
+            </div>
+
+            <!-- TOP RIGHT: EMAIL -->
+            <div class="stackly-others-topbar-right">
+
+                <a href="404-other.html"
+                   class="stackly-others-notification"
+                   aria-label="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="stackly-others-notification-dot"></span>
+                </a>
+
+                <div class="stackly-others-user-info">
+
+                    <div class="stackly-others-user-avatar">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+
+                    <div class="stackly-others-user-details">
+                        <strong id="stacklyOthersTopName">Trainer</strong>
+                        <span id="stacklyOthersTopEmail">
+                            trainer@stacklysports.com
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+<!-- ==========================================
+     STACKLY SPORTS CLUB
+     MY PROFILE PAGE - HTML
+========================================== -->
+ 
+<div class="stackly-profile-page">
+
+    <!-- ======================================
+         1. PROFILE HERO
+    ======================================= -->
+
+    <section class="stackly-profile-hero" data-aos="fade-up">
+
+        <div class="stackly-profile-hero-content">
+
+            <span class="stackly-profile-eyebrow">
+                <i class="fa-solid fa-user-check"></i>
+                TRAINER PROFILE
+            </span>
+
+            <h2>Build Better Athletes.<br>
+                <span>Lead With Passion.</span>
+            </h2>
+
+            <p>
+                Manage your professional details, showcase your coaching
+                expertise, and keep your trainer profile up to date.
+            </p>
+
+            <div class="stackly-profile-hero-actions">
+
+                <a href="404-other.html"
+                   class="stackly-profile-primary-btn">
+                    <i class="fa-solid fa-user-pen"></i>
+                    View My Details
+                </a>
+
+                <a href="404-other.html"
+                   class="stackly-profile-outline-btn">
+                    <i class="fa-solid fa-medal"></i>
+                    My Expertise
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="stackly-profile-hero-card">
+
+            <div class="stackly-profile-cover-pattern"></div>
+
+            <div class="stackly-profile-avatar">
+                <i class="fa-solid fa-user-tie"></i>
+                <span class="stackly-profile-online-dot"></span>
+            </div>
+
+            <span class="stackly-profile-status">
+                <i class="fa-solid fa-circle-check"></i>
+                Active Trainer
+            </span>
+
+            <h3 data-user-name>Alex Morgan</h3>
+
+            <p>Fitness & Performance Coach</p>
+
+            <div class="stackly-profile-hero-divider"></div>
+
+            <div class="stackly-profile-hero-meta">
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Chennai, India
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-envelope"></i>
+                    trainer@stacklysports.com
+                </span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         2. PROFILE QUICK STATS
+    ======================================= -->
+
+    <section class="stackly-profile-stats" data-aos="fade-up">
+
+        <article class="stackly-profile-stat-card"
+                 data-aos="fade-up"
+                 data-aos-delay="50">
+
+            <div class="stackly-profile-stat-icon red">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <div>
+                <span>Athletes</span>
+                <h3>24</h3>
+                <p>Under your guidance</p>
+            </div>
+
+        </article>
+
+        <article class="stackly-profile-stat-card"
+                 data-aos="fade-up"
+                 data-aos-delay="100">
+
+            <div class="stackly-profile-stat-icon orange">
+                <i class="fa-solid fa-calendar-check"></i>
+            </div>
+
+            <div>
+                <span>Sessions</span>
+                <h3>48</h3>
+                <p>Planned this month</p>
+            </div>
+
+        </article>
+
+        <article class="stackly-profile-stat-card"
+                 data-aos="fade-up"
+                 data-aos-delay="150">
+
+            <div class="stackly-profile-stat-icon green">
+                <i class="fa-solid fa-award"></i>
+            </div>
+
+            <div>
+                <span>Experience</span>
+                <h3>5 Years</h3>
+                <p>Coaching experience</p>
+            </div>
+
+        </article>
+
+        <article class="stackly-profile-stat-card"
+                 data-aos="fade-up"
+                 data-aos-delay="200">
+
+            <div class="stackly-profile-stat-icon purple">
+                <i class="fa-solid fa-star"></i>
+            </div>
+
+            <div>
+                <span>Specialties</span>
+                <h3>04</h3>
+                <p>Core training areas</p>
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- ======================================
+         3. PERSONAL INFORMATION
+    ======================================= -->
+
+    <section class="stackly-profile-details"
+             id="stacklyProfileDetails"
+             data-aos="fade-up">
+
+        <div class="stackly-profile-section-heading">
+
+            <div>
+                <span class="stackly-profile-label">
+                    PERSONAL INFORMATION
+                </span>
+
+                <h2>About My Profile</h2>
+
+                <p>
+                    A quick overview of your contact details
+                    and professional information.
+                </p>
+            </div>
+
+            <span class="stackly-profile-section-icon">
+                <i class="fa-regular fa-address-card"></i>
+            </span>
+
+        </div>
+
+        <div class="stackly-profile-details-grid">
+
+            <article class="stackly-profile-info-card">
+
+                <span class="stackly-profile-info-icon">
+                    <i class="fa-solid fa-user"></i>
+                </span>
+
+                <div>
+                    <small>Full Name</small>
+                    <h3>Alex Morgan</h3>
+                </div>
+
+            </article>
+
+            <article class="stackly-profile-info-card">
+
+                <span class="stackly-profile-info-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </span>
+
+                <div>
+                    <small>Email Address</small>
+                    <h3>trainer@stacklysports.com</h3>
+                </div>
+
+            </article>
+
+            <article class="stackly-profile-info-card">
+
+                <span class="stackly-profile-info-icon">
+                    <i class="fa-solid fa-phone"></i>
+                </span>
+
+                <div>
+                    <small>Phone Number</small>
+                    <h3>+91 98765 43210</h3>
+                </div>
+
+            </article>
+
+            <article class="stackly-profile-info-card">
+
+                <span class="stackly-profile-info-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </span>
+
+                <div>
+                    <small>Location</small>
+                    <h3>Chennai, Tamil Nadu</h3>
+                </div>
+
+            </article>
+
+            <article class="stackly-profile-info-card">
+
+                <span class="stackly-profile-info-icon">
+                    <i class="fa-solid fa-briefcase"></i>
+                </span>
+
+                <div>
+                    <small>Professional Role</small>
+                    <h3>Fitness Trainer</h3>
+                </div>
+
+            </article>
+
+            <article class="stackly-profile-info-card">
+
+                <span class="stackly-profile-info-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </span>
+
+                <div>
+                    <small>Availability</small>
+                    <h3>Monday – Saturday</h3>
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         4. COACHING EXPERTISE
+    ======================================= -->
+
+    <section class="stackly-profile-expertise"
+             id="stacklyProfileExpertise"
+             data-aos="fade-up">
+
+        <div class="stackly-profile-section-heading">
+
+            <div>
+                <span class="stackly-profile-label">
+                    COACHING SPECIALTIES
+                </span>
+
+                <h2>My Areas of Expertise</h2>
+
+                <p>
+                    The key training areas that support athlete
+                    development and performance.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="stackly-profile-expertise-grid">
+
+            <article class="stackly-profile-expertise-card"
+                     data-aos="zoom-in"
+                     data-aos-delay="50">
+
+                <div class="stackly-profile-expertise-icon red">
+                    <i class="fa-solid fa-dumbbell"></i>
+                </div>
+
+                <h3>Strength <br>Training</h3>
+
+                <p>
+                    Build strength, improve technique, 
+                    and develop safe training habits consistently.
+                </p>
+
+                <span class="stackly-profile-expertise-tag">
+                    Core Specialty
+                </span>
+
+            </article>
+
+            <article class="stackly-profile-expertise-card"
+                     data-aos="zoom-in"
+                     data-aos-delay="100">
+
+                <div class="stackly-profile-expertise-icon orange">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+
+                <h3>Cardio & Endurance Training</h3>
+
+                <p>
+                    Develop stamina, improve conditioning,
+                    and support long-term fitness.
+                </p>
+
+                <span class="stackly-profile-expertise-tag">
+                    Performance
+                </span>
+
+            </article>
+
+            <article class="stackly-profile-expertise-card"
+                     data-aos="zoom-in"
+                     data-aos-delay="150">
+
+                <div class="stackly-profile-expertise-icon blue">
+                    <i class="fa-solid fa-person-walking"></i>
+                </div>
+
+                <h3>Mobility & Recovery</h3>
+
+                <p>
+                    Encourage better movement, flexibility,
+                    and balanced recovery routines.
+                </p>
+
+                <span class="stackly-profile-expertise-tag">
+                    Recovery
+                </span>
+
+            </article>
+
+            <article class="stackly-profile-expertise-card"
+                     data-aos="zoom-in"
+                     data-aos-delay="200">
+
+                <div class="stackly-profile-expertise-icon purple">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+
+                <h3>Performance Coaching</h3>
+
+                <p>
+                    Set measurable goals and guide athletes
+                    toward consistent improvement.
+                </p>
+
+                <span class="stackly-profile-expertise-tag">
+                    Development
+                </span>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         5. QUALIFICATIONS & ACHIEVEMENTS
+    ======================================= -->
+
+    <section class="stackly-profile-credentials"
+             data-aos="fade-up">
+
+        <div class="stackly-profile-section-heading">
+
+            <div>
+                <span class="stackly-profile-label">
+                    PROFESSIONAL DEVELOPMENT
+                </span>
+
+                <h2>Qualifications & Achievements</h2>
+
+                <p>
+                    Highlight your training credentials and
+                    milestones throughout your coaching career.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="stackly-profile-credentials-grid">
+
+            <article class="stackly-profile-credential-card">
+
+                <div class="stackly-profile-credential-icon">
+                    <i class="fa-solid fa-certificate"></i>
+                </div>
+
+                <div>
+                    <span>QUALIFICATION 01</span>
+                    <h3>Fitness Training Certification</h3>
+                    <p>
+                        Add your certification provider and
+                        completion year here.
+                    </p>
+                </div>
+
+                <i class="fa-solid fa-check-circle stackly-profile-credential-check"></i>
+
+            </article>
+
+            <article class="stackly-profile-credential-card">
+
+                <div class="stackly-profile-credential-icon">
+                    <i class="fa-solid fa-medal"></i>
+                </div>
+
+                <div>
+                    <span>ACHIEVEMENT 01</span>
+                    <h3>Athlete Development</h3>
+                    <p>
+                        Highlight a coaching milestone or
+                        athlete achievement.
+                    </p>
+                </div>
+
+                <i class="fa-solid fa-trophy stackly-profile-credential-check"></i>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         6. WORKING HOURS
+    ======================================= -->
+
+    <section class="stackly-profile-schedule"
+             data-aos="fade-up">
+
+        <div class="stackly-profile-section-heading">
+
+            <div>
+                <span class="stackly-profile-label">
+                    WEEKLY AVAILABILITY
+                </span>
+
+                <h2>My Working Hours</h2>
+
+                <p>
+                    A simple overview of your regular coaching schedule.
+                </p>
+            </div>
+
+            <span class="stackly-profile-section-icon">
+                <i class="fa-regular fa-clock"></i>
+            </span>
+
+        </div>
+
+        <div class="stackly-profile-schedule-card">
+
+            <div class="stackly-profile-schedule-row">
+                <span>Monday – Friday</span>
+                <strong>6:00 AM – 10:00 AM</strong>
+                <span class="stackly-profile-schedule-status">
+                    Available
+                </span>
+            </div>
+
+            <div class="stackly-profile-schedule-row">
+                <span>Monday – Friday</span>
+                <strong>4:00 PM – 8:00 PM</strong>
+                <span class="stackly-profile-schedule-status">
+                    Available
+                </span>
+            </div>
+
+            <div class="stackly-profile-schedule-row">
+                <span>Saturday</span>
+                <strong>7:00 AM – 12:00 PM</strong>
+                <span class="stackly-profile-schedule-status">
+                    Available
+                </span>
+            </div>
+
+            <div class="stackly-profile-schedule-row">
+                <span>Sunday</span>
+                <strong>Rest & Recovery</strong>
+                <span class="stackly-profile-rest-status">
+                    Day Off
+                </span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         7. PERSONAL COACHING PHILOSOPHY
+    ======================================= -->
+
+    <section class="stackly-profile-philosophy"
+             data-aos="fade-up">
+
+        <div class="stackly-profile-philosophy-icon">
+            <i class="fa-solid fa-quote-left"></i>
+        </div>
+
+        <div class="stackly-profile-philosophy-content">
+
+            <span>MY COACHING PHILOSOPHY</span>
+
+            <h2>
+                Consistency creates progress.
+                Smart training builds confidence.
+            </h2>
+
+            <p>
+                My goal is to help every athlete train with purpose,
+                build healthy habits, and celebrate progress at
+                every stage of their journey.
+            </p>
+
+        </div>
+
+        <div class="stackly-profile-philosophy-mark">
+            <i class="fa-solid fa-bullseye"></i>
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         8. PROFILE ACTIONS
+    ======================================= -->
+
+    <section class="stackly-profile-actions"
+             data-aos="fade-up">
+
+        <div class="stackly-profile-actions-content">
+
+            <div class="stackly-profile-actions-icon">
+                <i class="fa-solid fa-user-gear"></i>
+            </div>
+
+            <div>
+                <h2>Keep Your Profile Updated</h2>
+                <p>
+                    Make sure your contact information, coaching
+                    specialties, and qualifications stay current.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="stackly-profile-actions-buttons">
+
+            <a href="404-other.html"
+               class="stackly-profile-action-primary">
+                <i class="fa-solid fa-dumbbell"></i>
+                Training Plans
+            </a>
+
+            <a href="404-other.html"
+               class="stackly-profile-action-secondary">
+                <i class="fa-regular fa-calendar-check"></i>
+                My Sessions
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+</main>
+
+</div>
+
+<!-- AOS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<!-- Others Dashboard JavaScript -->
+<script src="other.js"></script>
+
+</body>
+</html>

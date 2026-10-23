@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stackly | Sports Club Training Academy</title>
+
+    <meta name="description"
+        content="Train smarter, build strength, and improve your performance with Stackly Sports Club Training Academy.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="stackly-sport-header">
+
+        <a href="index.html" class="stackly-sport-logo"
+            aria-label="Stackly Home">
+            <img src="Stackly-logo.webp"
+                alt="Stackly"
+                class="stackly-sport-logo-img">
+        </a>
+
+        <nav class="stackly-sport-desktop-nav"
+            aria-label="Main navigation">
+
+            <a href="index.html" class="stackly-sport-nav-link active">
+                Home
+            </a>
+
+            <a href="about.html" class="stackly-sport-nav-link">
+                About Us
+            </a>
+
+            <a href="services.html" class="stackly-sport-nav-link">
+                Services
+            </a>
+
+            <a href="pricing.html" class="stackly-sport-nav-link">
+                Pricing
+            </a>
+
+            <a href="blog.html" class="stackly-sport-nav-link">
+                Blog
+            </a>
+
+            <a href="contact.html" class="stackly-sport-nav-link">
+                Contact Us
+            </a>
+
+        </nav>
+
+        <div class="stackly-sport-header-actions">
+
+            <form class="stackly-sport-search"
+                action="programs.html"
+                method="get"
+                role="search">
+
+                <input type="search"
+                    name="search"
+                    placeholder="Search for programs..."
+                    aria-label="Search programs">
+
+                <button type="submit" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+            </form>
+
+            <a href="login.html" class="stackly-sport-login">
+    <i class="fa-regular fa-user"></i>
+    <span>Login</span>
+</a>
+
+<span class="stackly-sport-login-separator">/</span>
+
+<a href="signup.html" class="stackly-sport-login">
+    <span>Sign Up</span>
+</a>
+
+
+        </div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <button class="stackly-sport-menu-toggle"
+            id="stacklySportMenuToggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-controls="stacklySportMobileMenu"
+            aria-expanded="false">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </header>
+
+
+    <!-- MOBILE OVERLAY -->
+    <div class="stackly-sport-mobile-overlay"
+        id="stacklySportMobileOverlay"></div>
+
+
+    <!-- MOBILE SLIDE MENU -->
+    <aside class="stackly-sport-mobile-menu"
+        id="stacklySportMobileMenu"
+        aria-label="Mobile navigation"
+        aria-hidden="true"
+        inert>
+
+        <div class="stackly-sport-mobile-menu-top">
+
+            <a href="index.html" class="stackly-sport-mobile-logo">
+                <img src="Stackly-logo.webp" alt="Stackly">
+            </a>
+
+            <button class="stackly-sport-menu-close"
+                id="stacklySportMenuClose"
+                type="button"
+                aria-label="Close navigation menu">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <nav class="stackly-sport-mobile-nav">
+
+            <a href="index.html" class="active">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+
+            <a href="about.html">
+                <i class="fa-solid fa-users"></i>
+                About Us
+            </a>
+
+            <a href="services.html">
+                <i class="fa-solid fa-dumbbell"></i>
+                Services
+            </a>
+
+            <a href="pricing.html">
+                <i class="fa-solid fa-tags"></i>
+                Pricing
+            </a>
+
+            <a href="blog.html">
+                <i class="fa-solid fa-newspaper"></i>
+                Blog
+            </a>
+
+            <a href="contact.html">
+                <i class="fa-solid fa-envelope"></i>
+                Contact Us
+            </a>
+
+        </nav>
+
+        <form class="stackly-sport-mobile-search"
+            action="programs.html"
+            method="get"
+            role="search">
+
+            <input type="search"
+                name="search"
+                placeholder="Search for programs..."
+                aria-label="Search programs">
+
+            <button type="submit" aria-label="Search programs">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+        </form>
+
+    
+<a href="login.html" class="stackly-sport-mobile-login">
+    <i class="fa-regular fa-user"></i>
+    Login
+</a>
+
+<a href="signup.html" class="stackly-sport-mobile-login">
+    <i class="fa-solid fa-user-plus"></i>
+    Sign Up
+</a>
+
+
+    </aside>
+
+<!-- ==========================================
+     STACKLY SPORT - CONTACT BANNER
+========================================== -->
+
+<section class="stackly-contact-banner"
+    data-aos="fade-in"
+    data-aos-duration="1000">
+
+    <!-- Dark Background Overlay -->
+    <div class="stackly-contact-banner-overlay"></div>
+
+    <!-- Banner Content -->
+    <div class="stackly-contact-banner-container">
+
+        <div class="stackly-contact-banner-content"
+            data-aos="fade-right"
+            data-aos-duration="1200"
+            data-aos-delay="200">
+
+            <!-- Small Label -->
+            <span class="stackly-contact-banner-label">
+                CONTACT US
+            </span>
+
+            <!-- Heading -->
+            <h1 class="stackly-contact-banner-title">
+                Contact <span>Us</span>
+            </h1>
+
+            <!-- Description -->
+            <p class="stackly-contact-banner-description">
+                Have questions or need assistance? We're here to help!
+                Reach out to us and let's start your fitness journey together.
+            </p>
+
+            <!-- Support Information -->
+            <p class="stackly-contact-banner-support">
+                <span>Expert Support</span>
+                <span class="stackly-contact-banner-dot">•</span>
+                <span>Quick Response</span>
+                <span class="stackly-contact-banner-dot">•</span>
+                <span>Your Fitness, Our Priority</span>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     STACKLY SPORT - CONTACT INFORMATION CARDS
+========================================== -->
+
+<section class="sport-info-section">
+
+    <div class="sport-info-container">
+
+        <!-- PHONE CARD -->
+        <div class="sport-info-card" data-aos="fade-up">
+
+            <div class="sport-info-icon">
+                <i class="fa-solid fa-phone"></i>
+            </div>
+
+            <h3>Phone</h3>
+
+            <div class="sport-info-details">
+                <a href="tel:+919876543210">+91 98765 43210</a>
+                <a href="tel:+918765432109">+91 87654 32109</a>
+                <p>Mon - Sat : 6:00 AM - 10:00 PM</p>
+            </div>
+
+        </div>
+
+        <!-- EMAIL CARD -->
+        <div class="sport-info-card" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="sport-info-icon">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+
+            <h3>Email</h3>
+
+            <div class="sport-info-details">
+                <a href="mailto:info@sportsclub.com">
+                    info@sportsclub.com
+                </a>
+
+                <a href="mailto:info@edunext.com">
+                    info@edunext.com
+                </a>
+
+                <p>We reply within 24 hours</p>
+            </div>
+
+        </div>
+
+        <!-- LOCATION CARD -->
+        <div class="sport-info-card" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="sport-info-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+            <h3>Our Location</h3>
+
+            <div class="sport-info-details">
+                <p>
+                    123 Fitness Street, Chennai -
+                    600001, Tamil Nadu, India
+                </p>
+            </div>
+
+        </div>
+
+        <!-- WORKING HOURS CARD -->
+        <div class="sport-info-card" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="sport-info-icon">
+                <i class="fa-regular fa-clock"></i>
+            </div>
+
+            <h3>Working Hours</h3>
+
+            <div class="sport-info-details">
+                <p>Mon - Sat : 6:00 AM - 10:00 PM</p>
+                <p>Sunday : 7:00 AM - 8:00 PM</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     STACKLY SPORT CLUB - CONTACT SECTION
+=========================================== -->
+
+<section class="stackly-contact-section" id="contact">
+
+    <div class="stackly-contact-container">
+
+        <!-- Left: Contact Form -->
+        <div class="stackly-contact-content"
+             data-aos="fade-right">
+
+            <span class="stackly-contact-label">
+                SEND US A MESSAGE
+            </span>
+
+            <h2 class="stackly-contact-title">
+                We’d Love to Hear From You
+            </h2>
+
+            <p class="stackly-contact-description">
+                Fill out the form below and we'll get back to you
+                as soon as possible.
+            </p>
+
+            <p class="stackly-contact-fields-note">
+                Form Fields:
+            </p>
+
+            <form class="stackly-contact-form" action="#" method="post">
+
+                <!-- Name and Phone -->
+                <div class="stackly-contact-row">
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Your Name"
+                        aria-label="Your Name"
+                        autocomplete="name"
+                        required
+                    >
+
+                    <input
+                        type="tel"
+                        name="phone"
+                        placeholder="Phone Number"
+                        aria-label="Phone Number"
+                        autocomplete="tel"
+                        pattern="[0-9+\-\s()]{10,15}"
+                        title="Please enter a valid phone number"
+                        required
+                    >
+
+                </div>
+
+                <!-- Email -->
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    aria-label="Email Address"
+                    autocomplete="email"
+                    required
+                >
+
+                <!-- Subject -->
+                <!-- Custom Subject Dropdown -->
+<div class="stackly-custom-dropdown">
+
+    <button
+        type="button"
+        class="stackly-dropdown-toggle"
+        id="stacklyDropdownToggle"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-controls="stacklyDropdownMenu"
+    >
+        <span id="stacklyDropdownSelected">Select Subject</span>
+
+        <i class="fa-solid fa-chevron-down stackly-dropdown-arrow"
+           aria-hidden="true"></i>
+    </button>
+
+    <ul
+        class="stackly-dropdown-menu"
+        id="stacklyDropdownMenu"
+        role="listbox"
+        aria-label="Select Subject"
+        hidden
+    >
+        <li role="option" tabindex="0" data-value="personal-training">
+            Personal Training
+        </li>
+
+        <li role="option" tabindex="0" data-value="fitness-membership">
+            Fitness Membership
+        </li>
+
+        <li role="option" tabindex="0" data-value="group-classes">
+            Group Classes
+        </li>
+
+        <li role="option" tabindex="0" data-value="nutrition">
+            Nutrition Guidance
+        </li>
+
+        <li role="option" tabindex="0" data-value="general-enquiry">
+            General Enquiry
+        </li>
+    </ul>
+
+    <!-- Actual value submitted with the form -->
+    <input
+        type="hidden"
+        name="subject"
+        id="stacklyDropdownValue"
+        required
+    >
+
+</div>
+                <!-- Message -->
+                <textarea
+                    name="message"
+                    placeholder="Your Message"
+                    aria-label="Your Message"
+                    rows="5"
+                    required
+                ></textarea>
+
+                <!-- Submit Button -->
+                <button
+                    type="submit"
+                    class="stackly-contact-submit"
+                >
+                    <i class="fa-regular fa-paper-plane"
+                       aria-hidden="true"></i>
+                    <span>Send Message</span>
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- Right: Fitness Image -->
+        <div class="stackly-contact-image"
+             data-aos="fade-left">
+
+            <img
+                src="contact-img.webp"
+                alt="Athletes training together during a fitness workout"
+                loading="lazy"
+            >
+
+            <div class="stackly-contact-image-overlay"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     STACKLY SPORT CLUB - LOCATION MAP SECTION
+=========================================== -->
+
+<section class="stackly-location-section" id="location">
+
+    <!-- Left: Location Information -->
+    <div class="stackly-location-content">
+
+        <span class="stackly-location-label">
+            SEND Us
+        </span>
+
+        <h2 class="stackly-location-title">
+            Our Location
+        </h2>
+
+        <p class="stackly-location-description">
+            Visit our academy and experience the
+            best training environment with world-class facilities.
+        </p>
+
+        <a
+            href="https://www.google.com/maps"
+            class="stackly-location-button"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Get Directions
+            <i class="fa-solid fa-arrow-right"
+               aria-hidden="true"></i>
+        </a>
+
+    </div>
+
+    <!-- Right: Interactive Google Map -->
+<div class="stackly-location-map">
+
+    <iframe
+        class="stackly-location-map-iframe"
+        src="https://maps.google.com/maps?q=123%20Fitness%20Street%2C%20Coimbatore%2C%20Tamil%20Nadu%20641001&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        title="Stackly Sport Club Location - Coimbatore, Tamil Nadu"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+</div>
+
+</section>
+
+<section class="fitness-banner">
+    <div class="fitness-overlay"></div>
+
+    <div class="fitness-content" data-aos="fade-up" data-aos-duration="1000">
+        <span class="fitness-label">START YOUR JOURNEY TODAY</span>
+
+        <h2>Your Goals. Our Support</h2>
+
+        <p>
+            Contact us now and take the first step towards a healthier, stronger you.
+        </p>
+    </div>
+
+    <div class="fitness-action" data-aos="fade-left" data-aos-duration="1000">
+        <a href="404.html" class="fitness-btn">
+            Join Now <span class="btn-arrow">→</span>
+        </a>
+    </div>
+</section>
+       
+</main>
+
+
+<footer class="stackly-footer">
+    <div class="footer-container">
+
+        <!-- Brand Section -->
+        <div class="footer-brand">
+            <a href="index.html" class="footer-logo">
+    <img src="Stackly-logo.webp" alt="Stackly Logo">
+</a>
+
+            <p class="brand-description">
+                Connecting farmers and consumers<br>
+                for a healthier and greener tomorrow.
+            </p>
+
+<div class="social-links">
+    <a href="404.html" aria-label="Facebook" target="_blank">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+
+    <a href="404.html" aria-label="X (Twitter)" target="_blank">
+        <i class="fa-brands fa-x-twitter"></i>
+    </a>
+
+    <a href="404.html" aria-label="Instagram" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="404.html" aria-label="YouTube" target="_blank">
+        <i class="fa-brands fa-youtube"></i>
+    </a>
+</div>
+
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Information -->
+        
+<div class="footer-column contact-column">
+    <h3>Contact Info</h3>
+
+    <!-- Address Icon -->
+    <div class="contact-item">
+        <span class="contact-icon">
+            <i class="fa-solid fa-location-dot"></i>
+        </span>
+        <a href="404.html"><p>
+            123 Fitness Street,<br>
+            Coimbatore, Tamil Nadu<br>
+            641001
+        </p></a>
+    </div>
+
+    <!-- Email Icon -->
+    <div class="contact-item">
+        <span class="contact-icon">
+            <i class="fa-solid fa-envelope"></i>
+        </span>
+        <a href="404.html">
+            info@stacklyclub.com
+        </a>
+    </div>
+
+    <!-- Phone Icon -->
+    <div class="contact-item">
+        <span class="contact-icon">
+            <i class="fa-solid fa-phone"></i>
+        </span>
+        <a href="404.html">
+            +91 98765 43210
+        </a>
+    </div>
+</div>
+
+
+        <!-- Working Hours -->
+        <div class="footer-column">
+            <h3>Working Hours</h3>
+            <p class="footer-text">
+                Mon - Sat: 6:00 AM - 10:00 PM
+            </p>
+            <p class="footer-text">
+                Sunday: 7:00 AM - 8:00 PM
+            </p>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-column newsletter-column">
+            <h3>Newsletter</h3>
+            <p class="newsletter-description">
+                Get the latest updates, tips and offers.
+            </p>
+
+            
+<form class="newsletter-form" id="newsletterForm" action="#" method="post">
+    <label for="newsletter-email" class="visually-hidden">
+        Your email address
+    </label>
+
+    <input
+        type="email"
+        id="newsletter-email"
+        name="email"
+        placeholder="Enter your email"
+        required
+    >
+
+    <button type="submit">Subscribe</button>
+</form>
+
+<p id="newsletterMessage" class="newsletter-message"
+   role="status" aria-live="polite"></p>
+
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>© 2025 Sports Club Training Academy. All rights reserved.</p>
+
+        <div class="bottom-links">
+            <a href="404.html">Privacy Policy</a>
+            <a href="404.html">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+ 
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
+    </main>
+
+
+    <!-- MOBILE MENU JAVASCRIPT -->
+    <script src="index.js"></script>
+
+</body>
+</html>
+

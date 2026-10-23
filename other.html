@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Others Dashboard | Stackly Sports Club</title>
+
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+    <link rel="stylesheet" href="other.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+
+<body class="stackly-others-body">
+
+<div class="stackly-others-layout">
+
+    <!-- MOBILE OVERLAY -->
+    <div class="stackly-others-overlay" id="stacklyOthersOverlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="stackly-others-sidebar" id="stacklyOthersSidebar">
+
+        <!-- SIDEBAR HEADER -->
+        <div class="stackly-others-sidebar-header">
+
+            <a href="other.html"
+               class="stackly-others-logo"
+               aria-label="Stackly Sports Club Home">
+                <img src="Stackly-logo.webp" alt="Stackly Sports Club Logo">
+            </a>
+
+            <!-- MOBILE EXIT BUTTON -->
+            <button type="button"
+                    class="stackly-others-mobile-exit"
+                    id="stacklyOthersMobileExit"
+                    aria-label="Close navigation menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="stackly-others-sidebar-label">
+            TRAINER WORKSPACE
+        </div>
+
+        <!-- SIDEBAR NAVIGATION -->
+        <nav class="stackly-others-navigation"
+             aria-label="Trainer navigation">
+
+            <a href="other.html" class="stackly-others-nav-link">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="other-athletes.html" class="stackly-others-nav-link">
+                <i class="fa-solid fa-users"></i>
+                <span>My Athletes</span>
+            </a>
+
+            <a href="other-training.html" class="stackly-others-nav-link">
+                <i class="fa-solid fa-dumbbell"></i>
+                <span>Training Plans</span>
+            </a>
+
+            <a href="other-sessions.html" class="stackly-others-nav-link">
+                <i class="fa-regular fa-calendar-check"></i>
+                <span>Training Sessions</span>
+            </a>
+
+            <a href="other-progress.html" class="stackly-others-nav-link">
+                <i class="fa-solid fa-chart-simple"></i>
+                <span>Progress Reports</span>
+            </a>
+
+            <a href="other-profile.html" class="stackly-others-nav-link">
+                <i class="fa-regular fa-user"></i>
+                <span>My Profile</span>
+            </a>
+ 
+
+        </nav>
+
+        <!-- SIDEBAR BOTTOM -->
+        <div class="stackly-others-sidebar-bottom">
+
+            <div class="stackly-others-help">
+                <div class="stackly-others-help-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <div>
+                    <strong>Need Help?</strong>
+                    <p>Contact support</p>
+                </div>
+            </div>
+
+            <button type="button"
+                    class="stackly-others-logout"
+                    id="stacklyOthersLogout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="stackly-others-main">
+
+        <!-- TOP HEADER -->
+        <header class="stackly-others-topbar">
+
+            <div class="stackly-others-topbar-left">
+
+                <!-- MOBILE HAMBURGER -->
+                <button type="button"
+                        class="stackly-others-hamburger"
+                        id="stacklyOthersHamburger"
+                        aria-label="Open navigation menu"
+                        aria-controls="stacklyOthersSidebar"
+                        aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="stackly-others-page-heading">
+                    <h1>Others dashboard</h1>
+                    <p>Access additional trainer tools and resources.</p>
+                </div>
+
+            </div>
+
+            <!-- TOP RIGHT: EMAIL -->
+            <div class="stackly-others-topbar-right">
+
+                <a href="404-other.html"
+                   class="stackly-others-notification"
+                   aria-label="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="stackly-others-notification-dot"></span>
+                </a>
+
+                <div class="stackly-others-user-info">
+
+                    <div class="stackly-others-user-avatar">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+
+                    <div class="stackly-others-user-details">
+                        <strong id="stacklyOthersTopName">Trainer</strong>
+                        <span id="stacklyOthersTopEmail">
+                            trainer@stacklysports.com
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <div class="stackly-others-content">
+
+            <!-- WELCOME BANNER -->
+            <section class="stackly-others-welcome" data-aos="fade-up">
+
+                <div class="stackly-others-welcome-content">
+
+                    <span class="stackly-others-eyebrow">
+                        <i class="fa-solid fa-layer-group"></i>
+                        ADDITIONAL RESOURCES
+                    </span>
+
+                    <h2>Everything You Need Beyond Training.</h2>
+
+                    <p>
+                        Explore useful resources, manage your preferences,
+                        get assistance, and access additional trainer tools
+                        from one convenient place.
+                    </p>
+
+                </div>
+
+                <div class="stackly-others-welcome-icon">
+                    <i class="fa-solid fa-toolbox"></i>
+                </div>
+
+            </section>
+
+            <!-- QUICK STATISTICS -->
+            <section class="stackly-others-stats" data-aos="fade-up">
+
+                <article class="stackly-others-stat-card">
+                    <div class="stackly-others-stat-icon red">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <span>Training Resources</span>
+                    <h3>12</h3>
+                    <p>Available resources</p>
+                </article>
+
+                <article class="stackly-others-stat-card">
+                    <div class="stackly-others-stat-icon blue">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <span>Notifications</span>
+                    <h3>04</h3>
+                    <p>Recent updates</p>
+                </article>
+
+                <article class="stackly-others-stat-card">
+                    <div class="stackly-others-stat-icon green">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <span>Account Status</span>
+                    <h3>Active</h3>
+                    <p>Trainer workspace</p>
+                </article>
+
+                <article class="stackly-others-stat-card">
+                    <div class="stackly-others-stat-icon orange">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <span>Support</span>
+                    <h3>24/7</h3>
+                    <p>Help when you need it</p>
+                </article>
+
+            </section>
+
+            <!-- ADDITIONAL TOOLS -->
+            <section class="stackly-others-section" data-aos="fade-up">
+
+                <div class="stackly-others-section-heading">
+                    <div>
+                        <span class="stackly-others-section-label">
+                            WORKSPACE
+                        </span>
+                        <h2>Additional Tools</h2>
+                        <p>Shortcuts to useful trainer resources.</p>
+                    </div>
+                </div>
+
+                <div class="stackly-others-tools-grid">
+
+                    <a href="404-other.html"
+                       class="stackly-others-tool-card"
+                       data-aos="fade-up"
+                       data-aos-delay="50">
+
+                        <div class="stackly-others-tool-icon red">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+
+                        <h3>Notifications</h3>
+                        <p>Check important updates and announcements.</p>
+
+                        <span class="stackly-others-tool-link">
+                            View Notifications
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
+
+                    <a href="404-other.html"
+                       class="stackly-others-tool-card"
+                       data-aos="fade-up"
+                       data-aos-delay="100">
+
+                        <div class="stackly-others-tool-icon blue">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+
+                        <h3>Training Resources</h3>
+                        <p>Explore coaching materials and useful guides.</p>
+
+                        <span class="stackly-others-tool-link">
+                            Explore Resources
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
+
+                    <a href="404-other.html"
+                       class="stackly-others-tool-card"
+                       data-aos="fade-up"
+                       data-aos-delay="150">
+
+                        <div class="stackly-others-tool-icon green">
+                            <i class="fa-solid fa-gear"></i>
+                        </div>
+
+                        <h3>Account Settings</h3>
+                        <p>Review your trainer account preferences.</p>
+
+                        <span class="stackly-others-tool-link">
+                            Manage Settings
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
+
+                    <a href="404-other.html"
+                       class="stackly-others-tool-card"
+                       data-aos="fade-up"
+                       data-aos-delay="200">
+
+                        <div class="stackly-others-tool-icon orange">
+                            <i class="fa-solid fa-user-pen"></i>
+                        </div>
+
+                        <h3>Profile Details</h3>
+                        <p>View and update your trainer information.</p>
+
+                        <span class="stackly-others-tool-link">
+                            View Profile
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
+
+                    <a href="404-other.html"
+                       class="stackly-others-tool-card"
+                       data-aos="fade-up"
+                       data-aos-delay="250">
+
+                        <div class="stackly-others-tool-icon purple">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+
+                        <h3>Privacy & Security</h3>
+                        <p>Find information about account security.</p>
+
+                        <span class="stackly-others-tool-link">
+                            View Security
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
+
+                    <a href="404-other.html"
+                       class="stackly-others-tool-card"
+                       data-aos="fade-up"
+                       data-aos-delay="300">
+
+                        <div class="stackly-others-tool-icon teal">
+                            <i class="fa-solid fa-circle-question"></i>
+                        </div>
+
+                        <h3>Help & Support</h3>
+                        <p>Get assistance with your trainer workspace.</p>
+
+                        <span class="stackly-others-tool-link">
+                            Get Help
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
+
+                </div>
+
+            </section>
+
+            <!-- SUPPORT BANNER -->
+            <section class="stackly-others-support" data-aos="fade-up">
+
+                <div class="stackly-others-support-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <div class="stackly-others-support-text">
+                    <h2>Need Assistance?</h2>
+                    <p>
+                        Find guidance for your workspace and training tools.
+                    </p>
+                </div>
+
+                <a href="404-other.html"
+                   class="stackly-others-support-button">
+                    Contact Support
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+</div>
+
+<!-- AOS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<!-- Others Dashboard JavaScript -->
+<script src="other.js"></script>
+
+</body>
+</html>

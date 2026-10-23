@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Others Dashboard | Stackly Sports Club</title>
+
+    <link rel="icon" href="Stackly-logo-Blue.webp" type="image/webp">
+    <link rel="stylesheet" href="other.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+
+<body class="stackly-others-body">
+
+<div class="stackly-others-layout">
+
+    <!-- MOBILE OVERLAY -->
+    <div class="stackly-others-overlay" id="stacklyOthersOverlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="stackly-others-sidebar" id="stacklyOthersSidebar">
+
+        <!-- SIDEBAR HEADER -->
+        <div class="stackly-others-sidebar-header">
+
+            <a href="other.html"
+               class="stackly-others-logo"
+               aria-label="Stackly Sports Club Home">
+                <img src="Stackly-logo.webp" alt="Stackly Sports Club Logo">
+            </a>
+
+            <!-- MOBILE EXIT BUTTON -->
+            <button type="button"
+                    class="stackly-others-mobile-exit"
+                    id="stacklyOthersMobileExit"
+                    aria-label="Close navigation menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="stackly-others-sidebar-label">
+            TRAINER WORKSPACE
+        </div>
+
+        <!-- SIDEBAR NAVIGATION -->
+        <nav class="stackly-others-navigation"
+             aria-label="Trainer navigation">
+
+            <a href="other.html" class="stackly-others-nav-link">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="other-athletes.html" class="stackly-others-nav-link">
+                <i class="fa-solid fa-users"></i>
+                <span>My Athletes</span>
+            </a>
+
+            <a href="other-training.html" class="stackly-others-nav-link">
+                <i class="fa-solid fa-dumbbell"></i>
+                <span>Training Plans</span>
+            </a>
+
+            <a href="other-sessions.html" class="stackly-others-nav-link">
+                <i class="fa-regular fa-calendar-check"></i>
+                <span>Training Sessions</span>
+            </a>
+
+            <a href="other-progress.html" class="stackly-others-nav-link">
+                <i class="fa-solid fa-chart-simple"></i>
+                <span>Progress Reports</span>
+            </a>
+
+            <a href="other-profile.html" class="stackly-others-nav-link">
+                <i class="fa-regular fa-user"></i>
+                <span>My Profile</span>
+            </a>
+ 
+
+        </nav>
+
+        <!-- SIDEBAR BOTTOM -->
+        <div class="stackly-others-sidebar-bottom">
+
+            <div class="stackly-others-help">
+                <div class="stackly-others-help-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <div>
+                    <strong>Need Help?</strong>
+                    <p>Contact support</p>
+                </div>
+            </div>
+
+            <button type="button"
+                    class="stackly-others-logout"
+                    id="stacklyOthersLogout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="stackly-others-main">
+
+        <!-- TOP HEADER -->
+        <header class="stackly-others-topbar">
+
+            <div class="stackly-others-topbar-left">
+
+                <!-- MOBILE HAMBURGER -->
+                <button type="button"
+                        class="stackly-others-hamburger"
+                        id="stacklyOthersHamburger"
+                        aria-label="Open navigation menu"
+                        aria-controls="stacklyOthersSidebar"
+                        aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="stackly-others-page-heading">
+                    <h1>Others dashboard</h1>
+                    <p>Access additional trainer tools and resources.</p>
+                </div>
+
+            </div>
+
+            <!-- TOP RIGHT: EMAIL -->
+            <div class="stackly-others-topbar-right">
+
+                <a href="404-other.html"
+                   class="stackly-others-notification"
+                   aria-label="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="stackly-others-notification-dot"></span>
+                </a>
+
+                <div class="stackly-others-user-info">
+
+                    <div class="stackly-others-user-avatar">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+
+                    <div class="stackly-others-user-details">
+                        <strong id="stacklyOthersTopName">Trainer</strong>
+                        <span id="stacklyOthersTopEmail">
+                            trainer@stacklysports.com
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+    
+<!-- ==========================================
+     STACKLY SPORTS CLUB
+     TRAINING PLANS PAGE
+========================================== -->
+
+ 
+
+<div class="stackly-training-page">
+
+    <!-- TRAINING HERO -->
+    <section class="stackly-training-hero" data-aos="fade-up">
+
+        <div class="stackly-training-hero-content">
+            <span class="stackly-training-eyebrow">
+                <i class="fa-solid fa-bolt"></i>
+                TRAIN SMARTER. PERFORM BETTER.
+            </span>
+
+            <h2>Build Stronger Athletes,<br>
+                <span>One Plan at a Time.</span>
+            </h2>
+
+            <p>
+                Design purposeful workouts, track training progress,
+                and help every athlete reach their next level.
+            </p>
+
+            <div class="stackly-training-hero-actions">
+                <a href="404-other.html"
+                   class="stackly-training-primary-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    Explore Training Plans
+                </a>
+
+                <a href="404-other.html"
+                   class="stackly-training-secondary-btn">
+                    <i class="fa-regular fa-calendar"></i>
+                    View Schedule
+                </a>
+            </div>
+
+            <div class="stackly-training-hero-note">
+                <span class="stackly-training-live-dot"></span>
+                <span>Personalized programs. Measurable results.</span>
+            </div>
+        </div>
+
+        <div class="stackly-training-hero-visual">
+            <div class="stackly-training-hero-image">
+                <div class="stackly-training-image-overlay"></div>
+
+                <div class="stackly-training-floating-card">
+                    <div class="stackly-training-floating-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <strong>Performance First</strong>
+                        <span>Every rep moves you forward</span>
+                    </div>
+                </div>
+
+                <div class="stackly-training-hero-number">
+                    <strong>01</strong>
+                    <span>PLAN. TRAIN. REPEAT.</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- TRAINING OVERVIEW -->
+    <section class="stackly-training-overview" data-aos="fade-up">
+
+        <div class="stackly-training-section-heading">
+            <div>
+                <span class="stackly-training-label">YOUR TRAINING HUB</span>
+                <h2>Training Overview</h2>
+                <p>A quick look at your coaching activity and programs.</p>
+            </div>
+
+            <span class="stackly-training-overview-badge">
+                <i class="fa-solid fa-circle-check"></i>
+                Training Center
+            </span>
+        </div>
+
+        <div class="stackly-training-stats-grid">
+
+            <article class="stackly-training-stat-card"
+                     data-aos="fade-up"
+                     data-aos-delay="50">
+                <div class="stackly-training-stat-top">
+                    <span class="stackly-training-stat-icon red">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </span>
+                    <span class="stackly-training-stat-caption">Available</span>
+                </div>
+                <h3>12</h3>
+                <p>Training Programs</p>
+                <div class="stackly-training-stat-footer">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <span>Across multiple disciplines</span>
+                </div>
+            </article>
+
+            <article class="stackly-training-stat-card"
+                     data-aos="fade-up"
+                     data-aos-delay="100">
+                <div class="stackly-training-stat-top">
+                    <span class="stackly-training-stat-icon orange">
+                        <i class="fa-solid fa-users"></i>
+                    </span>
+                    <span class="stackly-training-stat-caption">Assigned</span>
+                </div>
+                <h3>24</h3>
+                <p>Athletes in Training</p>
+                <div class="stackly-training-stat-footer">
+                    <i class="fa-solid fa-user-check"></i>
+                    <span>Across your active plans</span>
+                </div>
+            </article>
+
+            <article class="stackly-training-stat-card"
+                     data-aos="fade-up"
+                     data-aos-delay="150">
+                <div class="stackly-training-stat-top">
+                    <span class="stackly-training-stat-icon green">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </span>
+                    <span class="stackly-training-stat-caption">Average</span>
+                </div>
+                <h3>78%</h3>
+                <p>Completion Rate</p>
+                <div class="stackly-training-stat-footer">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <span>Program completion</span>
+                </div>
+            </article>
+
+            <article class="stackly-training-stat-card"
+                     data-aos="fade-up"
+                     data-aos-delay="200">
+                <div class="stackly-training-stat-top">
+                    <span class="stackly-training-stat-icon purple">
+                        <i class="fa-regular fa-clock"></i>
+                    </span>
+                    <span class="stackly-training-stat-caption">This week</span>
+                </div>
+                <h3>18.5</h3>
+                <p>Coaching Hours</p>
+                <div class="stackly-training-stat-footer">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>Scheduled training time</span>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- FEATURED TRAINING PROGRAMS -->
+    <section class="stackly-training-programs"
+             id="stacklyTrainingPrograms"
+             data-aos="fade-up">
+
+        <div class="stackly-training-section-heading">
+            <div>
+                <span class="stackly-training-label">PROGRAM LIBRARY</span>
+                <h2>Featured Training Plans</h2>
+                <p>Explore focused programs designed for different performance goals.</p>
+            </div>
+
+            <a href="404-other.html" class="stackly-training-text-link">
+                View All Plans
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="stackly-training-program-grid">
+
+            <!-- STRENGTH PROGRAM -->
+            <article class="stackly-training-program-card"
+                     data-aos="fade-up"
+                     data-aos-delay="50">
+
+                <div class="stackly-training-program-image strength">
+                    <span class="stackly-training-program-category">
+                        STRENGTH
+                    </span>
+                    <span class="stackly-training-program-image-icon">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </span>
+                </div>
+
+                <div class="stackly-training-program-body">
+                    <div class="stackly-training-program-meta">
+                        <span><i class="fa-regular fa-clock"></i> 6 Weeks</span>
+                        <span><i class="fa-solid fa-signal"></i> Advanced</span>
+                    </div>
+
+                    <h3>Strength & Conditioning</h3>
+                    <p>
+                        Build total-body strength, improve power,
+                        and develop consistent training habits.
+                    </p>
+
+                    <div class="stackly-training-program-progress">
+                        <div>
+                            <span>Program Progress</span>
+                            <strong>75%</strong>
+                        </div>
+                        <div class="stackly-training-progress-track">
+                            <span style="width:75%"></span>
+                        </div>
+                    </div>
+
+                    <a href="404-other.html" class="stackly-training-program-btn">
+                        View Program
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+
+            <!-- CARDIO PROGRAM -->
+            <article class="stackly-training-program-card"
+                     data-aos="fade-up"
+                     data-aos-delay="100">
+
+                <div class="stackly-training-program-image cardio">
+                    <span class="stackly-training-program-category">
+                        ENDURANCE
+                    </span>
+                    <span class="stackly-training-program-image-icon">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </span>
+                </div>
+
+                <div class="stackly-training-program-body">
+                    <div class="stackly-training-program-meta">
+                        <span><i class="fa-regular fa-clock"></i> 4 Weeks</span>
+                        <span><i class="fa-solid fa-signal"></i> Intermediate</span>
+                    </div>
+
+                    <h3>Cardio & Endurance</h3>
+                    <p>
+                        Improve cardiovascular fitness, stamina,
+                        and energy with structured sessions.
+                    </p>
+
+                    <div class="stackly-training-program-progress">
+                        <div>
+                            <span>Program Progress</span>
+                            <strong>60%</strong>
+                        </div>
+                        <div class="stackly-training-progress-track">
+                            <span style="width:60%"></span>
+                        </div>
+                    </div>
+
+                    <a href="404-other.html" class="stackly-training-program-btn">
+                        View Program
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+
+            <!-- MOBILITY PROGRAM -->
+            <article class="stackly-training-program-card"
+                     data-aos="fade-up"
+                     data-aos-delay="150">
+
+                <div class="stackly-training-program-image mobility">
+                    <span class="stackly-training-program-category">
+                        RECOVERY
+                    </span>
+                    <span class="stackly-training-program-image-icon">
+                        <i class="fa-solid fa-person-walking"></i>
+                    </span>
+                </div>
+
+                <div class="stackly-training-program-body">
+                    <div class="stackly-training-program-meta">
+                        <span><i class="fa-regular fa-clock"></i> 3 Weeks</span>
+                        <span><i class="fa-solid fa-signal"></i> All Levels</span>
+                    </div>
+
+                    <h3>Mobility & Recovery</h3>
+                    <p>
+                        Improve flexibility, support recovery,
+                        and build better movement quality.
+                    </p>
+
+                    <div class="stackly-training-program-progress">
+                        <div>
+                            <span>Program Progress</span>
+                            <strong>40%</strong>
+                        </div>
+                        <div class="stackly-training-progress-track">
+                            <span style="width:40%"></span>
+                        </div>
+                    </div>
+
+                    <a href="404-other.html" class="stackly-training-program-btn">
+                        View Program
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- WEEKLY TRAINING SCHEDULE -->
+    <section class="stackly-training-schedule"
+             id="stacklyTrainingSchedule"
+             data-aos="fade-up">
+
+        <div class="stackly-training-section-heading">
+            <div>
+                <span class="stackly-training-label">PLAN YOUR WEEK</span>
+                <h2>Upcoming Training Sessions</h2>
+                <p>Stay organized and prepare for your next coaching sessions.</p>
+            </div>
+
+            <a href="404-other.html" class="stackly-training-text-link">
+                Full Schedule
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="stackly-training-session-list">
+
+            <article class="stackly-training-session"
+                     data-aos="fade-right"
+                     data-aos-delay="50">
+
+                <div class="stackly-training-session-date">
+                    <span>OCT</span>
+                    <strong>22</strong>
+                </div>
+
+                <div class="stackly-training-session-info">
+                    <span class="stackly-training-session-type strength-tag">
+                        STRENGTH TRAINING
+                    </span>
+                    <h3>Full Body Strength</h3>
+                    <p>
+                        <i class="fa-solid fa-user-tie"></i> Coach Alex Morgan
+                        <span class="stackly-training-session-separator">•</span>
+                        <i class="fa-regular fa-clock"></i> 08:00 AM
+                    </p>
+                </div>
+
+                <span class="stackly-training-session-status">
+                    <i class="fa-solid fa-circle-check"></i> Confirmed
+                </span>
+
+                <a href="404-other.html"
+                   class="stackly-training-session-action"
+                   aria-label="View Full Body Strength session">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </article>
+
+
+            <article class="stackly-training-session"
+                     data-aos="fade-right"
+                     data-aos-delay="100">
+
+                <div class="stackly-training-session-date">
+                    <span>OCT</span>
+                    <strong>24</strong>
+                </div>
+
+                <div class="stackly-training-session-info">
+                    <span class="stackly-training-session-type cardio-tag">
+                        CARDIO & ENDURANCE
+                    </span>
+                    <h3>Endurance Development</h3>
+                    <p>
+                        <i class="fa-solid fa-user-tie"></i> Coach Sarah Williams
+                        <span class="stackly-training-session-separator">•</span>
+                        <i class="fa-regular fa-clock"></i> 09:30 AM
+                    </p>
+                </div>
+
+                <span class="stackly-training-session-status">
+                    <i class="fa-solid fa-circle-check"></i> Confirmed
+                </span>
+
+                <a href="404-other.html"
+                   class="stackly-training-session-action"
+                   aria-label="View Endurance Development session">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </article>
+
+
+            <article class="stackly-training-session"
+                     data-aos="fade-right"
+                     data-aos-delay="150">
+
+                <div class="stackly-training-session-date">
+                    <span>OCT</span>
+                    <strong>26</strong>
+                </div>
+
+                <div class="stackly-training-session-info">
+                    <span class="stackly-training-session-type recovery-tag">
+                        MOBILITY & RECOVERY
+                    </span>
+                    <h3>Mobility Reset</h3>
+                    <p>
+                        <i class="fa-solid fa-user-tie"></i> Coach Daniel Lee
+                        <span class="stackly-training-session-separator">•</span>
+                        <i class="fa-regular fa-clock"></i> 07:30 AM
+                    </p>
+                </div>
+
+                <span class="stackly-training-session-status">
+                    <i class="fa-solid fa-circle-check"></i> Confirmed
+                </span>
+
+                <a href="404-other.html"
+                   class="stackly-training-session-action"
+                   aria-label="View Mobility Reset session">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- INTENSITY + COACHING TIP -->
+    <section class="stackly-training-bottom-grid"
+             data-aos="fade-up">
+
+        <!-- TRAINING INTENSITY -->
+        <div class="stackly-training-intensity-card">
+
+            <div class="stackly-training-section-heading">
+                <div>
+                    <span class="stackly-training-label">WORKLOAD BALANCE</span>
+                    <h2>Training Focus</h2>
+                    <p>Example distribution across your programs.</p>
+                </div>
+                <span class="stackly-training-mini-icon">
+                    <i class="fa-solid fa-chart-simple"></i>
+                </span>
+            </div>
+
+            <div class="stackly-training-focus-list">
+
+                <div class="stackly-training-focus-item">
+                    <div class="stackly-training-focus-info">
+                        <span class="stackly-training-focus-dot red-dot"></span>
+                        <span>Strength & Conditioning</span>
+                        <strong>45%</strong>
+                    </div>
+                    <div class="stackly-training-focus-track">
+                        <span class="red-fill" style="width:45%"></span>
+                    </div>
+                </div>
+
+                <div class="stackly-training-focus-item">
+                    <div class="stackly-training-focus-info">
+                        <span class="stackly-training-focus-dot orange-dot"></span>
+                        <span>Cardio & Endurance</span>
+                        <strong>30%</strong>
+                    </div>
+                    <div class="stackly-training-focus-track">
+                        <span class="orange-fill" style="width:30%"></span>
+                    </div>
+                </div>
+
+                <div class="stackly-training-focus-item">
+                    <div class="stackly-training-focus-info">
+                        <span class="stackly-training-focus-dot green-dot"></span>
+                        <span>Mobility & Recovery</span>
+                        <strong>25%</strong>
+                    </div>
+                    <div class="stackly-training-focus-track">
+                        <span class="green-fill" style="width:25%"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="stackly-training-intensity-note">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>
+                    Example workload allocation. Adjust the mix to match
+                    each athlete's goals and recovery needs.
+                </span>
+            </div>
+        </div>
+
+
+        <!-- COACHING TIP -->
+        <aside class="stackly-training-coach-card">
+
+            <div class="stackly-training-coach-icon">
+                <i class="fa-solid fa-lightbulb"></i>
+            </div>
+
+            <span class="stackly-training-coach-label">
+                COACH'S CORNER
+            </span>
+
+            <h2>Progress Over Perfection.</h2>
+
+            <p>
+                Great training is built on consistency. Set realistic
+                milestones, monitor technique, and give athletes enough
+                time to recover between demanding sessions.
+            </p>
+
+            <div class="stackly-training-coach-divider"></div>
+
+            <div class="stackly-training-coach-footer">
+                <span class="stackly-training-coach-avatar">
+                    <i class="fa-solid fa-user-tie"></i>
+                </span>
+                <div>
+                    <strong>Today's Coaching Reminder</strong>
+                    <span>Train with purpose. Recover with intention.</span>
+                </div>
+            </div>
+
+        </aside>
+
+    </section>
+
+
+    <!-- BOTTOM CALL TO ACTION -->
+    <section class="stackly-training-cta" data-aos="zoom-in">
+
+        <div class="stackly-training-cta-icon">
+            <i class="fa-solid fa-rocket"></i>
+        </div>
+
+        <div class="stackly-training-cta-content">
+            <span>READY FOR THE NEXT LEVEL?</span>
+            <h2>Turn Your Training Strategy Into Results.</h2>
+            <p>
+                Review your programs, support your athletes,
+                and keep every session moving forward.
+            </p>
+        </div>
+
+        <a href="404-other.html" class="stackly-training-cta-btn">
+            View My Athletes
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </section>
+
+</div>
+
+</main>
+
+</div>
+
+<!-- AOS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<!-- Others Dashboard JavaScript -->
+<script src="other.js"></script>
+
+</body>
+</html>

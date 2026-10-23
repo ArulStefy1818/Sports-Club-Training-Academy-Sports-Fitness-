@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Coach Dashboard | Stackly Sports Club</title>
+    <meta name="description" content="Manage athletes, training plans, sessions and performance at Stackly Sports Club Training Academy.">
+
+    <link rel="icon" href="Stackly-logo-Blue.webp">
+    <link rel="stylesheet" href="coach.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+
+<body class="stackly-coach-body">
+
+<div class="stackly-coach-layout">
+
+    <!-- MOBILE OVERLAY -->
+    <div class="stackly-coach-overlay" id="stacklyCoachOverlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="stackly-coach-sidebar" id="stacklyCoachSidebar">
+
+        <!-- LOGO -->
+        <a href="coach.html" class="stackly-coach-logo" aria-label="Stackly Sports Club home">
+            <img src="Stackly-logo.webp" alt="Stackly Sports Club Logo">
+        </a>
+
+        <!-- MOBILE CLOSE BUTTON -->
+        <button type="button"
+                class="stackly-coach-mobile-exit"
+                id="stacklyCoachMobileExit"
+                aria-label="Close navigation menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="stackly-coach-sidebar-label">COACH WORKSPACE</div>
+
+        <!-- NAVIGATION -->
+        <nav class="stackly-coach-navigation" aria-label="Coach navigation">
+
+            <a href="coach.html" class="stackly-coach-nav-link stackly-coach-nav-active">
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="coach-athletes.html" class="stackly-coach-nav-link">
+                <i class="fa-solid fa-users"></i>
+                <span>My Athletes</span>
+                <span class="stackly-coach-nav-count">24</span>
+            </a>
+
+            <a href="coach-training.html" class="stackly-coach-nav-link">
+                <i class="fa-solid fa-dumbbell"></i>
+                <span>Training Plans</span>
+            </a>
+
+            <a href="coach-sessions.html" class="stackly-coach-nav-link">
+                <i class="fa-regular fa-calendar-check"></i>
+                <span>Sessions</span>
+            </a>
+
+            <a href="coach-progress.html" class="stackly-coach-nav-link">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Performance</span>
+            </a>
+
+             
+
+            <div class="stackly-coach-nav-divider"></div>
+
+            <div class="stackly-coach-sidebar-label">ACCOUNT</div>
+
+            <a href="coach-profile.html" class="stackly-coach-nav-link">
+                <i class="fa-regular fa-user"></i>
+                <span>My Profile</span>
+            </a>
+
+             
+
+        </nav>
+
+        <!-- SIDEBAR PROMO CARD -->
+        <div class="stackly-coach-sidebar-bottom">
+            <div class="stackly-coach-sidebar-bottom-icon">
+                <i class="fa-solid fa-medal"></i>
+            </div>
+
+            <h3>Keep Inspiring!</h3>
+            <p>Great coaches build stronger athletes every day.</p>
+
+            <a href="404-coach.html">
+                View performance
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- LOGOUT -->
+        <button type="button" class="stackly-coach-logout" id="stacklyCoachLogout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Log Out</span>
+        </button>
+
+    </aside>
+
+    <!-- MAIN AREA -->
+    <main class="stackly-coach-main">
+
+        <!-- TOP HEADER -->
+        <header class="stackly-coach-topbar">
+
+            <div class="stackly-coach-topbar-left">
+
+                <!-- HAMBURGER: VISIBLE ON MOBILE -->
+                <button type="button"
+                        class="stackly-coach-hamburger"
+                        id="stacklyCoachHamburger"
+                        aria-label="Open navigation menu"
+                        aria-controls="stacklyCoachSidebar"
+                        aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="stackly-coach-page-heading">
+                    <span>COACH WORKSPACE</span>
+                    <h1>Coach Dashboard</h1>
+                </div>
+
+            </div>
+
+            <!-- TOP RIGHT ACCOUNT / EMAIL -->
+            <div class="stackly-coach-topbar-right">
+
+                <a href="404-coach.html"
+                   class="stackly-coach-notification"
+                   aria-label="Open messages">
+                    <i class="fa-regular fa-bell"></i>
+                    <span></span>
+                </a>
+
+                <div class="stackly-coach-account">
+                    <div class="stackly-coach-account-avatar">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+
+                    <div class="stackly-coach-account-details">
+                        <strong id="stacklyCoachTopName">Coach</strong>
+                        <span id="stacklyCoachTopEmail">coach@stacklysports.com</span>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <!-- ==========================================
+     STACKLY SPORTS CLUB
+     MY ATHLETES PAGE - HTML SECTIONS
+========================================== -->
+
+<div class="stackly-coach-content stackly-athletes-content">
+
+    <!-- ATHLETES HERO -->
+    <section class="stackly-athletes-hero" data-aos="fade-up">
+        <div class="stackly-athletes-hero-content">
+            <span class="stackly-athletes-eyebrow">
+                <i class="fa-solid fa-users"></i>
+                ATHLETE MANAGEMENT
+            </span>
+
+            <h2>Every Athlete Has a <span>Champion Within.</span></h2>
+
+            <p>
+                Get to know your team, monitor individual progress, and
+                help every athlete reach their personal best.
+            </p>
+
+            <div class="stackly-athletes-hero-actions">
+                <a href="404-coach.html" class="stackly-athletes-primary-btn">
+                    <i class="fa-solid fa-user-plus"></i>
+                    Add New Athlete
+                </a>
+
+                <a href="404-coach.html" class="stackly-athletes-secondary-btn">
+                    View Performance
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="stackly-athletes-hero-visual">
+            <div class="stackly-athletes-hero-circle">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+
+            <div class="stackly-athletes-floating-card">
+                <span class="stackly-athletes-floating-icon">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                </span>
+                <div>
+                    <strong>92%</strong>
+                    <span>Team attendance</span>
+                </div>
+            </div>
+
+            <div class="stackly-athletes-hero-caption">
+                <i class="fa-solid fa-bolt"></i>
+                Better every session
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PAGE HEADING -->
+    <section class="stackly-athletes-section-heading" data-aos="fade-up">
+        <div>
+            <span class="stackly-athletes-section-label">TEAM OVERVIEW</span>
+            <h2>Your Athletes</h2>
+            <p>Manage athlete profiles, attendance, and training progress.</p>
+        </div>
+
+        <div class="stackly-athletes-updated">
+            <i class="fa-regular fa-clock"></i>
+            <span>Team overview</span>
+        </div>
+    </section>
+
+
+    <!-- ATHLETE STATISTICS -->
+    <section class="stackly-athletes-stats" aria-label="Athlete statistics">
+
+        <article class="stackly-athletes-stat-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="stackly-athletes-stat-top">
+                <span>Total Athletes</span>
+                <div class="stackly-athletes-stat-icon red">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+            </div>
+            <h3>24</h3>
+            <div class="stackly-athletes-stat-bottom">
+                <span class="stackly-athletes-stat-tag">
+                    <i class="fa-solid fa-people-group"></i> Team roster
+                </span>
+                <span>Registered</span>
+            </div>
+        </article>
+
+        <article class="stackly-athletes-stat-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="stackly-athletes-stat-top">
+                <span>Active Athletes</span>
+                <div class="stackly-athletes-stat-icon green">
+                    <i class="fa-solid fa-person-running"></i>
+                </div>
+            </div>
+            <h3>21</h3>
+            <div class="stackly-athletes-stat-bottom">
+                <span class="stackly-athletes-stat-tag green">
+                    <i class="fa-solid fa-check-circle"></i> Active
+                </span>
+                <span>Training regularly</span>
+            </div>
+        </article>
+
+        <article class="stackly-athletes-stat-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="stackly-athletes-stat-top">
+                <span>Average Attendance</span>
+                <div class="stackly-athletes-stat-icon blue">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+            </div>
+            <h3>92%</h3>
+            <div class="stackly-athletes-stat-bottom">
+                <span class="stackly-athletes-stat-tag blue">
+                    <i class="fa-solid fa-chart-line"></i> Attendance
+                </span>
+                <span>Team average</span>
+            </div>
+        </article>
+
+        <article class="stackly-athletes-stat-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="stackly-athletes-stat-top">
+                <span>Top Performers</span>
+                <div class="stackly-athletes-stat-icon orange">
+                    <i class="fa-solid fa-medal"></i>
+                </div>
+            </div>
+            <h3>08</h3>
+            <div class="stackly-athletes-stat-bottom">
+                <span class="stackly-athletes-stat-tag orange">
+                    <i class="fa-solid fa-star"></i> Excellent
+                </span>
+                <span>Strong progress</span>
+            </div>
+        </article>
+
+    </section>
+
+
+    <!-- SEARCH AND FILTER TOOLBAR -->
+    <section class="stackly-athletes-toolbar" data-aos="fade-up">
+        <div class="stackly-athletes-toolbar-heading">
+            <div>
+                <span class="stackly-athletes-section-label">YOUR SQUAD</span>
+                <h2>Athlete Directory</h2>
+            </div>
+
+            <span class="stackly-athletes-total-badge">24 Athletes</span>
+        </div>
+
+        <div class="stackly-athletes-controls">
+            <label class="stackly-athletes-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                    type="search"
+                    id="stacklyAthleteSearch"
+                    placeholder="Search athletes by name..."
+                    aria-label="Search athletes">
+            </label>
+
+            
+<!-- CUSTOM ATHLETE STATUS DROPDOWN -->
+<div class="stackly-athletes-filter-wrap">
+
+    <button
+        type="button"
+        class="stackly-athletes-filter-btn"
+        id="stacklyAthletesFilterBtn"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+    >
+        <i class="fa-solid fa-filter"></i>
+
+        <span id="stacklyAthletesSelectedText">
+            All Athletes
+        </span>
+
+        <i class="fa-solid fa-chevron-down stackly-athletes-chevron"></i>
+    </button>
+
+    <div
+        class="stackly-athletes-dropdown"
+        id="stacklyAthletesDropdown"
+        role="listbox"
+        aria-label="Filter athletes by status"
+        hidden
+    >
+        <button type="button" class="stackly-athletes-option active"
+            data-value="all" role="option" aria-selected="true">
+            <span>All Athletes</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button" class="stackly-athletes-option"
+            data-value="active" role="option" aria-selected="false">
+            <span>Active</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button" class="stackly-athletes-option"
+            data-value="resting" role="option" aria-selected="false">
+            <span>On Rest</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button" class="stackly-athletes-option"
+            data-value="review" role="option" aria-selected="false">
+            <span>Needs Review</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+    </div>
+
+    <!-- Keeps the selected value available to existing filter logic -->
+    <input type="hidden" id="stacklyAthleteStatus" value="all">
+
+</div>
+
+
+            
+<!-- CUSTOM TRAINING PROGRAM DROPDOWN -->
+<div class="stackly-program-filter-wrap">
+
+    <button
+        type="button"
+        class="stackly-program-filter-btn"
+        id="stacklyProgramFilterBtn"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+    >
+        <i class="fa-solid fa-dumbbell"></i>
+
+        <span id="stacklyProgramSelectedText">All Programs</span>
+
+        <i class="fa-solid fa-chevron-down stackly-program-chevron"></i>
+    </button>
+
+    <div
+        class="stackly-program-dropdown"
+        id="stacklyProgramDropdown"
+        role="listbox"
+        aria-label="Filter by training program"
+        hidden
+    >
+        <button type="button"
+            class="stackly-program-option active"
+            data-value="all"
+            role="option"
+            aria-selected="true">
+            <span>All Programs</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+            class="stackly-program-option"
+            data-value="strength"
+            role="option"
+            aria-selected="false">
+            <span>Strength Training</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+            class="stackly-program-option"
+            data-value="cardio"
+            role="option"
+            aria-selected="false">
+            <span>Cardio &amp; Endurance</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+            class="stackly-program-option"
+            data-value="agility"
+            role="option"
+            aria-selected="false">
+            <span>Speed &amp; Agility</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+    </div>
+
+    <!-- Selected value for existing filtering logic -->
+    <input type="hidden" id="stacklyAthleteProgram" value="all">
+
+</div>
+
+        </div>
+    </section>
+
+
+    <!-- FEATURED ATHLETES -->
+    <section class="stackly-athletes-directory" data-aos="fade-up">
+
+        <div class="stackly-athletes-directory-heading">
+            <div>
+                <span class="stackly-athletes-section-label">INDIVIDUAL PROGRESS</span>
+                <h2>Meet Your Athletes</h2>
+                <p>Get a quick look at each athlete's training journey.</p>
+            </div>
+
+            <a href="404-coach.html" class="stackly-athletes-view-all">
+                Manage roster <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="stackly-athletes-grid" id="stacklyAthletesGrid">
+
+            <!-- ATHLETE 1 -->
+            <article class="stackly-athlete-card"
+                     data-name="oliver james"
+                     data-status="active"
+                     data-program="strength"
+                     data-aos="fade-up"
+                     data-aos-delay="50">
+
+                <div class="stackly-athlete-card-cover stackly-athlete-cover-red">
+                    <span class="stackly-athlete-rank">
+                        <i class="fa-solid fa-trophy"></i> TOP PERFORMER
+                    </span>
+                    <button type="button" class="stackly-athlete-more"
+                            aria-label="More options for Oliver James">
+                        <a href="404-coach.html"><i class="fa-solid fa-ellipsis"></i></a>
+                    </button>
+                    <div class="stackly-athlete-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="stackly-athlete-card-body">
+                    <div class="stackly-athlete-name-row">
+                        <div>
+                            <h3>Oliver James</h3>
+                            <p>ATH-001 · Age 22</p>
+                        </div>
+                        <span class="stackly-athlete-status active">
+                            <i class="fa-solid fa-circle"></i> Active
+                        </span>
+                    </div>
+
+                    <div class="stackly-athlete-program">
+                        <span class="stackly-athlete-program-icon">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </span>
+                        <div>
+                            <span>Training program</span>
+                            <strong>Strength Training</strong>
+                        </div>
+                    </div>
+
+                    <div class="stackly-athlete-progress-heading">
+                        <span>Training progress</span>
+                        <strong>88%</strong>
+                    </div>
+                    <div class="stackly-athlete-progress-track">
+                        <span style="width:88%"></span>
+                    </div>
+
+                    <div class="stackly-athlete-card-footer">
+                        <span><i class="fa-regular fa-calendar-check"></i> 18 sessions</span>
+                        <a href="404-coach.html" aria-label="View Oliver James profile">
+                            View Profile <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- ATHLETE 2 -->
+            <article class="stackly-athlete-card"
+                     data-name="sophia williams"
+                     data-status="active"
+                     data-program="cardio"
+                     data-aos="fade-up"
+                     data-aos-delay="100">
+
+                <div class="stackly-athlete-card-cover stackly-athlete-cover-blue">
+                    <span class="stackly-athlete-rank">
+                        <i class="fa-solid fa-bolt"></i> FAST IMPROVER
+                    </span>
+                    <button type="button" class="stackly-athlete-more"
+                            aria-label="More options for Sophia Williams">
+                        <a href="404-coach.html"><i class="fa-solid fa-ellipsis"></i></a>
+                    </button>
+                    <div class="stackly-athlete-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="stackly-athlete-card-body">
+                    <div class="stackly-athlete-name-row">
+                        <div>
+                            <h3>Sophia Williams</h3>
+                            <p>ATH-002 · Age 21</p>
+                        </div>
+                        <span class="stackly-athlete-status active">
+                            <i class="fa-solid fa-circle"></i> Active
+                        </span>
+                    </div>
+
+                    <div class="stackly-athlete-program">
+                        <span class="stackly-athlete-program-icon blue">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </span>
+                        <div>
+                            <span>Training program</span>
+                            <strong>Cardio &amp; Endurance</strong>
+                        </div>
+                    </div>
+
+                    <div class="stackly-athlete-progress-heading">
+                        <span>Training progress</span>
+                        <strong>76%</strong>
+                    </div>
+                    <div class="stackly-athlete-progress-track blue">
+                        <span style="width:76%"></span>
+                    </div>
+
+                    <div class="stackly-athlete-card-footer">
+                        <span><i class="fa-regular fa-calendar-check"></i> 15 sessions</span>
+                        <a href="404-coach.html" aria-label="View Sophia Williams profile">
+                            View Profile <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- ATHLETE 3 -->
+            <article class="stackly-athlete-card"
+                     data-name="ethan michael"
+                     data-status="review"
+                     data-program="agility"
+                     data-aos="fade-up"
+                     data-aos-delay="150">
+
+                <div class="stackly-athlete-card-cover stackly-athlete-cover-orange">
+                    <span class="stackly-athlete-rank">
+                        <i class="fa-solid fa-bullseye"></i> GOAL FOCUSED
+                    </span>
+                    <button type="button" class="stackly-athlete-more"
+                            aria-label="More options for Ethan Michael">
+                        <a href="404-coach.html"><i class="fa-solid fa-ellipsis"></i></a>
+                    </button>
+                    <div class="stackly-athlete-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="stackly-athlete-card-body">
+                    <div class="stackly-athlete-name-row">
+                        <div>
+                            <h3>Ethan Michael</h3>
+                            <p>ATH-003 · Age 24</p>
+                        </div>
+                        <span class="stackly-athlete-status review">
+                            <i class="fa-solid fa-circle"></i> Review
+                        </span>
+                    </div>
+
+                    <div class="stackly-athlete-program">
+                        <span class="stackly-athlete-program-icon orange">
+                            <i class="fa-solid fa-person-running"></i>
+                        </span>
+                        <div>
+                            <span>Training program</span>
+                            <strong>Speed &amp; Agility</strong>
+                        </div>
+                    </div>
+
+                    <div class="stackly-athlete-progress-heading">
+                        <span>Training progress</span>
+                        <strong>64%</strong>
+                    </div>
+                    <div class="stackly-athlete-progress-track orange">
+                        <span style="width:64%"></span>
+                    </div>
+
+                    <div class="stackly-athlete-card-footer">
+                        <span><i class="fa-regular fa-calendar-check"></i> 12 sessions</span>
+                        <a href="404-coach.html" aria-label="View Ethan Michael profile">
+                            View Profile <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- ATHLETE 4 -->
+            <article class="stackly-athlete-card"
+                     data-name="ava charlotte"
+                     data-status="resting"
+                     data-program="strength"
+                     data-aos="fade-up"
+                     data-aos-delay="200">
+
+                <div class="stackly-athlete-card-cover stackly-athlete-cover-green">
+                    <span class="stackly-athlete-rank">
+                        <i class="fa-solid fa-seedling"></i> STEADY PROGRESS
+                    </span>
+                    <button type="button" class="stackly-athlete-more"
+                            aria-label="More options for Ava Charlotte">
+                        <a href="404-coach.html"><i class="fa-solid fa-ellipsis"></i></a>
+                    </button>
+                    <div class="stackly-athlete-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="stackly-athlete-card-body">
+                    <div class="stackly-athlete-name-row">
+                        <div>
+                            <h3>Ava Charlotte</h3>
+                            <p>ATH-004 · Age 20</p>
+                        </div>
+                        <span class="stackly-athlete-status resting">
+                            <i class="fa-solid fa-circle"></i> On Rest
+                        </span>
+                    </div>
+
+                    <div class="stackly-athlete-program">
+                        <span class="stackly-athlete-program-icon green">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </span>
+                        <div>
+                            <span>Training program</span>
+                            <strong>Strength Training</strong>
+                        </div>
+                    </div>
+
+                    <div class="stackly-athlete-progress-heading">
+                        <span>Training progress</span>
+                        <strong>81%</strong>
+                    </div>
+                    <div class="stackly-athlete-progress-track green">
+                        <span style="width:81%"></span>
+                    </div>
+
+                    <div class="stackly-athlete-card-footer">
+                        <span><i class="fa-regular fa-calendar-check"></i> 16 sessions</span>
+                        <a href="404-coach.html" aria-label="View Ava Charlotte profile">
+                            View Profile <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="stackly-athletes-empty" id="stacklyAthletesEmpty" hidden>
+            <i class="fa-solid fa-user-slash"></i>
+            <h3>No athletes found</h3>
+            <p>Try another name or change your filters.</p>
+        </div>
+    </section>
+
+
+    <!-- TEAM PERFORMANCE HIGHLIGHTS -->
+    <section class="stackly-athletes-highlights" data-aos="fade-up">
+
+        <div class="stackly-athletes-directory-heading">
+            <div>
+                <span class="stackly-athletes-section-label">TEAM ACHIEVEMENTS</span>
+                <h2>Performance Highlights</h2>
+                <p>Celebrate consistency, effort, and progress across your squad.</p>
+            </div>
+        </div>
+
+        <div class="stackly-athletes-highlight-grid">
+
+            <article class="stackly-athletes-highlight-card">
+                <div class="stackly-athletes-highlight-icon red">
+                    <i class="fa-solid fa-fire-flame-curved"></i>
+                </div>
+                <div>
+                    <span>Consistency Leader</span>
+                    <h3>Oliver James</h3>
+                    <p>18 completed training sessions</p>
+                </div>
+                <i class="fa-solid fa-award stackly-athletes-highlight-award"></i>
+            </article>
+
+            <article class="stackly-athletes-highlight-card">
+                <div class="stackly-athletes-highlight-icon blue">
+                    <i class="fa-solid fa-gauge-high"></i>
+                </div>
+                <div>
+                    <span>Endurance Focus</span>
+                    <h3>Sophia Williams</h3>
+                    <p>Cardio training progress: 76%</p>
+                </div>
+                <i class="fa-solid fa-award stackly-athletes-highlight-award"></i>
+            </article>
+
+            <article class="stackly-athletes-highlight-card">
+                <div class="stackly-athletes-highlight-icon green">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div>
+                    <span>Growth Opportunity</span>
+                    <h3>Ethan Michael</h3>
+                    <p>Review goals and adjust his plan</p>
+                </div>
+                <i class="fa-solid fa-bullseye stackly-athletes-highlight-award"></i>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- COACHING REMINDER -->
+    <section class="stackly-athletes-reminder" data-aos="fade-up">
+
+        <div class="stackly-athletes-reminder-icon">
+            <i class="fa-solid fa-lightbulb"></i>
+        </div>
+
+        <div class="stackly-athletes-reminder-content">
+            <span class="stackly-athletes-section-label">COACHING TIP</span>
+            <h2>Small improvements create lasting results.</h2>
+            <p>
+                Check in with athletes regularly, celebrate personal milestones,
+                and adapt training plans to their individual needs.
+            </p>
+        </div>
+
+        <a href="404-coach.html" class="stackly-athletes-reminder-btn">
+            Review Training Plans
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </section>
+
+</div>
+
+
+</main>
+</div>
+
+<!-- AOS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<!-- Coach Dashboard JS -->
+<script src="coach.js"></script>
+
+</body>
+</html>

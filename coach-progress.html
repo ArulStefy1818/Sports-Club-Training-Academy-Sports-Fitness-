@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Coach Dashboard | Stackly Sports Club</title>
+    <meta name="description" content="Manage athletes, training plans, sessions and performance at Stackly Sports Club Training Academy.">
+
+    <link rel="icon" href="Stackly-logo-Blue.webp">
+    <link rel="stylesheet" href="coach.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS Animation CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+
+<body class="stackly-coach-body">
+
+<div class="stackly-coach-layout">
+
+    <!-- MOBILE OVERLAY -->
+    <div class="stackly-coach-overlay" id="stacklyCoachOverlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="stackly-coach-sidebar" id="stacklyCoachSidebar">
+
+        <!-- LOGO -->
+        <a href="coach.html" class="stackly-coach-logo" aria-label="Stackly Sports Club home">
+            <img src="Stackly-logo.webp" alt="Stackly Sports Club Logo">
+        </a>
+
+        <!-- MOBILE CLOSE BUTTON -->
+        <button type="button"
+                class="stackly-coach-mobile-exit"
+                id="stacklyCoachMobileExit"
+                aria-label="Close navigation menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="stackly-coach-sidebar-label">COACH WORKSPACE</div>
+
+        <!-- NAVIGATION -->
+        <nav class="stackly-coach-navigation" aria-label="Coach navigation">
+
+            <a href="coach.html" class="stackly-coach-nav-link stackly-coach-nav-active">
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="coach-athletes.html" class="stackly-coach-nav-link">
+                <i class="fa-solid fa-users"></i>
+                <span>My Athletes</span>
+                <span class="stackly-coach-nav-count">24</span>
+            </a>
+
+            <a href="coach-training.html" class="stackly-coach-nav-link">
+                <i class="fa-solid fa-dumbbell"></i>
+                <span>Training Plans</span>
+            </a>
+
+            <a href="coach-sessions.html" class="stackly-coach-nav-link">
+                <i class="fa-regular fa-calendar-check"></i>
+                <span>Sessions</span>
+            </a>
+
+            <a href="coach-progress.html" class="stackly-coach-nav-link">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Performance</span>
+            </a>
+
+             
+            
+
+            <div class="stackly-coach-nav-divider"></div>
+
+            <div class="stackly-coach-sidebar-label">ACCOUNT</div>
+
+            <a href="coach-profile.html" class="stackly-coach-nav-link">
+                <i class="fa-regular fa-user"></i>
+                <span>My Profile</span>
+            </a>
+
+             
+
+        </nav>
+
+        <!-- SIDEBAR PROMO CARD -->
+        <div class="stackly-coach-sidebar-bottom">
+            <div class="stackly-coach-sidebar-bottom-icon">
+                <i class="fa-solid fa-medal"></i>
+            </div>
+
+            <h3>Keep Inspiring!</h3>
+            <p>Great coaches build stronger athletes every day.</p>
+
+            <a href="404-coach.html">
+                View performance
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- LOGOUT -->
+        <button type="button" class="stackly-coach-logout" id="stacklyCoachLogout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Log Out</span>
+        </button>
+
+    </aside>
+
+    <!-- MAIN AREA -->
+    <main class="stackly-coach-main">
+
+        <!-- TOP HEADER -->
+        <header class="stackly-coach-topbar">
+
+            <div class="stackly-coach-topbar-left">
+
+                <!-- HAMBURGER: VISIBLE ON MOBILE -->
+                <button type="button"
+                        class="stackly-coach-hamburger"
+                        id="stacklyCoachHamburger"
+                        aria-label="Open navigation menu"
+                        aria-controls="stacklyCoachSidebar"
+                        aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="stackly-coach-page-heading">
+                    <span>COACH WORKSPACE</span>
+                    <h1>Coach Dashboard</h1>
+                </div>
+
+            </div>
+
+            <!-- TOP RIGHT ACCOUNT / EMAIL -->
+            <div class="stackly-coach-topbar-right">
+
+                <a href="404-coach.html"
+                   class="stackly-coach-notification"
+                   aria-label="Open messages">
+                    <i class="fa-regular fa-bell"></i>
+                    <span></span>
+                </a>
+
+                <div class="stackly-coach-account">
+                    <div class="stackly-coach-account-avatar">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+
+                    <div class="stackly-coach-account-details">
+                        <strong id="stacklyCoachTopName">Coach</strong>
+                        <span id="stacklyCoachTopEmail">coach@stacklysports.com</span>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+
+<!-- ==========================================
+     STACKLY SPORTS CLUB
+     COACH PERFORMANCE PAGE
+========================================== -->
+
+<div class="stackly-performance-page">
+
+    <!-- PERFORMANCE HERO -->
+    <section class="stackly-performance-hero" data-aos="fade-up">
+
+        <div class="stackly-performance-hero-content">
+            <span class="stackly-performance-eyebrow">
+                <i class="fa-solid fa-chart-line"></i>
+                PERFORMANCE CENTER
+            </span>
+
+            <h2>Turn Every Effort Into <span>Progress.</span></h2>
+
+            <p>
+                Track athlete development, celebrate milestones, and
+                discover new opportunities to improve team performance.
+            </p>
+
+            <div class="stackly-performance-hero-actions">
+                <a href="404-coach.html" class="stackly-performance-btn-primary">
+                    <i class="fa-solid fa-users"></i>
+                    Explore Athletes
+                </a>
+
+                <a href="404-coach.html" class="stackly-performance-btn-outline">
+                    <i class="fa-solid fa-dumbbell"></i>
+                    View Training Plans
+                </a>
+            </div>
+        </div>
+
+        <div class="stackly-performance-hero-visual">
+            <div class="stackly-performance-orbit stackly-performance-orbit-one"></div>
+            <div class="stackly-performance-orbit stackly-performance-orbit-two"></div>
+
+            <div class="stackly-performance-hero-icon">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+
+            <div class="stackly-performance-floating-card stackly-performance-float-top">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                <div>
+                    <strong>+18.6%</strong>
+                    <span>Team Improvement</span>
+                </div>
+            </div>
+
+            <div class="stackly-performance-floating-card stackly-performance-float-bottom">
+                <i class="fa-solid fa-bullseye"></i>
+                <div>
+                    <strong>92%</strong>
+                    <span>Goal Achievement</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- PERFORMANCE OVERVIEW -->
+    <section class="stackly-performance-overview" data-aos="fade-up">
+
+        <div class="stackly-performance-section-heading">
+            <div>
+                <span class="stackly-performance-section-label">YOUR IMPACT</span>
+                <h2>Performance Overview</h2>
+                <p>A quick snapshot of your coaching results.</p>
+            </div>
+
+            <span class="stackly-performance-live-badge">
+                <span></span> Performance Summary
+            </span>
+        </div>
+
+        <div class="stackly-performance-stats-grid">
+
+            <article class="stackly-performance-stat-card" data-aos="fade-up" data-aos-delay="50">
+                <div class="stackly-performance-stat-top">
+                    <div class="stackly-performance-stat-icon red">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <span class="stackly-performance-stat-change">
+                        <i class="fa-solid fa-arrow-up"></i> 12.4%
+                    </span>
+                </div>
+
+                <span class="stackly-performance-stat-title">Athletes Coached</span>
+                <h3>24</h3>
+                <div class="stackly-performance-stat-foot">
+                    <span>Across all programs</span>
+                    <i class="fa-solid fa-people-group"></i>
+                </div>
+            </article>
+
+            <article class="stackly-performance-stat-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="stackly-performance-stat-top">
+                    <div class="stackly-performance-stat-icon orange">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <span class="stackly-performance-stat-change">
+                        <i class="fa-solid fa-arrow-up"></i> 8.2%
+                    </span>
+                </div>
+
+                <span class="stackly-performance-stat-title">Training Completion</span>
+                <h3>86<span>%</span></h3>
+                <div class="stackly-performance-progress">
+                    <span style="width:86%"></span>
+                </div>
+                <div class="stackly-performance-stat-foot">
+                    <span>Weekly completion rate</span>
+                    <strong>86/100</strong>
+                </div>
+            </article>
+
+            <article class="stackly-performance-stat-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="stackly-performance-stat-top">
+                    <div class="stackly-performance-stat-icon purple">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+                    <span class="stackly-performance-stat-change">
+                        <i class="fa-solid fa-arrow-up"></i> 5.7%
+                    </span>
+                </div>
+
+                <span class="stackly-performance-stat-title">Goals Achieved</span>
+                <h3>38</h3>
+                <div class="stackly-performance-stat-foot">
+                    <span>Completed milestones</span>
+                    <i class="fa-solid fa-flag-checkered"></i>
+                </div>
+            </article>
+
+            <article class="stackly-performance-stat-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="stackly-performance-stat-top">
+                    <div class="stackly-performance-stat-icon green">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <span class="stackly-performance-stat-change">
+                        <i class="fa-solid fa-arrow-up"></i> 4.5%
+                    </span>
+                </div>
+
+                <span class="stackly-performance-stat-title">Sessions Completed</span>
+                <h3>128</h3>
+                <div class="stackly-performance-stat-foot">
+                    <span>Coaching sessions</span>
+                    <i class="fa-solid fa-stopwatch"></i>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- ANALYTICS AND GOALS -->
+    <section class="stackly-performance-analytics-grid">
+
+        <!-- TEAM PROGRESS CHART -->
+        <article class="stackly-performance-panel stackly-performance-chart-panel"
+                 data-aos="fade-up">
+
+            <div class="stackly-performance-panel-heading">
+                <div>
+                    <span class="stackly-performance-section-label">TEAM ANALYTICS</span>
+                    <h2>Team Progress</h2>
+                    <p>Monthly training performance comparison.</p>
+                </div>
+
+                <div class="stackly-performance-chart-legend">
+                    <span><i class="legend-current"></i> Current</span>
+                    <span><i class="legend-previous"></i> Previous</span>
+                </div>
+            </div>
+
+            <div class="stackly-performance-chart">
+                <div class="stackly-performance-y-labels">
+                    <span>100%</span>
+                    <span>75%</span>
+                    <span>50%</span>
+                    <span>25%</span>
+                    <span>0%</span>
+                </div>
+
+                <div class="stackly-performance-chart-area">
+
+                    <div class="stackly-performance-chart-gridlines">
+                        <span></span><span></span><span></span>
+                        <span></span><span></span>
+                    </div>
+
+                    <div class="stackly-performance-chart-columns">
+
+                        <div class="stackly-performance-chart-group">
+                            <div class="stackly-performance-bar previous" style="height:48%">
+                                <span>48%</span>
+                            </div>
+                            <div class="stackly-performance-bar current" style="height:65%">
+                                <span>65%</span>
+                            </div>
+                            <span class="stackly-performance-chart-month">Jan</span>
+                        </div>
+
+                        <div class="stackly-performance-chart-group">
+                            <div class="stackly-performance-bar previous" style="height:55%">
+                                <span>55%</span>
+                            </div>
+                            <div class="stackly-performance-bar current" style="height:72%">
+                                <span>72%</span>
+                            </div>
+                            <span class="stackly-performance-chart-month">Feb</span>
+                        </div>
+
+                        <div class="stackly-performance-chart-group">
+                            <div class="stackly-performance-bar previous" style="height:52%">
+                                <span>52%</span>
+                            </div>
+                            <div class="stackly-performance-bar current" style="height:68%">
+                                <span>68%</span>
+                            </div>
+                            <span class="stackly-performance-chart-month">Mar</span>
+                        </div>
+
+                        <div class="stackly-performance-chart-group">
+                            <div class="stackly-performance-bar previous" style="height:61%">
+                                <span>61%</span>
+                            </div>
+                            <div class="stackly-performance-bar current" style="height:82%">
+                                <span>82%</span>
+                            </div>
+                            <span class="stackly-performance-chart-month">Apr</span>
+                        </div>
+
+                        <div class="stackly-performance-chart-group">
+                            <div class="stackly-performance-bar previous" style="height:66%">
+                                <span>66%</span>
+                            </div>
+                            <div class="stackly-performance-bar current" style="height:86%">
+                                <span>86%</span>
+                            </div>
+                            <span class="stackly-performance-chart-month">May</span>
+                        </div>
+
+                        <div class="stackly-performance-chart-group">
+                            <div class="stackly-performance-bar previous" style="height:70%">
+                                <span>70%</span>
+                            </div>
+                            <div class="stackly-performance-bar current" style="height:92%">
+                                <span>92%</span>
+                            </div>
+                            <span class="stackly-performance-chart-month">Jun</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="stackly-performance-chart-summary">
+                <div>
+                    <span>Current team average</span>
+                    <strong>77.5%</strong>
+                </div>
+                <div class="stackly-performance-chart-summary-growth">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <span>Positive progress across the period</span>
+                </div>
+            </div>
+        </article>
+
+
+        <!-- GOAL COMPLETION -->
+        <article class="stackly-performance-panel stackly-performance-goals-panel"
+                 data-aos="fade-up" data-aos-delay="100">
+
+            <div class="stackly-performance-panel-heading">
+                <div>
+                    <span class="stackly-performance-section-label">MILESTONES</span>
+                    <h2>Goal Completion</h2>
+                    <p>Progress toward team development targets.</p>
+                </div>
+
+                <div class="stackly-performance-goal-icon">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+            </div>
+
+            <div class="stackly-performance-goal-list">
+
+                <div class="stackly-performance-goal-item">
+                    <div class="stackly-performance-goal-info">
+                        <div class="stackly-performance-goal-symbol red">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <div>
+                            <h3>Strength Development</h3>
+                            <span>18 of 24 athletes</span>
+                        </div>
+                        <strong>75%</strong>
+                    </div>
+                    <div class="stackly-performance-goal-track">
+                        <span style="width:75%"></span>
+                    </div>
+                </div>
+
+                <div class="stackly-performance-goal-item">
+                    <div class="stackly-performance-goal-info">
+                        <div class="stackly-performance-goal-symbol orange">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <div>
+                            <h3>Endurance Improvement</h3>
+                            <span>20 of 24 athletes</span>
+                        </div>
+                        <strong>83%</strong>
+                    </div>
+                    <div class="stackly-performance-goal-track">
+                        <span style="width:83%"></span>
+                    </div>
+                </div>
+
+                <div class="stackly-performance-goal-item">
+                    <div class="stackly-performance-goal-info">
+                        <div class="stackly-performance-goal-symbol purple">
+                            <i class="fa-solid fa-person-running"></i>
+                        </div>
+                        <div>
+                            <h3>Speed & Agility</h3>
+                            <span>16 of 24 athletes</span>
+                        </div>
+                        <strong>67%</strong>
+                    </div>
+                    <div class="stackly-performance-goal-track">
+                        <span style="width:67%"></span>
+                    </div>
+                </div>
+
+                <div class="stackly-performance-goal-item">
+                    <div class="stackly-performance-goal-info">
+                        <div class="stackly-performance-goal-symbol green">
+                            <i class="fa-solid fa-person-praying"></i>
+                        </div>
+                        <div>
+                            <h3>Mobility & Recovery</h3>
+                            <span>21 of 24 athletes</span>
+                        </div>
+                        <strong>88%</strong>
+                    </div>
+                    <div class="stackly-performance-goal-track">
+                        <span style="width:88%"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="404-coach.html" class="stackly-performance-text-link">
+                Review training goals
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </article>
+
+    </section>
+
+
+    <!-- ATHLETE LEADERBOARD -->
+    <section class="stackly-performance-leaderboard-section" data-aos="fade-up">
+
+        <div class="stackly-performance-section-heading">
+            <div>
+                <span class="stackly-performance-section-label">TOP PERFORMERS</span>
+                <h2>Athlete Leaderboard</h2>
+                <p>Recognize consistent effort and individual improvement.</p>
+            </div>
+
+            <a href="404-coach.html" class="stackly-performance-view-all">
+                View All Athletes
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="stackly-performance-table-wrap">
+            <table class="stackly-performance-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Athlete</th>
+                        <th>Training Program</th>
+                        <th>Consistency</th>
+                        <th>Improvement</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><span class="stackly-performance-rank gold">01</span></td>
+                        <td>
+                            <div class="stackly-performance-athlete">
+                                <div class="stackly-performance-athlete-avatar red">AM</div>
+                                <div>
+                                    <strong>Alex Morgan</strong>
+                                    <span>Member ID: SC024</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Strength & Conditioning</td>
+                        <td>
+                            <div class="stackly-performance-table-progress">
+                                <span>96%</span>
+                                <div><i style="width:96%"></i></div>
+                            </div>
+                        </td>
+                        <td><span class="stackly-performance-improvement">+18.4%</span></td>
+                        <td><span class="stackly-performance-status excellent">Excellent</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="stackly-performance-rank silver">02</span></td>
+                        <td>
+                            <div class="stackly-performance-athlete">
+                                <div class="stackly-performance-athlete-avatar purple">SW</div>
+                                <div>
+                                    <strong>Sarah Williams</strong>
+                                    <span>Member ID: SC018</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Cardio & Endurance</td>
+                        <td>
+                            <div class="stackly-performance-table-progress">
+                                <span>92%</span>
+                                <div><i style="width:92%"></i></div>
+                            </div>
+                        </td>
+                        <td><span class="stackly-performance-improvement">+15.8%</span></td>
+                        <td><span class="stackly-performance-status excellent">Excellent</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="stackly-performance-rank bronze">03</span></td>
+                        <td>
+                            <div class="stackly-performance-athlete">
+                                <div class="stackly-performance-athlete-avatar blue">DL</div>
+                                <div>
+                                    <strong>Daniel Lee</strong>
+                                    <span>Member ID: SC031</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Mobility & Recovery</td>
+                        <td>
+                            <div class="stackly-performance-table-progress">
+                                <span>88%</span>
+                                <div><i style="width:88%"></i></div>
+                            </div>
+                        </td>
+                        <td><span class="stackly-performance-improvement">+12.6%</span></td>
+                        <td><span class="stackly-performance-status improving">Improving</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="stackly-performance-rank">04</span></td>
+                        <td>
+                            <div class="stackly-performance-athlete">
+                                <div class="stackly-performance-athlete-avatar green">JR</div>
+                                <div>
+                                    <strong>James Rodriguez</strong>
+                                    <span>Member ID: SC012</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Speed & Agility</td>
+                        <td>
+                            <div class="stackly-performance-table-progress">
+                                <span>84%</span>
+                                <div><i style="width:84%"></i></div>
+                            </div>
+                        </td>
+                        <td><span class="stackly-performance-improvement">+10.2%</span></td>
+                        <td><span class="stackly-performance-status improving">Improving</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- ACHIEVEMENTS AND COACHING INSIGHTS -->
+    <section class="stackly-performance-bottom-grid">
+
+        <!-- ACHIEVEMENTS -->
+        <article class="stackly-performance-panel stackly-performance-achievements"
+                 data-aos="fade-up">
+
+            <div class="stackly-performance-panel-heading">
+                <div>
+                    <span class="stackly-performance-section-label">RECOGNITION</span>
+                    <h2>Recent Achievements</h2>
+                    <p>Celebrate milestones earned through dedication.</p>
+                </div>
+                <i class="fa-solid fa-award stackly-performance-heading-award"></i>
+            </div>
+
+            <div class="stackly-performance-achievement-list">
+
+                <div class="stackly-performance-achievement-item">
+                    <div class="stackly-performance-achievement-icon gold">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <div class="stackly-performance-achievement-copy">
+                        <h3>Consistency Champion</h3>
+                        <p>Alex Morgan completed four consecutive weeks of training.</p>
+                        <span>RECENT MILESTONE</span>
+                    </div>
+                    <i class="fa-solid fa-circle-check stackly-performance-achievement-check"></i>
+                </div>
+
+                <div class="stackly-performance-achievement-item">
+                    <div class="stackly-performance-achievement-icon red">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <div class="stackly-performance-achievement-copy">
+                        <h3>Power Progress</h3>
+                        <p>Sarah Williams reached a new strength benchmark.</p>
+                        <span>TRAINING MILESTONE</span>
+                    </div>
+                    <i class="fa-solid fa-circle-check stackly-performance-achievement-check"></i>
+                </div>
+
+                <div class="stackly-performance-achievement-item">
+                    <div class="stackly-performance-achievement-icon purple">
+                        <i class="fa-solid fa-shoe-prints"></i>
+                    </div>
+                    <div class="stackly-performance-achievement-copy">
+                        <h3>Endurance Builder</h3>
+                        <p>Daniel Lee improved his endurance training consistency.</p>
+                        <span>PERSONAL BEST</span>
+                    </div>
+                    <i class="fa-solid fa-circle-check stackly-performance-achievement-check"></i>
+                </div>
+
+            </div>
+        </article>
+
+
+        <!-- COACHING INSIGHTS -->
+        <article class="stackly-performance-insights" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="stackly-performance-insights-top">
+                <div class="stackly-performance-insights-icon">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <span>COACHING INSIGHTS</span>
+            </div>
+
+            <h2>Small Improvements. Big Results.</h2>
+
+            <p>
+                Consistent training and timely recovery can help athletes
+                build sustainable progress. Focus on individual goals and
+                adjust training intensity when needed.
+            </p>
+
+            <div class="stackly-performance-insight-metric">
+                <div>
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <span>Team consistency</span>
+                </div>
+                <strong>86%</strong>
+            </div>
+
+            <div class="stackly-performance-insight-metric">
+                <div>
+                    <i class="fa-solid fa-bullseye"></i>
+                    <span>Goals on track</span>
+                </div>
+                <strong>32 / 38</strong>
+            </div>
+
+            <a href="404-coach.html" class="stackly-performance-insights-btn">
+                Improve Training Plans
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </article>
+
+    </section>
+
+
+    <!-- FINAL PERFORMANCE BANNER -->
+    <section class="stackly-performance-final-banner" data-aos="zoom-in">
+
+        <div class="stackly-performance-final-icon">
+            <i class="fa-solid fa-flag-checkered"></i>
+        </div>
+
+        <div class="stackly-performance-final-copy">
+            <span>YOUR NEXT CHALLENGE</span>
+            <h2>Build the Next Level of Performance.</h2>
+            <p>Review athlete progress and create your next training milestone.</p>
+        </div>
+
+        <a href="404-coach.html" class="stackly-performance-final-btn">
+            Manage Athletes
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </section>
+
+</div>
+
+</main>
+</div>
+
+<!-- AOS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<!-- Coach Dashboard JS -->
+<script src="coach.js"></script>
+
+</body>
+</html>

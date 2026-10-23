@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Member Dashboard | Stackly Sports Club</title>
+
+    <meta name="description"
+          content="Manage your workouts, training schedule, fitness progress and membership at Stackly Sports Club Training Academy.">
+
+    <link rel="icon" href="Stackly-logo-Blue.webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Separate CSS -->
+    <link rel="stylesheet" href="member.css">
+</head>
+
+<body>
+
+    <div class="stackly-member-dashboard">
+
+        <!-- MOBILE SIDEBAR OVERLAY -->
+        <div class="stackly-member-overlay"
+             id="memberOverlay"></div>
+
+        <!-- SIDEBAR -->
+        <aside class="stackly-member-sidebar" id="memberSidebar">
+
+            <!-- LOGO -->
+            <a href="member.html" class="stackly-member-logo">
+                <img src="Stackly-logo.webp"
+                     alt="Stackly Sports Club Logo">
+
+                 
+            </a>
+
+            <!-- MOBILE CLOSE BUTTON -->
+            <button class="stackly-member-close"
+                    id="memberClose"
+                    type="button"
+                    aria-label="Close navigation menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="stackly-member-sidebar-label">
+                MEMBER MENU
+            </div>
+
+            <!-- SIDEBAR NAVIGATION -->
+            <nav class="stackly-member-nav"
+                 aria-label="Member navigation">
+
+                <a href="member.html"
+                   class="stackly-member-nav-link ">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="member-training.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-dumbbell"></i>
+                    <span>My Training</span>
+                </a>
+
+                <a href="member-workouts.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-person-running"></i>
+                    <span>Workout Plans</span>
+                </a>
+
+                <a href="member-schedule.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>Training Schedule</span>
+                    <span class="stackly-member-nav-count">3</span>
+                </a>
+
+                <a href="member-progress.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>My Progress</span>
+                </a>
+
+                <a href="member-membership.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>Membership</span>
+                </a>
+
+                <a href="member-payments.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Payments</span>
+                </a>
+
+                <a href="member-settings.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <!-- SIDEBAR BOTTOM CARD -->
+            <div class="stackly-member-sidebar-card">
+                <div class="stackly-member-sidebar-card-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+
+                <h3>Keep Pushing!</h3>
+
+                <p>
+                    Every workout brings you closer to your fitness goals.
+                </p>
+
+                <a href="404-member.html">
+                    Continue Training
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- SIDEBAR EXIT -->
+            <button type="button"
+                    class="stackly-member-logout"
+                    id="memberLogout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </button>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="stackly-member-main" id="dashboard">
+
+            <!-- TOP HEADER -->
+            <header class="stackly-member-header">
+
+                <div class="stackly-member-header-left">
+
+                    <!-- HAMBURGER -->
+                    <button class="stackly-member-hamburger"
+                            id="memberHamburger"
+                            type="button"
+                            aria-label="Open navigation menu"
+                            aria-controls="memberSidebar"
+                            aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div class="stackly-member-header-heading">
+                        <span class="stackly-member-header-label">
+                            MEMBER PORTAL
+                        </span>
+
+                        <h1>Member Dashboard</h1>
+                    </div>
+                </div>
+
+                <!-- HEADER RIGHT -->
+                <div class="stackly-member-header-right">
+
+                    <a href="404-member.html"><button class="stackly-member-notification"
+                            type="button"
+                            id="memberNotification"
+                            aria-label="View notifications">
+                        <i class="fa-regular fa-bell"></i>
+                        <span></span>
+                    </button></a>
+
+                    <!-- EMAIL MUST DISPLAY AT TOP RIGHT -->
+                    <div class="stackly-member-email">
+                        <span class="stackly-member-email-icon">
+                            <i class="fa-regular fa-user"></i>
+                        </span>
+
+                        <div class="stackly-member-email-details">
+                            <small>Logged in as</small>
+                            <strong id="memberEmail">
+                                member@stacklysports.com
+                            </strong>
+                        </div>
+                    </div>
+
+                </div>
+            </header>
+
+
+<!-- ==========================================
+     STACKLY SPORTS CLUB - PAYMENTS PAGE
+========================================== -->
+
+<div class="stackly-payment-page">
+
+    <!-- PAYMENT HERO -->
+    <section class="stackly-payment-hero" data-aos="fade-up">
+
+        <div class="stackly-payment-hero-content">
+            <span class="stackly-payment-eyebrow">
+                <i class="fa-solid fa-wallet"></i>
+                MEMBER BILLING CENTER
+            </span>
+
+            <h2>Payments Made <span>Simple.</span></h2>
+
+            <p>
+                Manage your membership fees, track transactions,
+                review invoices, and stay on top of your fitness payments.
+            </p>
+
+            <div class="stackly-payment-hero-actions">
+                <a href="404-member.html" class="stackly-payment-btn-primary">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    View Transactions
+                </a>
+
+                <a href="404-member.html" class="stackly-payment-btn-outline">
+                    <i class="fa-regular fa-credit-card"></i>
+                    Payment Methods
+                </a>
+            </div>
+        </div>
+
+        <div class="stackly-payment-hero-visual">
+            <div class="stackly-payment-orbit stackly-payment-orbit-one"></div>
+            <div class="stackly-payment-orbit stackly-payment-orbit-two"></div>
+
+            <div class="stackly-payment-hero-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div class="stackly-payment-floating-card stackly-payment-floating-top">
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                    <strong>Secure Payments</strong>
+                    <span>Your billing, protected</span>
+                </div>
+            </div>
+
+            <div class="stackly-payment-floating-card stackly-payment-floating-bottom">
+                <i class="fa-solid fa-receipt"></i>
+                <div>
+                    <strong>Easy Invoicing</strong>
+                    <span>Track every transaction</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- PAYMENT OVERVIEW -->
+    <section class="stackly-payment-overview" data-aos="fade-up">
+
+        <div class="stackly-payment-section-heading">
+            <div>
+                <span class="stackly-payment-section-label">YOUR FINANCES</span>
+                <h2>Payment Overview</h2>
+                <p>A quick look at your membership billing.</p>
+            </div>
+
+            <span class="stackly-payment-cycle">
+                <i class="fa-regular fa-calendar"></i>
+                October 2026
+            </span>
+        </div>
+
+        <div class="stackly-payment-stats-grid">
+
+            <article class="stackly-payment-stat-card" data-aos="fade-up">
+                <div class="stackly-payment-stat-top">
+                    <span>Total Paid</span>
+                    <span class="stackly-payment-stat-icon payment-green">
+                        <i class="fa-solid fa-check-double"></i>
+                    </span>
+                </div>
+
+                <h3>₹24,000</h3>
+
+                <p>
+                    <i class="fa-solid fa-arrow-up"></i>
+                    Across your membership
+                </p>
+
+                <div class="stackly-payment-stat-track">
+                    <span style="width: 82%;"></span>
+                </div>
+            </article>
+
+            <article class="stackly-payment-stat-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="stackly-payment-stat-top">
+                    <span>Pending Amount</span>
+                    <span class="stackly-payment-stat-icon payment-orange">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                    </span>
+                </div>
+
+                <h3>₹2,000</h3>
+
+                <p>
+                    <i class="fa-regular fa-clock"></i>
+                    Awaiting payment
+                </p>
+
+                <div class="stackly-payment-stat-track payment-track-orange">
+                    <span style="width: 24%;"></span>
+                </div>
+            </article>
+
+            <article class="stackly-payment-stat-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="stackly-payment-stat-top">
+                    <span>Next Payment</span>
+                    <span class="stackly-payment-stat-icon payment-blue">
+                        <i class="fa-regular fa-calendar-check"></i>
+                    </span>
+                </div>
+
+                <h3>₹2,000</h3>
+
+                <p>
+                    <i class="fa-regular fa-calendar"></i>
+                    Due 01 Nov 2026
+                </p>
+
+                <div class="stackly-payment-stat-track payment-track-blue">
+                    <span style="width: 58%;"></span>
+                </div>
+            </article>
+
+            <article class="stackly-payment-stat-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="stackly-payment-stat-top">
+                    <span>Successful Payments</span>
+                    <span class="stackly-payment-stat-icon payment-purple">
+                        <i class="fa-solid fa-receipt"></i>
+                    </span>
+                </div>
+
+                <h3>12</h3>
+
+                <p>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Completed transactions
+                </p>
+
+                <div class="stackly-payment-stat-track payment-track-purple">
+                    <span style="width: 92%;"></span>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- FEATURED MEMBERSHIP INVOICE -->
+    <section class="stackly-payment-featured" data-aos="fade-up">
+
+        <div class="stackly-payment-featured-main">
+
+            <div class="stackly-payment-featured-heading">
+                <span class="stackly-payment-featured-icon">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                </span>
+
+                <div>
+                    <span class="stackly-payment-section-label">
+                        MEMBERSHIP INVOICE
+                    </span>
+                    <h2>Your Current Bill</h2>
+                </div>
+            </div>
+
+            <p class="stackly-payment-invoice-number">
+                Invoice ID: <strong>STK-2026-010</strong>
+            </p>
+
+            <div class="stackly-payment-invoice-details">
+
+                <div>
+                    <span>Membership Plan</span>
+                    <strong>Premium Athlete</strong>
+                </div>
+
+                <div>
+                    <span>Billing Period</span>
+                    <strong>October 2026</strong>
+                </div>
+
+                <div>
+                    <span>Invoice Date</span>
+                    <strong>01 Oct 2026</strong>
+                </div>
+
+                <div>
+                    <span>Due Date</span>
+                    <strong>01 Nov 2026</strong>
+                </div>
+
+            </div>
+
+            <div class="stackly-payment-invoice-footer">
+                <div>
+                    <span>Total Amount Due</span>
+                    <h3>₹2,000 <small>/ month</small></h3>
+                </div>
+
+                <span class="stackly-payment-status payment-status-pending">
+                    <i class="fa-solid fa-clock"></i>
+                    Pending
+                </span>
+            </div>
+
+        </div>
+
+        <aside class="stackly-payment-featured-side">
+
+            <div class="stackly-payment-side-decoration">
+                <i class="fa-solid fa-dumbbell"></i>
+            </div>
+
+            <span>YOUR FITNESS INVESTMENT</span>
+
+            <h3>Stronger Every Month.</h3>
+
+            <p>
+                Keep your membership active and continue working
+                towards your training goals.
+            </p>
+
+            <a href="404-member.html" class="stackly-payment-side-link">
+                Review Billing
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </aside>
+
+    </section>
+
+
+    <!-- MONTHLY PAYMENT ACTIVITY -->
+    <section class="stackly-payment-activity" data-aos="fade-up">
+
+        <div class="stackly-payment-section-heading">
+            <div>
+                <span class="stackly-payment-section-label">BILLING INSIGHTS</span>
+                <h2>Payment Activity</h2>
+                <p>Explore your payment activity throughout the year.</p>
+            </div>
+        </div>
+
+        <div class="stackly-payment-chart-card">
+
+            <div class="stackly-payment-chart-heading">
+                <div>
+                    <span>Total Membership Spending</span>
+                    <h3>₹24,000</h3>
+                    <small>Illustrative yearly payment overview</small>
+                </div>
+
+                <span class="stackly-payment-chart-badge">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Yearly Summary
+                </span>
+            </div>
+
+            <div class="stackly-payment-chart">
+
+                <div class="stackly-payment-chart-y-axis">
+                    <span>₹4k</span>
+                    <span>₹3k</span>
+                    <span>₹2k</span>
+                    <span>₹1k</span>
+                    <span>₹0</span>
+                </div>
+
+                <div class="stackly-payment-chart-bars">
+
+                    <div class="stackly-payment-bar-group">
+                        <div class="stackly-payment-bar" style="--bar-height: 45%;" data-amount="₹2,000"></div>
+                        <span>Jan</span>
+                    </div>
+
+                    <div class="stackly-payment-bar-group">
+                        <div class="stackly-payment-bar" style="--bar-height: 45%;" data-amount="₹2,000"></div>
+                        <span>Feb</span>
+                    </div>
+
+                    <div class="stackly-payment-bar-group">
+                        <div class="stackly-payment-bar" style="--bar-height: 45%;" data-amount="₹2,000"></div>
+                        <span>Mar</span>
+                    </div>
+
+                    <div class="stackly-payment-bar-group">
+                        <div class="stackly-payment-bar" style="--bar-height: 45%;" data-amount="₹2,000"></div>
+                        <span>Apr</span>
+                    </div>
+
+                    <div class="stackly-payment-bar-group">
+                        <div class="stackly-payment-bar" style="--bar-height: 45%;" data-amount="₹2,000"></div>
+                        <span>May</span>
+                    </div>
+
+                    <div class="stackly-payment-bar-group">
+                        <div class="stackly-payment-bar" style="--bar-height: 45%;" data-amount="₹2,000"></div>
+                        <span>Jun</span>
+                    </div>
+
+                    <div class="stackly-payment-bar-group">
+                        <div class="stackly-payment-bar" style="--bar-height: 45%;" data-amount="₹2,000"></div>
+                        <span>Jul</span>
+                    </div>
+
+                    <div class="stackly-payment-bar-group">
+                        <div class="stackly-payment-bar" style="--bar-height: 45%;" data-amount="₹2,000"></div>
+                        <span>Aug</span>
+                    </div>
+
+                    <div class="stackly-payment-bar-group">
+                        <div class="stackly-payment-bar" style="--bar-height: 45%;" data-amount="₹2,000"></div>
+                        <span>Sep</span>
+                    </div>
+
+                    <div class="stackly-payment-bar-group">
+                        <div class="stackly-payment-bar payment-bar-current" style="--bar-height: 45%;" data-amount="₹2,000"></div>
+                        <span>Oct</span>
+                    </div>
+
+                    <div class="stackly-payment-bar-group">
+                        <div class="stackly-payment-bar payment-bar-future" style="--bar-height: 45%;" data-amount="₹2,000"></div>
+                        <span>Nov</span>
+                    </div>
+
+                    <div class="stackly-payment-bar-group">
+                        <div class="stackly-payment-bar payment-bar-future" style="--bar-height: 45%;" data-amount="₹2,000"></div>
+                        <span>Dec</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="stackly-payment-chart-legend">
+                <span><i class="payment-legend-paid"></i> Paid</span>
+                <span><i class="payment-legend-current"></i> Current Month</span>
+                <span><i class="payment-legend-future"></i> Upcoming</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- UPCOMING PAYMENTS -->
+    <section class="stackly-payment-upcoming" data-aos="fade-up">
+
+        <div class="stackly-payment-section-heading">
+            <div>
+                <span class="stackly-payment-section-label">STAY PREPARED</span>
+                <h2>Upcoming Payments</h2>
+                <p>Know what is coming up before your next training session.</p>
+            </div>
+        </div>
+
+        <div class="stackly-payment-upcoming-grid">
+
+            <article class="stackly-payment-upcoming-card" data-aos="fade-right">
+
+                <div class="stackly-payment-upcoming-date">
+                    <span>NOV</span>
+                    <strong>01</strong>
+                </div>
+
+                <div class="stackly-payment-upcoming-info">
+                    <span class="stackly-payment-upcoming-tag">NEXT BILLING</span>
+                    <h3>Premium Athlete Plan</h3>
+                    <p>Monthly membership renewal</p>
+                </div>
+
+                <div class="stackly-payment-upcoming-amount">
+                    <strong>₹2,000</strong>
+                    <span>Due in 11 days</span>
+                </div>
+
+            </article>
+
+            <article class="stackly-payment-upcoming-card" data-aos="fade-left">
+
+                <div class="stackly-payment-upcoming-date payment-date-muted">
+                    <span>DEC</span>
+                    <strong>01</strong>
+                </div>
+
+                <div class="stackly-payment-upcoming-info">
+                    <span class="stackly-payment-upcoming-tag payment-tag-muted">
+                        FUTURE BILLING
+                    </span>
+                    <h3>Premium Athlete Plan</h3>
+                    <p>Next monthly renewal</p>
+                </div>
+
+                <div class="stackly-payment-upcoming-amount">
+                    <strong>₹2,000</strong>
+                    <span>Scheduled</span>
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRANSACTION HISTORY -->
+    <section class="stackly-payment-history" id="payment-history" data-aos="fade-up">
+
+        <div class="stackly-payment-section-heading">
+            <div>
+                <span class="stackly-payment-section-label">YOUR RECORDS</span>
+                <h2>Recent Transactions</h2>
+                <p>Review your latest membership payments and invoices.</p>
+            </div>
+
+            <span class="stackly-payment-history-count">
+                5 Transactions
+            </span>
+        </div>
+
+        <div class="stackly-payment-table-wrap">
+
+            <table class="stackly-payment-table">
+
+                <thead>
+                    <tr>
+                        <th>Transaction</th>
+                        <th>Date</th>
+                        <th>Payment Method</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Invoice</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <div class="stackly-payment-transaction">
+                                <span class="payment-transaction-icon payment-transaction-green">
+                                    <i class="fa-solid fa-dumbbell"></i>
+                                </span>
+                                <div>
+                                    <strong>Membership Fee</strong>
+                                    <small>STK-TXN-1025</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>01 Oct 2026</td>
+                        <td><i class="fa-regular fa-credit-card"></i> Card</td>
+                        <td class="stackly-payment-amount">₹2,000</td>
+                        <td><span class="stackly-payment-status payment-status-paid">Paid</span></td>
+                        <td>
+                            <a href="404-member.html"><button type="button" class="stackly-payment-invoice-btn" data-invoice="STK-2026-010" data-amount="₹2,000" data-date="01 Oct 2026" data-plan="Premium Athlete Plan" aria-label="View October invoice">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                View
+                            </button></a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="stackly-payment-transaction">
+                                <span class="payment-transaction-icon payment-transaction-green">
+                                    <i class="fa-solid fa-person-running"></i>
+                                </span>
+                                <div>
+                                    <strong>Membership Fee</strong>
+                                    <small>STK-TXN-0925</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>01 Sep 2026</td>
+                        <td><i class="fa-solid fa-building-columns"></i> UPI</td>
+                        <td class="stackly-payment-amount">₹2,000</td>
+                        <td><span class="stackly-payment-status payment-status-paid">Paid</span></td>
+                        <td>
+                            <a href="404-member.html"><button type="button" class="stackly-payment-invoice-btn" data-invoice="STK-2026-010" data-amount="₹2,000" data-date="01 Oct 2026" data-plan="Premium Athlete Plan" aria-label="View October invoice">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                View
+                            </button></a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="stackly-payment-transaction">
+                                <span class="payment-transaction-icon payment-transaction-green">
+                                    <i class="fa-solid fa-trophy"></i>
+                                </span>
+                                <div>
+                                    <strong>Membership Fee</strong>
+                                    <small>STK-TXN-0825</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>01 Aug 2026</td>
+                        <td><i class="fa-regular fa-credit-card"></i> Card</td>
+                        <td class="stackly-payment-amount">₹2,000</td>
+                        <td><span class="stackly-payment-status payment-status-paid">Paid</span></td>
+                        <td>
+                            <a href="404-member.html"><button type="button" class="stackly-payment-invoice-btn" data-invoice="STK-2026-010" data-amount="₹2,000" data-date="01 Oct 2026" data-plan="Premium Athlete Plan" aria-label="View October invoice">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                View
+                            </button></a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="stackly-payment-transaction">
+                                <span class="payment-transaction-icon payment-transaction-green">
+                                    <i class="fa-solid fa-bolt"></i>
+                                </span>
+                                <div>
+                                    <strong>Membership Fee</strong>
+                                    <small>STK-TXN-0725</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>01 Jul 2026</td>
+                        <td><i class="fa-solid fa-building-columns"></i> UPI</td>
+                        <td class="stackly-payment-amount">₹2,000</td>
+                        <td><span class="stackly-payment-status payment-status-paid">Paid</span></td>
+                        <td>
+                            <a href="404-member.html"><button type="button" class="stackly-payment-invoice-btn" data-invoice="STK-2026-010" data-amount="₹2,000" data-date="01 Oct 2026" data-plan="Premium Athlete Plan" aria-label="View October invoice">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                View
+                            </button></a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="stackly-payment-transaction">
+                                <span class="payment-transaction-icon payment-transaction-orange">
+                                    <i class="fa-solid fa-clock"></i>
+                                </span>
+                                <div>
+                                    <strong>Membership Fee</strong>
+                                    <small>STK-TXN-0625</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>01 Jun 2026</td>
+                        <td><i class="fa-solid fa-building-columns"></i> UPI</td>
+                        <td class="stackly-payment-amount">₹2,000</td>
+                        <td><span class="stackly-payment-status payment-status-pending">Pending</span></td>
+                        <td>
+                            <a href="404-member.html"><button type="button" class="stackly-payment-invoice-btn" data-invoice="STK-2026-010" data-amount="₹2,000" data-date="01 Oct 2026" data-plan="Premium Athlete Plan" aria-label="View October invoice">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                View
+                            </button></a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <p class="stackly-payment-demo-note">
+            <i class="fa-solid fa-circle-info"></i>
+            Sample billing data for layout demonstration. Connect your payment
+            system to display verified transaction records.
+        </p>
+
+    </section>
+
+
+    <!-- PAYMENT METHODS -->
+    <section class="stackly-payment-methods" id="payment-methods" data-aos="fade-up">
+
+        <div class="stackly-payment-section-heading">
+            <div>
+                <span class="stackly-payment-section-label">BILLING PREFERENCES</span>
+                <h2>Payment Methods</h2>
+                <p>Choose how you prefer to manage your membership payments.</p>
+            </div>
+        </div>
+
+        <div class="stackly-payment-method-grid">
+
+            <article class="stackly-payment-method-card" data-aos="zoom-in">
+
+                <div class="stackly-payment-method-top">
+                    <span class="stackly-payment-method-icon payment-method-red">
+                        <i class="fa-regular fa-credit-card"></i>
+                    </span>
+                    <span class="stackly-payment-method-badge">Popular</span>
+                </div>
+
+                <h3>Debit / Credit Card</h3>
+
+                <p>
+                    Use a supported bank card through your club's
+                    secure payment provider.
+                </p>
+
+                <span class="stackly-payment-method-note">
+                    <i class="fa-solid fa-lock"></i>
+                    Secure provider checkout
+                </span>
+
+            </article>
+
+            <article class="stackly-payment-method-card" data-aos="zoom-in" data-aos-delay="100">
+
+                <div class="stackly-payment-method-top">
+                    <span class="stackly-payment-method-icon payment-method-purple">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </span>
+                </div>
+
+                <h3>UPI Payments</h3>
+
+                <p>
+                    Pay using a supported UPI application
+                    when checking out.
+                </p>
+
+                <span class="stackly-payment-method-note">
+                    <i class="fa-solid fa-bolt"></i>
+                    Convenient checkout
+                </span>
+
+            </article>
+
+            <article class="stackly-payment-method-card" data-aos="zoom-in" data-aos-delay="200">
+
+                <div class="stackly-payment-method-top">
+                    <span class="stackly-payment-method-icon payment-method-blue">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </span>
+                </div>
+
+                <h3>Bank Transfer</h3>
+
+                <p>
+                    Request official bank transfer instructions
+                    from the club's billing team.
+                </p>
+
+                <span class="stackly-payment-method-note">
+                    <i class="fa-solid fa-headset"></i>
+                    Contact billing support
+                </span>
+
+            </article>
+
+        </div>
+
+        <div class="stackly-payment-security-note">
+            <span><i class="fa-solid fa-shield-halved"></i></span>
+            <div>
+                <strong>Your payment security matters.</strong>
+                <p>
+                    Payment details should be handled by your authorized
+                    payment provider. Do not store full card details in this page.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- BILLING SUPPORT CTA -->
+    <section class="stackly-payment-support" data-aos="fade-up">
+
+        <div class="stackly-payment-support-icon">
+            <i class="fa-solid fa-headset"></i>
+        </div>
+
+        <div class="stackly-payment-support-content">
+            <span>NEED A HAND?</span>
+            <h2>We're Here to Help.</h2>
+            <p>
+                Have a billing question or need help with an invoice?
+                Our team can guide you through your payment concerns.
+            </p>
+        </div>
+
+        <a href="404-member.html" class="stackly-payment-support-btn">
+            Contact Billing Support
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </section>
+
+
+     
+
+</div>
+ 
+
+</main>
+
+    </div>
+
+
+    <!-- Separate JavaScript -->
+    <script src="member.js"></script>
+
+</body>
+</html>

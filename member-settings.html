@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Member Dashboard | Stackly Sports Club</title>
+
+    <meta name="description"
+          content="Manage your workouts, training schedule, fitness progress and membership at Stackly Sports Club Training Academy.">
+
+    <link rel="icon" href="Stackly-logo-Blue.webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Separate CSS -->
+    <link rel="stylesheet" href="member.css">
+</head>
+
+<body>
+
+    <div class="stackly-member-dashboard">
+
+        <!-- MOBILE SIDEBAR OVERLAY -->
+        <div class="stackly-member-overlay"
+             id="memberOverlay"></div>
+
+        <!-- SIDEBAR -->
+        <aside class="stackly-member-sidebar" id="memberSidebar">
+
+            <!-- LOGO -->
+            <a href="member.html" class="stackly-member-logo">
+                <img src="Stackly-logo.webp"
+                     alt="Stackly Sports Club Logo">
+
+                 
+            </a>
+
+            <!-- MOBILE CLOSE BUTTON -->
+            <button class="stackly-member-close"
+                    id="memberClose"
+                    type="button"
+                    aria-label="Close navigation menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="stackly-member-sidebar-label">
+                MEMBER MENU
+            </div>
+
+            <!-- SIDEBAR NAVIGATION -->
+            <nav class="stackly-member-nav"
+                 aria-label="Member navigation">
+
+                <a href="member.html"
+                   class="stackly-member-nav-link ">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="member-training.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-dumbbell"></i>
+                    <span>My Training</span>
+                </a>
+
+                <a href="member-workouts.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-person-running"></i>
+                    <span>Workout Plans</span>
+                </a>
+
+                <a href="member-schedule.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>Training Schedule</span>
+                    <span class="stackly-member-nav-count">3</span>
+                </a>
+
+                <a href="member-progress.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>My Progress</span>
+                </a>
+
+                <a href="member-membership.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>Membership</span>
+                </a>
+
+                <a href="member-payments.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Payments</span>
+                </a>
+
+                <a href="member-settings.html"
+                   class="stackly-member-nav-link">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <!-- SIDEBAR BOTTOM CARD -->
+            <div class="stackly-member-sidebar-card">
+                <div class="stackly-member-sidebar-card-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+
+                <h3>Keep Pushing!</h3>
+
+                <p>
+                    Every workout brings you closer to your fitness goals.
+                </p>
+
+                <a href="404-member.html">
+                    Continue Training
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- SIDEBAR EXIT -->
+            <button type="button"
+                    class="stackly-member-logout"
+                    id="memberLogout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </button>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="stackly-member-main" id="dashboard">
+
+            <!-- TOP HEADER -->
+            <header class="stackly-member-header">
+
+                <div class="stackly-member-header-left">
+
+                    <!-- HAMBURGER -->
+                    <button class="stackly-member-hamburger"
+                            id="memberHamburger"
+                            type="button"
+                            aria-label="Open navigation menu"
+                            aria-controls="memberSidebar"
+                            aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div class="stackly-member-header-heading">
+                        <span class="stackly-member-header-label">
+                            MEMBER PORTAL
+                        </span>
+
+                        <h1>Member Dashboard</h1>
+                    </div>
+                </div>
+
+                <!-- HEADER RIGHT -->
+                <div class="stackly-member-header-right">
+
+                    <a href="404-member.html"><button class="stackly-member-notification"
+                            type="button"
+                            id="memberNotification"
+                            aria-label="View notifications">
+                        <i class="fa-regular fa-bell"></i>
+                        <span></span>
+                    </button></a>
+
+                    <!-- EMAIL MUST DISPLAY AT TOP RIGHT -->
+                    <div class="stackly-member-email">
+                        <span class="stackly-member-email-icon">
+                            <i class="fa-regular fa-user"></i>
+                        </span>
+
+                        <div class="stackly-member-email-details">
+                            <small>Logged in as</small>
+                            <strong id="memberEmail">
+                                member@stacklysports.com
+                            </strong>
+                        </div>
+                    </div>
+
+                </div>
+            </header>
+
+            
+<!-- ==========================================
+     STACKLY SPORTS CLUB
+     MEMBER SETTINGS PAGE
+========================================== -->
+
+<!-- SETTINGS PAGE CONTENT -->
+<div class="stackly-member-content stackly-settings-page">
+
+    <!-- PAGE INTRO -->
+    <section class="stackly-settings-hero" data-aos="fade-up">
+        <div>
+            <span class="stackly-settings-eyebrow">
+                <i class="fa-solid fa-gear"></i>
+                ACCOUNT MANAGEMENT
+            </span>
+
+            <h2>Account Settings</h2>
+
+            <p>
+                Manage your profile, preferences, security,
+                and notification settings.
+            </p>
+        </div>
+
+        <div class="stackly-settings-hero-icon">
+            <i class="fa-solid fa-user-gear"></i>
+        </div>
+    </section>
+
+
+    <!-- PROFILE INFORMATION -->
+    <section class="stackly-settings-card" data-aos="fade-up">
+        <div class="stackly-settings-section-heading">
+            <div class="stackly-settings-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div>
+                <h3>Profile Information</h3>
+                <p>View your personal account information.</p>
+            </div>
+        </div>
+
+        <div class="stackly-settings-profile">
+            <div class="stackly-settings-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div>
+                <h4 id="stacklySettingsName">Member</h4>
+                <p id="stacklySettingsEmail">
+                    member@stacklysports.com
+                </p>
+                <span class="stackly-settings-badge">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Registered Member
+                </span>
+            </div>
+        </div>
+
+        <div class="stackly-settings-info-grid">
+            <div class="stackly-settings-info-item">
+                <label>Full Name</label>
+                <strong id="stacklySettingsFullName">Not provided</strong>
+            </div>
+
+            <div class="stackly-settings-info-item">
+                <label>Email Address</label>
+                <strong id="stacklySettingsEmailDetail">
+                    Not provided
+                </strong>
+            </div>
+
+            <div class="stackly-settings-info-item">
+                <label>Phone Number</label>
+                <strong id="stacklySettingsPhone">Not provided</strong>
+            </div>
+
+            <div class="stackly-settings-info-item">
+                <label>Account Role</label>
+                <strong id="stacklySettingsRole">Member</strong>
+            </div>
+        </div>
+    </section>
+
+ 
+    <!-- NOTIFICATION SETTINGS -->
+    <section class="stackly-settings-card" data-aos="fade-up">
+        <div class="stackly-settings-section-heading">
+            <div class="stackly-settings-icon">
+                <i class="fa-regular fa-bell"></i>
+            </div>
+
+            <div>
+                <h3>Notifications</h3>
+                <p>Choose which updates you want to receive.</p>
+            </div>
+        </div>
+
+        <label class="stackly-settings-toggle-row">
+            <span>
+                <strong>Training Reminders</strong>
+                <small>Get reminders about upcoming sessions.</small>
+            </span>
+            <input type="checkbox"
+                   id="stacklySettingsTraining"
+                   checked>
+        </label>
+
+        <label class="stackly-settings-toggle-row">
+            <span>
+                <strong>Workout Updates</strong>
+                <small>Receive updates about your fitness plans.</small>
+            </span>
+            <input type="checkbox"
+                   id="stacklySettingsWorkout"
+                   checked>
+        </label>
+
+        <label class="stackly-settings-toggle-row">
+            <span>
+                <strong>Membership Notifications</strong>
+                <small>Get membership and renewal reminders.</small>
+            </span>
+            <input type="checkbox"
+                   id="stacklySettingsMembership"
+                   checked>
+        </label>
+
+        <label class="stackly-settings-toggle-row">
+            <span>
+                <strong>Promotional Emails</strong>
+                <small>Receive academy news and special offers.</small>
+            </span>
+            <input type="checkbox"
+                   id="stacklySettingsPromotions">
+        </label>
+    </section>
+
+
+    <!-- PASSWORD AND SECURITY -->
+    <section class="stackly-settings-card" data-aos="fade-up">
+        <div class="stackly-settings-section-heading">
+            <div class="stackly-settings-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div>
+                <h3>Password & Security</h3>
+                <p>Keep your account information protected.</p>
+            </div>
+        </div>
+
+        <div class="stackly-settings-option">
+            <div>
+                <h4>Password</h4>
+                <p>Update your password to protect your account.</p>
+            </div>
+
+            <a href="404-member.html"
+               class="stackly-settings-button">
+                <i class="fa-solid fa-lock"></i>
+                Change Password
+            </a>
+        </div>
+
+        <div class="stackly-settings-option">
+            <div>
+                <h4>Account Protection</h4>
+                <p>Always log out when using a shared device.</p>
+            </div>
+
+            <span class="stackly-settings-security-badge">
+                <i class="fa-solid fa-shield"></i>
+                Security Tips
+            </span>
+        </div>
+    </section>
+
+
+    <!-- MEMBERSHIP INFORMATION -->
+    <section class="stackly-settings-card" data-aos="fade-up">
+        <div class="stackly-settings-section-heading">
+            <div class="stackly-settings-icon">
+                <i class="fa-solid fa-id-card"></i>
+            </div>
+
+            <div>
+                <h3>Membership Information</h3>
+                <p>Review your current academy membership.</p>
+            </div>
+        </div>
+
+        <div class="stackly-settings-membership">
+            <div>
+                <span>Membership Plan</span>
+                <h4>Premium Fitness</h4>
+            </div>
+
+            <span class="stackly-settings-active">
+                <i class="fa-solid fa-circle-check"></i>
+                Active
+            </span>
+        </div>
+
+        <div class="stackly-settings-option">
+            <div>
+                <h4>Membership Details</h4>
+                <p>View your plan and renewal information.</p>
+            </div>
+
+            <a href="404-member.html"
+               class="stackly-settings-text-link">
+                View Details
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- PRIVACY SETTINGS -->
+    <section class="stackly-settings-card" data-aos="fade-up">
+        <div class="stackly-settings-section-heading">
+            <div class="stackly-settings-icon">
+                <i class="fa-solid fa-user-shield"></i>
+            </div>
+
+            <div>
+                <h3>Privacy & Support</h3>
+                <p>Manage your privacy and get account assistance.</p>
+            </div>
+        </div>
+
+        <div class="stackly-settings-option">
+            <div>
+                <h4>Privacy Policy</h4>
+                <p>Learn how your personal information is handled.</p>
+            </div>
+
+            <a href="404-member.html"
+               class="stackly-settings-text-link">
+                Read Policy
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+        </div>
+
+        <div class="stackly-settings-option">
+            <div>
+                <h4>Help & Support</h4>
+                <p>Get assistance with your member account.</p>
+            </div>
+
+            <a href="404-member.html"
+               class="stackly-settings-text-link">
+                Contact Us
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- SAVE SETTINGS -->
+    <section class="stackly-settings-save-panel" data-aos="fade-up">
+        <div>
+            <h3>Save Your Preferences</h3>
+            <p>Save your language, appearance, and notification choices.</p>
+        </div>
+
+        <button type="button"
+                class="stackly-settings-button stackly-settings-save-button"
+                id="stacklySettingsSave">
+            <i class="fa-solid fa-floppy-disk"></i>
+            Save Settings
+        </button>
+
+        <p id="stacklySettingsStatus"
+           class="stackly-settings-status"
+           role="status"
+           aria-live="polite"></p>
+    </section>
+
+</div>
+
+</main>
+
+    </div>
+
+
+    <!-- Separate JavaScript -->
+    <script src="member.js"></script>
+
+</body>
+</html>
