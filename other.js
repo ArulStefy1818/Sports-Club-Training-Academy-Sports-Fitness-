@@ -1,14 +1,15 @@
 
 /* =========================================================
    STACKLY SPORTS CLUB - OTHERS DASHBOARD
-   Profile | Mobile Navigation | Logout | AOS
+   Trainer Profile | Mobile Navigation | Logout | AOS
+   Athlete Search | Custom Status Dropdown | Card Features
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
     "use strict";
 
     /* =====================================================
-       ELEMENTS
+       1. ELEMENT REFERENCES
     ===================================================== */
 
     const body = document.querySelector(".stackly-others-body");
@@ -24,522 +25,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const footerYear = document.getElementById("stacklyOthersYear");
 
     /* =====================================================
-       TRAINER PROFILE AND EMAIL
+       2. SAFE LOCAL STORAGE HELPERS
     ===================================================== */
 
     function getStoredValue(keys) {
         for (const key of keys) {
-            const value = localStorage.getItem(key);
-
-            if (value && value.trim()) {
-                return value.trim();
-            }
-        }
-
-        return "";
-    }
-
-    function getTrainerProfile() {
-        const possibleProfileKeys = [
-            "stacklyTrainerProfile"
-        ];
-
-        for (const key of possibleProfileKeys) {
             try {
-                const savedProfile = localStorage.getItem(key);
+                const value = localStorage.getItem(key);
 
-                if (savedProfile) {
-                    const profile = JSON.parse(savedProfile);
-
-                    if (profile && typeof profile === "object") {
-                        return profile;
-                    }
+                if (value && value.trim()) {
+                    return value.trim();
                 }
             } catch (error) {
-                console.warn("Unable to read saved trainer profile.");
-            }
-        }
-
-        return {};
-    }
-
-    function displayTrainerInformation() {
-        const profile = getTrainerProfile();
-
-        const storedEmail = getStoredValue([
-            "loginEmail",
-            "trainerEmail",
-            "stacklySportLoginEmail",
-            "memberEmail",
-            "stacklySportEmail"
-        ]);
-
-        const email =
-            profile.email ||
-            profile.Email ||
-            storedEmail ||
-            "trainer@stacklysports.com";
-
-        const name =
-            profile.fullName ||
-            profile.name ||
-            profile.fullname ||
-            profile.full_name ||
-            profile.Name ||
-            getStoredValue([
-                "trainerName",
-                "loginName",
-                "stacklyTrainerName"
-            ]) ||
-            "Trainer";
-
-        if (topName) {
-            topName.textContent = name;
-            topName.title = name;
-        }
-
-        if (topEmail) {
-            topEmail.textContent = email;
-            topEmail.title = email;
-            topEmail.setAttribute("aria-label", "Trainer email: " + email);
-        }
-    }
-
-    displayTrainerInformation();
-
-    /* =====================================================
-       MOBILE SIDEBAR
-    ===================================================== */
-
-    function openSidebar() {
-        if (!body || !sidebar) return;
-
-        body.classList.add("stackly-others-menu-active");
-
-        if (hamburger) {
-            hamburger.setAttribute("aria-expanded", "true");
-            hamburger.setAttribute("aria-label", "Close navigation menu");
-        }
-
-        if (sidebar) {
-            sidebar.setAttribute("aria-hidden", "false");
-        }
-
-        if (mobileExit) {
-            mobileExit.focus();
-        }
-    }
-
-    function closeSidebar(returnFocus = false) {
-        if (!body) return;
-
-        body.classList.remove("stackly-others-menu-active");
-
-        if (hamburger) {
-            hamburger.setAttribute("aria-expanded", "false");
-            hamburger.setAttribute("aria-label", "Open navigation menu");
-        }
-
-        if (sidebar) {
-            sidebar.setAttribute("aria-hidden", "true");
-        }
-
-        if (returnFocus && hamburger) {
-            hamburger.focus();
-        }
-    }
-
-    if (hamburger) {
-        hamburger.addEventListener("click", function () {
-            const isOpen =
-                body &&
-                body.classList.contains("stackly-others-menu-active");
-
-            if (isOpen) {
-                closeSidebar();
-            } else {
-                openSidebar();
-            }
-        });
-    }
-
-    if (mobileExit) {
-        mobileExit.addEventListener("click", function () {
-            closeSidebar(true);
-        });
-    }
-
-    if (overlay) {
-        overlay.addEventListener("click", function () {
-            closeSidebar(true);
-        });
-    }
-
-    /* Close with Escape key */
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-            closeSidebar(true);
-        }
-    });
-
-    /* Close mobile navigation after selecting a page */
-    document.querySelectorAll(".stackly-others-nav-link").forEach(function (link) {
-        link.addEventListener("click", function () {
-            closeSidebar();
-        });
-    });
-
-    /* Close mobile sidebar when returning to desktop width */
-    window.addEventListener("resize", function () {
-        if (window.innerWidth > 900) {
-            closeSidebar();
-        }
-    });
-
-    /* =====================================================
-       ACTIVE NAVIGATION
-    ===================================================== */
-
-    const currentPage = window.location.pathname
-        .split("/")
-        .pop()
-        .toLowerCase();
-
-    document.querySelectorAll(".stackly-others-nav-link").forEach(function (link) {
-        const linkPage = link.getAttribute("href")
-            ?.split("/")
-            .pop()
-            .toLowerCase();
-
-        if (linkPage && linkPage === currentPage) {
-            link.classList.add("active");
-            link.setAttribute("aria-current", "page");
-        } else {
-            link.classList.remove("active");
-            link.removeAttribute("aria-current");
-        }
-    });
-
-    /* =====================================================
-       LOGOUT
-    ===================================================== */
-
-    if (logoutButton) {
-        logoutButton.addEventListener("click", function () {
-            const confirmed = window.confirm(
-                "Are you sure you want to log out?"
-            );
-
-            if (!confirmed) return;
-
-            /*
-             * Remove login/session values only.
-             * The trainer profile itself is preserved.
-             */
-            const sessionKeys = [
-                "loginEmail",
-                "loginRole",
-                "stacklySportLoggedIn",
-                "stacklySportRemember",
-                "trainerEmail",
-                "stacklySportLoginEmail",
-                "stacklySportEmail",
-                "trainerName",
-                "loginName",
-                "stacklyTrainerName"
-            ];
-
-            sessionKeys.forEach(function (key) {
-                localStorage.removeItem(key);
-            });
-
-            /*
-             * Redirect to the homepage.
-             * Change this filename if your homepage
-             * uses a different HTML file.
-             */
-            window.location.href = "index.html";
-        });
-    }
-
-    /* =====================================================
-       FOOTER YEAR
-    ===================================================== */
-
-    if (footerYear) {
-        footerYear.textContent = new Date().getFullYear();
-    }
-
-    /* =====================================================
-       AOS ANIMATIONS
-    ===================================================== */
-
-    if (typeof AOS !== "undefined") {
-        AOS.init({
-            duration: 900,
-            once: true,
-            offset: 70,
-            easing: "ease-out-cubic",
-            delay: 0,
-            anchorPlacement: "top-bottom",
-            disable: function () {
-                return window.matchMedia(
-                    "(prefers-reduced-motion: reduce)"
-                ).matches;
-            }
-        });
-
-        /* Refresh positions after page layout settles */
-        window.addEventListener("load", function () {
-            AOS.refresh();
-        });
-    }
-
-});
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.getElementById("stacklyAthletesSearch");
-    const filterSelect = document.getElementById("stacklyAthletesFilter");
-    const athleteCards = document.querySelectorAll(".stackly-athlete-card");
-    const noResults = document.getElementById("stacklyAthletesNoResults");
-
-    if (!searchInput || !filterSelect || !noResults) return;
-
-    function filterAthletes() {
-        const searchTerm = searchInput.value.trim().toLowerCase();
-        const selectedStatus = filterSelect.value;
-        let visibleCount = 0;
-
-        athleteCards.forEach(function (card) {
-            const searchableText = card.textContent.toLowerCase();
-            const athleteStatus = card.dataset.status;
-
-            const matchesSearch = searchableText.includes(searchTerm);
-            const matchesStatus =
-                selectedStatus === "all" || athleteStatus === selectedStatus;
-
-            const isVisible = matchesSearch && matchesStatus;
-
-            card.hidden = !isVisible;
-
-            if (isVisible) visibleCount++;
-        });
-
-        noResults.hidden = visibleCount !== 0;
-
-        if (window.AOS) {
-            AOS.refresh();
-        }
-    }
-
-    searchInput.addEventListener("input", filterAthletes);
-    filterSelect.addEventListener("change", filterAthletes);
-});
-
-
-/* =========================================================
-   STACKLY SPORTS CLUB - ATHLETE DIRECTORY
-   Professional Search, Filter & Interactive Features
-========================================================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-    "use strict";
-
-    /* ==========================================
-       ELEMENT REFERENCES
-    ========================================== */
-
-    const searchInput = document.getElementById("stacklyAthletesSearch");
-    const statusFilter = document.getElementById("stacklyAthletesFilter");
-    const athleteGrid = document.getElementById("stacklyAthletesGrid");
-    const noResults = document.getElementById("stacklyAthletesNoResults");
-
-    if (!searchInput || !statusFilter || !athleteGrid || !noResults) {
-        return;
-    }
-
-    const athleteCards = Array.from(
-        athleteGrid.querySelectorAll(".stackly-athlete-card")
-    );
-
-    /* ==========================================
-       SEARCH & FILTER ATHLETES
-    ========================================== */
-
-    function filterAthletes() {
-        const searchTerm = searchInput.value
-            .trim()
-            .toLowerCase();
-
-        const selectedStatus = statusFilter.value;
-        let visibleCount = 0;
-
-        athleteCards.forEach(function (card) {
-            const athleteName =
-                card.querySelector("h3")?.textContent.toLowerCase() || "";
-
-            const athleteProgram =
-                card.querySelector(".stackly-athlete-category")
-                    ?.textContent.toLowerCase() || "";
-
-            const athleteStatus =
-                card.dataset.status || "";
-
-            const matchesSearch =
-                athleteName.includes(searchTerm) ||
-                athleteProgram.includes(searchTerm);
-
-            const matchesStatus =
-                selectedStatus === "all" ||
-                athleteStatus === selectedStatus;
-
-            const shouldShow = matchesSearch && matchesStatus;
-
-            card.hidden = !shouldShow;
-
-            if (shouldShow) {
-                visibleCount++;
-            }
-        });
-
-        /* Show or hide the empty state */
-        noResults.hidden = visibleCount !== 0;
-
-        /* Refresh AOS positions when available */
-        if (window.AOS && typeof window.AOS.refresh === "function") {
-            window.AOS.refresh();
-        }
-    }
-
-    searchInput.addEventListener("input", filterAthletes);
-    statusFilter.addEventListener("change", filterAthletes);
-
-    /* ==========================================
-       ANIMATE TRAINING PROGRESS BARS
-    ========================================== */
-
-    function animateProgressBars() {
-        athleteCards.forEach(function (card) {
-            const progressBar = card.querySelector(
-                ".stackly-athlete-progress-track span"
-            );
-
-            if (!progressBar) return;
-
-            const targetWidth = progressBar.style.width || "0%";
-
-            progressBar.dataset.progress = targetWidth;
-            progressBar.style.width = "0%";
-
-            requestAnimationFrame(function () {
-                requestAnimationFrame(function () {
-                    progressBar.style.width = targetWidth;
-                });
-            });
-        });
-    }
-
-    /* ==========================================
-       ATHLETE CARD HOVER INTERACTIONS
-    ========================================== */
-
-    athleteCards.forEach(function (card) {
-        card.addEventListener("mouseenter", function () {
-            card.classList.add("stackly-athlete-card-hover");
-        });
-
-        card.addEventListener("mouseleave", function () {
-            card.classList.remove("stackly-athlete-card-hover");
-        });
-    });
-
-    /* ==========================================
-       ATHLETE OPTIONS BUTTONS
-    ========================================== */
-
-    athleteGrid.addEventListener("click", function (event) {
-        const optionsButton = event.target.closest(
-            ".stackly-athlete-more"
-        );
-
-        if (!optionsButton || !athleteGrid.contains(optionsButton)) {
-            return;
-        }
-
-        const card = optionsButton.closest(".stackly-athlete-card");
-        const athleteName =
-            card?.querySelector("h3")?.textContent.trim() || "Athlete";
-
-        /*
-         * Replace this message with a custom dropdown menu
-         * or modal when your athlete actions are ready.
-         */
-        const existingMenu = card.querySelector(
-            ".stackly-athlete-options-notice"
-        );
-
-        if (existingMenu) {
-            existingMenu.remove();
-            optionsButton.setAttribute("aria-expanded", "false");
-            return;
-        }
-
-        /* Close any other open notices */
-        athleteGrid.querySelectorAll(
-            ".stackly-athlete-options-notice"
-        ).forEach(function (notice) {
-            notice.remove();
-        });
-
-        athleteGrid.querySelectorAll(".stackly-athlete-more")
-            .forEach(function (button) {
-                button.setAttribute("aria-expanded", "false");
-            });
-
-        const notice = document.createElement("div");
-        notice.className = "stackly-athlete-options-notice";
-        notice.setAttribute("role", "status");
-        notice.textContent = athleteName + " — athlete options";
-
-        card.appendChild(notice);
-        optionsButton.setAttribute("aria-expanded", "true");
-    });
-
-    /* ==========================================
-       KEYBOARD ACCESSIBILITY
-    ========================================== */
-
-    athleteGrid.querySelectorAll(".stackly-athlete-more")
-        .forEach(function (button) {
-            button.setAttribute("aria-haspopup", "true");
-            button.setAttribute("aria-expanded", "false");
-        });
-
-    /* ==========================================
-       INITIALIZE DIRECTORY
-    ========================================== */
-
-    animateProgressBars();
-    filterAthletes();
-});
-
-
-/* =========================================================
-   STACKLY SPORTS CLUB - TRAINER NAME & EMAIL
-   Dynamic Profile Details Across Dashboard Pages
-========================================================= */
-
-(function () {
-    "use strict";
-
-    function getStoredValue(keys) {
-        for (const key of keys) {
-            const value = localStorage.getItem(key);
-
-            if (value && value.trim()) {
-                return value.trim();
+                console.warn("Unable to access saved dashboard information.");
+                return "";
             }
         }
 
@@ -548,7 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function getTrainerProfile() {
         try {
-            const savedProfile = localStorage.getItem("stacklyTrainerProfile");
+            const savedProfile = localStorage.getItem(
+                "stacklyTrainerProfile"
+            );
 
             if (savedProfile) {
                 const profile = JSON.parse(savedProfile);
@@ -558,13 +59,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         } catch (error) {
-            console.warn("Unable to read trainer profile.");
+            console.warn("Unable to read saved trainer profile.");
         }
 
         return {};
     }
 
     function getProfessionalName(email) {
+        if (!email) return "";
+
         const username = email.split("@")[0] || "";
 
         return username
@@ -580,10 +83,14 @@ document.addEventListener("DOMContentLoaded", function () {
             .join(" ");
     }
 
-    function updateTrainerInformation() {
+    /* =====================================================
+       3. TRAINER PROFILE, NAME AND EMAIL
+    ===================================================== */
+
+    function displayTrainerInformation() {
         const profile = getTrainerProfile();
 
-        const email =
+        const email = String(
             profile.email ||
             profile.Email ||
             getStoredValue([
@@ -592,9 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 "stacklySportLoginEmail",
                 "memberEmail",
                 "stacklySportEmail"
-            ]);
+            ]) ||
+            ""
+        ).trim();
 
-        const savedName =
+        const savedName = String(
             profile.fullName ||
             profile.name ||
             profile.fullname ||
@@ -604,30 +113,58 @@ document.addEventListener("DOMContentLoaded", function () {
                 "trainerName",
                 "loginName",
                 "stacklyTrainerName"
-            ]);
+            ]) ||
+            ""
+        ).trim();
 
-        const name = savedName.trim() ||
+        const name = savedName ||
             getProfessionalName(email) ||
             "Trainer";
 
-        // Update dashboard header
-        document.querySelectorAll(
-            "#stacklyOthersTopName, [data-user-name]"
-        ).forEach(function (element) {
+        if (topName) {
+            topName.textContent = name;
+            topName.title = name;
+        }
+
+        if (topEmail) {
+            const emailIcon = topEmail.querySelector("i");
+
+            if (emailIcon) {
+                topEmail.textContent = "";
+                topEmail.appendChild(emailIcon);
+                topEmail.appendChild(
+                    document.createTextNode(
+                        " " + (email || "Email not available")
+                    )
+                );
+            } else {
+                topEmail.textContent = email || "Email not available";
+            }
+
+            topEmail.title = email || "Email not available";
+            topEmail.setAttribute(
+                "aria-label",
+                "Trainer email: " + (email || "Email not available")
+            );
+        }
+
+        /* Update other name and email placeholders */
+
+        document.querySelectorAll("[data-user-name]").forEach(function (element) {
             element.textContent = name;
             element.title = name;
         });
 
-        document.querySelectorAll(
-            "#stacklyOthersTopEmail, [data-user-email]"
-        ).forEach(function (element) {
+        document.querySelectorAll("[data-user-email]").forEach(function (element) {
             const icon = element.querySelector("i");
 
             if (icon) {
                 element.textContent = "";
                 element.appendChild(icon);
                 element.appendChild(
-                    document.createTextNode(" " + (email || "Email not available"))
+                    document.createTextNode(
+                        " " + (email || "Email not available")
+                    )
                 );
             } else {
                 element.textContent = email || "Email not available";
@@ -636,14 +173,16 @@ document.addEventListener("DOMContentLoaded", function () {
             element.title = email || "Email not available";
         });
 
-        // Update profile hero name
+        /* Profile hero name */
+
         document.querySelectorAll(
             ".stackly-profile-hero-card h3"
         ).forEach(function (element) {
             element.textContent = name;
         });
 
-        // Update profile hero email while preserving its icon
+        /* Profile hero email */
+
         document.querySelectorAll(
             ".stackly-profile-hero-meta span"
         ).forEach(function (element) {
@@ -653,12 +192,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 element.textContent = "";
                 element.appendChild(icon);
                 element.appendChild(
-                    document.createTextNode(" " + (email || "Email not available"))
+                    document.createTextNode(
+                        " " + (email || "Email not available")
+                    )
                 );
             }
         });
 
-        // Update the profile information cards
+        /* Profile information cards */
+
         document.querySelectorAll(
             ".stackly-profile-info-card"
         ).forEach(function (card) {
@@ -679,17 +221,600 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Works whether this script runs before or after DOMContentLoaded
-    if (document.readyState === "loading") {
-        document.addEventListener(
-            "DOMContentLoaded",
-            updateTrainerInformation
-        );
-    } else {
-        updateTrainerInformation();
+    displayTrainerInformation();
+
+    /* Make the function available for dynamically loaded sections. */
+    window.updateTrainerInformation = displayTrainerInformation;
+
+    /* =====================================================
+       4. MOBILE SIDEBAR NAVIGATION
+    ===================================================== */
+
+    function openSidebar() {
+        if (!body || !sidebar) return;
+
+        body.classList.add("stackly-others-menu-active");
+
+        if (hamburger) {
+            hamburger.setAttribute("aria-expanded", "true");
+            hamburger.setAttribute(
+                "aria-label",
+                "Close navigation menu"
+            );
+        }
+
+        sidebar.setAttribute("aria-hidden", "false");
+
+        if (overlay) {
+            overlay.setAttribute("aria-hidden", "false");
+        }
+
+        if (mobileExit) {
+            mobileExit.focus();
+        }
     }
 
-    // Allow dynamically loaded dashboard sections to refresh their details
-    window.updateTrainerInformation = updateTrainerInformation;
+    function closeSidebar(returnFocus) {
+        if (body) {
+            body.classList.remove("stackly-others-menu-active");
+        }
 
-})();
+        if (hamburger) {
+            hamburger.setAttribute("aria-expanded", "false");
+            hamburger.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+        }
+
+        if (sidebar) {
+            sidebar.setAttribute("aria-hidden", "true");
+        }
+
+        if (overlay) {
+            overlay.setAttribute("aria-hidden", "true");
+        }
+
+        if (returnFocus && hamburger) {
+            hamburger.focus();
+        }
+    }
+
+    if (hamburger) {
+        hamburger.addEventListener("click", function () {
+            const isOpen = body &&
+                body.classList.contains("stackly-others-menu-active");
+
+            if (isOpen) {
+                closeSidebar(false);
+            } else {
+                openSidebar();
+            }
+        });
+    }
+
+    if (mobileExit) {
+        mobileExit.addEventListener("click", function () {
+            closeSidebar(true);
+        });
+    }
+
+    if (overlay) {
+        overlay.addEventListener("click", function () {
+            closeSidebar(true);
+        });
+    }
+
+    document.querySelectorAll(
+        ".stackly-others-nav-link"
+    ).forEach(function (link) {
+        link.addEventListener("click", function () {
+            closeSidebar(false);
+        });
+    });
+
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 900) {
+            closeSidebar(false);
+        }
+    });
+
+    /* =====================================================
+       5. ESCAPE KEY
+    ===================================================== */
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key !== "Escape") return;
+
+        const sidebarIsOpen = body &&
+            body.classList.contains("stackly-others-menu-active");
+
+        if (sidebarIsOpen) {
+            closeSidebar(true);
+        }
+
+        /* Also close the athlete status dropdown if open. */
+        if (typeof closeAthletesStatusDropdown === "function") {
+            closeAthletesStatusDropdown(false);
+        }
+
+        /* Close athlete option notices. */
+        document.querySelectorAll(
+            ".stackly-athlete-options-notice"
+        ).forEach(function (notice) {
+            notice.remove();
+        });
+
+        document.querySelectorAll(
+            ".stackly-athlete-more[aria-expanded='true']"
+        ).forEach(function (button) {
+            button.setAttribute("aria-expanded", "false");
+        });
+    });
+
+    /* =====================================================
+       6. ACTIVE SIDEBAR NAVIGATION
+    ===================================================== */
+
+    const currentPage = window.location.pathname
+        .split("/")
+        .pop()
+        .toLowerCase();
+
+    document.querySelectorAll(
+        ".stackly-others-nav-link"
+    ).forEach(function (link) {
+        const href = link.getAttribute("href");
+
+        if (!href) return;
+
+        const linkPage = href.split("/").pop().toLowerCase();
+
+        if (linkPage === currentPage) {
+            link.classList.add("active");
+            link.setAttribute("aria-current", "page");
+        } else {
+            link.classList.remove("active");
+            link.removeAttribute("aria-current");
+        }
+    });
+
+    /* =====================================================
+       7. LOGOUT
+    ===================================================== */
+
+    if (logoutButton) {
+        logoutButton.addEventListener("click", function () {
+            const confirmed = window.confirm(
+                "Are you sure you want to log out?"
+            );
+
+            if (!confirmed) return;
+
+            const sessionKeys = [
+                "loginEmail",
+                "loginRole",
+                "stacklySportLoggedIn",
+                "stacklySportRemember",
+                "trainerEmail",
+                "stacklySportLoginEmail",
+                "stacklySportEmail",
+                "trainerName",
+                "loginName",
+                "stacklyTrainerName"
+            ];
+
+            sessionKeys.forEach(function (key) {
+                try {
+                    localStorage.removeItem(key);
+                } catch (error) {
+                    console.warn("Unable to clear a session value.");
+                }
+            });
+
+            /* Keep the saved trainer profile intact. */
+            window.location.href = "index.html";
+        });
+    }
+
+    /* =====================================================
+       8. FOOTER YEAR
+    ===================================================== */
+
+    if (footerYear) {
+        footerYear.textContent = new Date().getFullYear();
+    }
+
+    /* =====================================================
+       9. ATHLETE DIRECTORY ELEMENTS
+    ===================================================== */
+
+    const athleteSearch = document.getElementById(
+        "stacklyAthletesSearch"
+    );
+
+    const athleteStatusInput = document.getElementById(
+        "stacklyAthletesFilter"
+    );
+
+    const athleteGrid = document.getElementById(
+        "stacklyAthletesGrid"
+    );
+
+    const athleteNoResults = document.getElementById(
+        "stacklyAthletesNoResults"
+    );
+
+    const athleteCards = athleteGrid
+        ? Array.from(
+            athleteGrid.querySelectorAll(".stackly-athlete-card")
+        )
+        : [];
+
+    /* =====================================================
+       10. ATHLETE STATUS CUSTOM DROPDOWN
+    ===================================================== */
+
+    const athletesFilterWrap = document.querySelector(
+        ".stackly-athletes-filter-wrap"
+    );
+
+    let athleteFilterButton = null;
+    let athleteFilterText = null;
+    let athleteFilterDropdown = null;
+    let athleteFilterOptions = [];
+
+    function closeAthletesStatusDropdown(returnFocus) {
+        if (!athletesFilterWrap) return;
+
+        if (athleteFilterDropdown) {
+            athleteFilterDropdown.hidden = true;
+        }
+
+        if (athleteFilterButton) {
+            athleteFilterButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            if (returnFocus) {
+                athleteFilterButton.focus();
+            }
+        }
+
+        athletesFilterWrap.classList.remove("is-open");
+    }
+
+    /* Make the close function accessible to the Escape handler. */
+    window.closeAthletesStatusDropdown = closeAthletesStatusDropdown;
+
+    if (athletesFilterWrap) {
+        athleteFilterButton = athletesFilterWrap.querySelector(
+            "#stacklyAthletesFilterBtn"
+        );
+
+        athleteFilterText = athletesFilterWrap.querySelector(
+            "#stacklyAthletesFilterText"
+        );
+
+        athleteFilterDropdown = athletesFilterWrap.querySelector(
+            "#stacklyAthletesFilterDropdown"
+        );
+
+        athleteFilterOptions = Array.from(
+            athletesFilterWrap.querySelectorAll(
+                ".stackly-athletes-filter-option"
+            )
+        );
+
+        if (
+            athleteFilterButton &&
+            athleteFilterText &&
+            athleteFilterDropdown &&
+            athleteStatusInput
+        ) {
+            function openAthletesStatusDropdown() {
+                athleteFilterDropdown.hidden = false;
+
+                athleteFilterButton.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+                athletesFilterWrap.classList.add("is-open");
+            }
+
+            athleteFilterButton.addEventListener("click", function () {
+                if (athleteFilterDropdown.hidden) {
+                    openAthletesStatusDropdown();
+                } else {
+                    closeAthletesStatusDropdown(false);
+                }
+            });
+
+            athleteFilterOptions.forEach(function (option) {
+                option.addEventListener("click", function () {
+                    const selectedValue = this.dataset.value;
+                    const labelElement = this.querySelector("span");
+
+                    if (!selectedValue || !labelElement) return;
+
+                    athleteStatusInput.value = selectedValue;
+                    athleteFilterText.textContent =
+                        labelElement.textContent.trim();
+
+                    athleteFilterOptions.forEach(function (item) {
+                        const isSelected = item === option;
+
+                        item.classList.toggle("active", isSelected);
+
+                        item.setAttribute(
+                            "aria-selected",
+                            String(isSelected)
+                        );
+                    });
+
+                    closeAthletesStatusDropdown(false);
+
+                    /* Trigger the shared filtering handler. */
+                    athleteStatusInput.dispatchEvent(
+                        new Event("change", { bubbles: true })
+                    );
+                });
+            });
+
+            /* Restore selected label when HTML starts with a saved value. */
+            const initialOption = athleteFilterOptions.find(function (option) {
+                return option.dataset.value === athleteStatusInput.value;
+            });
+
+            if (initialOption) {
+                const initialLabel = initialOption.querySelector("span");
+
+                if (initialLabel) {
+                    athleteFilterText.textContent =
+                        initialLabel.textContent.trim();
+                }
+
+                athleteFilterOptions.forEach(function (option) {
+                    const selected = option === initialOption;
+
+                    option.classList.toggle("active", selected);
+                    option.setAttribute(
+                        "aria-selected",
+                        String(selected)
+                    );
+                });
+            }
+
+            document.addEventListener("click", function (event) {
+                if (!athletesFilterWrap.contains(event.target)) {
+                    closeAthletesStatusDropdown(false);
+                }
+            });
+        }
+    }
+
+    /* =====================================================
+       11. ATHLETE SEARCH AND STATUS FILTERING
+    ===================================================== */
+
+    function filterAthletes() {
+        if (!athleteGrid || !athleteNoResults) return;
+
+        const searchTerm = athleteSearch
+            ? athleteSearch.value.trim().toLowerCase()
+            : "";
+
+        const selectedStatus = athleteStatusInput
+            ? athleteStatusInput.value
+            : "all";
+
+        let visibleCount = 0;
+
+        athleteCards.forEach(function (card) {
+            const athleteName = (
+                card.querySelector("h3")?.textContent || ""
+            ).toLowerCase();
+
+            const athleteProgram = (
+                card.querySelector(".stackly-athlete-category")?.textContent || ""
+            ).toLowerCase();
+
+            const fullCardText = card.textContent.toLowerCase();
+
+            const athleteStatus = (
+                card.dataset.status || ""
+            ).toLowerCase();
+
+            /* Search athlete name, program and other card text. */
+            const matchesSearch =
+                !searchTerm ||
+                athleteName.includes(searchTerm) ||
+                athleteProgram.includes(searchTerm) ||
+                fullCardText.includes(searchTerm);
+
+            const matchesStatus =
+                selectedStatus === "all" ||
+                athleteStatus === selectedStatus;
+
+            const shouldShow = matchesSearch && matchesStatus;
+
+            card.hidden = !shouldShow;
+
+            if (shouldShow) {
+                visibleCount++;
+            }
+        });
+
+        athleteNoResults.hidden = visibleCount > 0;
+
+        /* Optional result count badges. */
+        document.querySelectorAll(
+            ".stackly-athletes-total-badge"
+        ).forEach(function (badge) {
+            badge.textContent = String(visibleCount);
+        });
+
+        if (window.AOS && typeof window.AOS.refresh === "function") {
+            window.AOS.refresh();
+        }
+    }
+
+    if (athleteSearch) {
+        athleteSearch.addEventListener("input", filterAthletes);
+    }
+
+    if (athleteStatusInput) {
+        athleteStatusInput.addEventListener("change", filterAthletes);
+    }
+
+    /* =====================================================
+       12. ATHLETE PROGRESS BARS
+    ===================================================== */
+
+    athleteCards.forEach(function (card) {
+        const progressBar = card.querySelector(
+            ".stackly-athlete-progress-track span"
+        );
+
+        if (!progressBar) return;
+
+        /* Store the original CSS width only once. */
+        if (!progressBar.dataset.originalProgress) {
+            const computedWidth = progressBar.style.width ||
+                window.getComputedStyle(progressBar).width;
+
+            progressBar.dataset.originalProgress = computedWidth;
+        }
+
+        const targetWidth = progressBar.dataset.originalProgress;
+
+        progressBar.style.width = "0%";
+
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                progressBar.style.width = targetWidth;
+            });
+        });
+    });
+
+    /* =====================================================
+       13. ATHLETE CARD HOVER EFFECTS
+    ===================================================== */
+
+    athleteCards.forEach(function (card) {
+        card.addEventListener("mouseenter", function () {
+            card.classList.add("stackly-athlete-card-hover");
+        });
+
+        card.addEventListener("mouseleave", function () {
+            card.classList.remove("stackly-athlete-card-hover");
+        });
+    });
+
+    /* =====================================================
+       14. ATHLETE MORE OPTIONS
+    ===================================================== */
+
+    if (athleteGrid) {
+        athleteGrid.querySelectorAll(
+            ".stackly-athlete-more"
+        ).forEach(function (button) {
+            button.setAttribute("aria-haspopup", "true");
+            button.setAttribute("aria-expanded", "false");
+        });
+
+        athleteGrid.addEventListener("click", function (event) {
+            const optionsButton = event.target.closest(
+                ".stackly-athlete-more"
+            );
+
+            if (
+                !optionsButton ||
+                !athleteGrid.contains(optionsButton)
+            ) {
+                return;
+            }
+
+            const card = optionsButton.closest(".stackly-athlete-card");
+
+            if (!card) return;
+
+            const existingNotice = card.querySelector(
+                ".stackly-athlete-options-notice"
+            );
+
+            /* Toggle the clicked card's notice. */
+            if (existingNotice) {
+                existingNotice.remove();
+
+                optionsButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                return;
+            }
+
+            /* Close other notices first. */
+            athleteGrid.querySelectorAll(
+                ".stackly-athlete-options-notice"
+            ).forEach(function (notice) {
+                notice.remove();
+            });
+
+            athleteGrid.querySelectorAll(
+                ".stackly-athlete-more"
+            ).forEach(function (button) {
+                button.setAttribute("aria-expanded", "false");
+            });
+
+            const athleteName = (
+                card.querySelector("h3")?.textContent || "Athlete"
+            ).trim();
+
+            const notice = document.createElement("div");
+
+            notice.className = "stackly-athlete-options-notice";
+            notice.setAttribute("role", "status");
+            notice.textContent = athleteName + " — athlete options";
+
+            card.appendChild(notice);
+
+            optionsButton.setAttribute("aria-expanded", "true");
+        });
+    }
+
+    /* =====================================================
+       15. INITIAL ATHLETE DIRECTORY STATE
+    ===================================================== */
+
+    filterAthletes();
+
+    /* =====================================================
+       16. AOS ANIMATIONS
+    ===================================================== */
+
+    if (typeof AOS !== "undefined") {
+        AOS.init({
+            duration: 900,
+            once: true,
+            offset: 70,
+            easing: "ease-out-cubic",
+            delay: 0,
+            anchorPlacement: "top-bottom",
+            disable: function () {
+                return window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                ).matches;
+            }
+        });
+
+        window.addEventListener("load", function () {
+            if (typeof AOS.refresh === "function") {
+                AOS.refresh();
+            }
+        });
+    }
+});

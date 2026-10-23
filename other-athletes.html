@@ -306,12 +306,78 @@
                        aria-label="Search athletes">
             </label>
 
-            <select id="stacklyAthletesFilter" aria-label="Filter athletes by status">
-                <option value="all">All Athletes</option>
-                <option value="active">Active</option>
-                <option value="progress">In Progress</option>
-                <option value="attention">Needs Attention</option>
-            </select>
+            
+<!-- ==========================================
+     STACKLY ATHLETES STATUS CUSTOM DROPDOWN
+========================================== -->
+
+<div class="stackly-athletes-filter-wrap">
+
+    <button
+        type="button"
+        id="stacklyAthletesFilterBtn"
+        class="stackly-athletes-filter-btn"
+        aria-label="Filter athletes by status"
+        aria-haspopup="listbox"
+        aria-expanded="false">
+
+        <i class="fa-solid fa-filter"></i>
+
+        <span id="stacklyAthletesFilterText">All Athletes</span>
+
+        <i class="fa-solid fa-chevron-down stackly-athletes-filter-chevron"></i>
+    </button>
+
+    <div
+        id="stacklyAthletesFilterDropdown"
+        class="stackly-athletes-filter-dropdown"
+        role="listbox"
+        aria-label="Filter athletes by status"
+        hidden>
+
+        <button type="button"
+                class="stackly-athletes-filter-option active"
+                data-value="all"
+                role="option"
+                aria-selected="true">
+            <span>All Athletes</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+                class="stackly-athletes-filter-option"
+                data-value="active"
+                role="option"
+                aria-selected="false">
+            <span>Active</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+                class="stackly-athletes-filter-option"
+                data-value="progress"
+                role="option"
+                aria-selected="false">
+            <span>In Progress</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+                class="stackly-athletes-filter-option"
+                data-value="attention"
+                role="option"
+                aria-selected="false">
+            <span>Needs Attention</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+    </div>
+
+    <!-- Preserves the original filter ID -->
+    <input type="hidden" id="stacklyAthletesFilter" value="all">
+
+</div>
+
         </div>
 
         <div class="stackly-athletes-grid" id="stacklyAthletesGrid">

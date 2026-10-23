@@ -322,14 +322,75 @@
                        aria-label="Search athletes">
             </label>
 
-            <select id="stacklyCoachAthleteFilter"
-                    class="stackly-coach-athlete-filter"
-                    aria-label="Filter athletes by status">
-                <option value="all">All Athletes</option>
-                <option value="active">Active</option>
-                <option value="progress">Improving</option>
-                <option value="review">Needs Review</option>
-            </select>
+            
+<!-- ATHLETE STATUS CUSTOM DROPDOWN -->
+<div class="stackly-coach-athlete-filter-wrap">
+
+    <button
+        type="button"
+        id="stacklyCoachAthleteFilterBtn"
+        class="stackly-coach-athlete-filter"
+        aria-label="Filter athletes by status"
+        aria-haspopup="listbox"
+        aria-expanded="false">
+
+        <i class="fa-solid fa-filter"></i>
+
+        <span id="stacklyCoachAthleteFilterText">All Athletes</span>
+
+        <i class="fa-solid fa-chevron-down stackly-coach-athlete-filter-chevron"></i>
+    </button>
+
+    <div
+        id="stacklyCoachAthleteFilterDropdown"
+        class="stackly-coach-athlete-filter-dropdown"
+        role="listbox"
+        aria-label="Athlete status options"
+        hidden>
+
+        <button type="button"
+                class="stackly-coach-athlete-filter-option active"
+                data-value="all"
+                role="option"
+                aria-selected="true">
+            <span>All Athletes</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+                class="stackly-coach-athlete-filter-option"
+                data-value="active"
+                role="option"
+                aria-selected="false">
+            <span>Active</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+                class="stackly-coach-athlete-filter-option"
+                data-value="progress"
+                role="option"
+                aria-selected="false">
+            <span>Improving</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+                class="stackly-coach-athlete-filter-option"
+                data-value="review"
+                role="option"
+                aria-selected="false">
+            <span>Needs Review</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+    </div>
+
+    <!-- Keeps the selected filter value available to your existing JS -->
+    <input type="hidden" id="stacklyCoachAthleteFilter" value="all">
+
+</div>
+
 
         </div>
 

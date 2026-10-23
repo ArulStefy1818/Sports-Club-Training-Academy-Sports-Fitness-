@@ -590,15 +590,81 @@
                            name="title" value="Strength & Conditioning Coach">
                 </div>
 
-                <div class="stackly-profile-form-group">
-                    <label for="stacklyProfileInputExperience">Experience</label>
-                    <select id="stacklyProfileInputExperience" name="experience">
-                        <option value="1+ Year">1+ Year</option>
-                        <option value="3+ Years">3+ Years</option>
-                        <option value="5+ Years" selected>5+ Years</option>
-                        <option value="10+ Years">10+ Years</option>
-                    </select>
-                </div>
+                
+<!-- EXPERIENCE CUSTOM DROPDOWN -->
+<div class="stackly-profile-form-group stackly-profile-experience-wrap">
+
+    <label id="stacklyProfileExperienceLabel">
+        Experience
+    </label>
+
+    <button
+        type="button"
+        id="stacklyProfileExperienceBtn"
+        class="stackly-profile-experience-btn"
+        aria-labelledby="stacklyProfileExperienceLabel stacklyProfileExperienceText"
+        aria-haspopup="listbox"
+        aria-expanded="false">
+
+        <span id="stacklyProfileExperienceText">5+ Years</span>
+
+        <i class="fa-solid fa-chevron-down stackly-profile-experience-chevron"></i>
+    </button>
+
+    <div
+        id="stacklyProfileExperienceDropdown"
+        class="stackly-profile-experience-dropdown"
+        role="listbox"
+        aria-labelledby="stacklyProfileExperienceLabel"
+        hidden>
+
+        <button type="button"
+                class="stackly-profile-experience-option"
+                data-value="1+ Year"
+                role="option"
+                aria-selected="false">
+            <span>1+ Year</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+                class="stackly-profile-experience-option"
+                data-value="3+ Years"
+                role="option"
+                aria-selected="false">
+            <span>3+ Years</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+                class="stackly-profile-experience-option active"
+                data-value="5+ Years"
+                role="option"
+                aria-selected="true">
+            <span>5+ Years</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+        <button type="button"
+                class="stackly-profile-experience-option"
+                data-value="10+ Years"
+                role="option"
+                aria-selected="false">
+            <span>10+ Years</span>
+            <i class="fa-solid fa-check"></i>
+        </button>
+
+    </div>
+
+    <!-- Keeps the original field name and value -->
+    <input
+        type="hidden"
+        id="stacklyProfileInputExperience"
+        name="experience"
+        value="5+ Years">
+
+</div>
+
 
             </div>
 

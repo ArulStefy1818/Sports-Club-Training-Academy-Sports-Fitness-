@@ -10756,3 +10756,195 @@
         transition-duration: 0.01ms !important;
     }
 }
+
+
+/* ==========================================
+   STACKLY ATHLETES STATUS DROPDOWN CSS
+========================================== */
+
+.stackly-athletes-filter-wrap,
+.stackly-athletes-filter-wrap * {
+    box-sizing: border-box;
+}
+
+.stackly-athletes-filter-wrap {
+    position: relative;
+    display: inline-block;
+    width: 210px;
+    max-width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    z-index: 20;
+}
+
+/* Trigger button */
+
+.stackly-athletes-filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 44px;
+    padding: 0 13px;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #344054;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stackly-athletes-filter-btn > .fa-filter {
+    color: #64748b;
+    font-size: 13px;
+}
+
+#stacklyAthletesFilterText {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.stackly-athletes-filter-chevron {
+    color: #98a2b3;
+    font-size: 11px;
+    transition: transform 0.25s ease;
+}
+
+.stackly-athletes-filter-btn:hover {
+    border-color: #a5b4fc;
+}
+
+.stackly-athletes-filter-btn:focus-visible {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+/* Open state */
+
+.stackly-athletes-filter-wrap.is-open .stackly-athletes-filter-btn {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08);
+}
+
+.stackly-athletes-filter-wrap.is-open .stackly-athletes-filter-chevron {
+    color: #6366f1;
+    transform: rotate(180deg);
+}
+
+/* Dropdown panel */
+
+.stackly-athletes-filter-dropdown {
+    position: absolute;
+    top: calc(100% + 7px);
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #e8edf4;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 12px 28px rgba(16, 24, 40, 0.12);
+    transform-origin: top center;
+    animation: stacklyAthletesFilterEnter 0.2s ease;
+}
+
+.stackly-athletes-filter-dropdown[hidden] {
+    display: none !important;
+}
+
+@keyframes stacklyAthletesFilterEnter {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Options */
+
+.stackly-athletes-filter-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    min-height: 40px;
+    padding: 9px 11px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: #475467;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.stackly-athletes-filter-option span {
+    flex: 1;
+}
+
+.stackly-athletes-filter-option > .fa-check {
+    color: #6366f1;
+    font-size: 12px;
+    opacity: 0;
+}
+
+.stackly-athletes-filter-option:hover {
+    background: #f5f6ff;
+    color: #4f46e5;
+}
+
+.stackly-athletes-filter-option.active {
+    background: #eef2ff;
+    color: #4f46e5;
+    font-weight: 700;
+}
+
+.stackly-athletes-filter-option.active > .fa-check {
+    opacity: 1;
+}
+
+.stackly-athletes-filter-option:focus-visible {
+    outline: 2px solid #6366f1;
+    outline-offset: -2px;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+    .stackly-athletes-filter-wrap {
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .stackly-athletes-filter-btn {
+        min-height: 42px;
+        font-size: 12px;
+    }
+
+    .stackly-athletes-filter-option {
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stackly-athletes-filter-wrap *,
+    .stackly-athletes-filter-dropdown {
+        animation: none !important;
+        transition: none !important;
+    }
+}

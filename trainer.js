@@ -1,396 +1,785 @@
 
-/* ==========================================
-   STACKLY TRAINER DASHBOARD - MOBILE MENU
-========================================== */
+/* =========================================================
+   STACKLY SPORTS CLUB - COACH DASHBOARD
+   Consolidated JavaScript
+   Profile | Navigation | Logout | Athletes | Dropdowns | AOS
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
-    const body = document.querySelector(".stackly-coach-body");
-    const sidebar = document.getElementById("stacklyCoachSidebar");
-    const overlay = document.getElementById("stacklyCoachOverlay");
-    const hamburger = document.getElementById("stacklyCoachHamburger");
-    const exitButton = document.getElementById("stacklyCoachMobileExit");
-
-    if (!body || !sidebar || !overlay || !hamburger || !exitButton) {
-        return;
-    }
-
-    function openMenu() {
-        body.classList.add("stackly-coach-menu-active");
-        hamburger.setAttribute("aria-expanded", "true");
-    }
-
-    function closeMenu() {
-        body.classList.remove("stackly-coach-menu-active");
-        hamburger.setAttribute("aria-expanded", "false");
-    }
-
-    hamburger.addEventListener("click", openMenu);
-    exitButton.addEventListener("click", closeMenu);
-    overlay.addEventListener("click", closeMenu);
-
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-            closeMenu();
-        }
-    });
-
-    sidebar.querySelectorAll(".stackly-coach-nav-link").forEach(function (link) {
-        link.addEventListener("click", closeMenu);
-    });
-
-    /* Display email saved during login */
-    const email =
-        localStorage.getItem("loginEmail") ||
-        localStorage.getItem("stacklySportLoginEmail") ||
-        localStorage.getItem("memberEmail") ||
-        localStorage.getItem("stacklySportEmail") ||
-        "";
-
-    const emailElement = document.getElementById("stacklyCoachTopEmail");
-    const nameElement = document.getElementById("stacklyCoachTopName");
-
-    if (email && emailElement) {
-        emailElement.textContent = email;
-    }
-
-    if (email && nameElement) {
-        const name = email.split("@")[0]
-            .replace(/[._-]+/g, " ")
-            .trim()
-            .replace(/\b\w/g, function (letter) {
-                return letter.toUpperCase();
-            });
-
-        nameElement.textContent = name || "Trainer";
-    }
-
-    /* AOS initialization */
-    if (typeof AOS !== "undefined") {
-        AOS.init({
-            duration: 850,
-            once: true,
-            offset: 70,
-            easing: "ease-out-cubic"
-        });
-    }
-});
-
-
-
-/* ==========================================
-   TRAINER SIDEBAR - ACTIVE LINK HIGHLIGHT
-========================================== */
-
-document.addEventListener("DOMContentLoaded", function () {
-    const navLinks = document.querySelectorAll(
-        ".stackly-coach-navigation .stackly-coach-nav-link"
-    );
-
-    // Get the current page filename
-    const currentPage = window.location.pathname
-        .split("/")
-        .pop()
-        .toLowerCase();
-
-    navLinks.forEach(function (link) {
-        const linkPage = link.getAttribute("href")
-            .split("/")
-            .pop()
-            .toLowerCase();
-
-        // Highlight the current page link
-        const isActive = linkPage === currentPage;
-
-        link.classList.toggle("active", isActive);
-
-        if (isActive) {
-            link.setAttribute("aria-current", "page");
-        } else {
-            link.removeAttribute("aria-current");
-        }
-    });
-});
-
-
-
-/* ==========================================
-   STACKLY COACH - MY ATHLETES
-   Professional Search, Filter & Animations
-========================================== */
-
-document.addEventListener("DOMContentLoaded", () => {
     "use strict";
 
-    /* ==========================================
-       ELEMENTS
-    ========================================== */
-
-    const directory = document.getElementById(
-        "stacklyCoachAthleteDirectory"
-    );
-
-    if (!directory) return;
-
-    const searchInput = document.getElementById(
-        "stacklyCoachAthleteSearch"
-    );
-
-    const statusFilter = document.getElementById(
-        "stacklyCoachAthleteFilter"
-    );
-
-    const athleteGrid = document.getElementById(
-        "stacklyCoachAthleteGrid"
-    );
-
-    const noResults = document.getElementById(
-        "stacklyCoachAthleteNoResults"
-    );
-
-    const athleteCards = Array.from(
-        athleteGrid.querySelectorAll(".stackly-coach-athlete-card")
-    );
-
-    if (!searchInput || !statusFilter || !athleteGrid || !noResults) {
-        console.warn("Stackly Athletes: Required page elements are missing.");
-        return;
-    }
+    /* =====================================================
+       1. SHARED HELPERS
+    ===================================================== */
 
     const reducedMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    let searchTimer;
+    function byId(id) {
+        return document.getElementById(id);
+    }
 
-    /* ==========================================
-       SEARCH + STATUS FILTER
-    ========================================== */
+    function readStorage(key) {
+        try {
+            return localStorage.getItem(key) || "";
+        } catch (error) {
+            return "";
+        }
+    }
+
+    function writeStorage(key, value) {
+        try {
+            localStorage.setItem(key, value);
+            return true;
+        } catch (error) {
+            console.error("Stackly: Unable to save data.", error);
+            return false;
+        }
+    }
+
+    function getFirstStoredValue(keys) {
+        for (const key of keys) {
+            const value = readStorage(key).trim();
+            if (value) return value;
+        }
+
+        return "";
+    }
+
+    function getProfile() {
+        try {
+            const raw = readStorage("stacklyTrainerProfile");
+            const parsed = raw ? JSON.parse(raw) : {};
+
+            return parsed && typeof parsed === "object" ? parsed : {};
+        } catch (error) {
+            console.warn("Stackly: Saved trainer profile could not be read.");
+            return {};
+        }
+    }
+
+    function nameFromEmail(email) {
+        if (!email) return "";
+
+        return email.split("@")[0]
+            .replace(/[._-]+/g, " ")
+            .replace(/\d+/g, " ")
+            .trim()
+            .split(/\s+/)
+            .filter(Boolean)
+            .map(function (word) {
+                return word.charAt(0).toUpperCase() +
+                    word.slice(1).toLowerCase();
+            })
+            .join(" ");
+    }
+
+    function setText(id, value) {
+        const element = byId(id);
+
+        if (element) {
+            element.textContent = value == null ? "" : String(value);
+        }
+    }
+
+    function refreshAOS() {
+        if (window.AOS && typeof window.AOS.refreshHard === "function") {
+            window.AOS.refreshHard();
+        } else if (window.AOS && typeof window.AOS.refresh === "function") {
+            window.AOS.refresh();
+        }
+    }
+
+    /* =====================================================
+       2. TRAINER PROFILE AND EMAIL
+    ===================================================== */
+
+    function getTrainerDetails() {
+        const profile = getProfile();
+
+        const email = String(
+            profile.email ||
+            profile.Email ||
+            getFirstStoredValue([
+                "loginEmail",
+                "trainerEmail",
+                "stacklySportLoginEmail",
+                "memberEmail",
+                "stacklySportEmail"
+            ])
+        ).trim();
+
+        const savedName = String(
+            profile.fullName ||
+            profile.name ||
+            profile.fullname ||
+            profile.full_name ||
+            profile.Name ||
+            getFirstStoredValue([
+                "trainerName",
+                "loginName",
+                "stacklyTrainerName"
+            ])
+        ).trim();
+
+        return {
+            name: savedName || nameFromEmail(email) || "Trainer",
+            email: email
+        };
+    }
+
+    function updateTrainerInformation() {
+        const details = getTrainerDetails();
+        const name = details.name;
+        const email = details.email || "Email not available";
+
+        setText("stacklyCoachTopName", name);
+
+        const emailElement = byId("stacklyCoachTopEmail");
+
+        if (emailElement) {
+            const icon = emailElement.querySelector("i");
+
+            if (icon) {
+                emailElement.textContent = "";
+                emailElement.appendChild(icon);
+                emailElement.appendChild(
+                    document.createTextNode(" " + email)
+                );
+            } else {
+                emailElement.textContent = email;
+            }
+
+            emailElement.title = email;
+            emailElement.setAttribute("aria-label", "Trainer email: " + email);
+        }
+
+        document.querySelectorAll("[data-trainer-name], [data-user-name]")
+            .forEach(function (element) {
+                element.textContent = name;
+                element.title = name;
+            });
+
+        document.querySelectorAll("[data-trainer-email], [data-user-email]")
+            .forEach(function (element) {
+                element.textContent = email;
+                element.title = email;
+            });
+
+        document.querySelectorAll(".stackly-profile-hero-card h3")
+            .forEach(function (element) {
+                element.textContent = name;
+            });
+
+        document.querySelectorAll(".stackly-profile-hero-meta span")
+            .forEach(function (element) {
+                if (!element.querySelector(".fa-envelope")) return;
+
+                const icon = element.querySelector(".fa-envelope");
+                element.textContent = "";
+                element.appendChild(icon);
+                element.appendChild(document.createTextNode(" " + email));
+            });
+
+        document.querySelectorAll(".stackly-profile-info-card")
+            .forEach(function (card) {
+                const label = card.querySelector("small");
+                const value = card.querySelector("h3");
+
+                if (!label || !value) return;
+
+                const text = label.textContent.trim().toLowerCase();
+
+                if (text === "full name") value.textContent = name;
+                if (text === "email address") value.textContent = email;
+            });
+    }
+
+    updateTrainerInformation();
+
+    window.updateTrainerInformation = updateTrainerInformation;
+
+    /* =====================================================
+       3. MOBILE SIDEBAR
+    ===================================================== */
+
+    const body = document.querySelector(".stackly-coach-body");
+    const sidebar = byId("stacklyCoachSidebar");
+    const overlay = byId("stacklyCoachOverlay");
+    const hamburger = byId("stacklyCoachHamburger");
+    const mobileExit = byId("stacklyCoachMobileExit");
+
+    function openSidebar() {
+        if (!body || !sidebar) return;
+
+        body.classList.add("stackly-coach-menu-active");
+        hamburger?.setAttribute("aria-expanded", "true");
+        hamburger?.setAttribute("aria-label", "Close navigation menu");
+        sidebar.setAttribute("aria-hidden", "false");
+
+        if (overlay) {
+            overlay.setAttribute("aria-hidden", "false");
+        }
+
+        mobileExit?.focus();
+    }
+
+    function closeSidebar(returnFocus) {
+        body?.classList.remove("stackly-coach-menu-active");
+
+        hamburger?.setAttribute("aria-expanded", "false");
+        hamburger?.setAttribute("aria-label", "Open navigation menu");
+        sidebar?.setAttribute("aria-hidden", "true");
+        overlay?.setAttribute("aria-hidden", "true");
+
+        if (returnFocus && hamburger) {
+            hamburger.focus();
+        }
+    }
+
+    if (hamburger) {
+        hamburger.addEventListener("click", function () {
+            if (
+                body?.classList.contains("stackly-coach-menu-active")
+            ) {
+                closeSidebar(false);
+            } else {
+                openSidebar();
+            }
+        });
+    }
+
+    mobileExit?.addEventListener("click", function () {
+        closeSidebar(true);
+    });
+
+    overlay?.addEventListener("click", function () {
+        closeSidebar(true);
+    });
+
+    document.querySelectorAll(".stackly-coach-nav-link")
+        .forEach(function (link) {
+            link.addEventListener("click", function () {
+                closeSidebar(false);
+            });
+        });
+
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 900) {
+            closeSidebar(false);
+        }
+    });
+
+    /* =====================================================
+       4. ACTIVE NAVIGATION
+    ===================================================== */
+
+    const currentPage = window.location.pathname
+        .split("/")
+        .pop()
+        .toLowerCase();
+
+    document.querySelectorAll(
+        ".stackly-coach-navigation .stackly-coach-nav-link"
+    ).forEach(function (link) {
+        const href = link.getAttribute("href");
+        if (!href) return;
+
+        const linkPage = href.split("/").pop().toLowerCase();
+        const active = linkPage === currentPage;
+
+        link.classList.toggle("active", active);
+
+        if (active) {
+            link.setAttribute("aria-current", "page");
+        } else {
+            link.removeAttribute("aria-current");
+        }
+    });
+
+    /* =====================================================
+       5. LOGOUT
+    ===================================================== */
+
+    const logoutButton = byId("stacklyCoachLogout");
+
+    logoutButton?.addEventListener("click", function () {
+        if (!window.confirm("Are you sure you want to log out?")) {
+            return;
+        }
+
+        [
+            "loginEmail",
+            "loginRole",
+            "stacklySportLoggedIn",
+            "stacklySportRemember",
+            "trainerEmail",
+            "stacklySportLoginEmail",
+            "stacklySportEmail",
+            "trainerName",
+            "loginName",
+            "stacklyTrainerName"
+        ].forEach(function (key) {
+            try {
+                localStorage.removeItem(key);
+            } catch (error) {
+                console.warn("Stackly: Unable to clear a session value.");
+            }
+        });
+
+        /* Keep stacklyTrainerProfile intact. */
+        window.location.href = "index.html";
+    });
+
+    /* =====================================================
+       6. FOOTER YEAR
+    ===================================================== */
+
+    setText("stacklyCoachYear", new Date().getFullYear());
+
+    /* =====================================================
+       7. REUSABLE CUSTOM DROPDOWN
+       Supports hidden input + option buttons.
+    ===================================================== */
+
+    function setupCustomDropdown(config) {
+        const wrap = document.querySelector(config.wrap);
+        if (!wrap) return null;
+
+        const button = wrap.querySelector(config.button);
+        const menu = wrap.querySelector(config.menu);
+        const label = wrap.querySelector(config.label);
+        const input = wrap.querySelector(config.input);
+        const options = Array.from(wrap.querySelectorAll(config.option));
+
+        if (!button || !menu || !label || !input || !options.length) {
+            console.warn(
+                "Stackly dropdown: Missing elements for " + config.wrap
+            );
+            return null;
+        }
+
+        function close(focusButton) {
+            menu.hidden = true;
+            button.setAttribute("aria-expanded", "false");
+            wrap.classList.remove("is-open");
+
+            if (focusButton) button.focus();
+        }
+
+        function open() {
+            menu.hidden = false;
+            button.setAttribute("aria-expanded", "true");
+            wrap.classList.add("is-open");
+        }
+
+        function selectOption(option) {
+            const value = option.dataset.value;
+            const text = option.querySelector("span")?.textContent.trim();
+
+            if (value == null || !text) return;
+
+            input.value = value;
+            label.textContent = text;
+
+            options.forEach(function (item) {
+                const selected = item === option;
+
+                item.classList.toggle("active", selected);
+                item.setAttribute("aria-selected", String(selected));
+            });
+
+            close(false);
+
+            input.dispatchEvent(
+                new Event("change", { bubbles: true })
+            );
+        }
+
+        button.addEventListener("click", function () {
+            if (menu.hidden) {
+                open();
+            } else {
+                close(false);
+            }
+        });
+
+        options.forEach(function (option, index) {
+            option.addEventListener("click", function () {
+                selectOption(option);
+            });
+
+            option.addEventListener("keydown", function (event) {
+                let nextIndex = index;
+
+                if (event.key === "ArrowDown") {
+                    event.preventDefault();
+                    nextIndex = (index + 1) % options.length;
+                    options[nextIndex].focus();
+                }
+
+                if (event.key === "ArrowUp") {
+                    event.preventDefault();
+                    nextIndex = (index - 1 + options.length) % options.length;
+                    options[nextIndex].focus();
+                }
+
+                if (event.key === "Home") {
+                    event.preventDefault();
+                    options[0].focus();
+                }
+
+                if (event.key === "End") {
+                    event.preventDefault();
+                    options[options.length - 1].focus();
+                }
+            });
+        });
+
+        button.addEventListener("keydown", function (event) {
+            if (
+                event.key === "ArrowDown" ||
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
+                event.preventDefault();
+                open();
+                options[0].focus();
+            }
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!wrap.contains(event.target)) {
+                close(false);
+            }
+        });
+
+        /* Sync the display with the initial input value. */
+        const initialOption = options.find(function (option) {
+            return option.dataset.value === input.value;
+        });
+
+        if (initialOption) {
+            selectInitialOption(initialOption);
+        }
+
+        function selectInitialOption(option) {
+            const text = option.querySelector("span")?.textContent.trim();
+
+            if (text) label.textContent = text;
+
+            options.forEach(function (item) {
+                const selected = item === option;
+
+                item.classList.toggle("active", selected);
+                item.setAttribute("aria-selected", String(selected));
+            });
+        }
+
+        return {
+            close: close,
+            open: open,
+            input: input
+        };
+    }
+
+    /* =====================================================
+       8. COACH ATHLETE STATUS DROPDOWN
+       Required wrap:
+       .stackly-coach-athlete-filter-wrap
+    ===================================================== */
+
+    const coachAthleteDropdown = setupCustomDropdown({
+        wrap: ".stackly-coach-athlete-filter-wrap",
+        button: "#stacklyCoachAthleteFilterBtn",
+        menu: "#stacklyCoachAthleteFilterDropdown",
+        label: "#stacklyCoachAthleteFilterText",
+        input: "#stacklyCoachAthleteFilter",
+        option: ".stackly-coach-athlete-filter-option"
+    });
+
+    /* =====================================================
+       9. PROFILE EXPERIENCE DROPDOWN
+    ===================================================== */
+
+    const experienceDropdown = setupCustomDropdown({
+        wrap: ".stackly-profile-experience-wrap",
+        button: "#stacklyProfileExperienceBtn",
+        menu: "#stacklyProfileExperienceDropdown",
+        label: "#stacklyProfileExperienceText",
+        input: "#stacklyProfileInputExperience",
+        option: ".stackly-profile-experience-option"
+    });
+
+    /* =====================================================
+       10. ATHLETE DIRECTORY ELEMENTS
+    ===================================================== */
+
+    const directory = byId("stacklyCoachAthleteDirectory");
+    const searchInput = byId("stacklyCoachAthleteSearch");
+    const statusFilter = byId("stacklyCoachAthleteFilter");
+    const athleteGrid = byId("stacklyCoachAthleteGrid");
+    const noResults = byId("stacklyCoachAthleteNoResults");
+
+    const athleteCards = athleteGrid
+        ? Array.from(
+            athleteGrid.querySelectorAll(".stackly-coach-athlete-card")
+        )
+        : [];
+
+    /* =====================================================
+       11. ATHLETE SEARCH AND FILTER
+    ===================================================== */
+
+    let searchTimer = null;
 
     function filterAthletes() {
-        const searchTerm = searchInput.value
-            .trim()
-            .toLowerCase();
+        if (!directory || !athleteGrid || !noResults) return;
 
-        const selectedStatus = statusFilter.value;
+        const searchTerm = searchInput
+            ? searchInput.value.trim().toLowerCase()
+            : "";
+
+        const selectedStatus = statusFilter
+            ? statusFilter.value
+            : "all";
 
         let visibleCount = 0;
 
-        athleteCards.forEach((card) => {
+        athleteCards.forEach(function (card) {
             const athleteName = (
-                card.dataset.athleteName || ""
+                card.dataset.athleteName ||
+                card.querySelector("h3")?.textContent ||
+                ""
             ).toLowerCase();
 
             const athleteSpecialty = (
-                card.dataset.athleteSpecialty || ""
+                card.dataset.athleteSpecialty ||
+                card.querySelector(".stackly-coach-athlete-specialty")
+                    ?.textContent ||
+                ""
             ).toLowerCase();
+
+            const cardText = card.textContent.toLowerCase();
 
             const athleteStatus = (
-                card.dataset.athleteStatus || ""
+                card.dataset.athleteStatus ||
+                card.dataset.status ||
+                ""
             ).toLowerCase();
 
-            const matchesSearch =
+            const matchesSearch = !searchTerm ||
                 athleteName.includes(searchTerm) ||
-                athleteSpecialty.includes(searchTerm);
+                athleteSpecialty.includes(searchTerm) ||
+                cardText.includes(searchTerm);
 
-            const matchesStatus =
-                selectedStatus === "all" ||
+            const matchesStatus = selectedStatus === "all" ||
                 athleteStatus === selectedStatus;
 
-            const shouldShow = matchesSearch && matchesStatus;
+            const visible = matchesSearch && matchesStatus;
 
-            card.hidden = !shouldShow;
+            card.hidden = !visible;
 
-            if (shouldShow) {
+            if (visible) {
                 visibleCount++;
 
-                // Refresh the entrance animation when filtering.
                 if (!reducedMotion) {
-                    card.classList.remove(
-                        "stackly-athlete-filter-enter"
-                    );
-
+                    card.classList.remove("stackly-athlete-filter-enter");
                     void card.offsetWidth;
-
-                    card.classList.add(
-                        "stackly-athlete-filter-enter"
-                    );
+                    card.classList.add("stackly-athlete-filter-enter");
                 }
             }
         });
 
-        // Toggle the empty-state message.
-        noResults.hidden = visibleCount !== 0;
+        noResults.hidden = visibleCount > 0;
 
-        // Update the live directory count, if present.
-        const directoryCount = directory.querySelector(
+        const countElement = directory.querySelector(
             ".stackly-coach-athlete-directory-count span"
         );
 
-        if (directoryCount) {
-            directoryCount.textContent =
-                `${visibleCount} ${visibleCount === 1 ? "Athlete" : "Athletes"}`;
+        if (countElement) {
+            countElement.textContent =
+                visibleCount + (visibleCount === 1 ? " Athlete" : " Athletes");
         }
 
-        // Let screen readers know how many results were found.
         athleteGrid.setAttribute(
             "aria-label",
-            `${visibleCount} athletes displayed`
+            visibleCount + " athletes displayed"
         );
 
-        // Refresh AOS positions after cards have been hidden or shown.
-        if (window.AOS && typeof window.AOS.refreshHard === "function") {
-            window.AOS.refreshHard();
-        }
+        refreshAOS();
     }
 
-    /* ==========================================
-       SEARCH INPUT
-       Small delay improves typing performance.
-    ========================================== */
+    if (searchInput) {
+        searchInput.addEventListener("input", function () {
+            window.clearTimeout(searchTimer);
 
-    searchInput.addEventListener("input", () => {
-        window.clearTimeout(searchTimer);
+            searchTimer = window.setTimeout(function () {
+                filterAthletes();
+            }, 120);
+        });
 
-        searchTimer = window.setTimeout(() => {
-            filterAthletes();
-        }, 120);
-    });
+        searchInput.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                searchInput.value = "";
 
-    /* ==========================================
-       STATUS FILTER
-    ========================================== */
+                if (statusFilter) {
+                    statusFilter.value = "all";
 
-    statusFilter.addEventListener("change", filterAthletes);
+                    /* Reset the custom dropdown's visible label too. */
+                    if (coachAthleteDropdown) {
+                        const allOption = document.querySelector(
+                            ".stackly-coach-athlete-filter-wrap " +
+                            '.stackly-coach-athlete-filter-option[data-value="all"]'
+                        );
 
-    /* ==========================================
-       PROGRESS BAR ANIMATION
-    ========================================== */
+                        if (allOption) {
+                            allOption.click();
+                        }
+                    }
+                }
 
-    function animateProgressBars() {
-        const progressTracks = athleteGrid.querySelectorAll(
-            ".stackly-coach-athlete-progress-track"
-        );
-
-        progressTracks.forEach((track) => {
-            const progressBar = track.querySelector("span");
-
-            if (!progressBar) return;
-
-            const inlineWidth = progressBar.style.width;
-            const widthMatch = inlineWidth.match(/(\d+(?:\.\d+)?)%/);
-
-            if (!widthMatch) return;
-
-            const progressValue = Math.min(
-                100,
-                Math.max(0, Number(widthMatch[1]))
-            );
-
-            track.setAttribute("role", "progressbar");
-            track.setAttribute("aria-valuemin", "0");
-            track.setAttribute("aria-valuemax", "100");
-            track.setAttribute("aria-valuenow", String(progressValue));
-            track.setAttribute(
-                "aria-label",
-                `Training progress ${progressValue}%`
-            );
-
-            if (reducedMotion) {
-                progressBar.style.width = `${progressValue}%`;
-                return;
+                filterAthletes();
+                searchInput.blur();
             }
-
-            progressBar.style.width = "0%";
-
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    progressBar.style.width = `${progressValue}%`;
-                });
-            });
         });
     }
 
-    /* ==========================================
-       CARD HOVER INTERACTIONS
-    ========================================== */
+    if (statusFilter) {
+        statusFilter.addEventListener("change", filterAthletes);
+    }
 
-    athleteCards.forEach((card) => {
+    /* =====================================================
+       12. ATHLETE PROGRESS BARS
+    ===================================================== */
+
+    athleteCards.forEach(function (card) {
+        const track = card.querySelector(
+            ".stackly-coach-athlete-progress-track"
+        );
+
+        const bar = track?.querySelector("span");
+
+        if (!track || !bar) return;
+
+        const originalWidth = bar.style.width ||
+            bar.getAttribute("data-progress") ||
+            "0%";
+
+        const parsed = parseFloat(originalWidth);
+        const progress = Number.isFinite(parsed)
+            ? Math.max(0, Math.min(100, parsed))
+            : 0;
+
+        track.setAttribute("role", "progressbar");
+        track.setAttribute("aria-valuemin", "0");
+        track.setAttribute("aria-valuemax", "100");
+        track.setAttribute("aria-valuenow", String(progress));
+        track.setAttribute("aria-label", "Training progress " + progress + "%");
+
+        if (reducedMotion) {
+            bar.style.width = progress + "%";
+        } else {
+            bar.style.width = "0%";
+
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    bar.style.width = progress + "%";
+                });
+            });
+        }
+    });
+
+    /* =====================================================
+       13. ATHLETE CARD INTERACTIONS
+    ===================================================== */
+
+    athleteCards.forEach(function (card) {
+        card.addEventListener("mouseenter", function () {
+            card.classList.add("stackly-athlete-card-hover");
+        });
+
+        card.addEventListener("mouseleave", function () {
+            card.classList.remove("stackly-athlete-card-hover");
+        });
+
         const profileLink = card.querySelector(
             ".stackly-coach-athlete-card-footer a"
         );
 
         if (profileLink) {
-            profileLink.setAttribute(
-                "title",
-                `View ${card.dataset.athleteName || "athlete"} progress`
+            profileLink.title =
+                "View " +
+                (card.dataset.athleteName || "athlete") +
+                " progress";
+        }
+    });
+
+    /* =====================================================
+       14. ATHLETE MORE OPTIONS NOTICE
+    ===================================================== */
+
+    if (athleteGrid) {
+        athleteGrid.querySelectorAll(".stackly-athlete-more")
+            .forEach(function (button) {
+                button.setAttribute("aria-haspopup", "true");
+                button.setAttribute("aria-expanded", "false");
+            });
+
+        athleteGrid.addEventListener("click", function (event) {
+            const button = event.target.closest(".stackly-athlete-more");
+
+            if (!button || !athleteGrid.contains(button)) return;
+
+            const card = button.closest(".stackly-coach-athlete-card");
+            if (!card) return;
+
+            const existing = card.querySelector(
+                ".stackly-athlete-options-notice"
             );
-        }
 
-        card.addEventListener("mouseenter", () => {
-            card.classList.add("stackly-athlete-card-hover");
-        });
+            if (existing) {
+                existing.remove();
+                button.setAttribute("aria-expanded", "false");
+                return;
+            }
 
-        card.addEventListener("mouseleave", () => {
-            card.classList.remove("stackly-athlete-card-hover");
-        });
-    });
+            athleteGrid.querySelectorAll(
+                ".stackly-athlete-options-notice"
+            ).forEach(function (notice) {
+                notice.remove();
+            });
 
-    /* ==========================================
-       KEYBOARD SHORTCUT
-       Press Escape to clear the search.
-    ========================================== */
+            athleteGrid.querySelectorAll(".stackly-athlete-more")
+                .forEach(function (otherButton) {
+                    otherButton.setAttribute("aria-expanded", "false");
+                });
 
-    searchInput.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-            searchInput.value = "";
-            statusFilter.value = "all";
-            filterAthletes();
-            searchInput.blur();
-        }
-    });
+            const name = (
+                card.dataset.athleteName ||
+                card.querySelector("h3")?.textContent ||
+                "Athlete"
+            ).trim();
 
-    /* ==========================================
-       INITIALIZE PAGE
-    ========================================== */
+            const notice = document.createElement("div");
+            notice.className = "stackly-athlete-options-notice";
+            notice.setAttribute("role", "status");
+            notice.textContent = name + " — athlete options";
 
-    // Set an accessible label on the athlete grid.
-    athleteGrid.setAttribute("role", "region");
-    athleteGrid.setAttribute("aria-label", "Athlete directory");
-
-    // Prepare progress bars and initial filter state.
-    animateProgressBars();
-    filterAthletes();
-
-    // Initialize AOS only if it has not already been initialized.
-    if (window.AOS && !document.documentElement.classList.contains("aos-initialized")) {
-        window.AOS.init({
-            duration: 850,
-            once: true,
-            offset: 70,
-            easing: "ease-out-cubic"
+            card.appendChild(notice);
+            button.setAttribute("aria-expanded", "true");
         });
     }
 
-    console.info("Stackly Coach: My Athletes initialized successfully.");
-});
+    /* =====================================================
+       15. PROFILE FORM
+       Save | Reset | Edit | Auto-dismiss messages
+    ===================================================== */
 
-
-
-/* ==========================================
-   STACKLY SPORTS CLUB TRAINING ACADEMY
-   TRAINER PROFILE PAGE - JAVASCRIPT
-   Profile Management + Auto-Dismiss Messages
-========================================== */
-
-document.addEventListener("DOMContentLoaded", function () {
-    "use strict";
-
-    /* ==========================================
-       CONFIGURATION
-    ========================================== */
-
-    const PROFILE_STORAGE_KEY = "stacklyTrainerProfile";
+    const PROFILE_KEY = "stacklyTrainerProfile";
     const MESSAGE_DURATION = 4000;
+
     let messageTimer = null;
 
     const DEFAULT_PROFILE = {
@@ -402,84 +791,6 @@ document.addEventListener("DOMContentLoaded", function () {
         experience: "5+ Years",
         bio: "Dedicated fitness professional committed to helping athletes improve strength, endurance, mobility, and overall performance through structured training and personalized coaching."
     };
-
-    /* ==========================================
-       HELPER FUNCTIONS
-    ========================================== */
-
-    function getElement(id) {
-        return document.getElementById(id);
-    }
-
-    function getStoredValue(key) {
-        try {
-            return localStorage.getItem(key) || "";
-        } catch (error) {
-            console.warn("Unable to read browser storage:", error);
-            return "";
-        }
-    }
-
-    function setStoredValue(key, value) {
-        try {
-            localStorage.setItem(key, value);
-            return true;
-        } catch (error) {
-            console.error("Unable to save trainer profile:", error);
-            return false;
-        }
-    }
-
-    function getLoggedInEmail() {
-        return (
-            getStoredValue("loginEmail") ||
-            getStoredValue("trainerEmail") ||
-            getStoredValue("stacklySportLoginEmail") ||
-            getStoredValue("memberEmail") ||
-            getStoredValue("stacklySportEmail") ||
-            ""
-        ).trim();
-    }
-
-    function getNameFromEmail(email) {
-        if (!email || !email.includes("@")) {
-            return "Trainer";
-        }
-
-        const username = email
-            .split("@")[0]
-            .replace(/[._-]+/g, " ")
-            .trim();
-
-        return username
-            .split(/\s+/)
-            .map(function (word) {
-                return word.charAt(0).toUpperCase() + word.slice(1);
-            })
-            .join(" ") || "Trainer";
-    }
-
-    function setText(id, value) {
-        const element = getElement(id);
-
-        if (element) {
-            element.textContent = value || "";
-        }
-    }
-
-    function setInputValue(id, value) {
-        const element = getElement(id);
-
-        if (element) {
-            element.value = value || "";
-        }
-    }
-
-    function getInputValue(id, fallback) {
-        const element = getElement(id);
-
-        return element ? element.value.trim() : (fallback || "");
-    }
 
     function normalizeProfile(profile) {
         return {
@@ -493,119 +804,101 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
-    /* ==========================================
-       LOAD SAVED PROFILE
-    ========================================== */
+    function loadProfile() {
+        const stored = getProfile();
+        const loginEmail = getFirstStoredValue([
+            "loginEmail",
+            "trainerEmail",
+            "stacklySportLoginEmail",
+            "memberEmail",
+            "stacklySportEmail"
+        ]);
 
-    function loadSavedProfile() {
-        let savedProfile = {};
-
-        try {
-            const storedProfile = getStoredValue(PROFILE_STORAGE_KEY);
-
-            if (storedProfile) {
-                savedProfile = JSON.parse(storedProfile) || {};
-            }
-        } catch (error) {
-            console.warn("Saved profile could not be parsed:", error);
-        }
-
-        const loggedInEmail = getLoggedInEmail();
-
-        const profile = {
+        const profile = normalizeProfile({
             ...DEFAULT_PROFILE,
-            ...savedProfile
-        };
+            ...stored,
+            email: loginEmail || stored.email || ""
+        });
 
-        profile.email = loggedInEmail || profile.email || "";
-
-        if (!savedProfile.name || savedProfile.name === "Trainer") {
-            profile.name = getNameFromEmail(profile.email);
+        if (!stored.name || stored.name === "Trainer") {
+            profile.name = nameFromEmail(profile.email) || "Trainer";
         }
 
-        return normalizeProfile(profile);
+        return profile;
     }
 
-    let currentProfile = loadSavedProfile();
+    let currentProfile = loadProfile();
 
-    /* ==========================================
-       UPDATE PROFILE DISPLAY
-    ========================================== */
-
-    function updateProfileDisplay(profile) {
-        const safeProfile = normalizeProfile(profile);
-
-        setText("stacklyProfileName", safeProfile.name);
-        setText("stacklyProfileFullName", safeProfile.name);
-        setText("stacklyProfileEmail", safeProfile.email);
-        setText("stacklyProfilePhone", safeProfile.phone);
-        setText("stacklyProfileLocation", safeProfile.location);
-        setText("stacklyProfileTitle", safeProfile.title);
-        setText("stacklyProfileExperience", safeProfile.experience);
-        setText("stacklyProfileBio", safeProfile.bio);
-
-        // Dashboard header.
-        setText("stacklyCoachTopName", safeProfile.name);
-        setText("stacklyCoachTopEmail", safeProfile.email);
-
-        // Optional profile elements.
-        document.querySelectorAll("[data-trainer-name]").forEach(function (element) {
-            element.textContent = safeProfile.name;
-        });
-
-        document.querySelectorAll("[data-trainer-email]").forEach(function (element) {
-            element.textContent = safeProfile.email;
-        });
-
-        document.querySelectorAll("[data-trainer-phone]").forEach(function (element) {
-            element.textContent = safeProfile.phone;
-        });
-
-        document.querySelectorAll("[data-trainer-location]").forEach(function (element) {
-            element.textContent = safeProfile.location;
-        });
-
-        document.querySelectorAll("[data-trainer-title]").forEach(function (element) {
-            element.textContent = safeProfile.title;
-        });
+    function readInput(id, fallback) {
+        const element = byId(id);
+        return element ? element.value.trim() : (fallback || "");
     }
 
-    /* ==========================================
-       POPULATE EDIT FORM
-    ========================================== */
+    function fillInput(id, value) {
+        const element = byId(id);
+        if (element) element.value = value || "";
+    }
 
     function populateProfileForm(profile) {
-        setInputValue("stacklyProfileInputName", profile.name);
-        setInputValue("stacklyProfileInputEmail", profile.email);
-        setInputValue("stacklyProfileInputPhone", profile.phone);
-        setInputValue("stacklyProfileInputLocation", profile.location);
-        setInputValue("stacklyProfileInputTitle", profile.title);
-        setInputValue("stacklyProfileInputExperience", profile.experience);
-        setInputValue("stacklyProfileInputBio", profile.bio);
+        fillInput("stacklyProfileInputName", profile.name);
+        fillInput("stacklyProfileInputEmail", profile.email);
+        fillInput("stacklyProfileInputPhone", profile.phone);
+        fillInput("stacklyProfileInputLocation", profile.location);
+        fillInput("stacklyProfileInputTitle", profile.title);
+        fillInput("stacklyProfileInputExperience", profile.experience);
+        fillInput("stacklyProfileInputBio", profile.bio);
+
+        /* Update the custom experience dropdown label. */
+        const experienceText = byId("stacklyProfileExperienceText");
+        const experienceWrap = document.querySelector(
+            ".stackly-profile-experience-wrap"
+        );
+
+        if (experienceText && experienceWrap) {
+            const option = Array.from(
+                experienceWrap.querySelectorAll(
+                    ".stackly-profile-experience-option"
+                )
+            ).find(function (item) {
+                return item.dataset.value === profile.experience;
+            });
+
+            if (option) {
+                experienceText.textContent =
+                    option.querySelector("span")?.textContent.trim() ||
+                    profile.experience;
+
+                experienceWrap.querySelectorAll(
+                    ".stackly-profile-experience-option"
+                ).forEach(function (item) {
+                    const selected = item === option;
+                    item.classList.toggle("active", selected);
+                    item.setAttribute("aria-selected", String(selected));
+                });
+            }
+        }
     }
 
-    /* ==========================================
-       FORM STATUS MESSAGES
-       Auto-dismiss after 4 seconds
-    ========================================== */
+    function updateProfileDisplay(profile) {
+        setText("stacklyProfileName", profile.name);
+        setText("stacklyProfileFullName", profile.name);
+        setText("stacklyProfileEmail", profile.email);
+        setText("stacklyProfilePhone", profile.phone);
+        setText("stacklyProfileLocation", profile.location);
+        setText("stacklyProfileTitle", profile.title);
+        setText("stacklyProfileExperience", profile.experience);
+        setText("stacklyProfileBio", profile.bio);
 
-    function showFormMessage(message, type) {
-        const messageElement = getElement("stacklyProfileFormMessage");
+        updateTrainerInformation();
+    }
 
-        if (!messageElement) {
-            console.warn(
-                'Missing HTML element: id="stacklyProfileFormMessage".'
-            );
-            return;
-        }
+    function showProfileMessage(message, type) {
+        const element = byId("stacklyProfileFormMessage");
+        if (!element) return;
 
-        // Cancel the previous message timer.
-        if (messageTimer !== null) {
-            window.clearTimeout(messageTimer);
-            messageTimer = null;
-        }
+        window.clearTimeout(messageTimer);
 
-        messageElement.classList.remove(
+        element.classList.remove(
             "success",
             "error",
             "reset",
@@ -615,154 +908,124 @@ document.addEventListener("DOMContentLoaded", function () {
             "stackly-profile-message-visible"
         );
 
-        // Empty message: hide immediately.
         if (!message) {
-            messageElement.textContent = "";
-            messageElement.hidden = true;
+            element.textContent = "";
+            element.hidden = true;
             return;
         }
 
-        messageElement.textContent = message;
-        messageElement.hidden = false;
+        element.textContent = message;
+        element.hidden = false;
+        element.setAttribute("role", "status");
+        element.setAttribute("aria-live", "polite");
 
         if (type === "success") {
-            messageElement.classList.add(
+            element.classList.add(
                 "success",
                 "stackly-profile-message-success"
             );
         } else if (type === "error") {
-            messageElement.classList.add(
+            element.classList.add(
                 "error",
                 "stackly-profile-message-error"
             );
         } else if (type === "reset") {
-            messageElement.classList.add(
+            element.classList.add(
                 "reset",
                 "stackly-profile-message-reset"
             );
         }
 
-        messageElement.setAttribute("role", "status");
-        messageElement.setAttribute("aria-live", "polite");
+        element.classList.add("stackly-profile-message-visible");
 
-        // Allow CSS transitions to run if configured.
-        messageElement.classList.add("stackly-profile-message-visible");
-
-        // Automatically hide the message after 4 seconds.
         messageTimer = window.setTimeout(function () {
-            messageElement.classList.remove(
-                "stackly-profile-message-visible"
-            );
-
-            messageElement.hidden = true;
-            messageElement.textContent = "";
+            element.classList.remove("stackly-profile-message-visible");
+            element.hidden = true;
+            element.textContent = "";
             messageTimer = null;
         }, MESSAGE_DURATION);
     }
 
-    /* ==========================================
-       SAVE PROFILE
-    ========================================== */
-
-    const profileForm = getElement("stacklyProfileForm");
+    const profileForm = byId("stacklyProfileForm");
 
     if (profileForm) {
         profileForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            const name = getInputValue("stacklyProfileInputName");
-            const email = getInputValue(
+            const name = readInput(
+                "stacklyProfileInputName",
+                currentProfile.name
+            );
+
+            const email = readInput(
                 "stacklyProfileInputEmail",
                 currentProfile.email
             );
 
-            const phone = getInputValue("stacklyProfileInputPhone");
-            const location = getInputValue("stacklyProfileInputLocation");
-            const title = getInputValue("stacklyProfileInputTitle");
-            const experience = getInputValue("stacklyProfileInputExperience");
-            const bio = getInputValue("stacklyProfileInputBio");
-
             if (!name) {
-                showFormMessage("Please enter your full name.", "error");
-                getElement("stacklyProfileInputName")?.focus();
+                showProfileMessage("Please enter your full name.", "error");
+                byId("stacklyProfileInputName")?.focus();
                 return;
             }
 
-            if (!email) {
-                showFormMessage("Please enter your email address.", "error");
-                getElement("stacklyProfileInputEmail")?.focus();
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showProfileMessage(
+                    "Please enter a valid email address.",
+                    "error"
+                );
+                byId("stacklyProfileInputEmail")?.focus();
                 return;
             }
 
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            if (!emailPattern.test(email)) {
-                showFormMessage("Please enter a valid email address.", "error");
-                getElement("stacklyProfileInputEmail")?.focus();
-                return;
-            }
-
-            const updatedProfile = normalizeProfile({
+            const updated = normalizeProfile({
                 name: name,
                 email: email,
-                phone: phone,
-                location: location,
-                title: title,
-                experience: experience,
-                bio: bio
+                phone: readInput("stacklyProfileInputPhone"),
+                location: readInput("stacklyProfileInputLocation"),
+                title: readInput("stacklyProfileInputTitle"),
+                experience: readInput(
+                    "stacklyProfileInputExperience",
+                    currentProfile.experience
+                ),
+                bio: readInput("stacklyProfileInputBio")
             });
 
-            const saved = setStoredValue(
-                PROFILE_STORAGE_KEY,
-                JSON.stringify(updatedProfile)
-            );
-
-            if (!saved) {
-                showFormMessage(
-                    "Unable to save your changes. Please check your browser storage settings.",
+            if (!writeStorage(PROFILE_KEY, JSON.stringify(updated))) {
+                showProfileMessage(
+                    "Unable to save your changes. Check browser storage settings.",
                     "error"
                 );
                 return;
             }
 
-            currentProfile = updatedProfile;
-
-            updateProfileDisplay(currentProfile);
+            currentProfile = updated;
             populateProfileForm(currentProfile);
+            updateProfileDisplay(currentProfile);
 
-            showFormMessage(
-                "Profile updated successfully! Your changes have been saved.",
+            showProfileMessage(
+                "Profile updated successfully!",
                 "success"
             );
         });
     }
 
-    /* ==========================================
-       RESET BUTTON
-       Restore saved profile and show message
-    ========================================== */
-
     function resetProfileForm(event) {
-        if (event) {
-            event.preventDefault();
-        }
+        event?.preventDefault();
 
-        currentProfile = loadSavedProfile();
-
+        currentProfile = loadProfile();
         populateProfileForm(currentProfile);
         updateProfileDisplay(currentProfile);
 
-        showFormMessage(
-            "Form reset successfully! Your saved profile details have been restored.",
+        showProfileMessage(
+            "Form reset. Your saved profile details have been restored.",
             "reset"
         );
     }
 
-    const resetButton = getElement("stacklyProfileReset");
-
-    if (resetButton) {
-        resetButton.addEventListener("click", resetProfileForm);
-    }
+    byId("stacklyProfileReset")?.addEventListener(
+        "click",
+        resetProfileForm
+    );
 
     if (profileForm) {
         profileForm.addEventListener("reset", function (event) {
@@ -771,160 +1034,81 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    /* ==========================================
-       EDIT PROFILE BUTTON
-       Scroll to the form
-    ========================================== */
+    const editButton = byId("stacklyProfileEditButton");
+    const profileFormSection = byId("stacklyProfileForm");
 
-    const editProfileButton = getElement("stacklyProfileEditButton");
-    const editProfileSection = getElement("stacklyProfileForm");
-
-    if (editProfileButton && editProfileSection) {
-        editProfileButton.addEventListener("click", function (event) {
+    if (editButton && profileFormSection) {
+        editButton.addEventListener("click", function (event) {
             event.preventDefault();
 
-            editProfileSection.scrollIntoView({
-                behavior: window.matchMedia(
-                    "(prefers-reduced-motion: reduce)"
-                ).matches ? "auto" : "smooth",
+            profileFormSection.scrollIntoView({
+                behavior: reducedMotion ? "auto" : "smooth",
                 block: "start"
             });
 
-            const firstInput = getElement("stacklyProfileInputName");
-
-            if (firstInput) {
-                window.setTimeout(function () {
-                    firstInput.focus({ preventScroll: true });
-                }, 350);
-            }
+            byId("stacklyProfileInputName")?.focus({
+                preventScroll: true
+            });
         });
     }
 
-    /* ==========================================
-       MOBILE SIDEBAR MENU
-    ========================================== */
+    populateProfileForm(currentProfile);
+    updateProfileDisplay(currentProfile);
 
-    const body = document.querySelector(".stackly-coach-body");
-    const sidebar = getElement("stacklyCoachSidebar");
-    const overlay = getElement("stacklyCoachOverlay");
-    const hamburger = getElement("stacklyCoachHamburger");
-    const exitButton = getElement("stacklyCoachMobileExit");
+    /* =====================================================
+       16. GLOBAL ESCAPE HANDLING
+    ===================================================== */
 
-    function closeMenu() {
-        if (!body) return;
+    document.addEventListener("keydown", function (event) {
+        if (event.key !== "Escape") return;
 
-        body.classList.remove("stackly-coach-menu-active");
-
-        if (hamburger) {
-            hamburger.setAttribute("aria-expanded", "false");
+        if (body?.classList.contains("stackly-coach-menu-active")) {
+            closeSidebar(true);
         }
-    }
 
-    function openMenu() {
-        if (!body) return;
+        coachAthleteDropdown?.close(false);
+        experienceDropdown?.close(false);
 
-        body.classList.add("stackly-coach-menu-active");
-
-        if (hamburger) {
-            hamburger.setAttribute("aria-expanded", "true");
-        }
-    }
-
-    if (body && sidebar && overlay && hamburger && exitButton) {
-        hamburger.addEventListener("click", openMenu);
-        exitButton.addEventListener("click", closeMenu);
-        overlay.addEventListener("click", closeMenu);
-
-        sidebar.querySelectorAll(".stackly-coach-nav-link").forEach(function (link) {
-            link.addEventListener("click", closeMenu);
+        document.querySelectorAll(
+            ".stackly-athlete-options-notice"
+        ).forEach(function (notice) {
+            notice.remove();
         });
 
-        document.addEventListener("keydown", function (event) {
-            if (event.key === "Escape") {
-                closeMenu();
-            }
+        document.querySelectorAll(
+            ".stackly-athlete-more[aria-expanded='true']"
+        ).forEach(function (button) {
+            button.setAttribute("aria-expanded", "false");
         });
-    }
-
-    /* ==========================================
-       ACTIVE SIDEBAR LINK
-    ========================================== */
-
-    const navLinks = document.querySelectorAll(
-        ".stackly-coach-navigation .stackly-coach-nav-link"
-    );
-
-    const currentPage = window.location.pathname
-        .split("/")
-        .pop()
-        .toLowerCase();
-
-    navLinks.forEach(function (link) {
-        const href = link.getAttribute("href");
-
-        if (!href) return;
-
-        const linkPage = href.split("/").pop().toLowerCase();
-        const isActive = linkPage === currentPage;
-
-        link.classList.toggle("active", isActive);
-
-        if (isActive) {
-            link.setAttribute("aria-current", "page");
-        } else {
-            link.removeAttribute("aria-current");
-        }
     });
 
-    /* ==========================================
-       AOS ANIMATIONS
-    ========================================== */
+    /* =====================================================
+       17. INITIALIZE ATHLETE DIRECTORY
+    ===================================================== */
 
-    if (typeof AOS !== "undefined") {
-        AOS.init({
+    if (athleteGrid) {
+        athleteGrid.setAttribute("role", "region");
+        athleteGrid.setAttribute("aria-label", "Athlete directory");
+    }
+
+    filterAthletes();
+
+    /* =====================================================
+       18. AOS INITIALIZATION
+    ===================================================== */
+
+    if (window.AOS) {
+        window.AOS.init({
             duration: 850,
             once: true,
             offset: 70,
             easing: "ease-out-cubic",
-            disable: window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-            ).matches
+            delay: 0,
+            disable: reducedMotion
         });
+
+        window.addEventListener("load", refreshAOS);
     }
 
-    /* ==========================================
-       INITIALIZE PROFILE PAGE
-    ========================================== */
-
-    updateProfileDisplay(currentProfile);
-    populateProfileForm(currentProfile);
-
-    console.info("Stackly Trainer Profile initialized successfully.");
+    console.info("Stackly Coach Dashboard initialized.");
 });
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const logoutButton = document.getElementById("stacklyCoachLogout");
-
-    if (!logoutButton) return;
-
-    logoutButton.addEventListener("click", function () {
-        const confirmLogout = confirm("Are you sure you want to log out?");
-
-        if (!confirmLogout) return;
-
-        // Clear trainer login session
-        localStorage.removeItem("loginEmail");
-        localStorage.removeItem("loginRole");
-        localStorage.removeItem("stacklySportLoggedIn");
-        localStorage.removeItem("stacklySportRemember");
-        localStorage.removeItem("trainerEmail");
-        localStorage.removeItem("stacklySportLoginEmail");
-        localStorage.removeItem("stacklySportEmail");
-
-        // Redirect to the home page
-        window.location.href = "index.html";
-    });
-});
- 

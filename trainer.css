@@ -12549,3 +12549,434 @@
     background: #dbeafe;
     border: 1px solid #93c5fd;
 }
+
+
+/* ==========================================
+   STACKLY COACH DASHBOARD
+   ATHLETE STATUS CUSTOM DROPDOWN
+========================================== */
+
+.stackly-coach-athlete-filter-wrap,
+.stackly-coach-athlete-filter-wrap * {
+    box-sizing: border-box;
+}
+
+.stackly-coach-athlete-filter-wrap {
+    position: relative;
+    display: inline-block;
+    width: 210px;
+    max-width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    z-index: 20;
+}
+
+/* ==========================================
+   DROPDOWN TRIGGER BUTTON
+========================================== */
+
+.stackly-coach-athlete-filter-wrap
+.stackly-coach-athlete-filter {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    width: 100%;
+    min-height: 46px;
+    padding: 0 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #344054;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(16, 24, 40, 0.03);
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.stackly-coach-athlete-filter-wrap
+.stackly-coach-athlete-filter > .fa-filter {
+    flex-shrink: 0;
+    color: #64748b;
+    font-size: 14px;
+    transition: color 0.25s ease;
+}
+
+.stackly-coach-athlete-filter-wrap
+#stacklyCoachAthleteFilterText {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    color: #344054;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.stackly-coach-athlete-filter-wrap
+.stackly-coach-athlete-filter-chevron {
+    flex-shrink: 0;
+    color: #98a2b3;
+    font-size: 11px;
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+/* Hover */
+
+.stackly-coach-athlete-filter-wrap
+.stackly-coach-athlete-filter:hover {
+    border-color: #a5b4fc;
+    background: #fcfcff;
+}
+
+/* Focus */
+
+.stackly-coach-athlete-filter-wrap
+.stackly-coach-athlete-filter:focus-visible {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.14);
+}
+
+/* Open state */
+
+.stackly-coach-athlete-filter-wrap.is-open
+.stackly-coach-athlete-filter {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.09);
+}
+
+.stackly-coach-athlete-filter-wrap.is-open
+.stackly-coach-athlete-filter > .fa-filter {
+    color: #6366f1;
+}
+
+.stackly-coach-athlete-filter-wrap.is-open
+.stackly-coach-athlete-filter-chevron {
+    color: #6366f1;
+    transform: rotate(180deg);
+}
+
+/* ==========================================
+   DROPDOWN MENU
+========================================== */
+
+.stackly-coach-athlete-filter-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #e8edf4;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow:
+        0 12px 30px rgba(16, 24, 40, 0.12),
+        0 3px 8px rgba(16, 24, 40, 0.04);
+    transform-origin: top center;
+    animation: stacklyCoachAthleteDropdownIn 0.2s ease both;
+}
+
+/* Respect the HTML hidden attribute */
+
+.stackly-coach-athlete-filter-dropdown[hidden] {
+    display: none !important;
+}
+
+/* Dropdown entrance */
+
+@keyframes stacklyCoachAthleteDropdownIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ==========================================
+   DROPDOWN OPTIONS
+========================================== */
+
+.stackly-coach-athlete-filter-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: #475467;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: left;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        padding-left 0.2s ease;
+}
+
+.stackly-coach-athlete-filter-option span {
+    flex: 1;
+    min-width: 0;
+}
+
+.stackly-coach-athlete-filter-option > .fa-check {
+    flex-shrink: 0;
+    color: #6366f1;
+    font-size: 12px;
+    opacity: 0;
+    transform: scale(0.7);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* Hover */
+
+.stackly-coach-athlete-filter-option:hover {
+    padding-left: 16px;
+    background: #f5f6ff;
+    color: #4f46e5;
+}
+
+/* Selected option */
+
+.stackly-coach-athlete-filter-option.active {
+    background: #eef2ff;
+    color: #4f46e5;
+    font-weight: 700;
+}
+
+.stackly-coach-athlete-filter-option.active > .fa-check {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Keyboard focus */
+
+.stackly-coach-athlete-filter-option:focus-visible {
+    outline: 2px solid #6366f1;
+    outline-offset: -2px;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 768px) {
+    .stackly-coach-athlete-filter-wrap {
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .stackly-coach-athlete-filter-wrap
+    .stackly-coach-athlete-filter {
+        min-height: 44px;
+        padding: 0 12px;
+        font-size: 12px;
+    }
+
+    .stackly-coach-athlete-filter-option {
+        min-height: 42px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stackly-coach-athlete-filter-wrap {
+        max-width: 100%;
+    }
+
+    .stackly-coach-athlete-filter-wrap
+    .stackly-coach-athlete-filter {
+        border-radius: 8px;
+    }
+
+    .stackly-coach-athlete-filter-dropdown {
+        border-radius: 10px;
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .stackly-coach-athlete-filter-wrap *,
+    .stackly-coach-athlete-filter-dropdown {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+
+/* ==========================================
+   STACKLY PROFILE - EXPERIENCE DROPDOWN CSS
+========================================== */
+
+.stackly-profile-experience-wrap {
+    position: relative;
+    min-width: 0;
+}
+
+.stackly-profile-experience-wrap
+.stackly-profile-experience-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-height: 46px;
+    padding: 0 14px;
+    border: 1px solid #dfe4ec;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #344054;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stackly-profile-experience-btn:hover {
+    border-color: #a5b4fc;
+}
+
+.stackly-profile-experience-btn:focus-visible {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.stackly-profile-experience-chevron {
+    color: #98a2b3;
+    font-size: 12px;
+    transition: transform 0.25s ease;
+}
+
+.stackly-profile-experience-wrap.is-open
+.stackly-profile-experience-btn {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08);
+}
+
+.stackly-profile-experience-wrap.is-open
+.stackly-profile-experience-chevron {
+    color: #6366f1;
+    transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+
+.stackly-profile-experience-dropdown {
+    position: absolute;
+    top: calc(100% + 7px);
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #e6eaf0;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 12px 28px rgba(16, 24, 40, 0.12);
+    animation: stacklyProfileExperienceIn 0.2s ease;
+}
+
+.stackly-profile-experience-dropdown[hidden] {
+    display: none !important;
+}
+
+@keyframes stacklyProfileExperienceIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dropdown options */
+
+.stackly-profile-experience-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    min-height: 40px;
+    padding: 9px 11px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: #475467;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.stackly-profile-experience-option:hover {
+    background: #f5f6ff;
+    color: #4f46e5;
+}
+
+.stackly-profile-experience-option .fa-check {
+    color: #6366f1;
+    font-size: 12px;
+    opacity: 0;
+}
+
+.stackly-profile-experience-option.active {
+    background: #eef2ff;
+    color: #4f46e5;
+    font-weight: 700;
+}
+
+.stackly-profile-experience-option.active .fa-check {
+    opacity: 1;
+}
+
+.stackly-profile-experience-option:focus-visible {
+    outline: 2px solid #6366f1;
+    outline-offset: -2px;
+}
+
+@media (max-width: 480px) {
+    .stackly-profile-experience-wrap
+    .stackly-profile-experience-btn {
+        min-height: 44px;
+        font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stackly-profile-experience-wrap *,
+    .stackly-profile-experience-dropdown {
+        animation: none !important;
+        transition: none !important;
+    }
+}
